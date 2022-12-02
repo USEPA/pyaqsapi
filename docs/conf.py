@@ -34,7 +34,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinxcontrib.spelling",
     "numpydoc",
-    "sphinxcontrib.napoleon"
+    "sphinx.ext.napoleon",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -92,6 +92,6 @@ numpydoc_show_class_members = False
 
 # -- Options for sphinx-contrib\apidoc -----------------------------------------------------
 apidoc_separate_modules = True
-apidoc_module_dir = '../pyaqsapi'
-apidoc_excluded_paths = ['tests']
+apidoc_module_dir = "../pyaqsapi"
+apidoc_excluded_paths = ["tests"]
 apidoc_module_first = True

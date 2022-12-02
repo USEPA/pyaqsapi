@@ -4,8 +4,8 @@ pandas
 pep517
 requests
 setuptools>=42
-sphinx
-sphinxcontrib-napoleon
+sphinx>=5.0
+#sphinxcontrib-napoleon
 sphinxcontrib-apidoc
 sphinxcontrib-spelling
 datetime
