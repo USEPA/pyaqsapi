@@ -33,8 +33,7 @@
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
-.. image:: https://github.com/USEPA/pyaqsapi/actions/workflows/\
-           pyaqsapi_pytest_action.yaml/badge.svg
+.. image:: https://github.com/USEPA/pyaqsapi/actions/workflows/pyaqsapi_pytest_action.yaml/badge.svg
     :target: https://github.com/USEPA/pyaqsapi
 .. image:: https://img.shields.io/github/issues/USEPA/pAQSAPI?style=plastic
     :alt: GitHub issues
