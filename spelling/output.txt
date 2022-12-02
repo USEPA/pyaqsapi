@@ -1,0 +1,6 @@
+pyaqsapi.rst:34: (th) ["ht", "Th", "t", "h", "the", "nth", "tho", "thy", "fth", "Eth", "eh", "ts", "sh", "ti", "ta", "qa", "qc"]
+pyaqsapi.rst:34: (th) ["ht", "Th", "t", "h", "the", "nth", "tho", "thy", "fth", "Eth", "eh", "ts", "sh", "ti", "ta", "qa", "qc"]
+pyaqsapi.rst:39: (th) ["ht", "Th", "t", "h", "the", "nth", "tho", "thy", "fth", "Eth", "eh", "ts", "sh", "ti", "ta", "qa", "qc"]
+pyaqsapi.bystate.rst:34: (th) ["ht", "Th", "t", "h", "the", "nth", "tho", "thy", "fth", "Eth", "eh", "ts", "sh", "ti", "ta", "qa", "qc"]
+pyaqsapi.bystate.rst:34: (th) ["ht", "Th", "t", "h", "the", "nth", "tho", "thy", "fth", "Eth", "eh", "ts", "sh", "ti", "ta", "qa", "qc"]
+pyaqsapi.bystate.rst:39: (th) ["ht", "Th", "t", "h", "the", "nth", "tho", "thy", "fth", "Eth", "eh", "ts", "sh", "ti", "ta", "qa", "qc"]

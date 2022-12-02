@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyaqsapi.bystate package &mdash; pyaqsapi  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pyaqsapi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.html">pyaqsapi package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyaqsapi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">pyaqsapi.bystate package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyaqsapi.bystate.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pyaqsapi-bystate-package">
+<h1>pyaqsapi.bystate package<a class="headerlink" href="#pyaqsapi-bystate-package" title="Permalink to this heading"></a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="module-pyaqsapi.bystate.bystate">
+<span id="pyaqsapi-bystate-bystate-module"></span><h2>pyaqsapi.bystate.bystate module<a class="headerlink" href="#module-pyaqsapi.bystate.bystate" title="Permalink to this heading"></a></h2>
+<p>Functions that aggregated data by state.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.annualsummary">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">annualsummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.annualsummary" title="Permalink to this definition"></a></dt>
+<dd><p>Return a DataFrame of annual data aggregated at the state level.</p>
+<p>Annual summary contains a DataFrame matching the input parameter and
+stateFIPS provided for bdate - edate time frame. Variables returned include
+mean value, maxima, percentiles, and etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): annual summary data for the</dt><dd></dd>
+<dt>stateFIPS requested.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.dailysummary">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">dailysummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.dailysummary" title="Permalink to this definition"></a></dt>
+<dd><p>Return a DataFrame of data aggregated at the state level.</p>
+<p>Daily summary contains a DataFrame matching the input parameter and
+stateFIPS provided for bdate - edate time frame. Variables
+returned include mean value, maxima, percentiles, and etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): daily summary statistics for the</dt><dd></dd>
+<dt>given parameter for a single stateFIPS.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.monitors">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">monitors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.monitors" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of monitors.</p>
+<p>Return a table of monitors and related metadata at all sites
+with the provided parameter and stateFIPS for bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): monitors from the</dt><dd><p>selected state.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_annualperformanceeval">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_annualperformanceeval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_annualperformanceeval" title="Permalink to this definition"></a></dt>
+<dd><p>Return quality assurance performance evaluation data - aggregated by
+site for a parameter code aggregated by matching input
+parameter, and stateFIPS provided for bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance</dt><dd></dd>
+<dt>performance evaluation data for all monitoring sites for the</dt><dd></dd>
+<dt>matching parametercode and stateFIPS requested for the time frame</dt><dd></dd>
+<dt>between bdate and edate.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_annualperformanceevaltransaction">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_annualperformanceevaltransaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_annualperformanceevaltransaction" title="Permalink to this definition"></a></dt>
+<dd><p>Return AQS submissions transaction format (RD) of the annual
+performance evaluation data (raw). Includes data pairs for
+QA - aggregated by county for a parameter code aggregated by matching
+input parameter and stateFIPS provided for
+bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance</dt><dd></dd>
+<dt>performance evaluation data. for all monitoring sites with matching</dt><dd></dd>
+<dt>parametercode and stateFIPS requested for the time frame</dt><dd></dd>
+<dt>between bdate and edate.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_blanks">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_blanks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_blanks" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of blank quality assurance data. Blanks are unexposed
+sample collection devices (e.g., filters) that are transported with the
+exposed sample devices to assess if contamination is occurring during
+the transport or handling of the samples. Data is aggregated at the state
+level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object):  quality assurance blank sample</dt><dd></dd>
+<dt>data for all monitors within the input stateFIPS.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_collocated_assessments">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_collocated_assessments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_collocated_assessments" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of collocated assessment data aggregated by matching input
+parameter and stateFIPS provided for bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance collocated</dt><dd></dd>
+<dt>assessment data for monitors within a state.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_flowrateaudit">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_flowrateaudit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_flowrateaudit" title="Permalink to this definition"></a></dt>
+<dd><p>Return Quality assurance flowrate audit data.</p>
+<p>Return a table of monitors and related metadata at all sites
+with the provided parameter and stateFIPS for bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): monitors from the</dt><dd><p>selected state.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_flowrateverification">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_flowrateverification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_flowrateverification" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table containing flow rate Verification data for a parameter code
+aggregated matching input parameter, and stateFIPS, provided for
+bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate</dt><dd></dd>
+<dt>verification data for monitors within a state.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_one_point_qc">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_one_point_qc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_one_point_qc" title="Permalink to this definition"></a></dt>
+<dd><p>Return a DataFrame or an AQS_Data Mart_APIv2 S3 object containing Quality
+assurance data - flow rate audit raw data aggregated by state FIPS for
+bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): one point qc data within the</dt><dd></dd>
+<dt>input stateFIPS for bdate - edate time frame..</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.qa_pep_audit">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">qa_pep_audit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.qa_pep_audit" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of Performance Evaluation Program (PEP) audit data
+aggregated by parameter code, and stateFIPS for the time frame between
+bdate and edate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance PEP audit data</dt><dd></dd>
+<dt>within a state.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.quarterlysummary">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">quarterlysummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.quarterlysummary" title="Permalink to this definition"></a></dt>
+<dd><p>Return a DataFrame of quarterly data aggregated at the state level.</p>
+<p>Quarterly summary contains a DataFrame matching the input parameter,
+stateFIPS a provided for bdate - edate time frame. Variables returned
+include mean value, maxima, percentiles, and etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quarterly summary statistics for</dt><dd></dd>
+<dt>the given parameter for a all monitors with matching parameter and</dt><dd></dd>
+<dt>stateFIPS combination within the bdate - edate timeframe.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.sampledata">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">sampledata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.sampledata" title="Permalink to this definition"></a></dt>
+<dd><p>Return sample data where the data is aggregated at the state level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>duration</strong><span class="classifier">an optional python character string that represents the</span></dt><dd><p>parameter duration code that limits returned data to a
+specific sample duration. The default value of None results
+in no filtering based on duration code.Valid durations
+include actual sample durations and not calculated durations
+such as 8 hour carbon monoxide or ozone rolling averages,
+3/6 day PM averages or lead 3 month rolling averages. Use
+aqs_sampledurations() for a list of all available
+duration codes.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): containing sample data</dt><dd></dd>
+<dt>for all monitors matching stateFIPS for the given parameter.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bystate.bystate.transactionsample">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bystate.bystate.</span></span><span class="sig-name descname"><span class="pre">transactionsample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bystate.bystate.transactionsample" title="Permalink to this definition"></a></dt>
+<dd><p>Return transactionsample data - aggregated by state in the AQS Submission
+Transaction Format (RD) sample (raw) data for a parameter code aggregated
+by matching input parameter, and stateFIPS provided for bdate - edate time
+frame. Includes data both in submitted and standard units.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): transaction sample (raw) data</dt><dd></dd>
+<dt>in the AQS submission transaction format (RD) corresponding to the inputs</dt><dd></dd>
+<dt>provided.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyaqsapi.bystate">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyaqsapi.bystate" title="Permalink to this heading"></a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, US Environmental Protection Agency.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

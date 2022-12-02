@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+
+# Changelag
+
+..v1.0.0::
+initial public release

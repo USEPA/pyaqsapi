@@ -1,0 +1,14 @@
+[build-system]
+requires = [
+    "sphinx",
+    "sphinxcontrib-napoleon",
+	"setuptools>=42",
+	"wheel"
+]
+
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"]
+max-line-length = 85

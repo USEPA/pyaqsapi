@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyaqsapi.byma package &mdash; pyaqsapi  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pyaqsapi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.html">pyaqsapi package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyaqsapi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">pyaqsapi.byma package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyaqsapi.byma.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pyaqsapi-byma-package">
+<h1>pyaqsapi.byma package<a class="headerlink" href="#pyaqsapi-byma-package" title="Permalink to this heading"></a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="module-pyaqsapi.byma.byma">
+<span id="pyaqsapi-byma-byma-module"></span><h2>pyaqsapi.byma.byma module<a class="headerlink" href="#module-pyaqsapi.byma.byma" title="Permalink to this heading"></a></h2>
+<p>Functions that aggregate data by ma (By Monitoring Agency).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_annualpeferomanceeval">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_annualpeferomanceeval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_annualpeferomanceeval" title="Permalink to this definition"></a></dt>
+<dd><p>Returns quality assurance performance evaluation data - aggregated by
+by Monitoring agency (MA) for a parameter code aggregated by matching input
+parameter and MA_code for the time frame between bdate and edate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance performance</dt><dd></dd>
+<dt>evaluation data. for all monitoring sites for with the MA_code requested</dt><dd></dd>
+<dt>for the time frame between bdate and edate.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_annualperformanceevaltransaction">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_annualperformanceevaltransaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_annualperformanceevaltransaction" title="Permalink to this definition"></a></dt>
+<dd><p>Returns AQS submissions transaction format (RD) of the annual performance
+evaluation data (raw). Includes data pairs for QA - aggregated by
+Monitoring agency (MA) for a parameter code aggregated by matching input
+parameter and MA_code provided for bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance performance</dt><dd></dd>
+<dt>evaluation data in the AQS submissions transaction format (RD)for all sites</dt><dd></dd>
+<dt>matching the MA_code requested for the time frame between bdate and edate.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_blanks">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_blanks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_blanks" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of blank quality assurance data. Blanks are unexposed
+sample collection devices (e.g., filters) that are transported with the
+exposed sample devices to assess if contamination is occurring during the
+transport or handling of the samples. Data is aggregated by monitoring
+agency code (MA_code).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object):  quality assurance blank sample</dt><dd></dd>
+<dt>data for all monitors within the input MA_code.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_collocated_assessments">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_collocated_assessments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_collocated_assessments" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of collocated assessment data aggregated by matching input
+parameter, and monitoring agency (MA) code provided for bdate - edate
+time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance collocated</dt><dd></dd>
+<dt>assessment data for monitors within a monitoring agency.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_flowrateaudit">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_flowrateaudit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_flowrateaudit" title="Permalink to this definition"></a></dt>
+<dd><p>Return Quality assurance flowrate audit data.</p>
+<p>Return a table containing flow rate audit data aggregated by parameter
+code and monitoring agency code (_by_MA) for bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the</dt><dd></dd>
+<dt>requested MA_code.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_flowrateverification">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_flowrateverification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_flowrateverification" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table containing flow rate Verification data for a parameter code
+aggregated by matching input parameter, and monitoring agency (MA) code
+provided for bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the</dt><dd></dd>
+<dt>requested MA_code.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_one_point_qc">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_one_point_qc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_one_point_qc" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table one point QC check data aggregated by monitoring agency
+code (_by_MA).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the</dt><dd></dd>
+<dt>requested MA_code.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.qa_pep_audit">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">qa_pep_audit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.qa_pep_audit" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of Performance Evaluation Program (PEP) audit data
+aggregated by monitoring agency code (_by_MA) for the time frame between
+bdate and edate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance PEP audit data</dt><dd></dd>
+<dt>for a monitoring agency.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.byma.byma.transactionsample">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.byma.byma.</span></span><span class="sig-name descname"><span class="pre">transactionsample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.byma.byma.transactionsample" title="Permalink to this definition"></a></dt>
+<dd><p>Return transactionsample data - aggregated by Monitoring agency (MA) in
+the AQS Submission Transaction Format (RD) sample (raw) data for a
+parameter code aggregated by matching input parameter, and monitoring
+agency (MA) code provided for bdate - edate time frame. Includes data both
+in submitted and standard units.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
+pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
+</dd>
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+cbdate is used to filter data based on the change date.
+Only data that changed on or after this date will be returned.
+This is an optional variable which defaults to None.</p>
+</dd>
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+cedate is used to filter data based on the change date.
+Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to None.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): transaction sample (raw) data in</dt><dd></dd>
+<dt>the AQS submission transaction format (RD) corresponding to the inputs</dt><dd></dd>
+<dt>provided.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyaqsapi.byma">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyaqsapi.byma" title="Permalink to this heading"></a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, US Environmental Protection Agency.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

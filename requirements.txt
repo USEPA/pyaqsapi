@@ -1,0 +1,13 @@
+build
+tox
+pandas
+pep517
+requests
+setuptools>=42
+sphinx
+sphinxcontrib-napoleon
+sphinxcontrib-apidoc
+sphinxcontrib-spelling
+datetime
+toml
+sphinx_rtd_theme

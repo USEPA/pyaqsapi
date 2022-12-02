@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyaqsapi.bybox package &mdash; pyaqsapi  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pyaqsapi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.html">pyaqsapi package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyaqsapi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">pyaqsapi.bybox package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyaqsapi.bybox.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pyaqsapi-bybox-package">
+<h1>pyaqsapi.bybox package<a class="headerlink" href="#pyaqsapi-bybox-package" title="Permalink to this heading"></a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="module-pyaqsapi.bybox.bybox">
+<span id="pyaqsapi-bybox-bybox-module"></span><h2>pyaqsapi.bybox.bybox module<a class="headerlink" href="#module-pyaqsapi.bybox.bybox" title="Permalink to this heading"></a></h2>
+<p>Functions that aggregate data by box.
+(by latitude/longitude bounding box)</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bybox.bybox.annualsummary">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bybox.bybox.</span></span><span class="sig-name descname"><span class="pre">annualsummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bybox.bybox.annualsummary" title="Permalink to this definition"></a></dt>
+<dd><p>Return a DataFrame of annual data aggregated by latitude/longitude
+bounding box (_by_box).</p>
+<p>Annual summary contains a DataFrame matching the input parameter for the
+rectangular area area bounded by minlat, maxlat, minlon, maxlon provided
+for bdate - edate time frame. Variables returned include mean value, maxima,
+percentiles, and etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character string which represents the parameter code of the</span></dt><dd><p>air pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>minlat</strong><span class="classifier">a python character object which represents the minimum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data north of this latitude will be returned.</p>
+</dd>
+<dt><strong>maxlat</strong><span class="classifier">a python character object which represents the maximum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data south of this latitude will be returned.</p>
+</dd>
+<dt><strong>minlon</strong><span class="classifier">a python character object which represents the minimum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data east of this longitude will be returned.</p>
+</dd>
+<dt><strong>maxlon</strong><span class="classifier">a python character object which represents the maximum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data west of this longitude will be returned. Note that -80
+is less than -70.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object) sample data for all monitors</dt><dd></dd>
+<dt>within the input latitude/longitude bounding box for a single parameter.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bybox.bybox.dailysummary">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bybox.bybox.</span></span><span class="sig-name descname"><span class="pre">dailysummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bybox.bybox.dailysummary" title="Permalink to this definition"></a></dt>
+<dd><p>Return a DataFrame of daily summary data aggregated by latitude/longitude
+bounding box (_by_box).</p>
+<p>Daily summary contains a DataFrame matching the input parameter and
+stateFIPS provided for bdate - edate time frame. Variables
+returned include mean value, maxima, percentiles, and etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character string which represents the parameter code of the</span></dt><dd><p>air pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>minlat</strong><span class="classifier">a python character object which represents the minimum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data north of this latitude will be returned.</p>
+</dd>
+<dt><strong>maxlat</strong><span class="classifier">a python character object which represents the maximum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data south of this latitude will be returned.</p>
+</dd>
+<dt><strong>minlon</strong><span class="classifier">a python character object which represents the minimum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data east of this longitude will be returned.</p>
+</dd>
+<dt><strong>maxlon</strong><span class="classifier">a python character object which represents the maximum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data west of this longitude will be returned. Note that -80
+is less than -70.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): daily summary data for all</dt><dd></dd>
+<dt>monitors within the input latitude/longitude bounding box for a single</dt><dd></dd>
+<dt>parameter.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bybox.bybox.monitors">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bybox.bybox.</span></span><span class="sig-name descname"><span class="pre">monitors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bybox.bybox.monitors" title="Permalink to this definition"></a></dt>
+<dd><p>Return a table of monitors.</p>
+<p>Return a table of monitors and related metadata sites with the provided
+parameter, aggregated by latitude/longitude bounding box (_by_box) for
+bdate - edate time frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character string which represents the parameter code of the</span></dt><dd><p>air pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>minlat</strong><span class="classifier">a python character object which represents the minimum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data north of this latitude will be returned.</p>
+</dd>
+<dt><strong>maxlat</strong><span class="classifier">a python character object which represents the maximum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data south of this latitude will be returned.</p>
+</dd>
+<dt><strong>minlon</strong><span class="classifier">a python character object which represents the minimum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data east of this longitude will be returned.</p>
+</dd>
+<dt><strong>maxlon</strong><span class="classifier">a python character object which represents the maximum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data west of this longitude will be returned. Note that -80
+is less than -70.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>pandas DataFrame or an AQSAPI_V2 object</dt><dd><p>Returns a table of monitors from a latitude/longitude bounding
+box (_by_box).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bybox.bybox.quarterlysummary">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bybox.bybox.</span></span><span class="sig-name descname"><span class="pre">quarterlysummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bybox.bybox.quarterlysummary" title="Permalink to this definition"></a></dt>
+<dd><p>Return a DataFrame of quarterly data aggregate by latitude/longitude
+bounding box (_by_box).</p>
+<p>Quarterly summary contains a DataFrame matching the input parameter,
+stateFIPS and county_code provided for bdate - edate time frame.
+Variables returned include mean value, maxima, percentiles, and etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character string which represents the parameter code of the</span></dt><dd><p>air pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>minlat</strong><span class="classifier">a python character object which represents the minimum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data north of this latitude will be returned.</p>
+</dd>
+<dt><strong>maxlat</strong><span class="classifier">a python character object which represents the maximum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data south of this latitude will be returned.</p>
+</dd>
+<dt><strong>minlon</strong><span class="classifier">a python character object which represents the minimum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data east of this longitude will be returned.</p>
+</dd>
+<dt><strong>maxlon</strong><span class="classifier">a python character object which represents the maximum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data west of this longitude will be returned. Note that -80
+is less than -70.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): daily summary data for all</dt><dd></dd>
+<dt>monitors within the input latitude/longitude bounding box for a single</dt><dd></dd>
+<dt>parameter.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.bybox.bybox.sampledata">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.bybox.bybox.</span></span><span class="sig-name descname"><span class="pre">sampledata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bybox.bybox.sampledata" title="Permalink to this definition"></a></dt>
+<dd><p>Return sample data where the data is aggregated by latitude/longitude
+bounding box (_by_box).</p>
+<p>If return_header is FALSE (default) this function
+returns a single DataFrame with the requested data. If return_header is
+TRUE returns a list of AQSAPI_v2 objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameter</strong><span class="classifier">a character string which represents the parameter code of the</span></dt><dd><p>air pollutant related to the data being requested.</p>
+</dd>
+<dt><strong>bdate</strong><span class="classifier">a python date object which represents that begin date of the data</span></dt><dd><p>selection. Only data on or after this date will be returned.</p>
+</dd>
+<dt><strong>edate</strong><span class="classifier">a python date object which represents that end date of the data</span></dt><dd><p>selection. Only data on or before this date will be returned.</p>
+</dd>
+<dt><strong>minlat</strong><span class="classifier">a python character object which represents the minimum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data north of this latitude will be returned.</p>
+</dd>
+<dt><strong>maxlat</strong><span class="classifier">a python character object which represents the maximum latitude</span></dt><dd><p>of a geographic box. Decimal latitude with north begin positive.
+Only data south of this latitude will be returned.</p>
+</dd>
+<dt><strong>minlon</strong><span class="classifier">a python character object which represents the minimum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data east of this longitude will be returned.</p>
+</dd>
+<dt><strong>maxlon</strong><span class="classifier">a python character object which represents the maximum longitude</span></dt><dd><p>of a geographic box. Decimal longitude with east begin positive.
+Only data west of this longitude will be returned. Note that -80
+is less than -70.</p>
+</dd>
+<dt><strong>duration</strong><span class="classifier">an optional python character string that represents the</span></dt><dd><p>parameter duration code that limits returned data to a
+specific sample duration. The default value of None results
+in no filtering based on duration code.Valid durations
+include actual sample durations and not calculated durations
+such as 8 hour carbon monoxide or ozone rolling averages,
+3/6 day PM averages or lead 3 month rolling averages. Use
+aqs_sampledurations() for a list of all available
+duration codes.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyaqsapi.bybox">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyaqsapi.bybox" title="Permalink to this heading"></a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, US Environmental Protection Agency.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

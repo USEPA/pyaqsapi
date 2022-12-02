@@ -1,0 +1,13 @@
+include README.rst LICENSE.rst README.md TODO.rst TODO.md
+graft docs
+graft tests
+exclude tests/local.py
+prune .git
+prune .github
+prune .pytest_cache
+prune __pycache__
+prune .spyproject
+prune .tox
+prune .vscode
+prune build
+prune dev 

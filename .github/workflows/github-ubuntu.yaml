@@ -1,0 +1,74 @@
+# -*- coding: utf-8 -*-
+name: pyaqsapi test and build on Ubuntu-latest GNU/Linux
+run-name: A push event from ${{ github.actor }} caused a rebuilding and
+  retesting of the pyaqsapi package via GitHub actions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  setup_environment:
+    runs-on: ubuntu-latest
+    #runs-on: matrix.os
+    env:
+      AQSkey: ${{ secrets.AQSKEY }}
+      AQSuser: ${{ secrets.AQSUSER }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        #os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+      - name: install_dependencies
+        run: |
+          python -m pip install --upgrade pip
+          #The next three lines are used to install pyenchant on ubuntu
+          #(needed for sphinxcontrib-pyspelling)
+          if [runner.os == 'Linux']; then
+          sudo apt-get update -y
+          sudo apt-get install -y python-enchant; fi
+          pip install build pytest
+          pip install -r requirements.txt
+      - name: Display Python version and system info
+        run: python -c "import platform; print(platform.uname())"
+      - name: Display Python version and system info
+        run: |
+          python -m build .
+          python -m pip install .
+      - name: fail the build in case of any misspelled words
+        run: |
+          cd docs
+          #delete the previous spelling output if this file exists
+          if [ -s "./_build/spelling/output.txt" ]; then
+          rm ./_build/spelling/output.txt; fi
+          make spelling
+          if [ -s "./_build/spelling/output.txt"] ; then 
+          echo ++++++++++++++++++++ Misspelled words ++++++++++++++++++++ 
+          cat "./_build/spelling/output.txt"; fi
+          cd ..
+        # if [-s "./_build/spelling/output.txt"]; then false; fi
+      - name: build apidocs
+        run: |
+          cd docs
+          sphinx-apidoc --ext-autodoc -o . ../pyaqsapi/
+          make html
+          cd ..
+      - name: test_package
+        run: |
+          export AQSkey=${{ secrets.AQSKEY }}
+          export AQSuser=${{ secrets.AQSUSER }}
+          pytest
+          unset AQSkey
+          unset AQSuser

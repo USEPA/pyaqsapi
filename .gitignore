@@ -1,0 +1,18 @@
+.tox/
+.git
+.github/workflows/schemas/ #schemas to assist in writing github workflows
+.pytest_cache
+.spyproject
+.vscode/
+build/
+dev
+*__pycache__/
+dist
+*.egg-info/
+*.egg/
+*.bak
+*.pyc
+#docs/_build/
+.coverage
+.dev/
+*tests/local.py

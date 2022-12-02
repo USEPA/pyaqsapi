@@ -1,0 +1,48 @@
+{% set version = '2.0.3' %}
+
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
+
+package:
+    name: pyaqsapi
+    version: 0.9.BETA
+
+source:
+    fn: pyaqsapi-0.9b0.tar.gz
+    url: https://bitbucket.epa.gov/projects/AQDA/repos/pyaqsapi/browse/dist/pyaqsapi-0.9b0.tar.gz
+    md5: 22e91dd03e5dbcb5f6fb875e4774be8a
+
+build:
+    noarch: python
+    number: 0
+    script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - conda
+    - conda-build
+    - python
+    - pep517
+    - sphinx
+    - sphinx_rtd_theme
+    - sphinxcontrib-napoleon
+    - sphinxcontrib-apidoc
+    - toml
+
+  run:
+    - python
+    - keyring
+    - pandas
+    - requests
+
+  test:
+    - python
+    - pytest
+    - sphinxcontrib-spelling
+    - tox
+    - pytest-black
+    - codecov
+about:
+    home: https://bitbucket.epa.gov/projects/AQDA/repos/pyaqsapi/
+    license: LICENSE.rst
+    summary: "Retrieve air monitoring data and associated metadata from the US Environmental Protection Agency's Air Quality System service using functions."
