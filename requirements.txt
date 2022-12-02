@@ -11,3 +11,4 @@ sphinxcontrib-spelling
 datetime
 toml
 sphinx_rtd_theme
+numpydoc
