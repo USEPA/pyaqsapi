@@ -202,7 +202,7 @@ These thirteen services are:
     the longer RAQSAPI will take to return the results.
     
 Read the full 
-`API documentation <https://solid-engine-2988d4a5.pages.github.io/>`_ online.
+`API documentation <https://usepa.github.io/pyaqsapi/>`_ online.
 
 
 Aggregate functions are named aqs.<aggregation>.<service>() where <service>
