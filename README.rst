@@ -33,13 +33,13 @@
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
-    :alt: This repository uses black for code formatting
+    :alt: This repository uses black for code formatting  
 .. image:: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml/badge.svg?branch=main
-    :alt: workflow status
+    :alt: workflow status  
 .. image:: https://img.shields.io/github/issues/USEpa/pyaqsapi?style=plastic
-    :alt: GitHub issues
+    :alt: GitHub issues  
 .. image:: https://img.shields.io/github/license/USEPA/pyaqsapi?style=plastic
-    :alt: License: MIT
+    :alt: License: MIT  
 
 ============
 Introduction
