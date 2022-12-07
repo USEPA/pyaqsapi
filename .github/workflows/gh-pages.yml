@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy_static_content_to_Pages
 
 on:
   # Runs on pushes targeting the default branch

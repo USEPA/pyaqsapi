@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-name: pyaqsapi test and build on Ubuntu-latest GNU/Linux
+name: build_and_test_pyaqsapi_on_ubuntu
 run-name: A push event from ${{ github.actor }} caused a rebuilding and
   retesting of the pyaqsapi package via GitHub actions
 

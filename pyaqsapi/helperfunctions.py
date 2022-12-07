@@ -270,10 +270,12 @@ class AQSAPI_V2:
         AQS_domain = "https://aqs.epa.gov/data/api/" + service + "/" + aqsfilter
         header = {"User-Agent": user_agent, "From": AQS_user}
 
-        query = get(url=AQS_domain, params=variables, headers=header)
+        query = get(url=AQS_domain,
+                    params=variables,
+                    headers=header,
+                    verify=False)
         query.raise_for_status()
         self.set_header(DataFrame(query.headers))
-        # pdb. set_trace()
         self.set_data(DataFrame.from_dict(query.json()["Data"]))
         self._url = query.url
         self._status_code = query.status_code
@@ -368,7 +370,6 @@ class AQSAPI_V2:
             "cedate": cedate,
             "cbdate": cbdate,
         }
-        # pdb.set_trace()
         return self.__aqs(
             AQS_user=user,
             key=key,
