@@ -7,6 +7,7 @@ from time import sleep
 from warnings import warn
 from datetime import date
 from itertools import starmap
+from certifi import where
 
 
 AQS_user = None
@@ -273,7 +274,7 @@ class AQSAPI_V2:
         query = get(url=AQS_domain,
                     params=variables,
                     headers=header,
-                    verify=False)
+                    verify = where())
         query.raise_for_status()
         self.set_header(DataFrame(query.headers))
         self.set_data(DataFrame.from_dict(query.json()["Data"]))

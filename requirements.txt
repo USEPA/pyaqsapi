@@ -12,3 +12,4 @@ datetime
 toml
 sphinx_rtd_theme
 numpydoc
+certifi
