@@ -2,7 +2,7 @@ build
 tox
 pandas
 pep517
-requests
+requests[security]
 setuptools>=42
 sphinx>=5.0
 #sphinxcontrib-napoleon
