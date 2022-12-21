@@ -2,7 +2,7 @@ build
 tox
 pandas
 pep517
-requests[security]
+requests
 setuptools>=42
 sphinx>=5.0
 #sphinxcontrib-napoleon
@@ -13,3 +13,4 @@ toml
 sphinx_rtd_theme
 numpydoc
 certifi
+cryptography==36.0.2

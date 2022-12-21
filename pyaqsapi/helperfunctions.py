@@ -206,7 +206,13 @@ class AQSAPI_V2:
         sleep(waittime)
 
     def __aqs(
-        self, service=None, aqsfilter=None, variables=None, AQS_user=None, key=None
+        self,
+        service=None,
+        aqsfilter=None,
+        variables=None,
+        AQS_user=None,
+        key=None,
+        AQS_domain="https://aqs.epa.gov/data/api/",
     ):
         """
         Sends  AQS request to the AQS API and returns the result.
@@ -230,6 +236,9 @@ class AQSAPI_V2:
                    that will be used to autheticate with the AQS API.
         key : The key associated with the AQS_user account represented as a
               character string.
+        AQS_domain : The base domain for the url used in API requests. Normally
+                     this should be set to <https://aqs.epa.gov/data/api/>,
+                     this parameter allows the domain to be overridden.
 
         Returns
         -------
@@ -268,13 +277,11 @@ class AQSAPI_V2:
             variables["cbdate"] = variables["cbdate"].strftime(format="%Y%m%d")
         if service is None:
             service = ""
-        AQS_domain = "https://aqs.epa.gov/data/api/" + service + "/" + aqsfilter
+        url = AQS_domain + service + "/" + aqsfilter
+        # AQS_domain = "https://aqs.epa.gov/data/api/" + service + "/" + aqsfilter
         header = {"User-Agent": user_agent, "From": AQS_user}
 
-        query = get(url=AQS_domain,
-                    params=variables,
-                    headers=header,
-                    verify = where())
+        query = get(url=url, params=variables, headers=header, verify=where())
         query.raise_for_status()
         self.set_header(DataFrame(query.headers))
         self.set_data(DataFrame.from_dict(query.json()["Data"]))
@@ -738,7 +745,14 @@ class AQSAPI_V2:
         )
 
     def _aqs_services_by_pqao(
-        self, parameter, bdate, edate, pqao_code, service, cbdate=None, cedate=None
+        self,
+        parameter,
+        bdate,
+        edate,
+        pqao_code,
+        service,
+        cbdate=None,
+        cedate=None,
     ):
         """
         A helper function and should not be called by the end user.
@@ -810,7 +824,14 @@ class AQSAPI_V2:
         )
 
     def _aqs_services_by_MA(
-        self, parameter, bdate, edate, MA_code, service, cbdate=None, cedate=None
+        self,
+        parameter,
+        bdate,
+        edate,
+        MA_code,
+        service,
+        cbdate=None,
+        cedate=None,
     ):
         """
         A helper function and should not be called by the end user.
@@ -1002,7 +1023,10 @@ class AQSAPI_V2:
 
         """
         self._data.rename(
-            columns={self._data.columns[0]: name1, self._data.columns[1]: name2},
+            columns={
+                self._data.columns[0]: name1,
+                self._data.columns[1]: name2,
+            },
             inplace=True,
         )
 

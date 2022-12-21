@@ -34,12 +34,14 @@ metadatafunctions
 minlat
 minlon
 parameterclass
+parameterclasses
 pqao
 pqaos
 pyaqsapi
 qa
 qc
 quarterly
+quarterlysummary
 sampledata
 sampleduration
 sampledurations
@@ -47,6 +49,7 @@ setupfunctions
 sitenum
 stateFIPS
 submodules
+timeframe
 th
 transactionsample
 Truro

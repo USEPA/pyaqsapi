@@ -447,12 +447,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>cbsa_code: a python character object which represents the 5 digit AQS Core</strong></dt><dd><p>Based Statistical Area code (the same as the census code, with
 leading zeros)</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -493,12 +493,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>cbsa_code: a python character object which represents the 5 digit AQS Core</strong></dt><dd><p>Based Statistical Area code (the same as the census code, with
 leading zeros)</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -538,12 +538,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>cbsa_code: a python character object which represents the 5 digit AQS Core</strong></dt><dd><p>Based Statistical Area code (the same as the census code, with
 leading zeros)</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -580,12 +580,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>cbsa_code: a python character object which represents the 5 digit AQS Core</strong></dt><dd><p>Based Statistical Area code (the same as the census code, with
 leading zeros).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -594,17 +594,17 @@ to None.</p>
 <dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
 </dd>
 <dt><strong>Example</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>-------</strong></dt><dd></dd>
 <dt><strong>Return a DataFrame of NO2 quarterly summary</strong></dt><dd></dd>
 <dt><strong>data the for Charlotte-Concord-Gastonia, NC cbsa for</strong></dt><dd></dd>
 <dt><strong>each quarter in 2017.::</strong></dt><dd><p>import pyaqsapi as aqs
 from datetime import date
-…
-aqs.bycbsa.quarterlysummary(parameter=”42602”,</p>
+...
+aqs.bycbsa.quarterlysummary(parameter=&quot;42602&quot;,</p>
 <blockquote>
 <div><p>bdate=date(year=2017, month=1, day=1),
 edate=date(year=2017, month=1, day=1),
-cbsa_code=”16740”)</p>
+cbsa_code=&quot;16740&quot;)</p>
 </div></blockquote>
 </dd>
 </dl>
@@ -637,12 +637,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>cbsa_code: a python character object which represents the 5 digit AQS Core</strong></dt><dd><p>Based Statistical Area code (the same as the census code, with
 leading zeros)</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -699,12 +699,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -713,12 +713,12 @@ to None.</p>
 <dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
 </dd>
 <dt><strong>Example</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>-------</strong></dt><dd></dd>
 <dt><strong>Returns all FRM/FEM PM2.5 data for Wake County, NC between</strong></dt><dd></dd>
 <dt><strong>January 1, 2015 - February 28, 2016::</strong></dt><dd><p>import pyaqsapi as aqs
 from datetime import date
-…
-aqs.bycounty.annualsummary(parameter=”88101”,</p>
+...
+aqs.bycounty.annualsummary(parameter=&quot;88101&quot;,</p>
 <blockquote>
 <div><dl class="simple">
 <dt>bdate=date(year=2016,</dt><dd><p>month=1,
@@ -728,8 +728,8 @@ day=1),</p>
 day=28),</p>
 </dd>
 </dl>
-<p>stateFIPS=”37”,
-countycode=”183”,
+<p>stateFIPS=&quot;37&quot;,
+countycode=&quot;183&quot;,
 return_header=True)</p>
 </div></blockquote>
 </dd>
@@ -769,12 +769,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -817,12 +817,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -865,12 +865,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -917,12 +917,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -969,12 +969,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1017,12 +1017,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1065,12 +1065,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1113,12 +1113,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1160,12 +1160,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1208,12 +1208,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1258,12 +1258,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1313,12 +1313,12 @@ averages or lead 3 month rolling averages. Use
 aqs_sampledurations() for a list of all available
 duration codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1373,12 +1373,12 @@ FIPS codes.</p>
 (with leading zero(s)). Use aqs_counties_by_state() for
 the list of available county codes for each state.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1420,12 +1420,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1464,12 +1464,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1509,12 +1509,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1551,12 +1551,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1593,12 +1593,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1635,12 +1635,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1676,12 +1676,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1718,12 +1718,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1762,12 +1762,12 @@ pollutant related to the data being requested.</p>
 </dd>
 <dt><strong>MA_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Monitoring Agency code (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1812,12 +1812,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1858,12 +1858,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1905,12 +1905,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1950,12 +1950,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -1994,12 +1994,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2037,12 +2037,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2079,12 +2079,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2121,12 +2121,12 @@ pollutant related to the data being requested.</p>
 <dt><strong>pqao_code</strong><span class="classifier">a python character object which represents the 4 digit AQS</span></dt><dd><p>Primary Quality Assurance Organization code
 (with leading zeroes).</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2135,16 +2135,16 @@ to None.</p>
 <dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
 </dd>
 <dt><strong>Example</strong></dt><dd></dd>
-<dt><strong>——</strong></dt><dd></dd>
+<dt><strong>------</strong></dt><dd></dd>
 <dt><strong>Return a DataFrame of PEP audit data in June 2017 where the pqao is the</strong></dt><dd></dd>
 <dt><strong>Alabama Department of Environmental Management (agency 0013)::</strong></dt><dd><p>import pyaqsapi as aqs
 from datetime import date
-…
-aqs.bypqao.qa_pep_audit(parameter=”88101”,</p>
+...
+aqs.bypqao.qa_pep_audit(parameter=&quot;88101&quot;,</p>
 <blockquote>
 <div><p>bdate=date(year=2017, month=6, day=1),
 edate=date(year=2017, month=6, day=30),
-pqao_code=”0013”)</p>
+pqao_code=&quot;0013&quot;)</p>
 </div></blockquote>
 </dd>
 </dl>
@@ -2190,12 +2190,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2243,12 +2243,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2298,12 +2298,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2350,12 +2350,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2405,12 +2405,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2460,12 +2460,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2512,12 +2512,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2564,12 +2564,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2616,12 +2616,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2666,12 +2666,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2717,12 +2717,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2735,7 +2735,7 @@ to None.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance</dt><dd></dd>
-<dt>PEP audit data within a stateFIPS, countycode and sitenumb</dt><dd></dd>
+<dt>PEP audit data within a stateFIPS, countycode and sitenum</dt><dd></dd>
 <dt>for the time frame between bdate and edate.</dt><dd></dd>
 </dl>
 </dd>
@@ -2770,12 +2770,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2819,12 +2819,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2845,8 +2845,8 @@ duration codes.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>(pandas DataFrame or an AQSAPI_V2 object): sample data aggregagted at the</dt><dd></dd>
-<dt>site level matching the input stateFIPS, countycode and sitenumb</dt><dd></dd>
+<dt>(pandas DataFrame or an AQSAPI_V2 object): sample data aggregated at the</dt><dd></dd>
+<dt>site level matching the input stateFIPS, countycode and sitenum</dt><dd></dd>
 <dt>for the time frame between bdate and edate.</dt><dd></dd>
 </dl>
 </dd>
@@ -2881,12 +2881,12 @@ the list of available county codes for each state.</p>
 <dt><strong>sitenum</strong><span class="classifier">a python character object which represents the 4 digit site</span></dt><dd><p>number (with leading zeros) within the county and state
 being requested.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2931,12 +2931,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -2976,12 +2976,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3020,12 +3020,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3064,12 +3064,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3083,7 +3083,7 @@ to None.</p>
 <dd class="field-even"><dl class="simple">
 <dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance</dt><dd></dd>
 <dt>performance evaluation data for all monitoring sites for the</dt><dd></dd>
-<dt>matching parametercode and stateFIPS requested for the time frame</dt><dd></dd>
+<dt>matching parameter and stateFIPS requested for the time frame</dt><dd></dd>
 <dt>between bdate and edate.</dt><dd></dd>
 </dl>
 </dd>
@@ -3112,12 +3112,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3131,7 +3131,7 @@ to None.</p>
 <dd class="field-even"><dl class="simple">
 <dt>(pandas DataFrame or an AQSAPI_V2 object): quality assurance</dt><dd></dd>
 <dt>performance evaluation data. for all monitoring sites with matching</dt><dd></dd>
-<dt>parametercode and stateFIPS requested for the time frame</dt><dd></dd>
+<dt>parameter and stateFIPS requested for the time frame</dt><dd></dd>
 <dt>between bdate and edate.</dt><dd></dd>
 </dl>
 </dd>
@@ -3160,12 +3160,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3203,12 +3203,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3247,12 +3247,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3291,12 +3291,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3335,12 +3335,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3379,12 +3379,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3424,12 +3424,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3467,12 +3467,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3521,12 +3521,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -3561,7 +3561,7 @@ Datamart API.</p>
 <div><p># for some reason Sphinx does not like this Attributes section so it is
 # commented out, for now.</p>
 <p># Attributes
-# ———-
+# ----------
 # _header (pandas DataFrame): header information returned from the
 #     AQS Datamart API.
 # _request_time (str): the time stamp that the call to the AQS Datamart
@@ -3802,8 +3802,8 @@ associated cbsa_codes.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_classes">
 <span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_classes" title="Permalink to this definition"></a></dt>
-<dd><p>Return a table of Parameter classes (groups of parameters, i.e. “criteria”
-or “all”). The information from this function can be used as input to other
+<dd><p>Return a table of Parameter classes (groups of parameters, i.e. &quot;criteria&quot;
+or &quot;all&quot;). The information from this function can be used as input to other
 API calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3815,7 +3815,7 @@ API calls.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt>(pandas DataFrame or an AQSAPI_V2 object): Parameter classes (groups of</dt><dd></dd>
-<dt>parameters, i.e. “criteria” or “all”).</dt><dd></dd>
+<dt>parameters, i.e. &quot;criteria&quot; or &quot;all&quot;).</dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -3939,8 +3939,8 @@ the pyaqsapi python package.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_parameters_by_class">
 <span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_parameters_by_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameterclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_parameters_by_class" title="Permalink to this definition"></a></dt>
-<dd><p>Return a table of Parameter classes (groups of parameters, i.e. “criteria”
-or “all”). The information from this function can be used as input to other
+<dd><p>Return a table of Parameter classes (groups of parameters, i.e. &quot;criteria&quot;
+or &quot;all&quot;). The information from this function can be used as input to other
 API calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3999,7 +3999,7 @@ API.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt>(pandas DataFrame or an AQSAPI_V2 object): details change history to the</dt><dd></dd>
-<dt>AQS AData Mart API.</dt><dd></dd>
+<dt>AQS Data Mart API.</dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -4154,7 +4154,7 @@ the pyaqsapi python package.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.setupfunctions.aqs_sign_up">
 <span class="sig-prename descclassname"><span class="pre">pyaqsapi.setupfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sign_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.setupfunctions.aqs_sign_up" title="Permalink to this definition"></a></dt>
-<dd><p>Use this service to register as a new user or to reset an existing user’s
+<dd><p>Use this service to register as a new user or to reset an existing user's
 key. A verification email will be sent to the email account specified. To
 reset a password: If the request is made with an email that is already
 registered, a new key will be issued for that account and emailed to the
@@ -4164,7 +4164,7 @@ message for further instructions before continuing.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>email</strong><span class="classifier">A python character object which represents the email account that</span></dt><dd><p>will be used to register with the AQS API or change an existing
-user’s key. A verification email will be sent to the account
+user's key. A verification email will be sent to the account
 specified. Follow the instructions in the verification e-mail
 before proceeding to use any other functionality of the AQS API.
 Register your credential with the aqs_credentials() before using

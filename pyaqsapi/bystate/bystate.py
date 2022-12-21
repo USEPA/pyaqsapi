@@ -6,7 +6,13 @@ from pandas import DataFrame
 
 
 def monitors(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a table of monitors.
@@ -82,7 +88,13 @@ def monitors(
 
 
 def qa_flowrateaudit(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return Quality assurance flowrate audit data.
@@ -162,7 +174,13 @@ def qa_flowrateaudit(
 
 
 def qa_one_point_qc(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a DataFrame or an AQS_Data Mart_APIv2 S3 object containing Quality
@@ -237,7 +255,13 @@ def qa_one_point_qc(
 
 
 def qa_pep_audit(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a table of Performance Evaluation Program (PEP) audit data
@@ -401,7 +425,13 @@ def sampledata(
 
 
 def annualsummary(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a DataFrame of annual data aggregated at the state level.
@@ -478,7 +508,13 @@ def annualsummary(
 
 
 def qa_blanks(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a table of blank quality assurance data. Blanks are unexposed
@@ -556,7 +592,13 @@ def qa_blanks(
 
 
 def dailysummary(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a DataFrame of data aggregated at the state level.
@@ -633,7 +675,13 @@ def dailysummary(
 
 
 def qa_collocated_assessments(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a table of collocated assessment data aggregated by matching input
@@ -711,7 +759,13 @@ def qa_collocated_assessments(
 
 
 def qa_flowrateverification(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a table containing flow rate Verification data for a parameter code
@@ -790,7 +844,13 @@ def qa_flowrateverification(
 
 
 def transactionsample(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return transactionsample data - aggregated by state in the AQS Submission
@@ -871,7 +931,13 @@ def transactionsample(
 
 
 def qa_annualperformanceeval(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return quality assurance performance evaluation data - aggregated by
@@ -926,7 +992,7 @@ def qa_annualperformanceeval(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance
     performance evaluation data for all monitoring sites for the
-    matching parametercode and stateFIPS requested for the time frame
+    matching parameter and stateFIPS requested for the time frame
     between bdate and edate.
     """
     service = "qaAnnualPerformanceEvaluations"
@@ -952,7 +1018,13 @@ def qa_annualperformanceeval(
 
 
 def qa_annualperformanceevaltransaction(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return AQS submissions transaction format (RD) of the annual
@@ -1009,7 +1081,7 @@ def qa_annualperformanceevaltransaction(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance
     performance evaluation data. for all monitoring sites with matching
-    parametercode and stateFIPS requested for the time frame
+    parameter and stateFIPS requested for the time frame
     between bdate and edate.
     """
     service = "transactionsQaAnnualPerformanceEvaluations"
@@ -1035,7 +1107,13 @@ def qa_annualperformanceevaltransaction(
 
 
 def quarterlysummary(
-    parameter, bdate, edate, stateFIPS, cbdate=None, cedate=None, return_header=False
+    parameter,
+    bdate,
+    edate,
+    stateFIPS,
+    cbdate=None,
+    cedate=None,
+    return_header=False,
 ):
     """
     Return a DataFrame of quarterly data aggregated at the state level.

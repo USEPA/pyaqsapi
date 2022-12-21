@@ -432,8 +432,8 @@ def sampledata(
 
     Returns
     -------
-    (pandas DataFrame or an AQSAPI_V2 object): sample data aggregagted at the
-    site level matching the input stateFIPS, countycode and sitenumb
+    (pandas DataFrame or an AQSAPI_V2 object): sample data aggregated at the
+    site level matching the input stateFIPS, countycode and sitenum
     for the time frame between bdate and edate.
     """
     service = "sampleData"
@@ -1587,7 +1587,7 @@ def qa_pep_audit(
     Returns
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance
-    PEP audit data within a stateFIPS, countycode and sitenumb
+    PEP audit data within a stateFIPS, countycode and sitenum
     for the time frame between bdate and edate.
     """
     service = "qaPepAudits"

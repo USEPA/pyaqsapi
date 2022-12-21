@@ -353,7 +353,7 @@ def aqs_revisionhistory(return_header=False):
     Returns
     -------
     (pandas DataFrame or an AQSAPI_V2 object): details change history to the
-    AQS AData Mart API.
+    AQS Data Mart API.
     """
     aqsfilter = "revisionHistory"
     service = None

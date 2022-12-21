@@ -36,6 +36,6 @@ setup(
         "Intended Audience :: Science/Research",
         "Natural Language :: English",
     ],
-    packages=find_packages(exclude=["*.egg-info","build", "dev"]),
+    packages=find_packages(exclude=["*.egg-info", "build", "dev"]),
     python_requires=">=3.7",
 )

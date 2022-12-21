@@ -11,7 +11,7 @@ from sys import path
 
 @pytest.fixture
 def setuppyaqsapi(autouse=True):
-    if exists(".\\dev\\local.py"):
+    if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
         # repostiory or in the final package. local looads the AQS user
