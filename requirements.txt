@@ -13,4 +13,4 @@ toml
 sphinx_rtd_theme
 numpydoc
 certifi
-cryptography==39.0.1
+cryptography==41.0.0
