@@ -12,7 +12,6 @@ from os import getcwd
 
 @pytest.fixture
 def setuppyaqsapi(autouse=True):
-
     print(f"the current working directory is: {getcwd()}")
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
