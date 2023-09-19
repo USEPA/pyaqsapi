@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """pyaqsapi Functions that aggregate data by site."""
 
-import pyaqsapi.helperfunctions as helperfunctions
 from pandas import DataFrame
+
+import pyaqsapi.helperfunctions as helperfunctions
 
 
 def monitors(

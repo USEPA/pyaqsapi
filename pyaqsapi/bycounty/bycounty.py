@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Functions that aggregate data by county."""
 
-import pyaqsapi.helperfunctions as helperfunctions
 from pandas import DataFrame
+
+import pyaqsapi.helperfunctions as helperfunctions
 
 
 def monitors(

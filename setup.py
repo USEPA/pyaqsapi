@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 
 def readme():
@@ -24,7 +24,6 @@ setup(
         "RAQSAPI": "https://github.com/USEPA/RAQSAPI",
         "Bug Tracker": "https://github.com/USEPA/pyaqsapi/issues",
         "Source": "https://github.com/USEPA/pyaqsapi",
-        "Bug Tracker": "https://github.com/USEPA/pyaqsapi/issues",
         "Data Mart API": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
     },
     classifiers=[

@@ -12,3 +12,44 @@ build-backend = "setuptools.build_meta"
 minversion = "6.0"
 testpaths = ["tests"]
 max-line-length = 85
+combine-as-imports = true
+show-source = true
+
+
+[tool.ruff]
+select = ["I001",
+          "I002",
+          "E101",
+          "D100",
+          "D401",
+          "D402",
+          "D403",
+          "D404",
+          "D406",
+          "D407",
+          "D408",
+          "D409",
+          "D414",
+          "D415",
+          "D417",
+          "D419"]
+          
+extend-select = ["UP"]
+
+
+exclude = [
+    "__init__.py",
+    ".git",
+    ".tox",
+    "ruff_cache",
+    ".spyproject",
+    ".github",
+    ".vscode"
+]
+
+
+target-version = "py37"
+
+
+[tool.ruff.pydocstyle]
+convention = "google"

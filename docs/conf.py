@@ -4,7 +4,7 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Path setup --------------------------------------------------------------
+# -- Path setup ---------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -16,14 +16,14 @@ import sys
 sys.path.insert(0, os.path.abspath(".."))
 
 
-# -- Project information -----------------------------------------------------
+# -- Project information ------------------------------------------------------
 
 project = "pyaqsapi"
 copyright = "2022, US Environmental Protection Agency"
 author = "Clinton Mccrowey (US Environmental Protection Agency)"
 
 
-# -- General configuration ---------------------------------------------------
+# -- General configuration ----------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -53,7 +53,7 @@ exclude_patterns = [
 ]
 
 
-# -- Options for HTML output -------------------------------------------------
+# -- Options for HTML output --------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -90,7 +90,7 @@ spelling_ignore_contributor_names = True
 # -- Options for numpydoc -----------------------------------------------------
 numpydoc_show_class_members = False
 
-# -- Options for sphinx-contrib\apidoc -----------------------------------------------------
+# -- Options for sphinx-contrib\apidoc ----------------------------------------
 apidoc_separate_modules = True
 apidoc_module_dir = "../pyaqsapi"
 apidoc_excluded_paths = ["tests"]

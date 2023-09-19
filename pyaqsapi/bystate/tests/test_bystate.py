@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
-import pytest
 from datetime import date
+from os import environ, getcwd
+from os.path import abspath, exists
+from sys import path
+
+import pytest
+
 import pyaqsapi.bystate as bystate
 from pyaqsapi.helperfunctions import aqs_credentials
-from os.path import exists, abspath
-from os import environ, getcwd
-from sys import path
 
 
 @pytest.fixture

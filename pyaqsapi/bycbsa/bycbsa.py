@@ -2,8 +2,9 @@
 """Functions that aggregate data by cbsa
 (by Core Based Statistic Area, as defined by the Census Bureau)."""
 
-import pyaqsapi.helperfunctions as helperfunctions
 from pandas import DataFrame
+
+import pyaqsapi.helperfunctions as helperfunctions
 
 
 def monitors(

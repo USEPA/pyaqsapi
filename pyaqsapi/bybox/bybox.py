@@ -4,8 +4,9 @@
 (by latitude/longitude bounding box)
 """
 
-import pyaqsapi.helperfunctions as helperfunctions
 from pandas import DataFrame
+
+import pyaqsapi.helperfunctions as helperfunctions
 
 
 def monitors(

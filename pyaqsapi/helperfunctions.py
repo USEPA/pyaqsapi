@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """helperfunctions."""
 
-from pandas import DataFrame, concat
-from requests import get
-from time import sleep
-from warnings import warn
 from datetime import date
 from itertools import starmap
-from certifi import where
+from time import sleep
+from warnings import warn
 
+from certifi import where
+from pandas import DataFrame, concat
+from requests import get
 
 AQS_user = None
 AQS_key = None
@@ -267,13 +267,13 @@ class AQSAPI_V2:
             variables["pc"] = variables.pop("class")
         if "county_code" in variables.keys():
             variables["county"] = variables.pop("county_code")
-        if "edate" in variables.keys() and not variables["edate"] is None:
+        if "edate" in variables.keys() and variables["edate"] is not None:
             variables["edate"] = variables["edate"].strftime(format="%Y%m%d")
-        if "bdate" in variables.keys() and not variables["bdate"] is None:
+        if "bdate" in variables.keys() and variables["bdate"] is not None:
             variables["bdate"] = variables["bdate"].strftime(format="%Y%m%d")
-        if "cedate" in variables.keys() and not variables["cedate"] is None:
+        if "cedate" in variables.keys() and variables["cedate"] is not None:
             variables["cedate"] = variables["cedate"].strftime(format="%Y%m%d")
-        if "cbdate" in variables.keys() and not variables["cbdate"] is None:
+        if "cbdate" in variables.keys() and variables["cbdate"] is not None:
             variables["cbdate"] = variables["cbdate"].strftime(format="%Y%m%d")
         if service is None:
             service = ""

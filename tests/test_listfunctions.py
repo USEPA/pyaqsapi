@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from os import environ, getcwd
+from os.path import abspath, exists
+from sys import path
+
 import pytest
-from datetime import date
+
 import pyaqsapi.listfunctions as listfunctions
 from pyaqsapi.helperfunctions import aqs_credentials
-from os.path import exists, abspath
-from os import environ, getcwd
-from sys import path
-from os import getcwd
 
 
 @pytest.fixture

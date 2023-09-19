@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """listfunctions."""
 import pyaqsapi.helperfunctions as helperfunctions
 
