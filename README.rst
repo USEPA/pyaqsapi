@@ -29,7 +29,7 @@
     software, service, hardware, or user accounts that may utilize this
     package.
 
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=plastic
     :target: https://github.com/psf/black
     :alt: This repository uses black for code formatting
     :align: center
