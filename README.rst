@@ -33,19 +33,19 @@
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
-    :alt: This repository uses black for code formatting  
+    :alt: This repository uses black for code formatting
 .. image:: https://img.shields.io/github/workflow/status/USEpa/pyaqsapi/build_and_test_pyaqsapi_on_ubuntu?style=plastic
    :alt: GitHub Workflow Status
 .. image:: https://img.shields.io/github/issues/USEpa/pyaqsapi?style=plastic
     :target: https://github.com/USEPA/pyaqsapi/issues
-    :alt: GitHub issues  
+    :alt: GitHub issues
 .. image:: https://img.shields.io/github/license/USEPA/pyaqsapi?style=plastic
     :target: https://github.com/USEPA/pyaqsapi/blob/main/LICENSE.rst
-    :alt: License: MIT  
+    :alt: License: MIT
 .. image:: https://github.com/USEPA/pyaqsapi/workflows/build_and_test_pyaqsapi_on_ubuntu/badge.svg
     :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml
     :alt: Github actions
-    :align: right
+    :align: center  
 
 ============
 Introduction
