@@ -33,9 +33,6 @@
     :target: https://github.com/psf/black
     :alt: This repository uses black for code formatting
     :align: center
-.. image:: https://img.shields.io/github/workflow/status/USEpa/pyaqsapi/build_and_test_pyaqsapi_on_ubuntu?style=plastic
-   :alt: GitHub Workflow Status
-   :align: center
 .. image:: https://img.shields.io/github/issues/USEpa/pyaqsapi?style=plastic
     :target: https://github.com/USEPA/pyaqsapi/issues
     :alt: GitHub issues
@@ -44,10 +41,10 @@
     :target: https://github.com/USEPA/pyaqsapi/blob/main/LICENSE.rst
     :alt: MIT License
     :align: center
-.. image:: https://github.com/USEPA/pyaqsapi/workflows/build_and_test_pyaqsapi_on_ubuntu/badge.svg
-    :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml
-    :alt: Github actions
-    :align: center  
+.. image:: https://img.shields.io/github/workflow/status/USEpa/pyaqsapi/build_and_test_pyaqsapi_on_ubuntu?style=plastic
+   :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yam
+   :alt: GitHub Workflow Status
+   :align: center
 
 ============
 Introduction
