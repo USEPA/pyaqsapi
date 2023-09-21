@@ -41,10 +41,11 @@
     :target: https://github.com/USEPA/pyaqsapi/blob/main/LICENSE.rst
     :alt: MIT License
     :align: center
-.. image:: https://img.shields.io/github/workflow/status/USEpa/pyaqsapi/build_and_test_pyaqsapi_on_ubuntu?style=plastic
-   :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yam
-   :alt: GitHub Workflow Status
+.. image:: https://img.shields.io/github/actions/workflow/status/USEPA/pyaqsapi/.github%2Fworkflows%2Fgithub-ubuntu.yaml?style=plastic
+   :alt: GitHub Workflow Status (with event)
+   :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml
    :align: center
+
 
 ============
 Introduction
