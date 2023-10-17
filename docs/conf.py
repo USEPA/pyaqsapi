@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information ------------------------------------------------------
 
 project = "pyaqsapi"
-copyright = "2022, US Environmental Protection Agency"
+copyright = "2023, US Environmental Protection Agency"
 author = "Clinton Mccrowey (US Environmental Protection Agency)"
 
 

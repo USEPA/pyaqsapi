@@ -5,10 +5,10 @@
 
 package:
     name: pyaqsapi
-    version: 0.9.BETA
+    version: 1.0.BETA
 
 source:
-    fn: pyaqsapi-0.9b0.tar.gz
+    fn: pyaqsapi-1.0.tar.gz
     url: https://bitbucket.epa.gov/projects/AQDA/repos/pyaqsapi/browse/dist/pyaqsapi-0.9b0.tar.gz
     md5: 22e91dd03e5dbcb5f6fb875e4774be8a
 
