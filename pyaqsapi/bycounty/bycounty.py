@@ -264,7 +264,7 @@ def qa_one_point_qc(
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested stateFIPS and county combination.
     """
-    service = "qaFlowRateAudits"
+    service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_county"
 
     aqsresultlist = helperfunctions._aqsmultiyearcall(

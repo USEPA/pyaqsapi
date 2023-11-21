@@ -136,7 +136,7 @@ def qa_one_point_qc(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): one point qc data within a pqao
     """
-    service = "qaFlowRateAudits"
+    service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_pqao"
 
     aqsresultlist = helperfunctions._aqsmultiyearcall(

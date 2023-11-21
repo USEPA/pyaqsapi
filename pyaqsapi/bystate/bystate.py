@@ -233,7 +233,7 @@ def qa_one_point_qc(
     (pandas DataFrame or an AQSAPI_V2 object): one point qc data within the
     input stateFIPS for bdate - edate time frame..
     """
-    service = "qaFlowRateAudits"
+    service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_state"
 
     aqsresultlist = helperfunctions._aqsmultiyearcall(
