@@ -47,8 +47,7 @@ exclude = [
     ".vscode"
 ]
 
-
-target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+target-version = ["py38", "py39", "py310", "py311", "py312"]
 
 
 [tool.ruff.pydocstyle]

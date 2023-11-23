@@ -646,7 +646,7 @@ class AQSAPI_V2:
             "param": parameter,
             "bdate": bdate,
             "edate": edate,
-            "minlat": minlon,
+            "minlat": minlat,
             "maxlat": maxlat,
             "minlon": minlon,
             "maxlon": maxlon,
