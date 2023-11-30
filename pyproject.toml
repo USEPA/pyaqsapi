@@ -1,3 +1,33 @@
+[project]
+name = "pyaqsapi"
+requires-python = ">=3.8"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+description="Retrieve ambient air monitoring data from the United States Environmental Protection Agency’s (US EPA) Air Quality System (AQS) Data Mart API v2 interface."
+authors = [
+  {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"},
+]
+maintainers = [
+  {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"}
+]
+readme = {file = "README.rst", content-type = "text/x-rst"}
+license = {file = "LICENSE.rst"}
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/USEPA/pyaqsapi"
+"AQS" = "https://www.epa.gov/aqs"
+"AQS DataMart" = "https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html"
+"AQS Data Mart API" = "https://aqs.epa.gov/aqsweb/documents/data_api.html"
+"pyaqsapi API Documentation" = "https://usepa.github.io/pyaqsapi/"
+"SOURCE" = "https://github.com/USEPA/pyaqsapi.git"
+"RAQSAPI" = "https://github.com/USEPA/RAQSAPI"
+"Issue Tracker" = "https://github.com/USEPA/pyaqsapi/issues"
+
 [build-system]
 requires = [
     "sphinx",
@@ -46,9 +76,6 @@ exclude = [
     ".github",
     ".vscode"
 ]
-
-target-version = ["py38", "py39", "py310", "py311", "py312"]
-
 
 [tool.ruff.pydocstyle]
 convention = "google"

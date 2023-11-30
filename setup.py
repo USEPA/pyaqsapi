@@ -18,13 +18,13 @@ setup(
     install_requires=["wheel", "sphinx", "setuptools", "sphinx-rtd-theme"],
     zip_safe=False,
     project_urls={
-        "pyaqsapi": "https://github.com/USEPA/pyaqsapi",
+        "Homepage": "https://github.com/USEPA/pyaqsapi",
         "AQS": "https://www.epa.gov/aqs",
-        "AQS Data Mart": "https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html",
+        "AQS DataMart": "https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html",
         "RAQSAPI": "https://github.com/USEPA/RAQSAPI",
-        "Bug Tracker": "https://github.com/USEPA/pyaqsapi/issues",
-        "Source": "https://github.com/USEPA/pyaqsapi",
-        "Data Mart API": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
+        "Issue Tracker": "https://github.com/USEPA/pyaqsapi/issues",
+        "Source": "https://github.com/USEPA/pyaqsapi.git",
+        "AQS Data Mart API": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

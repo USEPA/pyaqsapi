@@ -96,7 +96,7 @@ and install pyaqsapi.
 
     pip install -r requirements.txt
 
-Next change into the new directory then use setuptools to build and pip
+While still in the project's root directory use setuptools to build and pip
 to install the package.
 
 .. code-block:: console
