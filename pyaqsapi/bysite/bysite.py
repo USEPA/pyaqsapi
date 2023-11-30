@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """pyaqsapi Functions that aggregate data by site."""
 
 from pandas import DataFrame

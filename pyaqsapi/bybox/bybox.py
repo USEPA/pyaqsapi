@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 
 """Functions that aggregate data by box.
-(by latitude/longitude bounding box)
+(by latitude/longitude bounding box).
 """
 
 from pandas import DataFrame

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Functions that aggregate data by county."""
 
 from pandas import DataFrame
@@ -888,7 +887,7 @@ def qa_flowrateverification(
     """
     Return a table containing flow rate Verification data for a parameter code
     aggregated matching input parameter, stateFIPS, and county_code, provided
-    for bdate - edate time frame
+    for bdate - edate time frame.
 
     Parameters
     ----------

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """setupfunctions."""
 
 from requests import get

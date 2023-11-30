@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Functions that aggregate data by cbsa
 (by Core Based Statistic Area, as defined by the Census Bureau)."""
 
@@ -341,7 +340,7 @@ def quarterlysummary(
 ):
     """
     Return quarterly summary data aggregated by Core Based Statistical Area
-    (cbsa_code)
+    (cbsa_code).
 
     Note
     ----

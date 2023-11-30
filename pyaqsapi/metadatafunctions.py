@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """metadatafunctions."""
 import pyaqsapi.helperfunctions as helperfunctions
 

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Functions that aggregate data by pqao
 (By Primary Quality Assurance Organization)."""
 

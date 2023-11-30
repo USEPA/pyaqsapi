@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Functions that aggregate data by ma (By Monitoring Agency)."""
 import pyaqsapi.helperfunctions as helperfunctions
 

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 from os import environ, getcwd
 from os.path import abspath, exists

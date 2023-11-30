@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """helperfunctions."""
 
 from datetime import date
