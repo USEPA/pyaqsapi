@@ -72,13 +72,13 @@ and to serve as a simple rate limit.
 
 RAQSAPI
 =======
-pyaqsapi is a port of `RAQSAPI`_ to the python 3 programming environment. For
-anyone that is familiar with RAQSAPI, the pyaqsapi API will feel familiar to you,
-most of the functions are similar and the parameters sent to each functions
-are the same. pyaqsapi aims to have feature parity with RAQSAPI and neither
-project will have features that the other project doesn't - other than
-programming language environment or language preference there is no benefit to
-using one package over the other.
+pyaqsapi is a port of `RAQSAPI <https://github.com/USEpa/RAQSAPI>`_ to the
+python 3 programming environment. For anyone that is familiar with RAQSAPI, 
+the pyaqsapi API will feel familiar to you, most of the functions are similar 
+and the parameters sent to each functions are the same. pyaqsapi aims to have 
+feature parity with RAQSAPI and neither project will have features that the
+other project doesn't - other than programming language environment or language
+preference there is no benefit to using one package over the other.
 
 Install pyaqsapi
 ----------------
@@ -86,21 +86,21 @@ To install pyaqsapi first clone the pyaqsapi repository.
 
 .. code-block:: console
 
-    git clone https://github.com/USEPA/pyaqsapi.git
+   git clone https://github.com/USEPA/pyaqsapi.git
 
-Next, use pip to install the proper dependencies that are required to build
+Next, in the project's root directory use pip to install the proper
+dependencies that are required to build
 and install pyaqsapi.
 
-.. code-block:: bash
+.. code-block:: console
 
     pip install -r requirements.txt
 
 Next change into the new directory then use setuptools to build and pip
 to install the package.
 
-.. code-block:: bash
+.. code-block:: console
 
-    cd pyaqsapi
     python -m build .
     python -m pip install .
 
@@ -127,7 +127,7 @@ RETURN_HEADER is manually set to True an AQSAPI_V2 python 3 object is returned.
 Use the get_data() class method to retrieve the data, get_header() class
 method to retrieve header information.
 
-Sign up and setting up user credentials with the RAQSAPI library
+Sign up and setting up user credentials with the pyaqsapi library
 ================================================================
 If you have not already done so you will need to sign up with AQS Data Mart
 using aqs_sign_up function,[2] this function takes one input, “email,” which
@@ -152,6 +152,12 @@ authentication but only account monitoring. Each time pyaqsapi is loaded and
 before using any of it’s functions use the aqs_credentials function to enter in
 the user credentials so that pyaqsapi can access the AQS Data Mart server.
 
+Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency's Air
+Quality Service DataMart to retrieve data. The same credentials can be used for 
+access to either project. Note however, that AQS and AQS DataMart are similar
+and related datasources, however the credentials used to access AQS are not the
+same as those used to access AQS DataMart.
+
 .. note::
     The credentials used to access AQS Data Mart API are not the same as the
     credentials used to access AQS. AQS users who do not have access to the
@@ -166,6 +172,7 @@ by how each function aggregates the data. There are 7 different families of
 related aggregate functions in which the AQS Data Mart API groups data.
 
 These seven families are:
+
    - by site (aqs.bysite)
    - by county (aqs.bycounty)
    - by state (aqs.bystate)
@@ -180,6 +187,7 @@ call on the 13 different aggregate services that the Data Mart API provides.
 Note that not all aggregations are available for each service.
 
 These thirteen services are:
+
     - \ Monitors (\*monitors)
     - \ Sample Data (\*sampledata)
     - \ Daily Summary Data (\*dailydata)
