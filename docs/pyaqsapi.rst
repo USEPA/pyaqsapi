@@ -4,72 +4,64 @@ pyaqsapi package
 Submodules
 ----------
 
-pyaqsapi.aqsmultiyearparams module
-----------------------------------
+pyaqsapi.bybox.bybox module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: pyaqsapi.aqsmultiyearparams
+.. automodule:: pyaqsapi.bybox.bybox
    :members:
    :undoc-members:
    :show-inheritance:
 
-pyaqsapi.bybox module
----------------------
+pyaqsapi.bycbsa.bycbsa module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: pyaqsapi.bybox
+.. automodule:: pyaqsapi.bycbsa.bycbsa
    :members:
    :undoc-members:
    :show-inheritance:
 
-pyaqsapi.bycbsa module
-----------------------
+pyaqsapi.bycounty.bycounty module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: pyaqsapi.bycbsa
+.. automodule:: pyaqsapi.bycounty.bycounty
    :members:
    :undoc-members:
    :show-inheritance:
 
-pyaqsapi.bycounty module
-------------------------
+pyaqsapi.byma.byma module
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: pyaqsapi.bycounty
+.. automodule:: pyaqsapi.byma.byma
    :members:
    :undoc-members:
    :show-inheritance:
 
-pyaqsapi.byma module
---------------------
+pyaqsapi.bypqao.bypqao module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: pyaqsapi.byma
+.. automodule:: pyaqsapi.bypqao.bypqao
    :members:
    :undoc-members:
    :show-inheritance:
 
-pyaqsapi.bypqao module
-----------------------
+pyaqsapi.bysite.bysite module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: pyaqsapi.bypqao
+.. automodule:: pyaqsapi.bysite.bysite
    :members:
    :undoc-members:
    :show-inheritance:
 
-pyaqsapi.bysite module
-----------------------
+pyaqsapi.bystate.bystate module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: pyaqsapi.bysite
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyaqsapi.bystate module
------------------------
-
-.. automodule:: pyaqsapi.bystate
+.. automodule:: pyaqsapi.bystate.bystate
    :members:
    :undoc-members:
    :show-inheritance:
 
 pyaqsapi.helperfunctions module
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: pyaqsapi.helperfunctions
    :members:
@@ -77,7 +69,7 @@ pyaqsapi.helperfunctions module
    :show-inheritance:
 
 pyaqsapi.listfunctions module
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: pyaqsapi.listfunctions
    :members:
@@ -85,7 +77,7 @@ pyaqsapi.listfunctions module
    :show-inheritance:
 
 pyaqsapi.metadatafunctions module
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: pyaqsapi.metadatafunctions
    :members:
@@ -93,7 +85,7 @@ pyaqsapi.metadatafunctions module
    :show-inheritance:
 
 pyaqsapi.setupfunctions module
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: pyaqsapi.setupfunctions
    :members:
@@ -104,14 +96,6 @@ pyaqsapi.textvariables module
 ------------------------------
 
 .. automodule:: pyaqsapi.textvariables
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: pyaqsapi
    :members:
    :undoc-members:
    :show-inheritance:
