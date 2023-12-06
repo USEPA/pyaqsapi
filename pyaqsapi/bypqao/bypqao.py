@@ -192,7 +192,7 @@ def qa_pep_audit(
                     returns a AQSAPI_v2 object.
 
     Example
-    ------
+    -------
     Return a DataFrame of PEP audit data in June 2017 where the pqao is the
     Alabama Department of Environmental Management (agency 0013)::
 

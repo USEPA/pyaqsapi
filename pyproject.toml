@@ -74,7 +74,10 @@ exclude = [
     "ruff_cache",
     ".spyproject",
     ".github",
-    ".vscode"
+    ".vscode",
+    "conf.py",
+    "setup.py",
+    "*tests/*"
 ]
 
 [tool.ruff.pydocstyle]

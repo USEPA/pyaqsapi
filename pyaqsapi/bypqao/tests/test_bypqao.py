@@ -1,4 +1,3 @@
-
 from datetime import date
 from os import environ, getcwd
 from os.path import abspath, exists

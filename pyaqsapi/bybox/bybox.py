@@ -1,4 +1,3 @@
-
 """Functions that aggregate data by box.
 (by latitude/longitude bounding box).
 """
