@@ -66,9 +66,7 @@ jobs:
           make html
           cd ..
       - name: test_package
-        run: |
-          export AQSkey=${{ secrets.AQSKEY }}
-          export AQSuser=${{ secrets.AQSUSER }}
-          pytest
-          unset AQSkey
-          unset AQSuser
+        env:
+          AQSkey: ${{ secrets.AQSKEY }}
+          AQSuser: ${{ secrets.AQSUSER }}
+        run: pytest
