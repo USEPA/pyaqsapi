@@ -1,4 +1,3 @@
-============
 Introduction
 ============
 The pyaqsapi module for the python 3 programming environment allows a python 3
