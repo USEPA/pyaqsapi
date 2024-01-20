@@ -19,12 +19,17 @@
    :alt: GitHub Workflow Status (with event)
    :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml
    :align: center
-   
+
+.. contents::
+
+pyaqsapi README
+===============
+
 .. include:: docs/manual/EPA_Disclaimer.rst
 
 .. include:: docs/manual/Introduction.rst
 
-.. include::docs/manual/TimelinessofAQSdata.rst
+.. include:: docs/manual/TimelinessofAQSdata.rst
 
 .. include:: docs/manual/RAQSAPI.rst
 
@@ -39,3 +44,4 @@
     
 Read the full 
 `API documentation <https://usepa.github.io/pyaqsapi/>`_ online.
+
