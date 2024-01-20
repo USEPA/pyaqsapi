@@ -17,7 +17,8 @@ pyaqsapi's documentation
 .. include:: manual/Install_pyaqsapi.rst
 .. include:: manual/Load_pyaqsapi.rst
 .. include:: manual/Using_pyaqsapi.rst
-#this is temporary until the Long version is finished
+..
+    This is temporary until the long version is finished
 .. include:: manual/pyaqsapiFunctions-Brief.rst
 
 pyaqsapi API reference documentation
