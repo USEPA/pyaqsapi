@@ -46,16 +46,15 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">pyaqsapi's documentation</a></li>
 <li><a class="reference internal" href="#epa-disclaimer">EPA Disclaimer</a></li>
-<li><a class="reference internal" href="#aqs-datamart-disclaimer">AQS DataMart Disclaimer</a><ul>
+<li><a class="reference internal" href="#aqs-datamart-disclaimer">AQS DataMart Disclaimer</a></li>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#about-the-timeliness-of-aqs-data">About the timeliness of AQS Data</a></li>
 <li><a class="reference internal" href="#about-raqsapi">About RAQSAPI</a></li>
 <li><a class="reference internal" href="#install-pyaqsapi">Install pyaqsapi</a></li>
 <li><a class="reference internal" href="#load-pyaqsapi">Load pyaqsapi</a></li>
 <li><a class="reference internal" href="#using-pyaqsapi">Using pyaqsapi</a></li>
 <li><a class="reference internal" href="#sign-up-and-setting-up-user-credentials-with-the-pyaqsapi-library">Sign up and setting up user credentials with the pyaqsapi library</a></li>
+<li><a class="reference internal" href="#data-mart-aggregate-functions">Data Mart aggregate functions</a></li>
 <li><a class="reference internal" href="#pyaqsapi-api-reference-documentation">pyaqsapi API reference documentation</a></li>
 <li><a class="reference internal" href="#index">Index</a></li>
 </ul>
@@ -122,8 +121,9 @@ occur as a result of using this package, the Data Mart service, any
 software, service, hardware, or user accounts that may utilize this
 package.</p>
 </div>
+</section>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
 <p>The pyaqsapi module for the python 3 programming environment allows a python 3
 programming environment to connect to and retrieve data from the United States
 Environmental Protection Agency’s (US EPA) Air Quality System (AQS) Data Mart
@@ -143,7 +143,6 @@ has instance methods for retrieving the data requested, header information,
 and other metadata related to the API call. After each call to the API a five
 second stall is invoked to help prevent overloading the Data Mart API server
 and to serve as a simple rate limit.</p>
-</section>
 </section>
 <section id="about-the-timeliness-of-aqs-data">
 <span id="index-1"></span><h1>About the timeliness of AQS Data<a class="headerlink" href="#about-the-timeliness-of-aqs-data" title="Link to this heading"></a></h1>
@@ -206,7 +205,7 @@ method to retrieve header information.</p>
 <section id="sign-up-and-setting-up-user-credentials-with-the-pyaqsapi-library">
 <span id="index-6"></span><h1>Sign up and setting up user credentials with the pyaqsapi library<a class="headerlink" href="#sign-up-and-setting-up-user-credentials-with-the-pyaqsapi-library" title="Link to this heading"></a></h1>
 <p>If you have not already done so you will need to sign up with AQS Data Mart
-using aqs_sign_up function,[2] this function takes one input, “email,” which
+using aqs_sign_up function, this function takes one input, “email,” which
 is a python 3 character object, that represents the email address that you want
 to use as a user credential to the AQS Data Mart service. After a successful
 call to aqs_sign_up an email message will be sent to the email address provided
@@ -239,8 +238,63 @@ AQS Data Mart will need to create new credentials. However, you may use the
 same credentials used in RAQSAPI in pyaqsapi since RAQSAPI ewes the the same
 AQS Data Mart API as pyaqsapi.</p>
 </div>
-<p>#this is temporary until the Long version is finished
-.. include:: manual/pyaqsapiFunctions-Brief.rst</p>
+</section>
+<section id="data-mart-aggregate-functions">
+<span id="index-7"></span><h1>Data Mart aggregate functions<a class="headerlink" href="#data-mart-aggregate-functions" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>AQS Data Mart API restricts the maximum amount of monitoring data to one
+full year of data per API call. These functions are able to return multiple
+years of data by making repeated calls to the API. Each call to the Data
+Mart API will take time to complete. The more years of data being requested
+the longer pyaqsapi will take to return the results.</p>
+</div>
+<p>These functions retrieve aggregated data from the Data Mart API and are grouped
+by how each function aggregates the data. There are 7 different families of
+related aggregate functions in which the AQS Data Mart API groups data.</p>
+<p id="index-8">These seven families are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>by site (aqs.bysite)</p></li>
+<li><p>by county (aqs.bycounty)</p></li>
+<li><p>by state (aqs.bystate)</p></li>
+<li><p>by latitude/longitude bounding box (aqs.bybox)</p></li>
+<li><p>by monitoring agency (aqs.byma)</p></li>
+<li><p>by Primary Quality Assurance Organization (aqs.bypqao)</p></li>
+<li><p>by core based statistical area (as defined by the US census Bureau)
+(aqs.bycbsa).</p></li>
+</ul>
+</div></blockquote>
+<p>Within these families of aggregated data functions there are functions that
+call on the 13 different aggregate services that the Data Mart API provides.
+Note that not all aggregations are available for each service.</p>
+<p id="index-9">These thirteen services are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Monitors (*monitors)</p></li>
+<li><p>Sample Data (*sampledata)</p></li>
+<li><p>Daily Summary Data (*dailydata)</p></li>
+<li><p>Annual Summary Data (annualdata)</p></li>
+<li><p>Quality Assurance - Blanks Data (*qa_blanks)</p></li>
+<li><p>Quality Assurance - Collocated Assessments
+(*qa_collocated_assessments)</p></li>
+<li><p>Quality Assurance - Flow Rate Verifications (*qa_flowrateverification)</p></li>
+<li><p>Quality Assurance - Flow Rate Audits (*aqs_qa_flowrateaudit)</p></li>
+<li><p>Quality Assurance - One Point Quality Control Raw Data
+(*qa_one_point_qc)</p></li>
+<li><p>Quality Assurance - PEP Audits (*qa_pep_audit)</p></li>
+<li><p>Transaction Sample - AQS Submission data in transaction Format (RD)
+(*transactionsample)</p></li>
+<li><p>Quality Assurance - Annual Performance Evaluations
+(*qa_annualpeferomanceeval)</p></li>
+<li><p>Quality Assurance - Annual Performance Evaluations in the AQS
+Submission transaction format (RD)
+(*qa_annualpeferomanceevaltransaction)</p></li>
+</ul>
+</div></blockquote>
+<p>Aggregate functions are named aqs.&lt;aggregation&gt;.&lt;service&gt;() where &lt;service&gt;
+is one of the 13 services listed above and &lt;aggregation&gt; is either
+&quot;bysite“, ”bycounty“, ”bystate“, ”bybox“, ”bycbsa&quot;, &quot;byma&quot; or &quot;bypqao&quot;.</p>
 </section>
 <section id="pyaqsapi-api-reference-documentation">
 <h1>pyaqsapi API reference documentation<a class="headerlink" href="#pyaqsapi-api-reference-documentation" title="Link to this heading"></a></h1>
@@ -263,7 +317,7 @@ AQS Data Mart API as pyaqsapi.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, US Environmental Protection Agency.</p>
+    <p>&#169; Copyright 2024, US Environmental Protection Agency.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

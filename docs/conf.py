@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information ------------------------------------------------------
 
 project = "pyaqsapi"
-copyright = "2023, US Environmental Protection Agency"
+copyright = "2024, US Environmental Protection Agency"
 author = "Clinton Mccrowey (US Environmental Protection Agency)"
 
 
@@ -35,11 +35,11 @@ extensions = [
     "sphinxcontrib.spelling",
     "numpydoc",
     "sphinx.ext.napoleon",
-    "sphinxcontrib.bibtex"
+    "sphinxcontrib.bibtex",
 ]
 
 # bibtext file location
-bibtex_bibfiles =['manual/pyaqsapi.bib']
+bibtex_bibfiles = ["manual/pyaqsapi.bib"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -53,7 +53,7 @@ exclude_patterns = [
     ".DS_Store",
     "setup.py",
     "*modules.rst",
-    "*setup.rst"
+    "*setup.rst",
 ]
 
 

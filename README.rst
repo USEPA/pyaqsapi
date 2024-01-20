@@ -143,7 +143,7 @@ method to retrieve header information.
 Sign up and setting up user credentials with the pyaqsapi library
 =================================================================
 If you have not already done so you will need to sign up with AQS Data Mart
-using aqs_sign_up function,[2] this function takes one input, “email,” which
+using aqs_sign_up function, this function takes one input, “email,” which
 is a python 3 character object, that represents the email address that you want
 to use as a user credential to the AQS Data Mart service. After a successful
 call to aqs_sign_up an email message will be sent to the email address provided
