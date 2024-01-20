@@ -35,7 +35,11 @@ extensions = [
     "sphinxcontrib.spelling",
     "numpydoc",
     "sphinx.ext.napoleon",
+    "sphinxcontrib.bibtex"
 ]
+
+# bibtext file location
+bibtex_bibfiles =['manual/pyaqsapi.bib']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -49,7 +53,7 @@ exclude_patterns = [
     ".DS_Store",
     "setup.py",
     "*modules.rst",
-    "*setup.rst",
+    "*setup.rst"
 ]
 
 

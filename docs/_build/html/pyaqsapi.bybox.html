@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyaqsapi.bybox package &mdash; pyaqsapi  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -40,10 +42,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.html">pyaqsapi package</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pyaqsapi.bybox package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyaqsapi.bybox.bybox">pyaqsapi.bybox.bybox module</a><ul>
+<li><a class="reference internal" href="#pyaqsapi.bybox.bybox.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bybox.bybox.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bybox.bybox.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bybox.bybox.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bybox.bybox.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#module-pyaqsapi.bybox">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -76,7 +91,7 @@
 <section id="module-pyaqsapi.bybox.bybox">
 <span id="pyaqsapi-bybox-bybox-module"></span><h2>pyaqsapi.bybox.bybox module<a class="headerlink" href="#module-pyaqsapi.bybox.bybox" title="Link to this heading"></a></h2>
 <p>Functions that aggregate data by box.
-(by latitude/longitude bounding box)</p>
+(by latitude/longitude bounding box).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.bybox.bybox.annualsummary">
 <span class="sig-prename descclassname"><span class="pre">pyaqsapi.bybox.bybox.</span></span><span class="sig-name descname"><span class="pre">annualsummary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbdate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cedate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyaqsapi.bybox.bybox.annualsummary" title="Link to this definition"></a></dt>

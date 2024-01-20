@@ -335,8 +335,13 @@ def dailysummary(
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
-def quarterlysummary(
-    parameter, bdate, edate, cbsa_code, cbdate=None, cedate=None, return_header=False
+def quarterlysummary(parameter,
+                     bdate,
+                     edate,
+                     cbsa_code,
+                     cbdate=None,
+                     cedate=None,
+                     return_header=False
 ):
     """
     Return quarterly summary data aggregated by Core Based Statistical Area

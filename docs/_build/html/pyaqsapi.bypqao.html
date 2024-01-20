@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyaqsapi.bypqao package &mdash; pyaqsapi  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -40,10 +42,26 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.html">pyaqsapi package</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pyaqsapi.bypqao package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyaqsapi.bypqao.bypqao">pyaqsapi.bypqao.bypqao module</a><ul>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bypqao.bypqao.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#module-pyaqsapi.bypqao">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -393,9 +411,9 @@ to None.</p>
 <dd><p>Return a table of Performance Evaluation Program (PEP) audit data
 aggregated by Primary Quality Assurance Organization (PQAO) code for the
 time frame between bdate and edate.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>parameter</strong><span class="classifier">a character list or a single character string</span></dt><dd><p>which represents the parameter code of the air
 pollutant related to the data being requested.</p>
 </dd>
@@ -418,19 +436,6 @@ returned. This is an optional variable which defaults
 to None.</p>
 </dd>
 <dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
-</dd>
-<dt><strong>Example</strong></dt><dd></dd>
-<dt><strong>------</strong></dt><dd></dd>
-<dt><strong>Return a DataFrame of PEP audit data in June 2017 where the pqao is the</strong></dt><dd></dd>
-<dt><strong>Alabama Department of Environmental Management (agency 0013)::</strong></dt><dd><p>import pyaqsapi as aqs
-from datetime import date
-...
-aqs.bypqao.qa_pep_audit(parameter=&quot;88101&quot;,</p>
-<blockquote>
-<div><p>bdate=date(year=2017, month=6, day=1),
-edate=date(year=2017, month=6, day=30),
-pqao_code=&quot;0013&quot;)</p>
-</div></blockquote>
 </dd>
 </dl>
 </dd>

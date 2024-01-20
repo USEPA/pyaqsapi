@@ -3,17 +3,27 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to pyaqsapi's documentation!
-====================================
+
+pyaqsapi's documentation
+=========================
 .. toctree::
   :maxdepth: 2
+  :numbered:
 
-  pyaqsapi
-.. add some text
+.. include:: manual/EPA_Disclaimer.rst
+.. include:: manual/Introduction.rst
+.. include:: manual/TimelinessofAQSdata.rst
+.. include:: manual/RAQSAPI.rst
+.. include:: manual/Install_pyaqsapi.rst
+.. include:: manual/Load_pyaqsapi.rst
+.. include:: manual/Using_pyaqsapi.rst
+#this is temporary until the Long version is finished
+.. include:: manual/pyaqsapiFunctions-Brief.rst
 
-Indices and tables
-==================
-
-* :ref:`genindex`
+pyaqsapi API reference documentation
+====================================
 * :ref:`modindex`
-* :ref:`search`
+
+Index
+=====
+* :ref:`genindex`
