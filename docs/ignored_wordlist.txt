@@ -1,7 +1,7 @@
 annualdata
 annualsummary
-annualpeferomanceeval
-annualpeferomanceevaltransaction
+annualperformanceeval
+annualperformanceevaltransaction
 aqs
 Barnstable
 bdate
@@ -29,6 +29,8 @@ flowrateaudit
 flowrateverification
 Gastonia
 helperfunctions
+isavailable
+knownissues
 listfunctions
 maxima
 maxlat
@@ -46,8 +48,11 @@ pyaqsapiFunctions
 qa
 qc
 quarterly
+quarterlydata
 quarterlysummary
 RAQSAPI
+removeheader
+revisionhistory
 rst
 sampledata
 sampleduration

@@ -1,8 +1,30 @@
-pyaqsapi package
+pyaqsapi API reference documentation
 ================
 
-Submodules
-----------
+pyaqsapi base Package
+~~~~~~~~~~~~~~~~~~~~~
+.. automodule:: pyaqsapi.helperfunctions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: pyaqsapi.listfunctions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: pyaqsapi.metadatafunctions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: pyaqsapi.setupfunctions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyaqsapi Submodules
+-------------------
 
 pyaqsapi.bybox.bybox module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

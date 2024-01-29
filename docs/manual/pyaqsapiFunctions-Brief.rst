@@ -1,4 +1,4 @@
-.. index:: pyaqsapi aggregate functions (brief)
+:orphan:
 
 Data Mart aggregate functions
 =============================
@@ -34,25 +34,24 @@ Note that not all aggregations are available for each service.
 
 These thirteen services are:
 
-    - \ Monitors (\*monitors)
-    - \ Sample Data (\*sampledata)
-    - \ Daily Summary Data (\*dailydata)
-    - \ Annual Summary Data (annualdata)
-    - \ Quality Assurance - Blanks Data (\*qa_blanks)
-    - \ Quality Assurance - Collocated Assessments
-      (\*qa_collocated_assessments)
-    - \ Quality Assurance - Flow Rate Verifications (\*qa_flowrateverification)
-    - \ Quality Assurance - Flow Rate Audits (\*aqs_qa_flowrateaudit)
-    - \ Quality Assurance - One Point Quality Control Raw Data
-      (\*qa_one_point_qc)
-    - \ Quality Assurance - PEP Audits (\*qa_pep_audit)
-    - \ Transaction Sample - AQS Submission data in transaction Format (RD)
-      (\*transactionsample)
-    - \ Quality Assurance - Annual Performance Evaluations
-      (\*qa_annualpeferomanceeval)
-    - \ Quality Assurance - Annual Performance Evaluations in the AQS
-      \ Submission transaction format (RD)
-      \ (\*qa_annualpeferomanceevaltransaction)
+    * Monitors (monitors)
+    * Sample Data (sampledata)
+    * Daily Summary Data (dailydata)
+    * Annual Summary Data (annualdata)
+    * Quality Assurance - Blanks Data (qa_blanks)
+    * Quality Assurance - Collocated Assessments
+      (qa_collocated_assessments)
+    * Quality Assurance - Flow Rate Verifications (qa_flowrateverification)
+    * Quality Assurance - Flow Rate Audits (aqs_qa_flowrateaudit)
+    * Quality Assurance - One Point Quality Control Raw Data
+      (qa_one_point_qc)
+    * Quality Assurance - PEP Audits (qa_pep_audit)
+    * Transaction Sample - AQS Submission data in transaction Format (RD)
+      (transactionsample)
+    * Quality Assurance - Annual Performance Evaluations
+      (qa_annualperformanceeval)
+    * Quality Assurance - Annual Performance Evaluations in the AQS
+      Submission transaction format (RD) (qa_annualperformanceevaltransaction)
 
 
 Aggregate functions are named aqs.<aggregation>.<service>() where <service>

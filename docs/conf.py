@@ -36,13 +36,14 @@ extensions = [
     "numpydoc",
     "sphinx.ext.napoleon",
     "sphinxcontrib.bibtex",
+    "sphinx.ext.autosectionlabel",
 ]
 
 # bibtext file location
 bibtex_bibfiles = ["manual/pyaqsapi.bib"]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
+# templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -54,8 +55,14 @@ exclude_patterns = [
     "setup.py",
     "*modules.rst",
     "*setup.rst",
+    "pyaqsapi*.rst",
+    "*pyaqsapiFunctions-Brief.rst",
+    "genindex.rst",
 ]
 
+# get rid of those duplicate label warnings when embedding a child rst file
+# into another rst file.
+suppress_warnings = ["autosectionlabel.*"]
 
 # -- Options for HTML output --------------------------------------------------
 

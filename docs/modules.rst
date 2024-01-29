@@ -1,5 +1,5 @@
-pyaqsapi
-========
+pyaqsapi Reference API Documentation
+====================================
 
 .. toctree::
    :maxdepth: 4

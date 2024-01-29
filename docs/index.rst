@@ -3,12 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sectionauthor:: Clinton Mccrowey <mccrowey.clinton <AT> epa.gov>
 
-pyaqsapi's documentation
-=========================
+===========================
+pyaqsapi user documentation
+===========================
+
 .. toctree::
   :maxdepth: 2
   :numbered:
+  :hidden:
 
 .. include:: manual/EPA_Disclaimer.rst
 .. include:: manual/Introduction.rst
@@ -19,12 +23,17 @@ pyaqsapi's documentation
 .. include:: manual/Using_pyaqsapi.rst
 ..
     This is temporary until the long version is finished
-.. include:: manual/pyaqsapiFunctions-Brief.rst
+..
+.. include:: manual/pyaqsapiFunctions-Long.rst
+
 
 pyaqsapi API reference documentation
-====================================
+------------------------------------
+
 * :ref:`modindex`
 
-Index
-=====
+
+pyaqsapi index
+--------------
+
 * :ref:`genindex`
