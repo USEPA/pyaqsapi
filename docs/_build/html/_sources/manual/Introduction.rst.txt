@@ -1,6 +1,6 @@
 Introduction
 ============
-The pyaqsapi module for the python 3 programming environment allows a python 3
+The pyaqsapi package for the python 3 programming environment allows a python 3
 programming environment to connect to and retrieve data from the United States
 Environmental Protection Agency’s (US EPA) Air Quality System (AQS) Data Mart
 API v2 (Air Quality System)1 interface directly. This package enables the data

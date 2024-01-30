@@ -14,7 +14,7 @@ loaded by default:
 * pyaqsapi.byma
 * pyaqsapi.ma
 
-With these submodules loaded to entire list of functions exported by the
+With these submodules loaded the entire list of functions exported by the
 pyaqsapi package includes:
 
 ::
@@ -154,18 +154,19 @@ see which parameters are used with each function.
 * countycode:
     a character object which represents the 3 digit state FIPS code for the
     county being requested (with leading zero(s)). Refer to
-    :ref: `listfunctions` for a table of available county codes for each state.
-                
+    `aqs_counties_by_state()`_ for a table of available county codes for each
+    state.
+
 * duration (optional):
     a character string that represents the parameter duration code that limits
     returned data to a specific sample duration. The default value of None
     will result in no filtering based on duration code. Valid durations
     include actual sample durations and not calculated durations such as 8 hour
     CO or O\ :sub:`3`\ rolling averages, 3/6 day PM  averages or Pb 3 month
-    rolling averages. Refer to :ref: `aqs_sampledurations()` for a table of all
+    rolling averages. Refer to `aqs_sampledurations()`_ for a table of all
     available duration codes.
 
-* edate: 
+* edate:
     a date object which represents the end date of the data selection. Only
     data on or before this date will be returned.
 
@@ -174,7 +175,7 @@ see which parameters are used with each function.
     register with the AQS API or change an existing user's key. A verification
     email will be sent to the account specified.
 
-* key: 
+* key:
     a character object which represents the key used in conjunction with the
     username given to connect to AQS Data Mart.
 
@@ -182,12 +183,12 @@ see which parameters are used with each function.
     a character object which represents the 4 digit AQS Monitoring Agency code
     (with leading zeroes).
 
-* maxlat: 
+* maxlat:
     a character object which represents the maximum latitude of a geographic
     box. Decimal latitude with north begin positive. Only data south of this
     latitude will be returned.
 
-* maxlon: 
+* maxlon:
     a character object which represents the maximum longitude of a
     geographic box. Decimal longitude with east being positive. Only
     data west of this longitude will be returned. Note that -80 is less
@@ -197,20 +198,20 @@ see which parameters are used with each function.
     a character object which represents the minimum latitude of a
     geographic box. Decimal latitude with north being positive.
     Only data north of this latitude will be returned.
-            
+
 * minlon:
     a character object which represents the minimum longitude of a
     geographic box. Decimal longitude with east begin positive. Only
     data east of this longitude will be returned.
 
-* parameter: 
+* parameter:
     a character list or single character object which represents the parameter 
     code of the air pollutant related to the data being requested.
-               
+
 * return_Header:
     If False (default) only returns data requested as a pandas DataFrame. If
     True returns a AQSAPI_V2 object.
-                         
+
 * service:
     a string which represents the services provided by the AQS API. For a list 
     of available services refer to
@@ -225,7 +226,7 @@ see which parameters are used with each function.
 * stateFIPS:
     a character object which represents the 2 digit state FIPS code
     (with leading zero) for the state being requested.
-            
+
 * pqao_code:
     a character object which represents the 4 digit AQS Primary Quality
     Assurance Organization code (with leading zeroes).
@@ -261,7 +262,7 @@ Data Mart API metadata functions
 --------------------------------
 The functions included in this family of functions are:
 
-:: 
+::
 
 * aqs_isavailable
 * aqs_knownissues
@@ -270,24 +271,24 @@ The functions included in this family of functions are:
 
 These functions return Data Mart meta data
 
-The aqs_isavailable function takes no parameters and returns a
+    The aqs_isavailable function takes no parameters and returns a
     table which details the status of the AQS API.
 
-The aqs_fields_by_service function takes one parameter, service,
+    The aqs_fields_by_service function takes one parameter, service,
     which is a character object which represents the services provided by
     the AQS API. For a list of available services see
     `Air Quality System (AQS) API - Services Overview
     <https://aqs.epa.gov/aqsweb/documents/data_api.html#services>`_
-    
-The aqs_knownissues function takes no parameters and Returns a
+
+    The aqs_knownissues function takes no parameters and Returns a
     table of any known issues with system functionality or the data. These are
     usually issues that have been identified internally and will require some
     time to correct in Data Mart or the API. This function implements a direct
     API call to Data Mart and returns data directly from the API. Issues
     returned via this function do not include any issues from the pyaqsapi
     package.
-    
-The aqs_revisionhistory function is used to query Data Mart for the
+
+    The aqs_revisionhistory function is used to query Data Mart for the
     change history to the API.
 
 Data Mart API list functions
@@ -310,47 +311,49 @@ The functions included in this family of functions are:
 * aqs_states
 
 
-List functions return the API status, API options or groupings that can be used
-    in conjunction with other API calls. By default each function in this
+    List functions return the API status, API options or groupings that can be
+    used in conjunction with other API calls. By default each function in this
     category returns results as a DataTable. If return_header parameter is set
     to True a AQSAPI_v2 object is returned instead.
 
-aqs_cbsas returns a table of all available Core Based Statistical
+    aqs_cbsas returns a table of all available Core Based Statistical
     Areas (cbsas) and their respective cbsa codes.
 
-aqs_states takes no arguments and returns a table of the available
+    aqs_states takes no arguments and returns a table of the available
     states and their respective state FIPS codes.
-    
-aqs_sampledurations takes no arguments and returns a table of the
+
+    _`aqs_sampledurations()`
+    aqs_sampledurations takes no arguments and returns a table of the
     available sample duration code used to construct other requests.
 
-aqs_classes takes no arguments and returns a table of parameter
+    aqs_classes takes no arguments and returns a table of parameter
     classes (groups of parameters, i.e. "criteria" or "all").
 
-aqs_counties_by_state takes one parameter, stateFIPS, which is a two
+    _`aqs_counties_by_state()`
+    aqs_counties_by_state takes one parameter, stateFIPS, which is a two
     digit state FIPS code for the state being requested represented as a
     character object and returns a table of counties and their
     respective FIPS code for the state requested. Use aqs_states to
     receive a table of valid state FIPS codes.
 
-aqs_sites_by_county takes two parameters, stateFIPS, which is a
+    aqs_sites_by_county takes two parameters, stateFIPS, which is a
     two digit state FIPS code for the state being requested and county_code
     which is a three digit county FIPS code for the county being requested,
     both stateFIPS and county_code should be encoded as a character object.
     This function returns a table of all air monitoring sites with the
     requested state and county FIPS code combination.
 
-aqs_pqaos takes no parameters and returns an AQSAPI_V2
+    aqs_pqaos takes no parameters and returns an AQSAPI_V2
     object containing a table of primary quality assurance
     organizations (pqaos).
 
-aqs_mas takes no parameters and returns an AQSAPI_V2
+    aqs_mas takes no parameters and returns an AQSAPI_V2
     object containing a table of monitoring agencies (MA).
 
 Data Mart aggregate functions
 -----------------------------
 
-..note::
+.. note::
     AQS Data Mart API restricts the  maximum amount of monitoring data to one
     full year of data per API call. These functions are able to return multiple
     years of data by making repeated calls to the API. Each call to the Data 
@@ -358,206 +361,191 @@ Data Mart aggregate functions
     the longer pyaqsapi will take to return the results.
 
 These functions retrieve aggregated data from the Data Mart API and are
-    grouped by how each function aggregates the data. There are 5 different
-    families of related aggregate functions. These families are arranged by how
-    the Data Mart API groups the returned data, bysite, bycounty, bystate,
-    by<latitude/longitude bounding box> (bybox) and
-    by<core based statistical area> (bycbsa). Within each family
-    of aggregated data functions there are functions that call on the 10
-    different services that the Data Mart API provides. All Aggregate
-    functions return a pandas DataFrame by default. If the return_Header
-    parameter is set to True an AQSAPI_V2 object is returned instead.
+grouped by how each function aggregates the data. There are 5 different
+families of related aggregate functions. These families are arranged by how
+the Data Mart API groups the returned data, bysite, bycounty, bystate,
+by<latitude/longitude bounding box> (bybox) and
+by<core based statistical area> (bycbsa). Within each family
+of aggregated data functions there are functions that call on the 10
+different services that the Data Mart API provides. All Aggregate
+functions return a pandas DataFrame by default. If the return_Header
+parameter is set to True an AQSAPI_V2 object is returned instead.
 
 These fourteen services are:
 
-1. **Monitors**: Returns operational information about the samplers (monitors)
-                 used to collect the data. Includes identifying information,
-                 operational dates, operating organizations, etc. Functions
-                 using this service contain monitors in the function 
-                 name.
+1. Monitors:
+    Returns operational information about the samplers (monitors)
+    used to collect the data. Includes identifying information,
+    operational dates, operating organizations, etc. Functions
+    using this service contain monitors in the function name.
+2. Sample Data:
+    Returns sample data - the most fine grain data reported to
+    EPA. Usually hourly, sometimes 5-minute, 12-hour, etc.
+    This service is available in several geographic selections
+    based on geography: site, county, state, cbsa (core based
+    statistical area, a grouping of counties), or
+    by latitude/longitude bounding box. Functions using this
+    service contain sampledata in the function name.
+    All Sample Data functions accept two additional, optional
+    parameters; cbdate and cedate.
 
-2. **Sample Data**: Returns sample data - the most fine grain data reported to
-                      EPA. Usually hourly, sometimes 5-minute, 12-hour, etc.
-                      This service is available in several geographic selections
-                      based on geography: site, county, state, cbsa (core based
-                      statistical area, a grouping of counties), or
-                      by latitude/longitude bounding box. Functions using this
-                      service contain sampledata in the function name.
-                      All Sample Data functions accept two additional, optional
-                      parameters; cbdate and cedate.
+      * cbdate:
+          a date object which represents a "beginning date of last 
+          change" that indicates when the data was last updated.
+          cbdate is used to filter data based on the change date.
+          Only data that changed on or after this date will be
+          returned. This is an optional variable which defaults to
+          None.
 
-      + cbdate: a date object which represents a "beginning date of last 
-                      change" that indicates when the data was last updated.
-                      cbdate is used to filter data based on the change date.
-                      Only data that changed on or after this date will be
-                      returned. This is an optional variable which defaults to
-                      None.
+      * cedate:
+           a date object which represents an "end date of last change"
+           that indicates when the data was last updated. cedate is
+           used to filter data based on the change date. Only data
+           that changed on or before this date will be returned. This
+           is an optional variable which defaults to None.
 
-      + cedate: a date object which represents an "end date of last change"
-                      that indicates when the data was last updated. cedate is
-                      used to filter data based on the change date. Only data
-                      that changed on or before this date will be returned. This
-                      is an optional variable which defaults to None.
+      * duration:
+            an optional character string that represents the parameter
+            duration code that limits returned data to a specific sample
+            duration. The default value of None results in no filtering
+            based on duration code. Valid durations include actual sample
+            durations and not calculated durations such as 8 hour
+            CO or $O_3$ rolling averages, 3/6 day PM averages or
+            Pb 3 month rolling averages. Refer to 
+            `aqs_sampledurations()`_ for a list of all available
+            duration codes.
 
-      + duration: an optional character string that represents the parameter
-                            duration code that limits returned data to
-                            a specific sample duration. The default value of
-                            None results in no filtering based on
-                            duration code. Valid durations include actual sample
-                            durations and not calculated durations such as 8 hour
-                            CO or $O_3$ rolling averages, 3/6 day PM averages or
-                            Pb 3 month rolling averages. Refer to 
-                            [aqs_sampledurations()] for a list of all available
-                            duration codes.
+3. Daily Summary Data:
+    Returns data summarized at the daily level. All daily
+    summaries are calculated on midnight to midnight basis in local time.
+    Variables returned include date, mean value, maximum value, etc. Functions
+    using this service contain Dailysummary in the function name. All Daily
+    Summary Data functions accept two additional parameters; cbdate and cedate.
 
-3. **Daily Summary Data**: Returns data summarized at the daily level. All daily
-                            summaries are calculated on midnight to midnight
-                            basis in local time. Variables returned include
-                            date, mean value, maximum value, etc. Functions
-                            using this service contain Dailysummary in
-                            the function name. All Daily Summary Data functions
-                            accept two additional parameters; cbdate and cedate
+      * cbdate:
+          a date object which represents a "beginning date of last change"
+          that indicates when the data was last updated. cbdate is used to
+          filter data based on the change date. Only data that changed on or
+          after this date will be returned. This is an optional variable which
+          defaults to None.
 
-      + cbdate: a date object which represents a "beginning date of last
-                    change" that indicates when the data was last updated.
-                    cbdate is used to filter data based on the change date. Only
-                    data that changed on or after this date will be returned.
-                    This is an optional variable which defaults to None.
+      * cedate:
+          a date object which represents an "end date of last change"
+          that indicates when the data was last updated. cedate is
+          used to filter data based on the change date. Only data
+          that changed on or before this date will be returned. This
+          is an optional variable which defaults to None.
 
-      + cedate: a date object which represents an "end date of last change"
-                    that indicates when the data was last updated. cedate is
-                    used to filter data based on the change date. Only data
-                    that changed on or before this date will be returned. This
-                    is an optional variable which defaults to None.
+4. Annual Summary Data:
+    Returns data summarized at the yearly level. Variables include mean value,
+    maxima, percentiles, etc. Functions using this service contain annualdata
+    in the function name. All Annual Summary Data functions accept two
+    additional parameters; cbdate and cedate.
 
-4. **Annual Summary Data**: Returns data summarized at the yearly level.
-                              Variables include mean value, maxima, 
-                              percentiles, etc. Functions using this service
-                              contain annualdata in the function name. All
-                              Annual Summary Data functions accept two
-                              additional parameters; cbdate and cedate.
+      * cbdate:
+           a date object which represents a "beginning date of last
+           change" that indicates when the data was last updated. cbdate
+           is used to filter data based on the change date. Only data
+           that changed on or after this date will be returned. This is
+           an optional variable which defaults to None.
 
-      + cbdate: a date object which represents a "beginning date of last
-                  change" that indicates when the data was last updated. cbdate
-                  is used to filter data based on the change date. Only data
-                  that changed on or after this date will be returned. This is
-                  an optional variable which defaults to None.
+      * cedate:
+          a date object which represents an "end date of last change"
+          that indicates when the data was last updated. cedate is used
+          to filter data based on the change date. Only data that
+          changed on or before this date will be returned. This is an
+          optional variable which defaults to None.
 
-      + cedate: a date object which represents an "end date of last change"
-                  that indicates when the data was last updated. cedate is used
-                  to filter data based on the change date. Only data that
-                  changed on or before this date will be returned. This is an
-                  optional variable which defaults to None.
+5. Quarterly Summary Data:
+    Returns data summarized at the quarterly level. Variables include mean
+    value, maxima, percentiles, etc. Functions using this service
+    contain quarterlydata in the function name. All Annual Summary Data
+    functions accept two additional parameters; cbdate and cedate.
 
-5. **Quarterly Summary Data**: Returns data summarized at the quarterly level.
-                              Variables include mean value, maxima,
-                              percentiles, etc. Functions using this service
-                              contain quarterlydata in the function name. All
-                              Annual Summary Data functions accept two
-                              additional parameters; cbdate and cedate.
+      * cbdate:
+          a date object which represents a "beginning date of last change" that
+          indicates when the data was last updated. cbdate is used to filter
+          data based on the change date. Only data that changed on or after
+          this date will be returned. This is an optional variable which
+          defaults to None.
 
-      + cbdate: a date object which represents a "beginning date of last
-                  change" that indicates when the data was last updated. cbdate
-                  is used to filter data based on the change date. Only data
-                  that changed on or after this date will be returned. This is
-                  an optional variable which defaults to None.
+      * cedate:
+          a date object which represents an "end date of last change"
+          that indicates when the data was last updated. cedate is used
+          to filter data based on the change date. Only data that
+          changed on or before this date will be returned. This is an
+          optional variable which defaults to None.
 
-      + cedate: a date object which represents an "end date of last change"
-                  that indicates when the data was last updated. cedate is used
-                  to filter data based on the change date. Only data that
-                  changed on or before this date will be returned. This is an
-                  optional variable which defaults to None.
+6. Quality Assurance - Blanks Data:
+    Quality assurance data - blanks samples. Blanks are unexposed sample
+    collection devices (e.g., filters) that are transported with the
+    exposed sample devices to assess if contamination is occurring during the
+    transport or handling of the samples. Functions using this service contain
+    qa_blanks in the function name.
 
-6. **Quality Assurance - Blanks Data**:
-                            Quality assurance data - blanks samples.
-                              Blanks are unexposed sample collection devices
-                              (e.g., filters) that are transported with the
-                              exposed sample devices to assess if contamination
-                              is occurring during the transport or handling of
-                              the samples. Functions using this service contain
-                              qa_blanks in the function name.
+7. Quality Assurance - Collocated Assessments:
+    Quality assurance data - collocated assessments. Collocated assessments
+    are pairs of samples collected by different samplers at the same time
+    and place. (These are "operational" samplers, assessments with
+    independently calibrated samplers are called "audits".). Functions using
+    this service contain qa_collocated_assessments in the function name.
 
-7. **Quality Assurance - Collocated Assessments**:
-                          Quality assurance data - collocated assessments.
-                            Collocated assessments are pairs of samples
-                            collected by different samplers at the same time
-                            and place. (These are "operational" samplers,
-                            assessments with independently calibrated samplers
-                            are called "audits".). Functions using this service
-                            contain qa_collocated_assessments in the
-                            function name.
+8. Quality Assurance - Flow Rate Verifications:
+    Quality assurance data - flow rate verifications. Several times per year,
+    each PM monitor must have it's (fixed) flow rate verified by an operator
+    taking a measurement of the flow rate. Functions using this service contain
+    qa_flowrateverification in the function name.
 
-8. **Quality Assurance - Flow Rate Verifications**:
-                        Quality assurance data - flow rate verifications.
-                          Several times per year, each PM monitor must have 
-                          it's (fixed) flow rate verified by an operator taking
-                          a measurement of the flow rate. Functions using this
-                          service contain qa_flowrateverification in
-                          the function name.
+9. Quality Assurance - Flow Rate Audits:
+    Quality assurance data - flow rate audits. At least twice year, each PM
+    monitor must have it's flow rate measurement audited by an expert using a
+    different method than is used for flow rate verifications. Functions using
+    this service contain qa_flowrateaudit in the function name.
 
-9. **Quality Assurance - Flow Rate Audits**:
-                      Quality assurance data - flow rate audits. At least twice
-                        year, each PM monitor must have it's flow rate
-                        measurement audited by an expert using a different
-                        method than is used for flow rate verifications.
-                        Functions using this service contain
-                        qa_flowrateaudit in the function name.
+10. Quality Assurance - One Point Quality Control Raw Data:
+     Quality assurance data - one point quality control check raw data.
+     At least every two weeks, certain gaseous monitors must be challenged with
+     a known concentration to determine monitor performance. Functions using
+     this service contain qa_one_point_qc in the function name.
 
-10. **Quality Assurance - One Point Quality Control Raw Data**:
-                      Quality assurance data - one point quality control check
-                      raw data. At least every two weeks, certain gaseous
-                      monitors must be challenged with a known concentration to
-                      determine monitor performance. Functions using this
-                      service contain qa_one_point_qc in the function
-                      name.
+11. Quality Assurance - pep Audits:
+     Quality assurance data - performance evaluation program (pep) audits.
+     Pep audits are independent assessments used to estimate total measurement
+     system bias with a primary quality assurance organization. Functions
+     using this service contain qa_pep_audit in the function name.
 
-11. **Quality Assurance - pep Audits**:
-                      Quality assurance data - performance evaluation program
-                      (pep) audits. pep audits are independent assessments used
-                      to estimate total measurement system bias with a primary
-                      quality assurance organization.  Functions using this
-                      service contain qa_pep_audit in the function
-                      name.
+12. Transaction Sample - AQS Submission data in transaction format (RD):
+     Transaction sample data - The raw transaction sample data uploaded to AQS
+     by the agency responsible for data submissions in RD format. Functions
+     using this service contain transactionsample in the function name.
+     Transaction sample data is only available aggregated by site, county,
+     state or monitoring agency.
 
-12. **Transaction Sample - AQS Submission data in transaction format (RD)**:
-                     Transaction sample data - The raw transaction sample data
-                     uploaded to AQS by the agency responsible for data
-                     submissions in RD format. Functions using this
-                     service contain transactionsample in the
-                     function name. Transaction sample data is only available
-                     aggregated by site, county, state or monitoring agency.
+13. Quality Assurance - Annual Performance Evaluations:
+     Quality assurance data - Annual performance evaluations. A performance
+     evaluation must be conducted on each primary monitor once per year. The
+     percent differences between known and measured concentrations at several
+     levels are used to assess the quality of the monitoring data. Functions
+     using this service contain aqs_qa_annualperformanceeval in the function
+     name. Annual performance in transaction format are only available
+     aggregated by site, county, state, monitoring agency, and primary quality
+     assurance organization. Annual performance evaluations are only available
+     aggregated by site, county, state, monitoring agency, and primary quality
+     assurance organization.
 
-13. **Quality Assurance - Annual Performance Evaluations**:
-                     Quality assurance data  - Annual performance evaluations.
-                     A performance evaluation must be conducted on each primary
-                     monitor once per year. The percent differences between
-                     known and measured concentrations  at several levels are
-                     used to assess the quality of the monitoring data.
-                     Functions using this service contain
-                     aqs_qa_annualperformanceeval in the function
-                     name. Annual performance in transaction format are
-                     only available aggregated by site, county, state,
-                     monitoring agency, and primary quality assurance
-                     organization. Annual performance evaluations are only
-                     available aggregated by site, county, state,
-                     monitoring agency, and primary quality assurance
-                     organization.
-
-14. **Quality Assurance - Annual performance Evaluations in transaction** \
-      **format (RD)**:
-                    Quality assurance data - The raw transaction annual
-                    performance evaluations data in RD format. Functions using
-                    this service contain 
-                    aqs_qa_annualperformanceevaltransaction in the
-                    function name. Annual performance evaluations in transaction
-                    format are only available aggregated by site, county, state,
-                    monitoring agency, and primary quality assurance
-                    organization.
+14. Quality Assurance - Annual performance Evaluations in transaction \
+      format (RD):
+      Quality assurance data - The raw transaction annual performance
+      evaluations data in RD format. Functions using this service contain 
+      aqs_qa_annualperformanceevaltransaction in the function name. Annual
+      performance evaluations in transaction format are only available
+      aggregated by site, county, state, monitoring agency, and primary quality
+      assurance organization.
 
 
 Data Mart aggregate functions bysite
 --------------------------------------
-The pyaqsapi.bysite module exports the following functions:
+The bysite submodule exports the following functions:
 ::
 
 * bysite.annualsummary,
@@ -576,8 +564,8 @@ The pyaqsapi.bysite module exports the following functions:
 * bysite.sampledata,
 * bysite.transactionsample
 
-Functions in this family of functions aggregate data at the site level. All
-  bysite functions accept the following variables:
+Functions exported by the bysite submodule aggregate data at the site level.
+    bysite functions accept the following variables:
 
 * parameter:
 * bdate:
@@ -585,21 +573,20 @@ Functions in this family of functions aggregate data at the site level. All
 * stateFIPS:
 * countycode:
 * sitenum:
-* cbdate (optional): (This parameter is only used in conjunction with 
-                        sampledata, dailysummary,
-                        annualdata functions and
-                        quarterlysummary functions).
-* cedate (optional): (This parameter is only used in conjunction with
-                        sampledata, dailysummary,
-                        annualdata functions and
-                        quarterlysummary functions).
-* return_header (optional): set to False by default.
-* duration (optional): (This parameter is only used in conjunction with
-                                 sampledata functions).
+* cbdate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata functions and quarterlysummary functions).
+* cedate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata functions and quarterlysummary functions).
+* return_header (optional):
+    set to False by default.
+* duration (optional):
+    (This parameter is only used in conjunction with sampledata functions).
 
 Data Mart aggregate functions bycounty
 ----------------------------------------
-The pyaqsapi.bycounty module exports the following functions:
+The bycounty submodule exports the following functions:
 ::
 
 * bycounty.annualsummary,
@@ -618,29 +605,28 @@ The pyaqsapi.bycounty module exports the following functions:
 * bycounty.sampledata,
 * bycounty.transactionsample
 
-Functions in this family of functions aggregate data at the county level.
-  All functions accept the following variables:
+Functions exported by the bycounty submodule aggregate data at the county
+    level. All functions accept the following variables:
 
 * parameter: 
 * bdate: 
 * edate:
 * stateFIPS: 
 * countycode:
-* cbdate (optional): (This parameter is only used in conjunction with 
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* cedate (optional): (This parameter is only used in conjunction with
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* return_header (optional): set to False by default.
-* duration (optional): (This parameter is only used in conjunction with
-                                 sampledata functions).
+* cbdate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* cedate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* return_header (optional):
+    set to False by default.
+* duration (optional):
+    (This parameter is only used in conjunction with sampledata functions).
 
 Data Mart aggregate functions bystate
 ---------------------------------------
-The pyaqsapi.bystate module exports the following functions:
+The bystate submodule exports the following functions:
 ::
 
 * bystate.annualsummary,
@@ -659,29 +645,28 @@ The pyaqsapi.bystate module exports the following functions:
 * bystate.sampledata,
 * bystate.transactionsample
 
-Functions in this family of functions aggregate data at the state level.
-  All functions accept the following variables:
+Functions exported by the bystate submodule aggregate data at the state level.
+    All functions accept the following variables:
 
 * parameter: 
 * bdate: 
 * edate:
 * stateFIPS: 
 * countycode:
-* cbdate (optional): (This parameter is only used in conjunction with 
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* cedate (optional): (This parameter is only used in conjunction with
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* return_header (optional): set to False by default.
-* duration (optional): (This parameter is only used in conjunction with
-                                 sampledata functions).
+* cbdate (optional): 
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* cedate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* return_header (optional):
+    set to False by default.
+* duration (optional):
+    (This parameter is only used in conjunction with sampledata functions).
 
 Data Mart aggregate functions by Monitoring agency (MA)
 -------------------------------------------------------
-The pyaqsapi.byma module exports the following functions:
+The byma submodule exports the following functions:
 ::
 
 * byma.qa_annualpeferomanceeval,
@@ -701,41 +686,39 @@ Functions in this family of functions aggregate data at the state level.
 * bdate:
 * edate:
 * stateFIPS:
-* cbdate (optional): (This parameter is only used in conjunction with 
-                        sampledata, dailysummary,
-                        annualdata functions and
-                        quarterlysummary functions).
-* cedate (optional): (This parameter is only used in conjunction with
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* return_header (optional): set to False by default.
-* duration (optional): (This parameter is only used in conjunction with
-                                 sampledata functions).
+* cbdate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata functions and quarterlysummary functions).
+* cedate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* return_header (optional):
+    set to False by default.
+* duration (optional):
+    (This parameter is only used in conjunction with sampledata functions).
 
 
-functions in this family of functions aggregate data at the Monitoring Agency
-  (MA) level. All functions accept the following variables:
+Functions exported by the byma submodule aggregate data at the
+    Monitoring Agency (MA) level. All functions accept the following variables:
 
 * parameter:
 * bdate:
 * edate:
 * MA_code:
-* cbdate (optional): (This parameter is only used in conjunction with 
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* cedate (optional): (This parameter is only used in conjunction with
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* return_header (optional): set to False by default.
-* duration (optional): (This parameter is only used in conjunction with
-                                 sampledata functions).
+* cbdate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* cedate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* return_header (optional):
+    set to False by default.
+* duration (optional):
+    (This parameter is only used in conjunction with sampledata functions).
 
 Data Mart aggregate functions by Core Based Statistical Area (cbsa)
 -------------------------------------------------------------------
-The pyaqsapi.bycbsa module exports the following functions:
+The bycbsa submodule exports the following functions:
 ::
 
 * bycbsa.annualsummary,
@@ -745,30 +728,29 @@ The pyaqsapi.bycbsa module exports the following functions:
 * bycbsa.quarterlysummary,
 * bycbsa.sampledata
 
-Functions in this family of functions aggregate data at the Core Based
-  Statistical Area (cbsa, as defined by the US Census Bureau) level.
-  All functions accept the following variables:
+Functions exported by the bycbsa submodule aggregate data at the Core Based
+    Statistical Area (cbsa, as defined by the US Census Bureau) level.
+    All functions accept the following variables:
 
 * parameter:
 * bdate:
 * edate:
 * cbsa_code:
-* cbdate (optional): (This parameter is only used in conjunction with 
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* cedate (optional): (This parameter is only used in conjunction with
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* return_header (optional): set to False by default.
-* duration (optional): (This parameter is only used in conjunction with
-                                 sampledata functions).
+* cbdate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* cedate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* return_header (optional):
+    set to False by default.
+* duration (optional):
+    (This parameter is only used in conjunction with sampledata functions).
 
 
 Data Mart aggregate functions by Primary Quality Assurance Organization (pqao)
 ------------------------------------------------------------------------------
-The pyaqsapi.bypqao module exports the following functions:
+The bypqao submodule exports the following functions:
 ::
 
 * bypqao.qa_annualperformanceeval,
@@ -780,9 +762,9 @@ The pyaqsapi.bypqao module exports the following functions:
 * bypqao.qa_one_point_qc,
 * bypqao.qa_pep_audit
 
-Functions in this family of functions aggregate data at the Primary Quality
-  Assurance Organization (pqao) level. All functions accept the following
-  variables:
+Functions exported by the bypqao submodule aggregate data at the
+    Primary Quality Assurance Organization (pqao) level. All functions accept
+    the following variables:
 
 * parameter:
 * bdate:
@@ -792,7 +774,7 @@ Functions in this family of functions aggregate data at the Primary Quality
 
 Data Mart aggregate functions by latitude/longitude bounding box (bybox)
 --------------------------------------------------------------------------
-The pyaqsapi.bybox module exports the following functions:
+The bybox submodule exports the following functions:
 ::
 
 * bybox.annualsummary,
@@ -802,9 +784,9 @@ The pyaqsapi.bybox module exports the following functions:
 * bybox.quarterlysummary,
 * bybox.sampledata
 
-Functions in this family of functions aggregate data by a
-  latitude/longitude bounding box (bybox) level. All functions accept the
-  following variables:
+Functions exported by the bybox submodule aggregate data by a
+    latitude/longitude bounding box (bybox) level. All functions accept the
+    following variables:
 
 * parameter:
 * bdate:
@@ -813,17 +795,16 @@ Functions in this family of functions aggregate data by a
 * minlon:
 * maxlon:
 * maxlat:
-* cbdate (optional): (This parameter is only used in conjunction with 
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* cedate (optional): (This parameter is only used in conjunction with
-                        sampledata, dailysummary,
-                        annualdata and
-                        quarterlysummary functions).
-* return_header (optional): set to False by default.
-* duration (optional): (This parameter is only used in conjunction with
-                                 sampledata functions).
+* cbdate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* cedate (optional):
+    (This parameter is only used in conjunction with sampledata, dailysummary,
+    annualdata and quarterlysummary functions).
+* return_header (optional):
+    set to False by default.
+* duration (optional):
+    (This parameter is only used in conjunction with sampledata functions).
 
 pyaqsapi Miscellaneous functions
 --------------------------------
