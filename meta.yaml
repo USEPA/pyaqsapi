@@ -1,48 +1,75 @@
-{% set version = '2.0.3' %}
+{% set name = "pyaqsapi" %}
+{% set version = '0.1a1.dev1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
 package:
-    name: pyaqsapi
-    version: 1.0.BETA
+    name: {{ name }}
+    version: {{ version }}
 
 source:
-    fn: pyaqsapi-1.0.tar.gz
+    fn: dist/pyaqsapi-1.0b0.tar.gz
 
 build:
     noarch: python
     number: 0
-    script: python -m pip install --no-deps --ignore-installed .
+    script: python -m pip install --no-deps --ignore-installed sphinxcontrib-bibtex.
 
 requirements:
   host:
-    - conda
-    - conda-build
-    - python
+    - python >=3.8
     - pep517
-    - sphinx
+    - sphinx >=5.0
     - sphinx_rtd_theme
     - sphinxcontrib-napoleon
     - sphinxcontrib-apidoc
+    - sphinxcontrib-bibtex
     - toml
+    - wheel
+    - pip
+    - setuptools >=42
+    - codecov
+    - toml
+    - build
 
   run:
-    - python
+    - python > = 3.8
     - keyring
     - pandas
     - requests
+    - wheel
+    - pip
+    - certifi
+    - datetime
+    - cryptography
+    - numpydoc
 
-  test:
-    - python
+test:
+  imports:
+    - pyaqsapi
+    commands:
+      - pip check
+    requires:
+    - python > = 3.8
     - pytest
+    - pip
     - sphinxcontrib-spelling
     - tox
     - pytest-black
     - codecov
 about:
     home:"https://github.com/USEPA/pyaqsapi"
-    license: LICENSE.rst
-    summary: "Retrieve air monitoring data and associated metadata from the \
-              US Environmental Protection Agency's Air Quality System \
-              service using functions."
+    license: MIT
+    license_family: MIT
+    license_file: LICENSE.rst
+    summary: "Retrieve Ambient Air Monitoring data from US EPA AQS DataMart"
+    description: |
+              Retrieve air monitoring data and associated metadata from the
+              US Environmental Protection Agency's Air Quality System (AQS)
+              DataMart API service using python functions.
+
+extra:
+  recipe-maintainers:
+    #GITHUB ID of the maintainer of pyaqsapi
+    - MCCROWEYCLINTON-EPA

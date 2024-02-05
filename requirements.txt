@@ -8,6 +8,7 @@ sphinx>=5.0
 #sphinxcontrib-napoleon
 sphinxcontrib-apidoc
 sphinxcontrib-spelling
+sphinxcontrib-bibtex
 datetime
 toml
 sphinx_rtd_theme

@@ -20,6 +20,7 @@ cedate
 countycode
 dailydata
 dailysummary
+dataframe
 DataFrame
 Datamart
 durations

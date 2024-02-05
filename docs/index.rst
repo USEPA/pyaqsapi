@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 
-.. sectionauthor:: Clinton Mccrowey <mccrowey <DOT> clinton <AT> epa.gov>
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 ===========================
 pyaqsapi user documentation

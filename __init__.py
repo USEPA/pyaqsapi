@@ -2,11 +2,11 @@
 pyaqsapi
 --------
 A python Interface to The United States Environmental Protection
-Agency's Air Quality System Data Mart RESTful API server. pyaqsapi is a python
+Agency\'s Air Quality System Data Mart RESTful API server. pyaqsapi is a python
 port of RAQSAPI
 
 pyaqsapi is a package for python that connects the python programming
-environment to the United State's Environmental protection agency's
+environment to the United States Environmental protection agency\'s
 Air Quality System (AQS) Data Mart API for retrieval of air
 monitoring data.
 

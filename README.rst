@@ -56,7 +56,7 @@ Introduction
 ============
 The pyaqsapi module for the python 3 programming environment allows a python 3
 programming environment to connect to and retrieve data from the United States
-Environmental Protection Agency’s (US EPA) Air Quality System (AQS) Data Mart
+Environmental Protection Agency\’s (US EPA) Air Quality System (AQS) Data Mart
 API v2 (Air Quality System)1 interface directly. This package enables the data
 user to omit legacy challenges including coercing data from a JSON object to a
 usable python 3 object, retrieving multiple years of data, formatting API
@@ -101,7 +101,7 @@ To install pyaqsapi first clone the pyaqsapi repository.
 
    git clone https://github.com/USEPA/pyaqsapi.git
 
-Next, in the project's root directory use pip to install the proper
+Next, in the project\'s root directory use pip to install the proper
 dependencies that are required to build
 and install pyaqsapi.
 
@@ -109,7 +109,7 @@ and install pyaqsapi.
 
     pip install -r requirements.txt
 
-While still in the project's root directory use setuptools to build and pip
+While still in the project\'s root directory use setuptools to build and pip
 to install the package.
 
 .. code-block:: console
@@ -165,7 +165,7 @@ authentication but only account monitoring. Each time pyaqsapi is loaded and
 before using any of it’s functions use the aqs_credentials function to enter in
 the user credentials so that pyaqsapi can access the AQS Data Mart server.
 
-Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency's Air
+Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency\'s Air
 Quality Service DataMart to retrieve data. The same credentials can be used for 
 access to either project. Note however, that AQS and AQS DataMart are similar
 and related data sources, however the credentials used to access AQS are not the
