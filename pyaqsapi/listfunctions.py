@@ -11,8 +11,8 @@ def aqs_isavailable(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Check if the AQS API is up, running and accepting requests.::
 
         aqs_isAvailable()
@@ -45,8 +45,8 @@ def aqs_knownissues(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Retrieve a DataFrame of known issues directly from the AQS data mart API::
 
         aqs_knownissues()
@@ -79,8 +79,8 @@ def aqs_counties_by_state(stateFIPS, return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Returns a DataFrame of all the counties
     in North Carolina the county FIPS codes (county codes) for each.::
 
@@ -118,8 +118,8 @@ def aqs_sites_by_county(stateFIPS, countycode, return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of all the counties
     in North Carolina the county FIPS codes (county codes) for each.::
 
@@ -153,8 +153,8 @@ def aqs_classes(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of parameter classes (groups of parameters, i.e.
     "criteria" or all")::
 
@@ -192,8 +192,8 @@ def aqs_parameters_by_class(parameterclass, return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of parameter classes (groups of parameters, i.e.
     "criteria" or all")::
 
@@ -222,8 +222,8 @@ def aqs_mas(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Returns a DataFrame of monitoring agencies and their respective
     monitoring agency codes.::
 
@@ -252,8 +252,8 @@ def aqs_pqaos(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of primary quality assurance organizations (pqaos)::
 
         aqs_pqaos()
@@ -282,8 +282,8 @@ def aqs_cbsas(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of Core Based Statistical Areas (cbsas)
     and their respective cbsa codes::
 
@@ -313,8 +313,8 @@ def aqs_states(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of states and their FIPS codes::
 
         aqs_states()}
@@ -343,8 +343,8 @@ def aqs_revisionhistory(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of the EPA AQS Data Mart API revision history::
 
         aqs_revisionHistory()
@@ -377,8 +377,8 @@ def aqs_fields_by_service(service, return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing a list and definitions
     of fields in the Sample Data service.::
 
@@ -411,8 +411,8 @@ def aqs_sampledurations(return_header=False):
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of::
 
         aqs_sampledurations()

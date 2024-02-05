@@ -2,6 +2,7 @@ annualdata
 annualsummary
 annualperformanceeval
 annualperformanceevaltransaction
+API
 aqs
 Barnstable
 bdate
@@ -23,6 +24,7 @@ DataFrame
 Datamart
 durations
 edate
+EPA
 Fairhope
 flowrate
 flowrateaudit
@@ -35,6 +37,7 @@ listfunctions
 maxima
 maxlat
 maxlon
+Mccrowey
 metadatafunctions
 Millbrook
 minlat

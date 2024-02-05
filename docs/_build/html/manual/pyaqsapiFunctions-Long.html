@@ -225,7 +225,7 @@ Only data on or after this date will be returned.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>cbdate (optional):</dt><dd><p>a date object which represents the &quot;beginning date of last change&quot; that
+<dt>cbdate (optional):</dt><dd><p>a date object which represents the “beginning date of last change” that
 indicates when the data was last updated. cbdate is used to filter data
 based on the change date. Only data that changed on or after this
 date will be returned. This is an optional variable which defaults to None.</p>
@@ -233,7 +233,7 @@ date will be returned. This is an optional variable which defaults to None.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>cedate (optional):</dt><dd><p>a date object which represents the &quot;end date of last change&quot; that indicates
+<dt>cedate (optional):</dt><dd><p>a date object which represents the “end date of last change” that indicates
 when the data was last updated. cedate is used to filter data based on the
 change date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults to None.</p>
@@ -267,7 +267,7 @@ data on or before this date will be returned.</p>
 </li>
 <li><dl class="simple">
 <dt>email:</dt><dd><p>a character object which represents the email account that will be used to
-register with the AQS API or change an existing user's key. A verification
+register with the AQS API or change an existing user’s key. A verification
 email will be sent to the account specified.</p>
 </dd>
 </dl>
@@ -442,7 +442,7 @@ states and their respective state FIPS codes.</p>
 aqs_sampledurations takes no arguments and returns a table of the
 available sample duration code used to construct other requests.</p>
 <p>aqs_classes takes no arguments and returns a table of parameter
-classes (groups of parameters, i.e. &quot;criteria&quot; or &quot;all&quot;).</p>
+classes (groups of parameters, i.e. “criteria” or “all”).</p>
 <p><span class="target" id="aqs-counties-by-state">aqs_counties_by_state()</span>
 aqs_counties_by_state takes one parameter, stateFIPS, which is a two
 digit state FIPS code for the state being requested represented as a
@@ -505,8 +505,8 @@ parameters; cbdate and cedate.</p>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
-<dt>cbdate:</dt><dd><p>a date object which represents a &quot;beginning date of last
-change&quot; that indicates when the data was last updated.
+<dt>cbdate:</dt><dd><p>a date object which represents a “beginning date of last
+change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be
 returned. This is an optional variable which defaults to
@@ -515,7 +515,7 @@ None.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>cedate:</dt><dd><p>a date object which represents an &quot;end date of last change&quot;
+<dt>cedate:</dt><dd><p>a date object which represents an “end date of last change”
 that indicates when the data was last updated. cedate is
 used to filter data based on the change date. Only data
 that changed on or before this date will be returned. This
@@ -550,7 +550,7 @@ Summary Data functions accept two additional parameters; cbdate and cedate.</p>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
-<dt>cbdate:</dt><dd><p>a date object which represents a &quot;beginning date of last change&quot;
+<dt>cbdate:</dt><dd><p>a date object which represents a “beginning date of last change”
 that indicates when the data was last updated. cbdate is used to
 filter data based on the change date. Only data that changed on or
 after this date will be returned. This is an optional variable which
@@ -559,7 +559,7 @@ defaults to None.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>cedate:</dt><dd><p>a date object which represents an &quot;end date of last change&quot;
+<dt>cedate:</dt><dd><p>a date object which represents an “end date of last change”
 that indicates when the data was last updated. cedate is
 used to filter data based on the change date. Only data
 that changed on or before this date will be returned. This
@@ -580,8 +580,8 @@ additional parameters; cbdate and cedate.</p>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
-<dt>cbdate:</dt><dd><p>a date object which represents a &quot;beginning date of last
-change&quot; that indicates when the data was last updated. cbdate
+<dt>cbdate:</dt><dd><p>a date object which represents a “beginning date of last
+change” that indicates when the data was last updated. cbdate
 is used to filter data based on the change date. Only data
 that changed on or after this date will be returned. This is
 an optional variable which defaults to None.</p>
@@ -589,7 +589,7 @@ an optional variable which defaults to None.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>cedate:</dt><dd><p>a date object which represents an &quot;end date of last change&quot;
+<dt>cedate:</dt><dd><p>a date object which represents an “end date of last change”
 that indicates when the data was last updated. cedate is used
 to filter data based on the change date. Only data that
 changed on or before this date will be returned. This is an
@@ -610,7 +610,7 @@ functions accept two additional parameters; cbdate and cedate.</p>
 <blockquote>
 <div><ul class="simple">
 <li><dl class="simple">
-<dt>cbdate:</dt><dd><p>a date object which represents a &quot;beginning date of last change&quot; that
+<dt>cbdate:</dt><dd><p>a date object which represents a “beginning date of last change” that
 indicates when the data was last updated. cbdate is used to filter
 data based on the change date. Only data that changed on or after
 this date will be returned. This is an optional variable which
@@ -619,7 +619,7 @@ defaults to None.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>cedate:</dt><dd><p>a date object which represents an &quot;end date of last change&quot;
+<dt>cedate:</dt><dd><p>a date object which represents an “end date of last change”
 that indicates when the data was last updated. cedate is used
 to filter data based on the change date. Only data that
 changed on or before this date will be returned. This is an
@@ -644,15 +644,15 @@ qa_blanks in the function name.</p>
 <li><dl class="simple">
 <dt>Quality Assurance - Collocated Assessments:</dt><dd><p>Quality assurance data - collocated assessments. Collocated assessments
 are pairs of samples collected by different samplers at the same time
-and place. (These are &quot;operational&quot; samplers, assessments with
-independently calibrated samplers are called &quot;audits&quot;.). Functions using
+and place. (These are “operational” samplers, assessments with
+independently calibrated samplers are called “audits”.). Functions using
 this service contain qa_collocated_assessments in the function name.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>Quality Assurance - Flow Rate Verifications:</dt><dd><p>Quality assurance data - flow rate verifications. Several times per year,
-each PM monitor must have it's (fixed) flow rate verified by an operator
+each PM monitor must have it’s (fixed) flow rate verified by an operator
 taking a measurement of the flow rate. Functions using this service contain
 qa_flowrateverification in the function name.</p>
 </dd>
@@ -660,7 +660,7 @@ qa_flowrateverification in the function name.</p>
 </li>
 <li><dl class="simple">
 <dt>Quality Assurance - Flow Rate Audits:</dt><dd><p>Quality assurance data - flow rate audits. At least twice year, each PM
-monitor must have it's flow rate measurement audited by an expert using a
+monitor must have it’s flow rate measurement audited by an expert using a
 different method than is used for flow rate verifications. Functions using
 this service contain qa_flowrateaudit in the function name.</p>
 </dd>

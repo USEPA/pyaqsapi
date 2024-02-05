@@ -47,18 +47,18 @@ def monitors(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of SO2 monitors in Hawaii that were operating on
     May 01, 2017.
 
-        import pyaqsapi as aqs
-        from datetime import date
-        ...
-        aqs.bystate.monitors(parameter="88101",
-                             bdate=date(year=2017, month=1, day=1),
-                             edate=date(year=2017, month=12, day=31),
-                             stateFIPS="01")
+    import pyaqsapi as aqs
+    from datetime import date
+
+    aqs.bystate.monitors(parameter="88101",
+                         bdate=date(year=2017, month=1, day=1),
+                         edate=date(year=2017, month=12, day=31),
+                         stateFIPS="01")
 
     Returns
     -------
@@ -129,8 +129,8 @@ def qa_flowrateaudit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of flow rate audit
     data for Alabama in January 2018::
 
@@ -214,8 +214,8 @@ def qa_one_point_qc(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of one point QC check
     data for ozone in Massachusetts in January 2018::
 
@@ -295,8 +295,8 @@ def qa_pep_audit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of PEP audit data for PM2.5 in Alabama 2017::
 
         import pyaqsapi as aqs
@@ -383,8 +383,8 @@ def sampledata(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame with all benzene samples from
     North Carolina collected from May 15th, 1995 - May 15, 1999::
 
@@ -467,8 +467,8 @@ def annualsummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame with all benzene samples from
     North Carolina collected from May 15th, 1995 - May 15, 1999::
 
@@ -550,8 +550,8 @@ def qa_blanks(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame which contains PM2.5 blank data
     for Alabama for January 2018::
 
@@ -634,8 +634,8 @@ def dailysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of all benzene daily
     summaries from North Carolina collected on May 15th, 1995::
 
@@ -714,8 +714,8 @@ def qa_collocated_assessments(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of collocated
     assessment data for FRM2.5 for January 2013::
 
@@ -799,8 +799,8 @@ def qa_flowrateverification(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of flow rate verification data for the state of
     Alabama for 2017-2019::
 
@@ -885,8 +885,8 @@ def transactionsample(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing benzene transaction sample data for
     North Carolina on May 15, 1995::
 
@@ -971,8 +971,8 @@ def qa_annualperformanceeval(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation
     data for ozone in Alabama for 2017::
 
@@ -1060,8 +1060,8 @@ def qa_annualperformanceevaltransaction(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data
     for ozone in Alabama for 2017 in RD format.::
 
@@ -1122,8 +1122,8 @@ def quarterlysummary(
     stateFIPS a provided for bdate - edate time frame. Variables returned
     include mean value, maxima, percentiles, and etc.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of quarterly summary to be
     retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -1166,8 +1166,8 @@ def quarterlysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return an aqs S3 object containing quarterly summaries for
     FRM/FEM PM2.5 data for North Carolina for each quarter of  2016-2017::
 

@@ -74,15 +74,16 @@
              
   <section id="using-pyaqsapi">
 <span id="index-0"></span><h1>Using pyaqsapi<a class="headerlink" href="#using-pyaqsapi" title="Link to this heading"></a></h1>
-<p>For those who are already familiar with using RAQSAPI then the pyaqsapi API
-should feel familiar with a few minor differences regarding how the data is
-returned.</p>
-<p>All data is returned using pandas Data Frames. Exported functions from pyaqsapi
-have a parameter RETURN_HEADER, by default this parameter is False. When False
-these functions simply return the requested data as a pandas Data Frame. If
-RETURN_HEADER is manually set to True an AQSAPI_V2 python 3 object is returned.
-Use the get_data() class method to retrieve the data, get_header() class
-method to retrieve header information.</p>
+<p>For those who are already familiar with using <span id="id1"></span>
+RAQSAPI then the pyaqsapi API should feel familiar with a few minor differences
+regarding how the data is returned.</p>
+<p>By default data is returned as a pandas Data Frames <span id="id2"></span>.
+Exported functions from pyaqsapi have a parameter RETURN_HEADER, by default
+this parameter is False. When False functions simply return the requested
+data as a pandas Data Frame. If RETURN_HEADER is manually set to True a list of
+AQSAPI_V2 python 3 objects are returned. Use the get_data() class method to
+retrieve the data and the get_header() class method to retrieve header
+information.</p>
 </section>
 <section id="sign-up-and-setting-up-user-credentials-with-the-pyaqsapi-library">
 <span id="index-1"></span><h1>Sign up and setting up user credentials with the pyaqsapi library<a class="headerlink" href="#sign-up-and-setting-up-user-credentials-with-the-pyaqsapi-library" title="Link to this heading"></a></h1>
@@ -107,7 +108,7 @@ combination. The key that is supplied to use with Data Mart is not intended for
 authentication but only account monitoring. Each time pyaqsapi is loaded and
 before using any of it’s functions use the aqs_credentials function to enter in
 the user credentials so that pyaqsapi can access the AQS Data Mart server.</p>
-<p>Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency's Air
+<p>Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency’s Air
 Quality Service DataMart to retrieve data. The same credentials can be used for
 access to either project. Note however, that AQS and AQS DataMart are similar
 and related data sources, however the credentials used to access AQS are not the

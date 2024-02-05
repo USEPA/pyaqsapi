@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About the timeliness of AQS Data &mdash; pyaqsapi  documentation</title>
+  <title>Troubleshooting &mdash; pyaqsapi  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -44,7 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">About the timeliness of AQS Data</a></li>
+<li><a class="reference internal" href="#">Troubleshooting</a></li>
 </ul>
 </div>
         </div>
@@ -61,9 +61,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">About the timeliness of AQS Data</li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/manual/TimelinessofAQSdata.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/manual/Troubleshooting.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -71,13 +71,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="about-the-timeliness-of-aqs-data">
-<span id="index-0"></span><h1>About the timeliness of AQS Data<a class="headerlink" href="#about-the-timeliness-of-aqs-data" title="Link to this heading"></a></h1>
-<p>EPA’s AQS Datamart API, the service that pyaqsapi retrieves data from, does not
-host real time (collected now/today) data. If real time data is needed, please
-use the AirNow API and direct all questions toward real time data there.
-pyaqsapi does not work with AirNow and cannot retrieve real time data. For more
-details see section 7.1 of the About AQS Data page <span id="id1"></span>.</p>
+  <section id="troubleshooting">
+<span id="index-0"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
+<p>Parameters must be supplied exactly as they are specified, for example the
+stateFIPS for Alabama is “01”, entering a value of “1” for the stateFIPS
+may lead to unexpected results. Do not omit leading zeros in parameters that
+expect them.</p>
 </section>
 
 

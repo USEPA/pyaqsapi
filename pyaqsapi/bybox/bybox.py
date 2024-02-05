@@ -50,14 +50,14 @@ def monitors(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of all ozone monitors in the vicinity of
     central Alabama that operated in 1995.
 
     import pyaqsapi as aqs
     from datetime import date
-    ....
+
     aqs.bybox.monitors(parameter="44201",
                        bdate=date(year=1995, month=1, day=1),
                        edate=date(year=1995, month=12, day=31),
@@ -69,8 +69,8 @@ def monitors(
     Returns
     -------
     pandas DataFrame or an AQSAPI_V2 object
-        Returns a table of monitors from a latitude/longitude bounding
-        box (_by_box).
+    Returns a table of monitors from a latitude/longitude bounding
+    box (_by_box).
 
     """
     # The monitors service does not is able to oull multiple years of data
@@ -156,21 +156,22 @@ def sampledata(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing all ozone samples in the vicinity of
     central Alabama between May 1, 2015 - May 2, 2017.
 
-        import pyaqsapi as aqs
-        from datetime import date
-        ....
-        aqs.bybox.sampledata(parameter="44201",
-                             bdate=date(year=2015, month=5, day=1),
-                             edate=date(year=2015, month=5, day=2),
-                             minlat="33.3",
-                             maxlat="33.6",
-                             minlon="-87.0",
-                             maxlon="-86.7")
+    import pyaqsapi as aqs
+    from datetime import date
+
+    aqs.bybox.sampledata(parameter="44201",
+                         bdate=date(year=2015, month=5, day=1),
+                         edate=date(year=2015, month=5, day=2),
+                         minlat="33.3",
+                         maxlat="33.6",
+                         minlon="-87.0",
+                         maxlon="-86.7")
+
     Returns
     -------
     (pandas DataFrame or an AQSAPI_V2 object): sample data for all monitors
@@ -247,21 +248,21 @@ def annualsummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing ozone annual summaries in the vicinity of
     central Alabama for the first two days of May, 2015.
 
-        import pyaqsapi as aqs
-        from datetime import date
-        ...
-        aqs.bybox.annualsummary(parameter="44201",
-                                bdate=date(year=2015, month=5, day=1),
-                                edate=date(year=2015, month=5, day=2),
-                                minlat="33.3",
-                                maxlat="33.6",
-                                minlon="-87.0",
-                                maxlon="-86.7")
+    import pyaqsapi as aqs
+    from datetime import date
+
+    aqs.bybox.annualsummary(parameter="44201",
+                            bdate=date(year=2015, month=5, day=1),
+                            edate=date(year=2015, month=5, day=2),
+                            minlat="33.3",
+                            maxlat="33.6",
+                            minlon="-87.0",
+                            maxlon="-86.7")
 
     Returns
     -------
@@ -337,8 +338,8 @@ def dailysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of ozone daily summaries in the vicinity of
     central Alabama for the first two days of May 2015::
 
@@ -405,8 +406,8 @@ def quarterlysummary(
     stateFIPS and county_code provided for bdate - edate time frame.
     Variables returned include mean value, maxima, percentiles, and etc.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of quarterly summary to be
     retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -446,8 +447,8 @@ def quarterlysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing ozone quarterly summaries
     in the vicinity of central Alabama for each quarter in
     between 2015 - 2017::

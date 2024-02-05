@@ -36,8 +36,8 @@ def qa_flowrateaudit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of flow rate audit data
     for FRM PM2.5 January 2016 - January 2018 where the Monitoring Agency is
     the Jefferson County, AL  Department of Health (agency 0550)::
@@ -109,8 +109,8 @@ def qa_one_point_qc(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of ozone One Point QC data
     in January 2018 where the Monitoring Agency is the
     Massachusetts Department of Environmental Protection (agency 0660)::
@@ -183,8 +183,8 @@ def qa_pep_audit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of PEP audit data in June 2017 where the
     Monitoring Agency is the Alabama Department
     of Environmental Management (agency 0013)::
@@ -263,8 +263,8 @@ def qa_blanks(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing PM2.5 blank data in
     January 2018 where the Monitoring Agency is the Alabama
     Department of Environmental Management (agency 0013)::
@@ -337,8 +337,8 @@ def qa_collocated_assessments(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing collocated assessment
     data for FRM PM2.5 January 2013 where the Monitoring Agency is
     the Alabama Department of Environmental Management (agency 0013)::
@@ -415,8 +415,8 @@ def qa_flowrateverification(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing collocated assessment
     data for FRM PM2.5 January 2013 where the Monitoring Agency is
     the Alabama Department of Environmental Management (agency 0013)::
@@ -495,8 +495,8 @@ def transactionsample(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of ozone transaction sample data for all monitors
     operated by South Coast Air Quality Management District collected
     on May 15, 2015::
@@ -570,8 +570,8 @@ def qa_annualpeferomanceeval(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data for
     ozone where the monitoring agency is the Alabama Department of
     Environmental Management (MA_code 0013).::
@@ -650,8 +650,8 @@ def qa_annualperformanceevaltransaction(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data for
     ozone in where the MA is the Alabama Department of Environmental
     Management (MA_code 0013) for 2017 in RD format.::

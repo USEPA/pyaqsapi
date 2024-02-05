@@ -23,8 +23,8 @@ def monitors(
          with the provided parameter, stateFIPS, county_code, and sitenum
          for bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     All monitors that operated between the bdate and edate will be returned
 
     Parameters
@@ -61,8 +61,8 @@ def monitors(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a table of all SO2 monitors at the Hawaii NP site (#0007) in
     Hawaii County, HI that were operating between May 1 2015-2019::
 
@@ -131,8 +131,8 @@ def qa_flowrateaudit(
     parameter code, stateFIPS, countycode and site number for
     bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of flow rate audit data to
     be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -179,8 +179,8 @@ def qa_flowrateaudit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Returns a table of all SO2 monitors at the Hawaii NP site (#0007) in
     Hawaii County, HI that were operating on May 1, 2018::
 
@@ -243,8 +243,8 @@ def qa_one_point_qc(
     Return a table of one point QC raw data aggregated
     by parameter code, stateFIPS, countycode and site number.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of flow rate audit data to
     be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -291,8 +291,8 @@ def qa_one_point_qc(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Returns a One Point QC data for ozone at the Truro National Seashore
     site (#0002) in Barnstable County, MA in January 2018::
 
@@ -354,8 +354,8 @@ def sampledata(
     """
     Returns sample data where the data is aggregated at the site level.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of sampledata to
     be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -411,8 +411,8 @@ def sampledata(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of ozone monitoring data for the
     Millbrook School site (/#0014) in Wake County, NC for June 18, 2017::
 
@@ -479,8 +479,8 @@ def annualsummary(
     stateFIPS, county_code, and sitenum provided for bdate - edate time frame.
     Variables returned include mean value, maxima, percentiles, and etc.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of annualsummary data to
     be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -527,8 +527,8 @@ def annualsummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a table of annual summary ozone data for the Millbrook School
     site (#0014) in Wake County, NC for 2017 (Note, for annual data, only
     the year portion of the bdate and edate are used and only whole
@@ -597,8 +597,8 @@ def qa_blanks(
     to assess if contamination is occurring during the transport
     or handling of the samples. Data is aggregated at the site level.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of qa_blank data to
     be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -645,8 +645,8 @@ def qa_blanks(
     return_header : If FALSE (default) only returns data requested. If TRUE
     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a table of PM2.5 blank data for the Muscle Shoals site (#0014) in
     Colbert County, AL for January 2018::
 
@@ -712,8 +712,8 @@ def dailysummary(
     county_code, and sitenum provided for bdate - edate time frame. Variables
     returned include mean value, maxima, percentiles, and etc.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of dailysummary data to
     be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -760,8 +760,8 @@ def dailysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of daily summary ozone data for the Millbrook School
     site (#0014) in Wake County, NC for June 18, 2017::
 
@@ -825,8 +825,8 @@ def qa_collocated_assessments(
     input parameter, stateFIPS, county_code, and sitenum provided for
     bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of collocated assessments
     data to be retrieved at a time. This function conveniently extracts
     date information from the bdate and edate parameters then makes
@@ -873,8 +873,8 @@ def qa_collocated_assessments(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of collocated assessment data for FRM PM2.5 at the
     Huntsville Old Airport site (#0014) in Madison County, AL
     for January 2013::
@@ -940,8 +940,8 @@ def qa_flowrateverification(
     matching input parameter, stateFIPS, county_code, and sitenum provided for
     bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of flow rate verifications
     data to be retrieved at a time. This function conveniently extracts
     date information from the bdate and edate parameters then makes
@@ -988,8 +988,8 @@ def qa_flowrateverification(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of flow rate verification
     data for the Muscle Shoals site (#1002) in Colbert County, AL
     for January 2018::
@@ -1054,8 +1054,8 @@ def transactionsample(
     by matching input parameter, stateFIPS, county_code, and sitenum provided
     for bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of transaction data
     data to be retrieved at a time. This function conveniently extracts
     date information from the bdate and edate parameters then makes
@@ -1102,8 +1102,8 @@ def transactionsample(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return all ozone transaction data for the Millbrook School site (#0014)
     in Wake County, NC for June 18, 2017::
 
@@ -1168,8 +1168,8 @@ def qa_annualpeferomanceeval(
     parameter, sitenum, countycode and stateFIPS provided for
     bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of quality assurance
     Annual Performance Evaluation data to be retrieved at a time. This
     function conveniently extracts date information from the bdate and edate
@@ -1216,8 +1216,8 @@ def qa_annualpeferomanceeval(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return an DataFrame containing annual performance evaluation data for
     ozone at the Fairhope site in Baldwin County, AL for 2017::
 
@@ -1284,8 +1284,8 @@ def qa_annualperformanceevaltransaction(
     input parameter, sitenum, countycode and stateFIPS provided for
     bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of quality assurance
     Annual Performance Evaluation transaction data to be retrieved at a time.
     This function conveniently extracts date information from the bdate and
@@ -1332,8 +1332,8 @@ def qa_annualperformanceevaltransaction(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data (raw)
     for ozone at the Fairhope site in Baldwin County, AL for 2017
     in RD format::
@@ -1401,8 +1401,8 @@ def quarterlysummary(
     stateFIPS, county_code, and sitenum provided for bdate - edate time frame.
     Variables returned include mean value, maxima, percentiles, and etc.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of quarterly summary to be
     retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -1452,8 +1452,8 @@ def quarterlysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return DataFrame containing quarterly summaries for FRM/FEM PM2.5 data
     for Millbrook School in Wake County, NC for each quarter of 2016.::
 
@@ -1516,8 +1516,8 @@ def qa_pep_audit(
     data aggregated by parameter code, stateFIPS, countycode and
     site number for the time frame between bdate and edate.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of pep audit data
     to be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -1564,8 +1564,8 @@ def qa_pep_audit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of pep Audit data for FRM PM2.5
     at the Huntsville Old Airport site (#0014) in Madison County, AL
     for 2017 - 2019::

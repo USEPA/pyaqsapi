@@ -2,16 +2,17 @@
 
 Using pyaqsapi
 ==============
-For those who are already familiar with using RAQSAPI then the pyaqsapi API
-should feel familiar with a few minor differences regarding how the data is
-returned.
+For those who are already familiar with using :cite:t:`Rpackage:RAQSAPI`
+RAQSAPI then the pyaqsapi API should feel familiar with a few minor differences
+regarding how the data is returned.
 
-All data is returned using pandas Data Frames. Exported functions from pyaqsapi
-have a parameter RETURN_HEADER, by default this parameter is False. When False
-these functions simply return the requested data as a pandas Data Frame. If
-RETURN_HEADER is manually set to True an AQSAPI_V2 python 3 object is returned.
-Use the get_data() class method to retrieve the data, get_header() class
-method to retrieve header information.
+By default data is returned as a pandas Data Frames :cite:t:`pandas_DataFrame`.
+Exported functions from pyaqsapi have a parameter RETURN_HEADER, by default
+this parameter is False. When False functions simply return the requested
+data as a pandas Data Frame. If RETURN_HEADER is manually set to True a list of
+AQSAPI_V2 python 3 objects are returned. Use the get_data() class method to
+retrieve the data and the get_header() class method to retrieve header
+information.
 
 .. index:: sign_up
 

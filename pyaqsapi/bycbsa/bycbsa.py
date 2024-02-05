@@ -42,8 +42,8 @@ def monitors(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of NO2 monitors for the
     Charlotte-Concord-Gastonia, NC cbsa that were operating
     on January 01, 2017::
@@ -136,8 +136,8 @@ def sampledata(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame which contains NO2 data
     for Charlotte-Concord-Gastonia, NC cbsa for
     January 1, 2015 - January 01, 2017::
@@ -214,8 +214,8 @@ def annualsummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of annual summary NO2
     data the for Charlotte-Concord-Gastonia, NC cbsa on
     January 01, 2017::
@@ -293,8 +293,8 @@ def dailysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Returns a DataFrame of NO2 daily summary
     data the for Charlotte-Concord-Gastonia, NC cbsa on
     January 01, 2017::
@@ -342,8 +342,8 @@ def quarterlysummary(
     Return quarterly summary data aggregated by Core Based Statistical Area
     (cbsa_code).
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of quarterly summary to be
     retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -384,8 +384,9 @@ def quarterlysummary(
              to None.
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
-    Example
-    -------
+
+    Examples
+    --------
     Return a DataFrame of NO2 quarterly summary
     data the for Charlotte-Concord-Gastonia, NC cbsa for
     each quarter in 2017.::

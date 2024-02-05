@@ -52,8 +52,8 @@ def monitors(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return an DataFrame containing all SO2 monitors in
     Hawaii County, HI that were operating on May 1, 2015::
 
@@ -149,8 +149,8 @@ def qa_flowrateaudit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of flow rate audit data for
     Jefferson County, AL for January 2018::
 
@@ -240,8 +240,8 @@ def qa_one_point_qc(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of flow rate audit data for
     Jefferson County, AL for January 2018::
 
@@ -301,8 +301,8 @@ def qa_pep_audit(
     (PEP) audit data aggregated by parameter code, stateFIPS and countycode for
     bdate - edate time frame.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of pep audit data
     to be retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -346,8 +346,8 @@ def qa_pep_audit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame with PEP Audit data for FRM
     PM2.5 in Madison County, AL for 2017::
 
@@ -456,8 +456,8 @@ def sampledata(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return all FRM/FEM PM2.5 data for Wake County, NC between
     January 1, 2015 - February 28, 2016::
 
@@ -547,8 +547,9 @@ def annualsummary(
              to None.
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
-    Example
-    -------
+
+    Examples
+    --------
     Returns all FRM/FEM PM2.5 data for Wake County, NC between
     January 1, 2015 - February 28, 2016::
 
@@ -642,8 +643,8 @@ def qa_blanks(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame with PM2.5 blank data for
     Colbert County, AL for January 2018::
 
@@ -736,8 +737,8 @@ def dailysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return an aqs S3 object of daily summary FRM/FEM PM2.5 data
     for Wake County, NC between January and February 2016::
 
@@ -828,8 +829,8 @@ def qa_collocated_assessments(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame with collocated assessment data
     for FRM PM2.5 in Madison County, AL for January 2013::
 
@@ -920,8 +921,8 @@ def qa_flowrateverification(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Returns a DataFrame of flow rate verification data for
     Colbert County, AL for January 2018::
 
@@ -1014,8 +1015,8 @@ def transactionsample(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return all FRM/FEM transaction data for
     Wake County, NC on February 23, 2016::
 
@@ -1107,8 +1108,8 @@ def qa_annualperformanceeval(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data (raw)
     for ozone in Baldwin County, AL for 2017 in RD format::
 
@@ -1203,8 +1204,8 @@ def qa_annualperformanceevaltransaction(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data (raw)
     for ozone in Baldwin County, AL for 2017 in RD format::
 
@@ -1268,8 +1269,8 @@ def quarterlysummary(
     stateFIPS and county_code provided for bdate - edate time frame.
     Variables returned include mean value, maxima, percentiles, and etc.
 
-    Note
-    ----
+    Notes
+    -----
     The AQS API only allows for a single year of quarterly summary to be
     retrieved at a time. This function conveniently extracts date
     information from the bdate and edate parameters then makes repeated
@@ -1316,8 +1317,8 @@ def quarterlysummary(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing quarterly summaries for
     FRM/FEM PM2.5 data for Wake County, NC for each quarter of 2016::
 

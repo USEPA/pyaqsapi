@@ -40,8 +40,8 @@ def qa_flowrateaudit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of flow rate audit data for January
     2018 where the PQAO is the Jefferson County, AL Department Of
     Health (agency 0550).::
@@ -114,8 +114,8 @@ def qa_one_point_qc(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFramee of flow rate audit data for January 2018 where the
     PQAO is the Jefferson County, AL Department of Health (agency 0550)::
 
@@ -191,8 +191,8 @@ def qa_pep_audit(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of PEP audit data in June 2017 where the pqao is the
     Alabama Department of Environmental Management (agency 0013)::
 
@@ -267,8 +267,8 @@ def qa_blanks(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return DataFrame of PM2.5 blank data in January 2018 where the PQAO is
     the Alabama Department of Environmental Management (agency 0013)::
 
@@ -343,8 +343,8 @@ def qa_collocated_assessments(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Returns a DataFrame of collocated assessment
     data for FRM PM2.5 in January 2013 where the PQAO is the Alabama
     Department of Environmental Management (agency 0013)::
@@ -422,8 +422,8 @@ def qa_flowrateverification(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame of collocated assessment
     data for FRM PM2.5 in January 2013 where the PQAO is the Alabama
     Department of Environmental Management (agency 0013)::
@@ -502,8 +502,8 @@ def qa_annualperformanceeval(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data
     for ozone where the PQAO is the Alabama Department of
     Environmental Management (pqao_code 0013).::
@@ -584,8 +584,8 @@ def qa_annualperformanceevaltransaction(
     return_header : If FALSE (default) only returns data requested. If TRUE
                     returns a AQSAPI_v2 object.
 
-    Example
-    -------
+    Examples
+    --------
     Return a DataFrame containing annual performance evaluation data for
     ozone in where the PQAO is the Alabama Department of
     Environmental Management (pqao_code 0013) for 2017 in RD format.::

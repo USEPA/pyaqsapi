@@ -1,5 +1,11 @@
 pyaqsapi API reference documentation
-================
+====================================
+
+objects exported by pyaqsapi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+APIAQSAPI_V2
+.. autoclass:: AQSAPI_V2
+   :members: set_data, set_header, get_data, get_header, get_status_code, get_header, get_url, get_header, get_request_time
 
 pyaqsapi base Package
 ~~~~~~~~~~~~~~~~~~~~~
