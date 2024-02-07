@@ -53,12 +53,7 @@ exclude_patterns = [
     "Thumbs.db",
     ".DS_Store",
     "setup.py",
-    "*setup.rst",
-    "*pyaqsapiFunctions-Brief.rst",
-    "genindex.rst",
-    "*pyaqsapi.by*",
-    "*modules.rst",
-    "*pyaqsapi.rst",
+    "*setup.rst"
 ]
 
 # get rid of those duplicate label warnings when embedding a child rst file
