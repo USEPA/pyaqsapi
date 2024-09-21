@@ -169,7 +169,7 @@ Both ``pyaqsapi`` and ``RAQSAPI`` use the US Environmental Protection Agency\'s 
 Quality Service Data Mart to retrieve data. The same credentials can be used for 
 access to either project. Note however, that AQS and AQS Data Mart are similar
 and related data sources, however the credentials used to access AQS are not the
-same as those used to access AQS DataMart.
+same as those used to access AQS Data Mart.
 
 .. note::
     The credentials used to access AQS Data Mart API are not the same as the
