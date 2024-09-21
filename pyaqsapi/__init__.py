@@ -20,7 +20,7 @@ import pyaqsapi.bycbsa.bycbsa as bycbsa
 # from pyaqsapi.bybox import bybox as bybox
 
 
-from__all__ = [
+__all__ = [
     "helperfunctions",
     "metadatafunctions",
     "setupfunctions",
