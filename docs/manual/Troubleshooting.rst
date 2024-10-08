@@ -1,4 +1,7 @@
-.. index:: Troubleshooting
+:orphan:
+
+.. index:: Troubleshooting pyaqsapi
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Troubleshooting
 ===============

@@ -2,22 +2,26 @@
 (by latitude/longitude bounding box).
 """
 
+from datetime import date
+from typing import Optional, Union
+
 from pandas import DataFrame
 
 import pyaqsapi.helperfunctions as helperfunctions
+from pyaqsapi.helperfunctions import AQSAPI_V2
 
 
 def monitors(
-    parameter,
-    bdate,
-    edate,
-    minlat,
-    maxlat,
-    minlon,
-    maxlon,
-    cbdate=None,
-    cedate=None,
-    return_header=False,
+    parameter: str,
+    bdate: date,
+    edate: date,
+    minlat: str,
+    maxlat: str,
+    minlon: str,
+    maxlon: str,
+    cbdate: Optional[date] = None,
+    cedate: Optional[date] = None,
+    return_header: Optional[bool] = False,
 ):
     """
     Return a table of monitors.
@@ -103,18 +107,18 @@ def monitors(
 
 
 def sampledata(
-    parameter,
-    bdate,
-    edate,
-    minlat,
-    maxlat,
-    minlon,
-    maxlon,
-    cbdate=None,
-    cedate=None,
-    duration=None,
-    return_header=False,
-):
+    parameter: str,
+    bdate: date,
+    edate: date,
+    minlat: str,
+    maxlat: str,
+    minlon: str,
+    maxlon: str,
+    cbdate: Optional[date] = None,
+    cedate: Optional[date] = None,
+    duration: Optional[str] = None,
+    return_header: Optional[bool] = False,
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Return sample data where the data is aggregated by latitude/longitude
     bounding box (_by_box).
@@ -204,17 +208,17 @@ def sampledata(
 
 
 def annualsummary(
-    parameter,
-    bdate,
-    edate,
-    minlat,
-    maxlat,
-    minlon,
-    maxlon,
-    cbdate=None,
-    cedate=None,
-    return_header=False,
-):
+    parameter: str,
+    bdate: str,
+    edate: str,
+    minlat: str,
+    maxlat: str,
+    minlon: str,
+    maxlon: str,
+    cbdate: Union[None, date] = None,
+    cedate: Union[None, date] = None,
+    return_header: Optional[bool] = False,
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Return a DataFrame of annual data aggregated by latitude/longitude
     bounding box (_by_box).
@@ -295,17 +299,17 @@ def annualsummary(
 
 
 def dailysummary(
-    parameter,
-    bdate,
-    edate,
-    minlat,
-    maxlat,
-    minlon,
-    maxlon,
-    cbdate=None,
-    cedate=None,
-    return_header=False,
-):
+    parameter: str,
+    bdate: date,
+    edate: date,
+    minlat: str,
+    maxlat: str,
+    minlon: str,
+    maxlon: str,
+    cbdate: Optional[Union[None, date]] = None,
+    cedate: Optional[Union[None, date]] = None,
+    return_header: bool = False,
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Return a DataFrame of daily summary data aggregated by latitude/longitude
     bounding box (_by_box).
@@ -386,18 +390,18 @@ def dailysummary(
 
 
 def quarterlysummary(
-    parameter,
-    bdate,
-    edate,
-    minlat,
-    maxlat,
-    minlon,
-    maxlon,
-    cbdate=None,
-    cedate=None,
-    duration=None,
-    return_header=False,
-):
+    parameter: str,
+    bdate: date,
+    edate: date,
+    minlat: str,
+    maxlat: str,
+    minlon: str,
+    maxlon: str,
+    cbdate: Optional[date] = None,
+    cedate: Optional[date] = None,
+    duration: Optional[str] = None,
+    return_header: bool = False,
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Return a DataFrame of quarterly data aggregate by latitude/longitude
     bounding box (_by_box).

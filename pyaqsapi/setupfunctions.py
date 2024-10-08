@@ -3,7 +3,7 @@
 from requests import get
 
 
-def aqs_sign_up(email):  # pragma: no cover
+def aqs_sign_up(email: str) -> None:  # pragma: no cover
     """
     Use this service to register as a new user or to reset an existing user's
     key. A verification email will be sent to the email account specified. To

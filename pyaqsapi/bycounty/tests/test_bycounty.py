@@ -41,7 +41,7 @@ def test_annualsummary_bycounty(setuppyaqsapi):
             countycode="183",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -55,7 +55,7 @@ def test_dailysummary_bycounty(setuppyaqsapi):
             countycode="183",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -69,7 +69,7 @@ def test_sampledata_bycounty(setuppyaqsapi):
             countycode="183",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -83,7 +83,7 @@ def test_monitors_bycounty(setuppyaqsapi):
             countycode="001",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -97,7 +97,7 @@ def test_qa_collocated_assessments_bycounty(setuppyaqsapi):
             countycode="089",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -111,7 +111,7 @@ def test_qa_blanks_bycounty(setuppyaqsapi):
             countycode="033",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -125,7 +125,7 @@ def test_qa_flowrateaudit_bycounty(setuppyaqsapi):
             countycode="033",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -139,7 +139,7 @@ def test_qa_flowrateverification_bycounty(setuppyaqsapi):
             countycode="033",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -153,7 +153,7 @@ def test_qa_one_point_qc_bycounty(setuppyaqsapi):
             countycode="001",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -167,7 +167,7 @@ def test_qa_pep_audit_bycounty(setuppyaqsapi):
             countycode="089",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -181,7 +181,7 @@ def test_transactionsample_bycounty(setuppyaqsapi):
             countycode="183",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -195,7 +195,7 @@ def test_qa_annualperformanceeval_bycounty(setuppyaqsapi):
             countycode="003",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -209,7 +209,7 @@ def test_qa_annualperformanceevaltransaction_bycounty(setuppyaqsapi):
             countycode="003",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -223,5 +223,5 @@ def test_quarterlysummary_bycounty(setuppyaqsapi):
             countycode="183",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )

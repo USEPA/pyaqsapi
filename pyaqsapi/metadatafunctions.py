@@ -1,8 +1,16 @@
 """metadatafunctions."""
-import pyaqsapi.helperfunctions as helperfunctions
+
+from typing import Optional, Union
+
+from pandas import DataFrame
+
+from pyaqsapi import helperfunctions
+from pyaqsapi.helperfunctions import AQSAPI_V2
 
 
-def aqs_is_available(return_header=False):
+def aqs_is_available(
+    return_header: Optional[bool] = False,
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Return the status of the AQS API.
 
@@ -17,9 +25,9 @@ def aqs_is_available(return_header=False):
     AQS API (The status information is located in the header).
     """
     service = "metaData"
-    filter1 = "isAvailable"
+    aqsfilter = "isAvailable"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_metadata_services(service=service, filter1=filter1)
+    aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
 
     if return_header:
         return aqsresult
@@ -28,7 +36,9 @@ def aqs_is_available(return_header=False):
         return aqsresult.get_data()
 
 
-def aqs_knownissues(return_header=False):
+def aqs_knownissues(
+    return_header: Optional[bool] = False,
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Return a table of any known issues with system functionality or the data.
     These are usually issues that have been identified internally and will
@@ -48,16 +58,18 @@ def aqs_knownissues(return_header=False):
     issues with the Data Mart API.
     """
     service = "metaData"
-    filter1 = "issues"
+    aqsfilter = "issues"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_metadata_services(service=service, filter1=filter1)
+    aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
     else:
         return aqsresult.get_data()
 
 
-def aqs_revisionhistory(return_header=False):
+def aqs_revisionhistory(
+    return_header: Optional[bool] = False,
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Return the change history to the AQS Data Mart API.
 
@@ -72,9 +84,9 @@ def aqs_revisionhistory(return_header=False):
     history to the AQS Datamart API.
     """
     service = "metaData"
-    filter1 = "revisionHistory"
+    aqsfilter = "revisionHistory"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_metadata_services(service=service, filter1=filter1)
+    aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
     else:

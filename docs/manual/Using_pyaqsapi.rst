@@ -1,4 +1,7 @@
-.. index:: use pyaqsapi
+:orphan:
+
+.. index:: Using pyaqsapi
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Using pyaqsapi
 ==============

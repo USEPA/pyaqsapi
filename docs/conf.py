@@ -29,10 +29,11 @@ author = "Clinton Mccrowey (US Environmental Protection Agency)"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
+    # "sphinx.ext.autodoc",
+    "sphinxcontrib.apidoc",
     "sphinx.ext.doctest",
     "sphinx.ext.coverage",
-    "sphinxcontrib.spelling",
+   "sphinxcontrib.spelling",
     "numpydoc",
     "sphinx.ext.napoleon",
     "sphinxcontrib.bibtex",
@@ -53,12 +54,11 @@ exclude_patterns = [
     "Thumbs.db",
     ".DS_Store",
     "setup.py",
-    "*setup.rst"
 ]
 
 # get rid of those duplicate label warnings when embedding a child rst file
 # into another rst file.
-suppress_warnings = ["autosectionlabel.*"]
+suppress_warnings = ["autosectionlabel"]
 
 # -- Options for HTML output --------------------------------------------------
 
@@ -102,8 +102,11 @@ spelling_ignore_contributor_names = True
 # -- Options for numpydoc -----------------------------------------------------
 numpydoc_show_class_members = False
 
-# -- Options for sphinx-contrib\apidoc ----------------------------------------
-apidoc_separate_modules = True
+# -- Options for sphinx-contrib\apidoc, sphinxcontrib\autodoc------------------
+apidoc_separate_modules = False
 apidoc_module_dir = "../pyaqsapi"
 apidoc_excluded_paths = ["tests"]
 apidoc_module_first = True
+apidoc_toc_file = "modules"
+apidoc_output_dir = "."
+autodoc_typehints = "both"

@@ -1,16 +1,29 @@
 """helperfunctions."""
 
+from collections.abc import Callable
 from datetime import date
 from itertools import starmap
 from time import sleep
+from typing import (
+    Any,
+    Iterable,
+    List,
+    NewType,
+    Optional,
+    Sized,
+    TypeVar,
+    Union,
+    cast,
+    no_type_check,
+)
 from warnings import warn
 
 from certifi import where
 from pandas import DataFrame, concat
 from requests import get
 
-AQS_user = None
-AQS_key = None
+AQS_user: Union[None, str] = None
+AQS_key: Union[None, str] = None
 
 
 class AQSAPI_V2:
@@ -51,16 +64,15 @@ class AQSAPI_V2:
 
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initiate the AQSAPI_V2 instance."""
-        self._header = DataFrame()
-        self._data = DataFrame()
-        self._request_time = None
-        self._rows = None
-        self._url = None
-        self._request_time = None
+        self._header: DataFrame = DataFrame()
+        self._data: DataFrame = DataFrame()
+        self._request_time: Union[None, str] = None
+        self._rows: Union[None, str] = None
+        self._url: Union[None, str] = None
 
-    def set_header(self, Header):
+    def set_header(self, Header: DataFrame) -> None:
         """
         Set the header of a single AQSAPI_V2 object. Header must be a
         pandas DataFrame.
@@ -84,7 +96,7 @@ class AQSAPI_V2:
         else:
             warn("AQSAPI_V2 header must be a pandas DataFrame", UserWarning)
 
-    def get_data(self):
+    def get_data(self) -> DataFrame:
         """
         Return the Data portion of the AQSAPI_V2 instance.
 
@@ -96,7 +108,7 @@ class AQSAPI_V2:
         """
         return self._data
 
-    def set_data(self, Data):
+    def set_data(self, Data: DataFrame) -> None:
         """
         Set the Data of a single AQSAPI_V2 object.
 
@@ -106,13 +118,17 @@ class AQSAPI_V2:
         -----
         A warning is thrown if Data is not a pandas DataFrame
 
+        Returns
+        -------
+        None
+
         """
         if isinstance(Data, DataFrame):
             self._data = Data
         else:
             warn("AQSAPI_V2 data must be a pandas DataFrame", UserWarning)
 
-    def get_header(self):
+    def get_header(self) -> DataFrame:
         """
         Return the Header portion of the AQSAPI_V2 instance.
 
@@ -124,7 +140,7 @@ class AQSAPI_V2:
         """
         return self._header
 
-    def get_status_code(self):
+    def get_status_code(self) -> str:
         """
         Retrieve the status code from the API call.
 
@@ -134,9 +150,9 @@ class AQSAPI_V2:
         DataMart API.
 
         """
-        return self._status_code
+        return str(self._status_code)
 
-    def get_url(self):
+    def get_url(self) -> str:
         """
         Retrieve the URL of the AQS DataMart API request.
 
@@ -146,9 +162,9 @@ class AQSAPI_V2:
         DataMart API.
 
         """
-        return self._url
+        return str(self._url)
 
-    def _set_status_code(self, status_code):
+    def _set_status_code(self, status_code: str) -> None:
         """
         Set the status code of the AQS DataMart API call.
 
@@ -161,9 +177,9 @@ class AQSAPI_V2:
         None
 
         """
-        self.status_code = status_code
+        self._status_code: str = status_code
 
-    def get_request_time(self):
+    def get_request_time(self) -> str:
         """
         Retrieve the time that the request to the AQS DataMart API was made.
 
@@ -173,11 +189,11 @@ class AQSAPI_V2:
         DataMart API was made.
 
         """
-        return self._request_time
+        return str(self._request_time)
 
-    def __aqs_ratelimit(self, waittime=5):
+    def __aqs_ratelimit(self, waittime: int = 5) -> None:
         """
-        A wrapper function to time.sleep() used as a rudimentary ratelimit
+        Wrapper function to time.sleep() used as a rudimentary ratelimit
         between API requests.
 
         This is a helper function not intended for end use.
@@ -204,17 +220,18 @@ class AQSAPI_V2:
         """
         sleep(waittime)
 
+    @no_type_check
     def __aqs(
         self,
-        service=None,
-        aqsfilter=None,
-        variables=None,
-        AQS_user=None,
-        key=None,
-        AQS_domain="https://aqs.epa.gov/data/api/",
-    ):
+        service: Union[None, str] = None,
+        aqsfilter: Union[None, str] = None,
+        variables: Optional[dict[Union[None, str], Union[None, str, date]]] = None,
+        AQS_user: Union[None, str] = None,
+        key: Union[None, str] = None,
+        AQS_domain: Optional[str] = "https://aqs.epa.gov/data/api/",
+    ) -> Union[DataFrame, None]:
         """
-        Sends  AQS request to the AQS API and returns the result.
+        Send AQS request to the AQS API and returns the result.
 
         This helper function is used to abstract the call to AQS API away from
         functions that need it's result. This helper function is not
@@ -252,7 +269,7 @@ class AQSAPI_V2:
                 "Please use the aqs_credentials  function to enter your",
                 "credentials before using this function",
             )
-            return ()
+            return None
         # key is formatted like this to maintain consitency with RAQSAPI
         # key = keyring.get_password(service_name = server +
         # re.sub(pattern = "@", repl = "%40", string = AQS_user),
@@ -276,7 +293,9 @@ class AQSAPI_V2:
             variables["cbdate"] = variables["cbdate"].strftime(format="%Y%m%d")
         if service is None:
             service = ""
-        url = AQS_domain + service + "/" + aqsfilter
+        # url = AQS_domain + service + "/" + aqsfilter
+        url = "".join(filter(None, [AQS_domain, "/", service, "/", aqsfilter]))
+        url = url.replace("///", "/")
         # AQS_domain = "https://aqs.epa.gov/data/api/" + service + "/" + aqsfilter
         header = {"User-Agent": user_agent, "From": AQS_user}
 
@@ -291,17 +310,17 @@ class AQSAPI_V2:
 
     def _aqs_services_by_site(
         self,
-        parameter,
-        bdate,
-        edate,
-        stateFIPS,
-        countycode,
-        sitenum,
-        service,
-        duration=None,
-        cbdate=None,
-        cedate=None,
-    ):
+        parameter: str,
+        bdate: date,
+        edate: date,
+        stateFIPS: str,
+        countycode: str,
+        sitenum: str,
+        service: str,
+        duration: Optional[str] = None,
+        cbdate: Optional[date] = None,
+        cedate: Optional[date] = None,
+    ) -> Union[DataFrame, None]:
         """
         This is a helper function and should not be called by the end user.
 
@@ -387,16 +406,16 @@ class AQSAPI_V2:
 
     def _aqs_services_by_county(
         self,
-        parameter,
-        bdate,
-        edate,
-        stateFIPS,
-        countycode,
-        service,
-        duration=None,
-        cbdate=None,
-        cedate=None,
-    ):
+        parameter: str,
+        bdate: date,
+        edate: date,
+        stateFIPS: str,
+        countycode: str,
+        service: str,
+        duration: Optional[str] = None,
+        cbdate: Optional[date] = None,
+        cedate: Optional[date] = None,
+    ) -> Union[DataFrame, None]:
         """
         This is a helper function and should not be called by the end user.
 
@@ -478,17 +497,18 @@ class AQSAPI_V2:
 
     def _aqs_services_by_state(
         self,
-        parameter,
-        bdate,
-        edate,
-        stateFIPS,
-        service,
-        duration=None,
-        cbdate=None,
-        cedate=None,
-    ):
+        parameter: str,
+        bdate: date,
+        edate: date,
+        stateFIPS: str,
+        service: str,
+        duration: Optional[str] = None,
+        cbdate: Optional[date] = None,
+        cedate: Optional[date] = None,
+    ) -> Union[DataFrame, None]:
         """
         A helper function and should not be called by the end user.
+
         This function is used by bystate functions to call the AQSAPI_V2._aqs()
         function.
 
@@ -562,20 +582,21 @@ class AQSAPI_V2:
 
     def _aqs_services_by_box(
         self,
-        parameter,
-        bdate,
-        edate,
-        minlat,
-        maxlat,
-        minlon,
-        maxlon,
-        service,
-        duration=None,
-        cbdate=None,
-        cedate=None,
-    ):
+        parameter: str,
+        bdate: date,
+        edate: date,
+        minlat: str,
+        maxlat: str,
+        minlon: str,
+        maxlon: str,
+        service: str,
+        duration: Optional[str] = None,
+        cbdate: Optional[date] = None,
+        cedate: Optional[date] = None,
+    ) -> Union[DataFrame, None]:
         """
         A helper function and should not be called by the end user.
+
         This function is used by bybox functions to call the AQSAPI_V2._aqs()
         function.
 
@@ -663,17 +684,18 @@ class AQSAPI_V2:
 
     def _aqs_services_by_cbsa(
         self,
-        parameter,
-        bdate,
-        edate,
-        cbsa_code,
-        service,
-        duration=None,
-        cbdate=None,
-        cedate=None,
-    ):
+        parameter: str,
+        bdate: date,
+        edate: date,
+        cbsa_code: str,
+        service: str,
+        duration: Optional[str] = None,
+        cbdate: Optional[date] = None,
+        cedate: Optional[date] = None,
+    ) -> Union[DataFrame, None]:
         """
         A helper function and should not be called by the end user.
+
         This function is used by bycbsa functions to call the AQSAPI_V2._aqs()
         function.
 
@@ -745,16 +767,17 @@ class AQSAPI_V2:
 
     def _aqs_services_by_pqao(
         self,
-        parameter,
-        bdate,
-        edate,
-        pqao_code,
-        service,
-        cbdate=None,
-        cedate=None,
-    ):
+        parameter: str,
+        bdate: date,
+        edate: date,
+        pqao_code: str,
+        service: str,
+        cbdate: Optional[date] = None,
+        cedate: Optional[date] = None,
+    ) -> Union[DataFrame, None]:
         """
         A helper function and should not be called by the end user.
+
         This function is used by bypqao functions to call the AQSAPI_V2._aqs()
         function.
 
@@ -824,16 +847,17 @@ class AQSAPI_V2:
 
     def _aqs_services_by_MA(
         self,
-        parameter,
-        bdate,
-        edate,
-        MA_code,
-        service,
-        cbdate=None,
-        cedate=None,
-    ):
+        parameter: str,
+        bdate: date,
+        edate: date,
+        MA_code: str,
+        service: str,
+        cbdate: Optional[date] = None,
+        cedate: Optional[date] = None,
+    ) -> Union[DataFrame, None]:
         """
         A helper function and should not be called by the end user.
+
         This function is used by byma functions to call the AQSAPI_V2._aqs()
         function.
 
@@ -894,16 +918,17 @@ class AQSAPI_V2:
 
     def _aqs_list_services(
         self,
-        aqsfilter,
-        countycode=None,
-        stateFIPS=None,
-        cbsa_code=None,
-        MA_code=None,
-        pqao_code=None,
-        parameterclass=None,
-    ):
+        aqsfilter: str,
+        countycode: Optional[date] = None,
+        stateFIPS: Optional[str] = None,
+        cbsa_code: Optional[str] = None,
+        MA_code: Optional[str] = None,
+        pqao_code: Optional[str] = None,
+        parameterclass: Optional[str] = None,
+    ) -> Union[DataFrame, None]:
         """
         A helper function and should not be called by the end user.
+
         This function is used by list functions to call the AQSAPI_V2._aqs()
         function.
 
@@ -963,9 +988,12 @@ class AQSAPI_V2:
             variables=variables,
         )
 
-    def _aqs_metadata_services(self, aqsfilter=None, service=None):
+    def _aqs_metadata_services(
+        self, aqsfilter: Optional[str] = None, service: Optional[str] = None
+    ) -> Union[DataFrame, None]:
         """
         A helper function and should not be called by the end user.
+
         This function is used by list functions to call the AQSAPI_V2._aqs()
         function.
 
@@ -996,12 +1024,14 @@ class AQSAPI_V2:
             variables=variables,
         )
 
-    def _renameaqsvariables(self, name1, name2):
+    def _renameaqsvariables(self, name1: str, name2: str) -> DataFrame:
         """
-        This is a helper function not intended to be called directly
-        by the end user. Renames the two columns returned in the Data
+        Renames the two columns returned in the Data
         portion of a AQSAPI_v2 object from "value" and
         "value_represented" to name1 and name2 respectively.
+
+        This is a helper function, not intended to be called directly
+        by the end user.
 
         Parameters
         ----------
@@ -1017,22 +1047,24 @@ class AQSAPI_V2:
 
         Returns
         -------
-        (aqsobject) the input DataFrame with data columns renamed
+        (AQSAPI_V2) the input DataFrame with data columns renamed
         to name1 and name2 respectively.
 
         """
-        self._data.rename(
+        return self._data.rename(
             columns={
                 self._data.columns[0]: name1,
                 self._data.columns[1]: name2,
             },
-            inplace=True,
+            # inplace=True,
         )
 
 
-def aqs_credentials(username=None, key=None):
+def aqs_credentials(
+    username: Union[None, str] = None, key: Union[None, str] = None
+) -> None:
     """
-    Sets the user credentials for the AQS API. This function
+    Set the user credentials for the AQS API. This function
     needs to be called once and only once every time this library
     is re-loaded. Users must have a valid username and key which
     can be obtained through the use of the aqs_sign_up function,
@@ -1056,14 +1088,13 @@ def aqs_credentials(username=None, key=None):
         AQS_user = username
         AQS_key = key
     else:
-        print("username: ", username)
-        print("key: ", key)
-        print(f"AQS_user, {AQS_user}", AQS_user)
-        print(f"AQS_key {AQS_key}", AQS_key)
         print("Please set the username and key parameters")
 
 
-def aqs_removeheader(aqsobject):
+def aqs_removeheader(
+    aqsobject: list[AQSAPI_V2],
+    # aqsobject: Union[Sized, list[DataFrame], list[AQSAPI_V2], DataFrame, AQSAPI_V2]
+) -> Union[DataFrame, AQSAPI_V2]:
     """
     Coerces a single AQS_Data_Mart_APIv2 instance or a list of
     AQS_Data_Mart_APIv2 instance into a single DataFrame object.
@@ -1090,9 +1121,20 @@ def aqs_removeheader(aqsobject):
     return aqsresult
 
 
-def _aqsmultiyearcall(fun, parameter, bdate, edate, service, name1, name2, **kwargs):
+def _aqsmultiyearcall(
+    fun: str,
+    parameter: str,
+    bdate: date,
+    edate: date,
+    service: str,
+    # name1: None | str,
+    # name2: None | str,
+    **kwargs: Any,
+) -> Optional[list[DataFrame]]:
     """
-        A helper function not to be used by end users.
+        A helper function not to be used by end users. Used to perform multiple
+        calls to the API on API calls which only allow a single year of data to
+        be returned, simplifiying mutli-year calls for the end user.
 
         This function is used to make multiple calls to the Datamart API for
         request for data that exceed the request limit set by AQS Datamart.
@@ -1211,7 +1253,7 @@ def _aqsmultiyearcall(fun, parameter, bdate, edate, service, name1, name2, **kwa
         ]
     )
     params = params.dropna(axis="columns", how="any")
-    params = [tuple(x) for x in params.values]
+    params = [tuple(x) for x in params.values]  # type: ignore
     # match fun: #requires Python>=3.10, use if statements instead
     #     case "_aqs_services_by_site":
     #         return(list(starmap(aqsresult._aqs_services_by_site, params)))
@@ -1230,16 +1272,18 @@ def _aqsmultiyearcall(fun, parameter, bdate, edate, service, name1, name2, **kwa
     #     case _:
     #         RuntimeError("invalid function sent to _aqsmultiyearcall")
     if fun == "_aqs_services_by_site":
-        return list(starmap(aqsresult._aqs_services_by_site, params))
+        return list(starmap(aqsresult._aqs_services_by_site, params))  # type: ignore
     elif fun == "_aqs_services_by_county":
-        return list(starmap(aqsresult._aqs_services_by_county, params))
+        return list(starmap(aqsresult._aqs_services_by_county, params))  # type: ignore
     elif fun == "_aqs_services_by_state":
-        return list(starmap(aqsresult._aqs_services_by_state, params))
+        return list(starmap(aqsresult._aqs_services_by_state, params))  # type: ignore
     elif fun == "_aqs_services_by_MA":
-        return list(starmap(aqsresult._aqs_services_by_MA, params))
+        return list(starmap(aqsresult._aqs_services_by_MA, params))  # type: ignore
     elif fun == "_aqs_services_by_pqao":
-        return list(starmap(aqsresult._aqs_services_by_pqao, params))
+        return list(starmap(aqsresult._aqs_services_by_pqao, params))  # type: ignore
     elif fun == "_aqs_services_by_cbsa":
-        return list(starmap(aqsresult._aqs_services_by_cbsa, params))
+        return list(starmap(aqsresult._aqs_services_by_cbsa, params))  # type: ignore
     elif fun == "_aqs_services_by_box":
-        return list(starmap(aqsresult._aqs_services_by_box, params))
+        return list(starmap(aqsresult._aqs_services_by_box, params))  # type: ignore
+    else:
+        pass

@@ -40,7 +40,7 @@ def test_monitors(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -53,7 +53,7 @@ def test_sampledata(setuppyaqsapi):
             stateFIPS="37",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -66,7 +66,7 @@ def test_annualsummary(setuppyaqsapi):
             stateFIPS="37",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -79,7 +79,7 @@ def test_dailysummary(setuppyaqsapi):
             stateFIPS="37",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -92,7 +92,7 @@ def test_qa_blanks(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -105,7 +105,7 @@ def test_qa_collocated_assessments(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -118,7 +118,7 @@ def test_qa_flowrateaudit(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -131,7 +131,7 @@ def test_qa_flowrateverification(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -144,7 +144,7 @@ def test_qa_one_point_qc(setuppyaqsapi):
             stateFIPS="25",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -157,7 +157,7 @@ def test_qa_pep_audit(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -170,7 +170,7 @@ def test_transactionsample(setuppyaqsapi):
             stateFIPS="37",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -183,7 +183,7 @@ def test_qa_annualperformanceeval(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -196,7 +196,7 @@ def test_qa_annualperformanceevaltransaction(setuppyaqsapi):
             stateFIPS="01",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -209,5 +209,5 @@ def test_quarterlysummary(setuppyaqsapi):
             stateFIPS="37",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )

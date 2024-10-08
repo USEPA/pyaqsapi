@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name="pyaqsapi",
-    version="1.0-beta",
+    version="1.0.1-beta",
     author="Clinton Mccrowey",
     author_email="mccrowey<DOT>clinton<at>epa<DOT>gov",
     description="Retrieve ambient air monitoring data from the United States \

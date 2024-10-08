@@ -26,7 +26,6 @@ pyaqsapi API reference documentation
 
 * :ref:`modindex`
 
-
 pyaqsapi index
 --------------
 

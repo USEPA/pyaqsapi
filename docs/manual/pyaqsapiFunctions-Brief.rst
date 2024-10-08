@@ -1,5 +1,8 @@
 :orphan:
 
+.. index:: pyaqsapi Functions Brief
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
+
 Data Mart aggregate functions
 =============================
 .. note::

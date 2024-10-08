@@ -40,7 +40,7 @@ def test_qa_blanks_byma(setuppyaqsapi):
             MA_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -53,7 +53,7 @@ def test_qa_collocated_assessments_byma(setuppyaqsapi):
             MA_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -66,7 +66,7 @@ def test_qa_one_point_qc_byma(setuppyaqsapi):
             MA_code="0660",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -79,7 +79,7 @@ def test_qa_flowrateaudit_byma(setuppyaqsapi):
             MA_code="0550",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -92,7 +92,7 @@ def test_qa_flowrateverification_byma(setuppyaqsapi):
             MA_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -105,7 +105,7 @@ def test_qa_pep_audit_byma(setuppyaqsapi):
             MA_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -118,7 +118,7 @@ def test_transactionsample_byma(setuppyaqsapi):
             MA_code="0972",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -131,7 +131,7 @@ def test_qa_annualpeferomanceeval_byma(setuppyaqsapi):
             MA_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -144,5 +144,5 @@ def test_qa_annualperformanceevaltransaction_byma(setuppyaqsapi):
             MA_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )

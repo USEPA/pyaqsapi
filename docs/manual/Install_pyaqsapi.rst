@@ -1,4 +1,7 @@
-.. index:: install pyaqsapi
+:orphan:
+
+.. index:: Install pyaqsapi
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Install pyaqsapi
 ================

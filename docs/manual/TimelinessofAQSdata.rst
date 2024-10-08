@@ -1,4 +1,6 @@
-.. index:: timeliness of AQS Data
+:orphan:
+
+.. index:: About the timeliness of AQS Data
 
 About the timeliness of AQS Data
 ================================

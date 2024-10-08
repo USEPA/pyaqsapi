@@ -9,7 +9,6 @@ sphinx>=5.0
 sphinxcontrib-apidoc
 sphinxcontrib-spelling
 sphinxcontrib-bibtex
-datetime
 toml
 sphinx_rtd_theme
 numpydoc

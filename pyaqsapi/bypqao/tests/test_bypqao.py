@@ -40,7 +40,7 @@ def test_qa_blanks_bypqao(setuppyaqsapi):
             pqao_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -53,7 +53,7 @@ def test_qa_collocated_assessments_bypqao(setuppyaqsapi):
             pqao_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -66,7 +66,7 @@ def test_qa_flowrateaudit_bypqao(setuppyaqsapi):
             pqao_code="0550",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -79,7 +79,7 @@ def test_qa_flowrateverification_bypqao(setuppyaqsapi):
             pqao_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -92,7 +92,7 @@ def test_qa_one_point_qc_bypqao(setuppyaqsapi):
             pqao_code="0550",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -105,7 +105,7 @@ def test_qa_pep_audit_bypqao(setuppyaqsapi):
             pqao_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -118,7 +118,7 @@ def test_qa_annualperformanceeval_bypqao(setuppyaqsapi):
             pqao_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -131,5 +131,5 @@ def test_qa_annualperformanceevaltransaction_bypqao(setuppyaqsapi):
             pqao_code="0013",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )

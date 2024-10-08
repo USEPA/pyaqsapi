@@ -4,7 +4,7 @@ pyaqsapi
 A python Interface to The United States Environmental Protection
 Agency\'s Air Quality System Data Mart RESTful API server. pyaqsapi is a python
 port of RAQSAPI
-
+         
 pyaqsapi is a package for python that connects the python programming
 environment to the United States Environmental protection agency\'s
 Air Quality System (AQS) Data Mart API for retrieval of air
@@ -33,18 +33,19 @@ recommendation or favoring by the USEPA. The USEPA seal and logo shall not
 be used in any manner to imply endorsement of any commercial product or
 activity by the USEPA or the United States Government.
 """
-from .helperfunctions import *
-from .setupfunctions import *
-from .metadatafunctions import *
-from .listfunctions import *
-import pyaqsapi.bysite.bysite as bysite
-import pyaqsapi.bycounty.bycounty as bycounty
-import pyaqsapi.bystate.bystate as bystate
-import pyaqsapi.bybox.bybox as bybox
-import pyaqsapi.byma.byma as byma
-import pyaqsapi.bypqao.bypqao as bypqao
-import pyaqsapi.bycbsa.bycbsa as bycbsa
 
+import pyaqsapi.bybox as bybox
+import pyaqsapi.bycbsa as bycbsa
+import pyaqsapi.bycounty as bycounty
+import pyaqsapi.byma as byma
+import pyaqsapi.bypqao as bypqao
+import pyaqsapi.bysite as bysite
+import pyaqsapi.bystate as bystate
+
+from pyaqsapi.helperfunctions import *
+from pyaqsapi.listfunctions import *
+from pyaqsapi.metadatafunctions import *
+from pyaqsapi.setupfunctions import *
 
 # from pyaqsapi.bysite import bysite as bysite
 # from pyaqsapi.bycounty import bycounty as bycounty
@@ -55,16 +56,16 @@ import pyaqsapi.bycbsa.bycbsa as bycbsa
 # from pyaqsapi.bybox import bybox as bybox
 
 
-from__all__ = [
-    "helperfunctions",
-    "metadatafunctions",
-    "setupfunctions",
-    # 'bysite/',
-    # 'bycounty/',
-    # 'bystate/',
-    # 'byma/',
-    # 'bypqao/',
-    # 'bycbsa/',
-    # 'bybox/',
-    "listfunctions",
+__all__ = [
+    ".pyaqsapi/helperfunctions",
+    ".pyaqsapi/metadatafunctions",
+    ".pyaqsapi/setupfunctions",
+    ".pyaqsapi/bysite/",
+    ".pyaqsapi/bycounty/",
+    ".pyaqsapi/bystate/",
+    ".pyaqsapi/byma/",
+    ".pyaqsapi/bypqao/",
+    ".pyaqsapi/bycbsa/",
+    ".pyaqsapi/bybox/",
+    ".pyaqsapi/listfunctions",
 ]

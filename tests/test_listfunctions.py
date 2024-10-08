@@ -10,7 +10,7 @@ from pyaqsapi.helperfunctions import aqs_credentials
 
 @pytest.fixture
 def setuppyaqsapi(autouse=True):
-    print(f"the current working directory is: {getcwd()}")
+    # print(f"the current working directory is: {getcwd()}")
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
@@ -20,8 +20,6 @@ def setuppyaqsapi(autouse=True):
         import local
 
         AQSuser, AQSkey = local.setuppyaqsapitest()
-        print(f"AQSuser: {AQSuser}")
-        print(f"AQSkey: {AQSkey}")
         aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
@@ -34,11 +32,11 @@ def setuppyaqsapi(autouse=True):
 
 
 def test_aqs_isavailable(setuppyaqsapi):
-    assert listfunctions.aqs_isavailable(return_header=True).get_status_code() == 200
+    assert listfunctions.aqs_isavailable(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_knownissues(setuppyaqsapi):
-    assert listfunctions.aqs_knownissues(return_header=True).get_status_code() == 200
+    assert listfunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
 
 
 def test_counties_by_state(setuppyaqsapi):
@@ -46,7 +44,7 @@ def test_counties_by_state(setuppyaqsapi):
         listfunctions.aqs_counties_by_state(
             stateFIPS="37", return_header=True
         ).get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -55,12 +53,12 @@ def test_aqs_sites_by_county(setuppyaqsapi):
         listfunctions.aqs_sites_by_county(
             stateFIPS="15", countycode="001", return_header=True
         ).get_status_code()
-        == 200
+        == "200"
     )
 
 
 def test_aqs_classes(setuppyaqsapi):
-    assert listfunctions.aqs_classes(return_header=True).get_status_code() == 200
+    assert listfunctions.aqs_classes(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_parameters_by_class(setuppyaqsapi):
@@ -68,29 +66,29 @@ def test_aqs_parameters_by_class(setuppyaqsapi):
         listfunctions.aqs_parameters_by_class(
             parameterclass="CRITERIA", return_header=True
         ).get_status_code()
-        == 200
+        == "200"
     )
 
 
 def test_aqs_mas(setuppyaqsapi):
-    assert listfunctions.aqs_mas(return_header=True).get_status_code() == 200
+    assert listfunctions.aqs_mas(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_pqaos(setuppyaqsapi):
-    assert listfunctions.aqs_pqaos(return_header=True).get_status_code() == 200
+    assert listfunctions.aqs_pqaos(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_cbsas(setuppyaqsapi):
-    assert listfunctions.aqs_cbsas(return_header=True).get_status_code() == 200
+    assert listfunctions.aqs_cbsas(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_states(setuppyaqsapi):
-    assert listfunctions.aqs_states(return_header=True).get_status_code() == 200
+    assert listfunctions.aqs_states(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_revisionhistory(setuppyaqsapi):
     assert (
-        listfunctions.aqs_revisionhistory(return_header=True).get_status_code() == 200
+        listfunctions.aqs_revisionhistory(return_header=True).get_status_code() == "200"
     )
 
 
@@ -99,11 +97,11 @@ def test_aqs_fields_by_service(setuppyaqsapi):
         listfunctions.aqs_fields_by_service(
             service="sampleData", return_header=True
         ).get_status_code()
-        == 200
+        == "200"
     )
 
 
 def test_aqs_sampledurations(setuppyaqsapi):
     assert (
-        listfunctions.aqs_sampledurations(return_header=True).get_status_code() == 200
+        listfunctions.aqs_sampledurations(return_header=True).get_status_code() == "200"
     )

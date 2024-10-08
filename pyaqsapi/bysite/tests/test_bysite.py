@@ -42,7 +42,7 @@ def test_sampledata(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -57,7 +57,7 @@ def test_annualsummary(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -72,7 +72,7 @@ def test_dailysummary(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -87,7 +87,7 @@ def test_qa_blanks(setuppyaqsapi):
             sitenum="1002",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -106,7 +106,7 @@ def test_monitors(setuppyaqsapi):
             sitenum="0007",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -129,7 +129,7 @@ def test_qa_collocated_assessments(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -144,7 +144,7 @@ def test_qa_flowrateaudit(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -159,7 +159,7 @@ def test_qa_one_point_qc(setuppyaqsapi):
             sitenum="0002",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -174,7 +174,7 @@ def test_qa_flowrateverification(setuppyaqsapi):
             sitenum="0002",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -193,7 +193,7 @@ def test_transactionsample(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -208,7 +208,7 @@ def test_qa_annualpeferomanceeval(setuppyaqsapi):
             sitenum="0010",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -223,7 +223,7 @@ def test_quarterlysummary(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -238,7 +238,7 @@ def test_qa_pep_audit(setuppyaqsapi):
             sitenum="0014",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -253,5 +253,5 @@ def test_qa_annualperformanceevaltransaction(setuppyaqsapi):
             sitenum="0010",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )

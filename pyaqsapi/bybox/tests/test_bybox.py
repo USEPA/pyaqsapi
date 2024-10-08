@@ -1,11 +1,11 @@
 from datetime import date
 from os import environ, getcwd
 from os.path import abspath, exists
+from importlib import import_module
 from sys import path
 
 import pytest
-
-import pyaqsapi.bybox as bybox
+from pyaqsapi import bybox
 from pyaqsapi.helperfunctions import aqs_credentials
 
 
@@ -17,8 +17,8 @@ def setuppyaqsapi(autouse=True):
         # repostiory or in the final package. local looads the AQS user
         # credentials for testing
         path.append(abspath("./dev"))
-        import local
-
+        local = import_module(name="local", package="pyaqsapi")
+        # import local
         AQSuser, AQSkey = local.setuppyaqsapitest()
         aqs_credentials(username=AQSuser, key=AQSkey)
     else:
@@ -43,7 +43,7 @@ def test_sampledata_bybox(setuppyaqsapi):
             maxlon="-86.7",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -59,7 +59,7 @@ def test_monitors_bybox(setuppyaqsapi):
             maxlon="-86.7",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -75,7 +75,7 @@ def test_annualsummary_bybox(setuppyaqsapi):
             maxlon="-86.7",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -91,7 +91,7 @@ def test_dailysummary_bybox(setuppyaqsapi):
             maxlon="-86.7",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )
 
 
@@ -107,5 +107,5 @@ def test_quarterlysummary_bybox(setuppyaqsapi):
             maxlon="-86.7",
             return_header=True,
         )[0].get_status_code()
-        == 200
+        == "200"
     )

@@ -1,3 +1,8 @@
+:orphan:
+
+.. index:: Introduction
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
+
 Introduction
 ============
 The pyaqsapi package for the python 3 programming environment allows a python 3

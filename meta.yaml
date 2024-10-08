@@ -1,5 +1,5 @@
 {% set name = "pyaqsapi" %}
-{% set version = '0.1a1.dev1' %}
+{% set version = '1.0.1-beta' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -9,7 +9,7 @@ package:
     version: {{ version }}
 
 source:
-    fn: dist/pyaqsapi-1.0b0.tar.gz
+    fn: dist/pyaqsapi-1.0.1-beta.tar.gz
 
 build:
     noarch: python
@@ -21,7 +21,7 @@ requirements:
     - python >=3.8
     - pep517
     - sphinx >=5.0
-    - sphinx_rtd_theme
+    - sphinx-rtd-theme
     - sphinxcontrib-napoleon
     - sphinxcontrib-apidoc
     - sphinxcontrib-bibtex

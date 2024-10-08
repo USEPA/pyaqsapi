@@ -47,24 +47,24 @@ show-source = true
 
 
 [tool.ruff]
-select = ["I001",
-          "I002",
-          "E101",
-          "D100",
-          "D401",
-          "D402",
-          "D403",
-          "D404",
-          "D406",
-          "D407",
-          "D408",
-          "D409",
-          "D414",
-          "D415",
-          "D417",
-          "D419"]
+lint.select = ["I001",
+               "I002",
+               "E101",
+               "D100",
+               "D401",
+               "D402",
+               "D403",
+               "D404",
+               "D406",
+               "D407",
+               "D408",
+               "D409",
+               "D414",
+               "D415",
+               "D417",
+               "D419"]
           
-extend-select = ["UP"]
+lint.extend-select = ["UP"]
 
 
 exclude = [
@@ -80,5 +80,5 @@ exclude = [
     "*tests/*"
 ]
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"
