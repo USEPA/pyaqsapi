@@ -12,11 +12,11 @@ monitoring data.
 
 There are two things that you must do before using this package.
 1) If you have not done so yet register your username with Data Mart,
-   (reffer to the aqs_sign_up function, this only need to be done once).
+   (refer to the aqs_sign_up function, this only need to be done once).
 2) Every time this library is reloaded aqs_credentials function
    must be called before continuing.
 
-reffer to the `package documentation` <https://usepa.github.io/pyaqsapi/>
+refer to the `package documentation` <https://usepa.github.io/pyaqsapi/>
 for more details about this package.
 
 EPA Disclaimer

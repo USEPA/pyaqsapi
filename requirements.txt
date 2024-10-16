@@ -7,7 +7,9 @@ setuptools>=42
 sphinx>=5.0
 #sphinxcontrib-napoleon
 sphinxcontrib-apidoc
-sphinxcontrib-spelling
+# the dependencies required for sphinxcontrib.spelling
+# do not seem to be maintained anymore
+# sphinxcontrib-spelling
 sphinxcontrib-bibtex
 toml
 sphinx_rtd_theme

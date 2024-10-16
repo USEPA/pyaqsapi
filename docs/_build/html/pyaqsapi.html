@@ -1,0 +1,1212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyaqsapi package &mdash; pyaqsapi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyaqsapi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pyaqsapi package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyaqsapi.helperfunctions">pyaqsapi.helperfunctions module</a><ul>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2</span></code></a><ul>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_data"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2.get_data()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_header"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2.get_header()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_request_time"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2.get_request_time()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_status_code"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2.get_status_code()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_url"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2.get_url()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2.set_data"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2.set_data()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2.set_header"><code class="docutils literal notranslate"><span class="pre">AQSAPI_V2.set_header()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.aqs_credentials"><code class="docutils literal notranslate"><span class="pre">aqs_credentials()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.helperfunctions.aqs_removeheader"><code class="docutils literal notranslate"><span class="pre">aqs_removeheader()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyaqsapi.listfunctions">pyaqsapi.listfunctions module</a><ul>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_cbsas"><code class="docutils literal notranslate"><span class="pre">aqs_cbsas()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_classes"><code class="docutils literal notranslate"><span class="pre">aqs_classes()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_counties_by_state"><code class="docutils literal notranslate"><span class="pre">aqs_counties_by_state()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_fields_by_service"><code class="docutils literal notranslate"><span class="pre">aqs_fields_by_service()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_isavailable"><code class="docutils literal notranslate"><span class="pre">aqs_isavailable()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_knownissues"><code class="docutils literal notranslate"><span class="pre">aqs_knownissues()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_mas"><code class="docutils literal notranslate"><span class="pre">aqs_mas()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_parameters_by_class"><code class="docutils literal notranslate"><span class="pre">aqs_parameters_by_class()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_pqaos"><code class="docutils literal notranslate"><span class="pre">aqs_pqaos()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_revisionhistory"><code class="docutils literal notranslate"><span class="pre">aqs_revisionhistory()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_sampledurations"><code class="docutils literal notranslate"><span class="pre">aqs_sampledurations()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_sites_by_county"><code class="docutils literal notranslate"><span class="pre">aqs_sites_by_county()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.listfunctions.aqs_states"><code class="docutils literal notranslate"><span class="pre">aqs_states()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyaqsapi.metadatafunctions">pyaqsapi.metadatafunctions module</a><ul>
+<li><a class="reference internal" href="#pyaqsapi.metadatafunctions.aqs_is_available"><code class="docutils literal notranslate"><span class="pre">aqs_is_available()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.metadatafunctions.aqs_knownissues"><code class="docutils literal notranslate"><span class="pre">aqs_knownissues()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.metadatafunctions.aqs_revisionhistory"><code class="docutils literal notranslate"><span class="pre">aqs_revisionhistory()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyaqsapi.setupfunctions">pyaqsapi.setupfunctions module</a><ul>
+<li><a class="reference internal" href="#pyaqsapi.setupfunctions.aqs_sign_up"><code class="docutils literal notranslate"><span class="pre">aqs_sign_up()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyaqsapi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pyaqsapi package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyaqsapi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pyaqsapi">
+<span id="pyaqsapi-package"></span><h1>pyaqsapi package<a class="headerlink" href="#module-pyaqsapi" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.bybox.html">pyaqsapi.bybox package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bybox.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bybox.html#module-pyaqsapi.bybox.bybox">pyaqsapi.bybox.bybox module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.bybox.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.bybox.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.bybox.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.bybox.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bybox.html#pyaqsapi.bybox.bybox.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.bycbsa.html">pyaqsapi.bycbsa package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycbsa.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycbsa.html#module-pyaqsapi.bycbsa.bycbsa">pyaqsapi.bycbsa.bycbsa module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.bycbsa.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.bycbsa.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.bycbsa.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.bycbsa.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycbsa.html#pyaqsapi.bycbsa.bycbsa.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.bycounty.html">pyaqsapi.bycounty package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bycounty.html#module-pyaqsapi.bycounty.bycounty">pyaqsapi.bycounty.bycounty module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bycounty.html#pyaqsapi.bycounty.bycounty.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.byma.html">pyaqsapi.byma package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_annualpeferomanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualpeferomanceeval()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.byma.html#module-pyaqsapi.byma.byma">pyaqsapi.byma.byma module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_annualpeferomanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualpeferomanceeval()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.byma.html#pyaqsapi.byma.byma.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.bypqao.html">pyaqsapi.bypqao package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bypqao.html#module-pyaqsapi.bypqao.bypqao">pyaqsapi.bypqao.bypqao module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bypqao.html#pyaqsapi.bypqao.bypqao.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.bysite.html">pyaqsapi.bysite package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_annualpeferomanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualpeferomanceeval()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bysite.html#module-pyaqsapi.bysite.bysite">pyaqsapi.bysite.bysite module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_annualpeferomanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualpeferomanceeval()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bysite.html#pyaqsapi.bysite.bysite.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.bystate.html">pyaqsapi.bystate package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyaqsapi.bystate.html#module-pyaqsapi.bystate.bystate">pyaqsapi.bystate.bystate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyaqsapi.bystate.html#pyaqsapi.bystate.bystate.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pyaqsapi.helperfunctions">
+<span id="pyaqsapi-helperfunctions-module"></span><h2>pyaqsapi.helperfunctions module<a class="headerlink" href="#module-pyaqsapi.helperfunctions" title="Link to this heading"></a></h2>
+<p>helperfunctions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyaqsapi.helperfunctions.</span></span><span class="sig-name descname"><span class="pre">AQSAPI_V2</span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<blockquote>
+<div><p>AQSAPI_V2 class used to store and retrieve data from the EPA AQS
+Datamart API.</p>
+<blockquote>
+<div><p># for some reason Sphinx does not like this Attributes section so it is
+# commented out, for now.</p>
+<p># Attributes
+# ———-
+# _header (pandas DataFrame): header information returned from the
+#     AQS Datamart API.
+# _request_time (str): the time stamp that the call to the AQS Datamart
+#     API was received.
+# _status (str): the status (associated with the _status_code) returned
+#     from a call to the AQS Datamart API.
+# _status_code (str): the numeric status_code (represented as a string)
+#     that is returned from a call to the AQS Datamart API.
+# _rows (str): the number of rows contained in the _data.
+# _url (str): a string representing the URL used to make the AQS Datamart
+#     API call.
+# _data (pandas DataFrame): the data returned from a call to the
+#     AQS Datamart API.</p>
+</div></blockquote>
+</div></blockquote>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>set_data():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_header():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_data():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_header():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_status_code():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_header():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_url():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_header():</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_request_time():</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_data" title="Link to this definition"></a></dt>
+<dd><p>Return the Data portion of the AQSAPI_V2 instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>(pandas DataFrame) a DataFrame containing the Data portion of the</dt><dd></dd>
+<dt>AQSAPI_V2 instance.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2.get_header">
+<span class="sig-name descname"><span class="pre">get_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_header" title="Link to this definition"></a></dt>
+<dd><p>Return the Header portion of the AQSAPI_V2 instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>(pandas DataFrame) a DataFrame containing the Header portion of the</dt><dd></dd>
+<dt>AQSAPI_V2 instance.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2.get_request_time">
+<span class="sig-name descname"><span class="pre">get_request_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_request_time" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the time that the request to the AQS DataMart API was made.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>(str) A string representing the time that that request to the AQS</dt><dd></dd>
+<dt>DataMart API was made.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2.get_status_code">
+<span class="sig-name descname"><span class="pre">get_status_code</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_status_code" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the status code from the API call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>(str) A string representing the status code returned from the EPA</dt><dd></dd>
+<dt>DataMart API.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2.get_url">
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2.get_url" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the URL of the AQS DataMart API request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>(str) A string representing the status code returned from the EPA</dt><dd></dd>
+<dt>DataMart API.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2.set_data">
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2.set_data" title="Link to this definition"></a></dt>
+<dd><p>Set the Data of a single AQSAPI_V2 object.</p>
+<p>Data must be a pandas DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Warns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>A warning is thrown if Data is not a pandas DataFrame</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Data</strong> (<em>DataFrame</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.AQSAPI_V2.set_header">
+<span class="sig-name descname"><span class="pre">set_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.AQSAPI_V2.set_header" title="Link to this definition"></a></dt>
+<dd><p>Set the header of a single AQSAPI_V2 object. Header must be a
+pandas DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>Header</strong><span class="classifier">Pandas DataFrame</span></dt><dd><p>A pandas.DataFrame instance with the header information.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Warns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>A warning is thrown if Header is not a pandas DataFrame</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Header</strong> (<em>DataFrame</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.aqs_credentials">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.helperfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.aqs_credentials" title="Link to this definition"></a></dt>
+<dd><p>Set the user credentials for the AQS API. This function
+needs to be called once and only once every time this library
+is re-loaded. Users must have a valid username and key which
+can be obtained through the use of the aqs_sign_up function,
+use pyaqsapi.aqs_sign_up() to sign up for AQS data mart credentials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>username</strong><span class="classifier">a python character object which represents the email account</span></dt><dd><p>that will be used to connect to the AQS API.</p>
+</dd>
+<dt><strong>key</strong><span class="classifier">the key used in conjunction with the username given to connect to</span></dt><dd><p>AQS Data Mart.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<em>None</em><em> | </em><em>str</em>)</p></li>
+<li><p><strong>key</strong> (<em>None</em><em> | </em><em>str</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.helperfunctions.aqs_removeheader">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.helperfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_removeheader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aqsobject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.aqs_removeheader" title="Link to this definition"></a></dt>
+<dd><p>Coerces a single AQS_Data_Mart_APIv2 instance or a list of
+AQS_Data_Mart_APIv2 instance into a single DataFrame object.
+This function decouples the Data from the AQSAPI_v2 object and returns
+only the Data portion as a DataFrame. If the input is a list of AQSAPI_v2
+objects combines the Data portion of each AQS_Data_Mart_APIv2 object
+into a DataFrame with Header information discarded.
+Else returns the input with no changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>aqsobject</strong><span class="classifier">An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(DataFrame) A DataFrame containing the data portion of the AQSAPI_V2</dt><dd></dd>
+<dt>object.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aqsobject</strong> (<em>list</em><em>[</em><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pyaqsapi.listfunctions">
+<span id="pyaqsapi-listfunctions-module"></span><h2>pyaqsapi.listfunctions module<a class="headerlink" href="#module-pyaqsapi.listfunctions" title="Link to this heading"></a></h2>
+<p>listfunctions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_cbsas">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_cbsas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_cbsas" title="Link to this definition"></a></dt>
+<dd><p>Return a table of all Core Based Statistical Areas (cbsa) and their
+associated cbsa_codes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): all cbsas and their associated</dt><dd></dd>
+<dt>cbsa_codes.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of Core Based Statistical Areas (cbsas)
+and their respective cbsa codes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_cbsas</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_classes">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_classes" title="Link to this definition"></a></dt>
+<dd><p>Return a table of Parameter classes (groups of parameters, i.e. “criteria”
+or “all”). The information from this function can be used as input to other
+API calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): Parameter classes (groups of</dt><dd></dd>
+<dt>parameters, i.e. “criteria” or “all”).</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of parameter classes (groups of parameters, i.e.
+“criteria” or all”):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_classes</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_counties_by_state">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_counties_by_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_counties_by_state" title="Link to this definition"></a></dt>
+<dd><p>Return a table of all counties in within the stateFIPS provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): all counties in the requested</dt><dd></dd>
+<dt>state.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stateFIPS</strong> (<em>str</em>)</p></li>
+<li><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Returns a DataFrame of all the counties
+in North Carolina the county FIPS codes (county codes) for each.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_counties_by_state</span><span class="p">(</span><span class="n">stateFIPS</span> <span class="o">=</span> <span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_fields_by_service">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_fields_by_service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_fields_by_service" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Return a table containing the list and definitions of fields in the</dt><dd><p>service requested.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>service</strong><span class="classifier">a string which represents the services provided by the AQS</span></dt><dd><p>API. For a list of available services refer to
+<a class="reference external" href="https://aqs.epa.gov/aqsweb/documents/data_api.html#services">https://aqs.epa.gov/aqsweb/documents/data_api.html#services</a></p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): details the status of the AQS</dt><dd><p>API.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> (<em>str</em>)</p></li>
+<li><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame containing a list and definitions
+of fields in the Sample Data service.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_fieldsbyservice</span><span class="p">(</span><span class="n">service</span> <span class="o">=</span> <span class="s2">&quot;sampleData&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_isavailable">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_isavailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_isavailable" title="Link to this definition"></a></dt>
+<dd><p>Return a table explaining the status of the AQS API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): details the status of the AQS</dt><dd><p>API.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Check if the AQS API is up, running and accepting requests.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_isAvailable</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_knownissues">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_knownissues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_knownissues" title="Link to this definition"></a></dt>
+<dd><p>Return a table of any known issues with system functionality or the data.
+These are usually issues that have been identified internally and will
+require some time to correct in Data Mart or the API. This function
+implements a direct API call to Data Mart and returns data directly from
+the API. Issues returned via this function do not include any issues from
+the pyaqsapi python package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): information involving known</dt><dd></dd>
+<dt>issues with the Data Mart API.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Retrieve a DataFrame of known issues directly from the AQS data mart API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_knownissues</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_mas">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_mas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_mas" title="Link to this definition"></a></dt>
+<dd><p>Return a DataFrame of monitoring agencies (MA).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): monitoring agencies and their</dt><dd></dd>
+<dt>associated agency code.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Returns a DataFrame of monitoring agencies and their respective
+monitoring agency codes.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_mas</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_parameters_by_class">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_parameters_by_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameterclass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_parameters_by_class" title="Link to this definition"></a></dt>
+<dd><p>Return a table of Parameter classes (groups of parameters, i.e. “criteria”
+or “all”). The information from this function can be used as input to other
+API calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parameterclass: a python character object that represents the class</strong></dt><dd><p>requested, use aqs_classes() for retrieving available
+classes. The parameterclass python character object must be
+a valid parameterclass as returned from aqs_classes().
+The class must be an exact match to what is returned from
+aqs_classes().</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): parameters associated with the</dt><dd></dd>
+<dt>parameterclass requested. None is returned for parameterclasses not found.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameterclass</strong> (<em>str</em>)</p></li>
+<li><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of parameter classes (groups of parameters, i.e.
+“criteria” or all”):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_classes</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_pqaos">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_pqaos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_pqaos" title="Link to this definition"></a></dt>
+<dd><p>Return a table of primary quality assurance organizations (pqaos).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): pqaos and their associated</dt><dd></dd>
+<dt>pqao_codes.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of primary quality assurance organizations (pqaos):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_pqaos</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_revisionhistory">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_revisionhistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_revisionhistory" title="Link to this definition"></a></dt>
+<dd><p>Return a table Returns that contains change history to the AQS Data Mart
+API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): details change history to the</dt><dd></dd>
+<dt>AQS Data Mart API.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of the EPA AQS Data Mart API revision history:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_revisionHistory</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_sampledurations">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sampledurations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_sampledurations" title="Link to this definition"></a></dt>
+<dd><p>Return a table of sample durations and their associated duration codes.
+Returned values are not calculated durations such as 8 hour carbon monoxide
+or ozone rolling averages, 3/6 day PM averages or Pb 3 month rolling
+averages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): sample durations and</dt><dd></dd>
+<dt>their associated duration codes</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_sampledurations</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_sites_by_county">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sites_by_county</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countycode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_sites_by_county" title="Link to this definition"></a></dt>
+<dd><p>Return data containing a table of all air monitoring sites with the input
+state and county FIPS code combination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>stateFIPS</strong><span class="classifier">a python character object which represents the 2 digit</span></dt><dd><p>state FIPS code (with leading zero) for the state being
+requested. Use aqs_states() for the list of available
+FIPS codes.</p>
+</dd>
+<dt><strong>countycode</strong><span class="classifier">a python character object which represents the 3 digit</span></dt><dd><p>state FIPS code for the county being requested
+(with leading zero(s)). Use aqs_counties_by_state() for
+the list of available county codes for each state.</p>
+</dd>
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): all air monitoring sites with</dt><dd></dd>
+<dt>the requested state and county FIPS codes.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stateFIPS</strong> (<em>str</em>)</p></li>
+<li><p><strong>countycode</strong> (<em>str</em>)</p></li>
+<li><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of all the counties
+in North Carolina the county FIPS codes (county codes) for each.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_counties_by_state</span><span class="p">(</span><span class="n">stateFIPS</span> <span class="o">=</span> <span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_states">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_states" title="Link to this definition"></a></dt>
+<dd><p>Return a table of US states, US territories, and the district or Columbia
+with their respective FIPS codes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): states and their associated FIPS</dt><dd></dd>
+<dt>code.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of states and their FIPS codes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aqs_states</span><span class="p">()}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-pyaqsapi.metadatafunctions">
+<span id="pyaqsapi-metadatafunctions-module"></span><h2>pyaqsapi.metadatafunctions module<a class="headerlink" href="#module-pyaqsapi.metadatafunctions" title="Link to this heading"></a></h2>
+<p>metadatafunctions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.metadatafunctions.aqs_is_available">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_is_available" title="Link to this definition"></a></dt>
+<dd><p>Return the status of the AQS API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): Details the status of the</dt><dd></dd>
+<dt>AQS API (The status information is located in the header).</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.metadatafunctions.aqs_knownissues">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_knownissues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_knownissues" title="Link to this definition"></a></dt>
+<dd><p>Return a table of any known issues with system functionality or the data.
+These are usually issues that have been identified internally and will
+require some time to correct in Data Mart or the API. This function
+implements a direct API call to Data Mart and returns data directly from
+the API. Issues returned via this function do not include any issues from
+the pyaqsapi python package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): Information involving known</dt><dd></dd>
+<dt>issues with the Data Mart API.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.metadatafunctions.aqs_revisionhistory">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_revisionhistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_revisionhistory" title="Link to this definition"></a></dt>
+<dd><p>Return the change history to the AQS Data Mart API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>return_header</strong><span class="classifier">If FALSE (default) only returns data requested. If TRUE</span></dt><dd><p>returns a AQSAPI_v2 object.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>(pandas DataFrame or an AQSAPI_V2 object): Information on the revision</dt><dd></dd>
+<dt>history to the AQS Datamart API.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pyaqsapi.setupfunctions">
+<span id="pyaqsapi-setupfunctions-module"></span><h2>pyaqsapi.setupfunctions module<a class="headerlink" href="#module-pyaqsapi.setupfunctions" title="Link to this heading"></a></h2>
+<p>setupfunctions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyaqsapi.setupfunctions.aqs_sign_up">
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.setupfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sign_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyaqsapi.setupfunctions.aqs_sign_up" title="Link to this definition"></a></dt>
+<dd><p>Use this service to register as a new user or to reset an existing user’s
+key. A verification email will be sent to the email account specified. To
+reset a password: If the request is made with an email that is already
+registered, a new key will be issued for that account and emailed to the
+listed address. Usage is the same in either case. Refer to the email
+message for further instructions before continuing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>email</strong><span class="classifier">A python character object which represents the email account that</span></dt><dd><p>will be used to register with the AQS API or change an existing
+user’s key. A verification email will be sent to the account
+specified. Follow the instructions in the verification e-mail
+before proceeding to use any other functionality of the AQS API.
+Register your credential with the aqs_credentials() before using
+the other functions in this library.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None.</dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>email</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, US Environmental Protection Agency.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

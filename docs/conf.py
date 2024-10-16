@@ -33,7 +33,9 @@ extensions = [
     "sphinxcontrib.apidoc",
     "sphinx.ext.doctest",
     "sphinx.ext.coverage",
-   "sphinxcontrib.spelling",
+    # the dependencies required for sphinxcontrib.spelling
+    # do not seem to be maintained anymore
+    # "sphinxcontrib.spelling",
     "numpydoc",
     "sphinx.ext.napoleon",
     "sphinxcontrib.bibtex",
@@ -49,12 +51,7 @@ bibtex_bibfiles = ["manual/pyaqsapi.bib"]
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [
-    "_build",
-    "Thumbs.db",
-    ".DS_Store",
-    "setup.py",
-]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "setup.py"]
 
 # get rid of those duplicate label warnings when embedding a child rst file
 # into another rst file.
@@ -87,17 +84,19 @@ napolean_reprocess_types = True
 napoleon_google_docstring = True
 # napoleon_numpy_docstring = True
 
+# the dependencies required for sphinxcontrib.spelling
+# do not seem to be maintained anymore
 # -- Options for sphinxcontrib-spelling ---------------------------------------
-spelling_lang = "en_US"
-tokenizer_lang = "en_US"
-spelling_word_list_filename = "ignored_wordlist.txt"
-spelling_show_suggestions = True
-spelling_show_whole_line = True
-spelling_warning = True
-spelling_verbose = True
-spelling_ignore_pypi_package_names = True
-spelling_ignore_python_builtins = True
-spelling_ignore_contributor_names = True
+# spelling_lang = "en_US"
+# tokenizer_lang = "en_US"
+# spelling_word_list_filename = "ignored_wordlist.txt"
+# spelling_show_suggestions = True
+# spelling_show_whole_line = True
+# spelling_warning = True
+# spelling_verbose = True
+# spelling_ignore_pypi_package_names = True
+# spelling_ignore_python_builtins = True
+# spelling_ignore_contributor_names = True
 
 # -- Options for numpydoc -----------------------------------------------------
 numpydoc_show_class_members = False

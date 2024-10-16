@@ -54,7 +54,9 @@ test:
     - python > = 3.8
     - pytest
     - pip
-    - sphinxcontrib-spelling
+    # the dependencies required for sphinxcontrib.spelling
+    # do not seem to be maintained anymore
+    # - sphinxcontrib-spelling
     - tox
     - pytest-black
     - codecov

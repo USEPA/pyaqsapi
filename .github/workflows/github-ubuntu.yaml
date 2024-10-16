@@ -47,18 +47,19 @@ jobs:
         run: |
           python -m build .
           python -m pip install .
-      - name: fail the build in case of any misspelled words
-        run: |
-          cd docs
-          #delete the previous spelling output if this file exists
-          if [ -s "./_build/spelling/output.txt" ]; then
-          rm ./_build/spelling/output.txt; fi
-          make spelling
-          if [ -s "./_build/spelling/output.txt"] ; then 
-          echo ++++++++++++++++++++ Misspelled words ++++++++++++++++++++ 
-          cat "./_build/spelling/output.txt"; fi
-          cd ..
-        # if [-s "./_build/spelling/output.txt"]; then false; fi
+          # the dependencies required for sphinxcontrib.spelling
+          # do not seem to be maintained anymore
+      # - name: fail the build in case of any misspelled words
+      #   run: |
+      #     cd docs
+      #     #delete the previous spelling output if this file exists
+      #     if [ -s "./_build/spelling/output.txt" ]; then
+      #     rm ./_build/spelling/output.txt; fi
+      #     make spelling
+      #     if [ -s "./_build/spelling/output.txt"] ; then 
+      #     echo ++++++++++++++++++++ Misspelled words ++++++++++++++++++++ 
+      #     cat "./_build/spelling/output.txt"; fi
+      #     cd ..
       - name: build apidocs
         run: |
           cd docs

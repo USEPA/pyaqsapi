@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Mart aggregate functions &mdash; pyaqsapi  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyaqsapi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Data Mart aggregate functions</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyaqsapi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Mart aggregate functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/manual/pyaqsapiFunctions-Brief.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-mart-aggregate-functions">
+<span id="index-0"></span><h1>Data Mart aggregate functions<a class="headerlink" href="#data-mart-aggregate-functions" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>AQS Data Mart API restricts the maximum amount of monitoring data to one
+full year of data per API call. These functions are able to return multiple
+years of data by making repeated calls to the API. Each call to the Data
+Mart API will take time to complete. The more years of data being requested
+the longer pyaqsapi will take to return the results.</p>
+</div>
+<p>These functions retrieve aggregated data from the Data Mart API and are grouped
+by how each function aggregates the data. There are 7 different families of
+related aggregate functions in which the AQS Data Mart API groups data.</p>
+<p id="index-1">These seven families are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>by site (aqs.bysite)</p></li>
+<li><p>by county (aqs.bycounty)</p></li>
+<li><p>by state (aqs.bystate)</p></li>
+<li><p>by latitude/longitude bounding box (aqs.bybox)</p></li>
+<li><p>by monitoring agency (aqs.byma)</p></li>
+<li><p>by Primary Quality Assurance Organization (aqs.bypqao)</p></li>
+<li><p>by core based statistical area (as defined by the US census Bureau)
+(aqs.bycbsa).</p></li>
+</ul>
+</div></blockquote>
+<p>Within these families of aggregated data functions there are functions that
+call on the 13 different aggregate services that the Data Mart API provides.
+Note that not all aggregations are available for each service.</p>
+<p id="index-2">These thirteen services are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Monitors (monitors)</p></li>
+<li><p>Sample Data (sampledata)</p></li>
+<li><p>Daily Summary Data (dailydata)</p></li>
+<li><p>Annual Summary Data (annualdata)</p></li>
+<li><p>Quality Assurance - Blanks Data (qa_blanks)</p></li>
+<li><p>Quality Assurance - Collocated Assessments
+(qa_collocated_assessments)</p></li>
+<li><p>Quality Assurance - Flow Rate Verifications (qa_flowrateverification)</p></li>
+<li><p>Quality Assurance - Flow Rate Audits (aqs_qa_flowrateaudit)</p></li>
+<li><p>Quality Assurance - One Point Quality Control Raw Data
+(qa_one_point_qc)</p></li>
+<li><p>Quality Assurance - PEP Audits (qa_pep_audit)</p></li>
+<li><p>Transaction Sample - AQS Submission data in transaction Format (RD)
+(transactionsample)</p></li>
+<li><p>Quality Assurance - Annual Performance Evaluations
+(qa_annualperformanceeval)</p></li>
+<li><p>Quality Assurance - Annual Performance Evaluations in the AQS
+Submission transaction format (RD) (qa_annualperformanceevaltransaction)</p></li>
+</ul>
+</div></blockquote>
+<p>Aggregate functions are named aqs.&lt;aggregation&gt;.&lt;service&gt;() where &lt;service&gt;
+is one of the 13 services listed above and &lt;aggregation&gt; is either
+“bysite“, ”bycounty“, ”bystate“, ”bybox“, ”bycbsa”, “byma” or “bypqao”.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, US Environmental Protection Agency.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
