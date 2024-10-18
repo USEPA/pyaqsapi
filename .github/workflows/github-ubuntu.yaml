@@ -33,14 +33,16 @@ jobs:
           cache: "pip"
       - name: install_dependencies
         run: |
-          conda install --yes -c conda-forge micromamba
-          micromamba install -c conda-forge --yes --file=environment.yaml
+          conda update -n base conda
+          conda install -n base conda-libmamba-solver
+          conda config --set solver libmamba
+          conda install -c conda-forge --yes --file=environment.yaml
       - name: Display Python version and system info
         run: python -c "import platform; print(platform.uname())"
       - name: Display Python version and system info
         run: |
           python -m build .
-          python -m pip install .
+          pip install .
           # the dependencies required for sphinxcontrib.spelling
           # do not seem to be maintained anymore
       # - name: fail the build in case of any misspelled words
