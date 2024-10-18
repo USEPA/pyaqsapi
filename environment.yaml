@@ -1,0 +1,21 @@
+# environment.yaml
+
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.8
+  - conda-build
+  - tox-conda
+  - pandas
+  - pep517
+  - requests
+  - setuptools
+  - sphinx
+  - sphinxcontrib-apidoc
+  - sphinxcontrib-bibtex
+  - toml
+  - sphinx_rtd_theme
+  - numpydoc
+  - certifi
+  - cryptography
+  - pytest
