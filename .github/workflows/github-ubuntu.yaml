@@ -38,7 +38,7 @@ jobs:
           conda config --set solver libmamba
           conda env create -n setuppyaqsapi --file=environment.yaml
           source activate setuppyaqsapi
-          pip install build .
+          pip install build
       - name: Display Python version and system info
         run: python -c "import platform; print(platform.uname())"
       - name: Display Python version and system info
