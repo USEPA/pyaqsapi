@@ -33,10 +33,12 @@ jobs:
           cache: "pip"
       - name: install_dependencies
         run: |
-          conda update -n base conda
-          conda install -n base conda-libmamba-solver
+          conda update --yes -n base conda
+          conda install --yes -n base conda-libmamba-solver
           conda config --set solver libmamba
-          conda install -c conda-forge --yes --file=environment.yaml
+          conda env create -n setuppyaqsapi --file=environment.yaml
+          source activate setuppyaqsapi
+          pip install build .
       - name: Display Python version and system info
         run: python -c "import platform; print(platform.uname())"
       - name: Display Python version and system info
