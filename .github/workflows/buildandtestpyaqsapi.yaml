@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-name: build_and_test_pyaqsapi_on_ubuntu
+name: build_and_test_pyaqsapi
 run-name: A push event from ${{ github.actor }} caused a rebuilding and
   retesting of the pyaqsapi package via GitHub actions
 
@@ -29,10 +29,14 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
+        
+        
+        
           python-version: ${{ matrix.python-version }}
           cache: "pip"
       - name: install_dependencies
         run: |
+          conda config --add channels conda-forge
           conda update --yes -n base conda
           conda install --yes -n base conda-libmamba-solver
           conda config --set solver libmamba
@@ -41,23 +45,10 @@ jobs:
           pip install build
       - name: Display Python version and system info
         run: python -c "import platform; print(platform.uname())"
-      - name: Display Python version and system info
+      - name: build and install pyaqsapi in a test environment
         run: |
           python -m build .
           pip install .
-          # the dependencies required for sphinxcontrib.spelling
-          # do not seem to be maintained anymore
-      # - name: fail the build in case of any misspelled words
-      #   run: |
-      #     cd docs
-      #     #delete the previous spelling output if this file exists
-      #     if [ -s "./_build/spelling/output.txt" ]; then
-      #     rm ./_build/spelling/output.txt; fi
-      #     make spelling
-      #     if [ -s "./_build/spelling/output.txt"] ; then 
-      #     echo ++++++++++++++++++++ Misspelled words ++++++++++++++++++++ 
-      #     cat "./_build/spelling/output.txt"; fi
-      #     cd ..
       - name: build apidocs
         run: |
           cd docs
