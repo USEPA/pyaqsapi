@@ -52,7 +52,9 @@ jobs:
       - name: build apidocs
         run: |
           cd docs
+          make clean
           sphinx-apidoc --ext-autodoc -o . ../pyaqsapi/
+          make html
           make html
           cd ..
       - name: test_package

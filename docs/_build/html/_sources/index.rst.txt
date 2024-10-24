@@ -28,7 +28,8 @@ pyaqsapi API reference documentation
 
 pyaqsapi index
 --------------
-* :ref:`genindex`
+
+#* :ref:`genindex`
 
 References
 ----------
