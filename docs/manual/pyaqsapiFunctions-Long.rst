@@ -1,6 +1,4 @@
-:orphan:
-
-.. index:: pyaqsapi Functions Long
+.. index:: pyaqsapi Functions Long;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Functions Exported by pyaqsapi

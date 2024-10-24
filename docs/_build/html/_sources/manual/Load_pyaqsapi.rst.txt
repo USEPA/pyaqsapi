@@ -1,6 +1,4 @@
-:orphan:
-
-.. index:: Load pyaqsapi
+.. index:: Load pyaqsapi;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Load pyaqsapi

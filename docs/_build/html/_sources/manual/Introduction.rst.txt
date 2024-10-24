@@ -1,6 +1,4 @@
-:orphan:
-
-.. index:: Introduction
+.. index:: Introduction;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Introduction

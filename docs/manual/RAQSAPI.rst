@@ -1,6 +1,4 @@
-:orphan:
-
-.. index:: About RAQSAPI
+.. index:: About RAQSAPI;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 About RAQSAPI

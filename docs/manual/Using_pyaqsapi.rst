@@ -1,6 +1,4 @@
-:orphan:
-
-.. index:: Using pyaqsapi
+.. index:: Using pyaqsapi;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Using pyaqsapi
@@ -17,7 +15,7 @@ AQSAPI_V2 python 3 objects are returned. Use the get_data() class method to
 retrieve the data and the get_header() class method to retrieve header
 information.
 
-.. index:: sign_up
+.. index:: sign_up;
 
 Sign up and setting up user credentials with the pyaqsapi library
 =================================================================

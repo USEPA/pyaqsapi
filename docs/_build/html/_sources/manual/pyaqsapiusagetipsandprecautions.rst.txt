@@ -1,6 +1,4 @@
-:orphan:
-
-.. index:: Useage tips and precuations
+.. index:: Useage tips and precuations;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Usage tips and precautions

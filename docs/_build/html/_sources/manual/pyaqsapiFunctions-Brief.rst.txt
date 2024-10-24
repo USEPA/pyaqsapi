@@ -1,6 +1,6 @@
 :orphan:
 
-.. index:: pyaqsapi Functions Brief
+.. index:: pyaqsapi Functions Brief;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 Data Mart aggregate functions
@@ -16,7 +16,7 @@ These functions retrieve aggregated data from the Data Mart API and are grouped
 by how each function aggregates the data. There are 7 different families of
 related aggregate functions in which the AQS Data Mart API groups data.
 
-.. index:: aggregate functions
+.. index:: aggregate functions;
 
 These seven families are:
 
@@ -33,7 +33,7 @@ Within these families of aggregated data functions there are functions that
 call on the 13 different aggregate services that the Data Mart API provides.
 Note that not all aggregations are available for each service.
 
-.. index:: services
+.. index:: services;
 
 These thirteen services are:
 

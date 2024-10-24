@@ -1,6 +1,4 @@
-:orphan:
-
-.. index:: EPA Disclaimer
+.. index:: EPA Disclaimer;
 
 EPA Disclaimer
 ==============
