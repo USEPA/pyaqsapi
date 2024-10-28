@@ -8,6 +8,7 @@ pyaqsapi user documentation
    :maxdepth: 2
    :numbered:
    :hidden:
+   
 
 .. include:: manual/EPA_Disclaimer.rst
 .. include:: manual/Introduction.rst
@@ -21,15 +22,12 @@ pyaqsapi user documentation
 .. include:: manual/RAQSAPI.rst
 
 
-pyaqsapi API reference documentation
-------------------------------------
+Indices and tables
+==================
 
+* :ref:`genindex`
 * :ref:`modindex`
-
-pyaqsapi index
---------------
-
-#* :ref:`genindex`
+* :ref:`search`
 
 References
 ----------
