@@ -1,7 +1,6 @@
 """pyaqsapi Functions that aggregate data by site."""
 
 from datetime import date
-from typing import Optional, Union
 
 from pandas import DataFrame
 
@@ -16,10 +15,10 @@ def monitors(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of monitors.
 
@@ -124,10 +123,10 @@ def qa_flowrateaudit(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return Quality assurance flowrate audit data.
 
@@ -239,10 +238,10 @@ def qa_one_point_qc(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of one point QC raw data aggregated
     by parameter code, stateFIPS, countycode and site number.
@@ -350,11 +349,11 @@ def sampledata(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    duration: Optional[str] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    duration: str | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return sample data where the data is aggregated at the site level.
 
@@ -472,10 +471,10 @@ def annualsummary(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a DataFrame of annual data aggregated at the site level.
 
@@ -590,10 +589,10 @@ def qa_blanks(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of blank quality assurance data.
     Blanks are unexposed sample collection devices (e.g.,
@@ -705,10 +704,10 @@ def dailysummary(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> DataFrame | AQSAPI_V2:
     """
     Return a DataFrame of data aggregated at the site level.
 
@@ -820,10 +819,10 @@ def qa_collocated_assessments(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of collocated assessment data aggregated by matching
     input parameter, stateFIPS, county_code, and sitenum provided for
@@ -935,10 +934,10 @@ def qa_flowrateverification(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of containing flow rate verification data aggregated by
     matching input parameter, stateFIPS, county_code, and sitenum provided for
@@ -1048,10 +1047,10 @@ def transactionsample(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of Returns transactionsample data aggregated by site
     in the AQS Submission Transaction Format (RD) sample (raw) data aggregated
@@ -1162,10 +1161,10 @@ def qa_annualpeferomanceeval(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return quality assurance performance evaluation data - aggregated by
     site for a parameter code aggregated by matching input
@@ -1277,10 +1276,10 @@ def qa_annualperformanceevaltransaction(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return AQS submissions transaction format (RD) of the annual
     performance evaluation data (raw). Includes data pairs for
@@ -1394,10 +1393,10 @@ def quarterlysummary(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a DataFrame of quarterly data aggregated at the site level.
 
@@ -1511,10 +1510,10 @@ def qa_pep_audit(
     stateFIPS: str,
     countycode: str,
     sitenum: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of Performance Evaluation Program (PEP) audit
     data aggregated by parameter code, stateFIPS, countycode and

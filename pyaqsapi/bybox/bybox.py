@@ -3,7 +3,6 @@
 """
 
 from datetime import date
-from typing import Optional, Union
 
 from pandas import DataFrame
 
@@ -19,9 +18,9 @@ def monitors(
     maxlat: str,
     minlon: str,
     maxlon: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
 ):
     """
     Return a table of monitors.
@@ -52,7 +51,7 @@ def monitors(
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
     return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+                    returns a AQSAPI_V2 object.
 
     Examples
     --------
@@ -114,18 +113,18 @@ def sampledata(
     maxlat: str,
     minlon: str,
     maxlon: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    duration: Optional[str] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    duration: str | None = None,
+    return_header: bool | None = False,
+) -> DataFrame | AQSAPI_V2:
     """
     Return sample data where the data is aggregated by latitude/longitude
     bounding box (_by_box).
 
     If return_header is FALSE (default) this function
     returns a single DataFrame with the requested data. If return_header is
-    TRUE returns a list of AQSAPI_v2 objects
+    TRUE returns a list of AQSAPI_V2 objects
 
     Parameters
     ----------
@@ -158,7 +157,7 @@ def sampledata(
                aqs_sampledurations() for a list of all available
                duration codes.
     return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+                    returns a AQSAPI_V2 object.
 
     Examples
     --------
@@ -215,10 +214,10 @@ def annualsummary(
     maxlat: str,
     minlon: str,
     maxlon: str,
-    cbdate: Union[None, date] = None,
-    cedate: Union[None, date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> DataFrame | AQSAPI_V2:
     """
     Return a DataFrame of annual data aggregated by latitude/longitude
     bounding box (_by_box).
@@ -250,7 +249,7 @@ def annualsummary(
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
     return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+                    returns a AQSAPI_V2 object.
 
     Examples
     --------
@@ -306,10 +305,10 @@ def dailysummary(
     maxlat: str,
     minlon: str,
     maxlon: str,
-    cbdate: Optional[Union[None, date]] = None,
-    cedate: Optional[Union[None, date]] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> DataFrame | AQSAPI_V2:
     """
     Return a DataFrame of daily summary data aggregated by latitude/longitude
     bounding box (_by_box).
@@ -340,7 +339,7 @@ def dailysummary(
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
     return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+                    returns a AQSAPI_V2 object.
 
     Examples
     --------
@@ -397,11 +396,11 @@ def quarterlysummary(
     maxlat: str,
     minlon: str,
     maxlon: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    duration: Optional[str] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    duration: str | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> DataFrame | AQSAPI_V2:
     """
     Return a DataFrame of quarterly data aggregate by latitude/longitude
     bounding box (_by_box).
@@ -449,7 +448,7 @@ def quarterlysummary(
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
     return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+                    returns a AQSAPI_V2 object.
 
     Examples
     --------

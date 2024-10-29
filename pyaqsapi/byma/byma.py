@@ -1,7 +1,6 @@
 """Functions that aggregate data by ma (By Monitoring Agency)."""
 
 from datetime import date
-from typing import Optional, Union
 
 from pandas import DataFrame
 
@@ -14,10 +13,10 @@ def qa_flowrateaudit(
     bdate: date,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return Quality assurance flowrate audit data.
 
@@ -95,10 +94,10 @@ def qa_one_point_qc(
     bdate: date,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table one point QC check data aggregated by monitoring agency
     code (_by_MA).
@@ -174,10 +173,10 @@ def qa_pep_audit(
     bdate: date,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of Performance Evaluation Program (PEP) audit data
     aggregated by monitoring agency code (_by_MA) for the time frame between
@@ -258,10 +257,10 @@ def qa_blanks(
     bdate: str,
     edate: str,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of blank quality assurance data. Blanks are unexposed
     sample collection devices (e.g., filters) that are transported with the
@@ -340,10 +339,10 @@ def qa_collocated_assessments(
     bdate: date,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of collocated assessment data aggregated by matching input
     parameter, and monitoring agency (MA) code provided for bdate - edate
@@ -424,10 +423,10 @@ def qa_flowrateverification(
     bdate: date,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table containing flow rate Verification data for a parameter code
     aggregated by matching input parameter, and monitoring agency (MA) code
@@ -508,10 +507,10 @@ def transactionsample(
     bdate: str,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return transactionsample data - aggregated by Monitoring agency (MA) in
     the AQS Submission Transaction Format (RD) sample (raw) data for a
@@ -591,10 +590,10 @@ def qa_annualpeferomanceeval(
     bdate: date,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return quality assurance performance evaluation data - aggregated by
     by Monitoring agency (MA) for a parameter code aggregated by matching input
@@ -676,10 +675,10 @@ def qa_annualperformanceevaltransaction(
     bdate: date,
     edate: date,
     MA_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
     return_header: bool = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> AQSAPI_V2 | DataFrame:
     """
     Return AQS submissions transaction format (RD) of the annual performance
     evaluation data (raw). Includes data pairs for QA - aggregated by

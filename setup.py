@@ -36,4 +36,5 @@ setup(
     ],
     packages=find_packages(exclude=["*.egg-info", "build", "dev"]),
     python_requires=">=3.8",
+    package_data={"pyaqsapi": ["py.typed"]},
 )

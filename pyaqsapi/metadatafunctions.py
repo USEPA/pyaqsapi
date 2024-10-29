@@ -1,7 +1,5 @@
 """metadatafunctions."""
 
-from typing import Optional, Union
-
 from pandas import DataFrame
 
 from pyaqsapi import helperfunctions
@@ -9,8 +7,8 @@ from pyaqsapi.helperfunctions import AQSAPI_V2
 
 
 def aqs_is_available(
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return the status of the AQS API.
 
@@ -37,8 +35,8 @@ def aqs_is_available(
 
 
 def aqs_knownissues(
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of any known issues with system functionality or the data.
     These are usually issues that have been identified internally and will
@@ -68,8 +66,8 @@ def aqs_knownissues(
 
 
 def aqs_revisionhistory(
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return the change history to the AQS Data Mart API.
 

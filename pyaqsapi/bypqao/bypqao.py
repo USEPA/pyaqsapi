@@ -2,7 +2,6 @@
 (By Primary Quality Assurance Organization)."""
 
 from datetime import date
-from typing import Optional, Union
 
 from pandas import DataFrame
 
@@ -15,10 +14,10 @@ def qa_flowrateaudit(
     bdate: date,
     edate: date,
     pqao_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return Quality assurance flowrate audit data.
 
@@ -98,10 +97,10 @@ def qa_one_point_qc(
     bdate: date,
     edate: date,
     pqao_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return Quality assurance data - collocated assessment raw data aggregated
     by Primary Quality Assurance Organization (PQAO) code.
@@ -180,10 +179,10 @@ def qa_pep_audit(
     bdate: date,
     edate: date,
     pqao_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of Performance Evaluation Program (PEP) audit data
     aggregated by Primary Quality Assurance Organization (PQAO) code for the
@@ -260,10 +259,10 @@ def qa_blanks(
     bdate: date,
     edate: date,
     pqao_code: date,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of blank quality assurance data. Blanks are unexposed
     sample collection devices (e.g., filters) that are transported with the
@@ -342,10 +341,10 @@ def qa_collocated_assessments(
     bdate: date,
     edate: date,
     pqao_code: date,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of blank quality assurance data. Blanks are unexposed
     sample collection devices (e.g., filters) that are transported with the
@@ -429,10 +428,10 @@ def qa_flowrateverification(
     bdate: date,
     edate: date,
     pqao_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table containing flow rate Verification data for a parameter code
     aggregated by matching input parameter, and Primary Quality Assurance
@@ -514,10 +513,10 @@ def qa_annualperformanceeval(
     bdate: date,
     edate: date,
     pqao_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return quality assurance performance evaluation data - aggregated by
     Primary Quality Assurance Organization (PQAO) for a parameter
@@ -601,10 +600,10 @@ def qa_annualperformanceevaltransaction(
     bdate: date,
     edate: date,
     pqao_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[DataFrame, AQSAPI_V2]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return AQS submissions transaction format (RD) of the annual
     performance evaluation data (raw). Includes data pairs for

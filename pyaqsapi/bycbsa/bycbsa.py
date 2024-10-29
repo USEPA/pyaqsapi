@@ -2,7 +2,6 @@
 (by Core Based Statistic Area, as defined by the Census Bureau)."""
 
 from datetime import date
-from typing import Optional, Union
 
 from pandas import DataFrame
 
@@ -15,10 +14,10 @@ def monitors(
     bdate: date,
     edate: date,
     cbsa_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of monitors.
 
@@ -102,11 +101,11 @@ def sampledata(
     bdate: date,
     edate: date,
     cbsa_code: str,
-    duration: Optional[str] = None,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    duration: str | None = None,
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return sample data where the data is aggregated at the Core Based
     Statistical Area (cbsa) level.
@@ -192,10 +191,10 @@ def annualsummary(
     bdate: date,
     edate: date,
     cbsa_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a DataFrame of annual data aggregated at the Core Based
     Statistical Area (cbsa) level.
@@ -277,10 +276,10 @@ def dailysummary(
     bdate: date,
     edate: date,
     cbsa_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return a DataFrame of data aggregated by Core Based Statistical Area
     (cbsa).
@@ -362,10 +361,10 @@ def quarterlysummary(
     bdate: date,
     edate: date,
     cbsa_code: str,
-    cbdate: Optional[date] = None,
-    cedate: Optional[date] = None,
-    return_header: Optional[bool] = False,
-) -> Union[AQSAPI_V2, DataFrame]:
+    cbdate: date | None = None,
+    cedate: date | None = None,
+    return_header: bool | None = False,
+) -> AQSAPI_V2 | DataFrame:
     """
     Return quarterly summary data aggregated by Core Based Statistical Area
     (cbsa_code).

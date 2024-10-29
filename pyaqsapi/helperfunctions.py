@@ -9,10 +9,8 @@ from typing import (
     Iterable,
     List,
     NewType,
-    Optional,
     Sized,
     TypeVar,
-    Union,
     cast,
     no_type_check,
 )
@@ -22,8 +20,8 @@ from certifi import where
 from pandas import DataFrame, concat
 from requests import get
 
-AQS_user: Union[None, str] = None
-AQS_key: Union[None, str] = None
+AQS_user: str | None = None
+AQS_key: str | None = None
 
 
 class AQSAPI_V2:
@@ -68,9 +66,9 @@ class AQSAPI_V2:
         """Initiate the AQSAPI_V2 instance."""
         self._header: DataFrame = DataFrame()
         self._data: DataFrame = DataFrame()
-        self._request_time: Union[None, str] = None
-        self._rows: Union[None, str] = None
-        self._url: Union[None, str] = None
+        self._request_time: str | None = None
+        self._rows: str | None = None
+        self._url: str | None = None
 
     def set_header(self, Header: DataFrame) -> None:
         """
@@ -223,13 +221,13 @@ class AQSAPI_V2:
     @no_type_check
     def __aqs(
         self,
-        service: Union[None, str] = None,
-        aqsfilter: Union[None, str] = None,
-        variables: Optional[dict[Union[None, str], Union[None, str, date]]] = None,
-        AQS_user: Union[None, str] = None,
-        key: Union[None, str] = None,
-        AQS_domain: Optional[str] = "https://aqs.epa.gov/data/api/",
-    ) -> Union[DataFrame, None]:
+        service: str | None = None,
+        aqsfilter: str | None = None,
+        variables: dict[str | None] | None | str | date = None,
+        AQS_user: str | None = None,
+        key: str | None = None,
+        AQS_domain: str | None = "https://aqs.epa.gov/data/api/",
+    ) -> DataFrame | None:
         """
         Send AQS request to the AQS API and returns the result.
 
@@ -317,10 +315,10 @@ class AQSAPI_V2:
         countycode: str,
         sitenum: str,
         service: str,
-        duration: Optional[str] = None,
-        cbdate: Optional[date] = None,
-        cedate: Optional[date] = None,
-    ) -> Union[DataFrame, None]:
+        duration: str | None = None,
+        cbdate: date | None = None,
+        cedate: date | None = None,
+    ) -> DataFrame | None:
         """
         This is a helper function and should not be called by the end user.
 
@@ -412,10 +410,10 @@ class AQSAPI_V2:
         stateFIPS: str,
         countycode: str,
         service: str,
-        duration: Optional[str] = None,
-        cbdate: Optional[date] = None,
-        cedate: Optional[date] = None,
-    ) -> Union[DataFrame, None]:
+        duration: str | None = None,
+        cbdate: date | None = None,
+        cedate: date | None = None,
+    ) -> DataFrame | None:
         """
         This is a helper function and should not be called by the end user.
 
@@ -502,10 +500,10 @@ class AQSAPI_V2:
         edate: date,
         stateFIPS: str,
         service: str,
-        duration: Optional[str] = None,
-        cbdate: Optional[date] = None,
-        cedate: Optional[date] = None,
-    ) -> Union[DataFrame, None]:
+        duration: str | None = None,
+        cbdate: date | None = None,
+        cedate: date | None = None,
+    ) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -590,10 +588,10 @@ class AQSAPI_V2:
         minlon: str,
         maxlon: str,
         service: str,
-        duration: Optional[str] = None,
-        cbdate: Optional[date] = None,
-        cedate: Optional[date] = None,
-    ) -> Union[DataFrame, None]:
+        duration: str | None = None,
+        cbdate: date | None = None,
+        cedate: date | None = None,
+    ) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -689,10 +687,10 @@ class AQSAPI_V2:
         edate: date,
         cbsa_code: str,
         service: str,
-        duration: Optional[str] = None,
-        cbdate: Optional[date] = None,
-        cedate: Optional[date] = None,
-    ) -> Union[DataFrame, None]:
+        duration: str | None = None,
+        cbdate: date | None = None,
+        cedate: date | None = None,
+    ) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -772,9 +770,9 @@ class AQSAPI_V2:
         edate: date,
         pqao_code: str,
         service: str,
-        cbdate: Optional[date] = None,
-        cedate: Optional[date] = None,
-    ) -> Union[DataFrame, None]:
+        cbdate: date | None = None,
+        cedate: date | None = None,
+    ) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -852,9 +850,9 @@ class AQSAPI_V2:
         edate: date,
         MA_code: str,
         service: str,
-        cbdate: Optional[date] = None,
-        cedate: Optional[date] = None,
-    ) -> Union[DataFrame, None]:
+        cbdate: date | None = None,
+        cedate: date | None = None,
+    ) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -919,13 +917,13 @@ class AQSAPI_V2:
     def _aqs_list_services(
         self,
         aqsfilter: str,
-        countycode: Optional[date] = None,
-        stateFIPS: Optional[str] = None,
-        cbsa_code: Optional[str] = None,
-        MA_code: Optional[str] = None,
-        pqao_code: Optional[str] = None,
-        parameterclass: Optional[str] = None,
-    ) -> Union[DataFrame, None]:
+        countycode: date | None = None,
+        stateFIPS: str | None = None,
+        cbsa_code: str | None = None,
+        MA_code: str | None = None,
+        pqao_code: str | None = None,
+        parameterclass: str | None = None,
+    ) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -989,8 +987,8 @@ class AQSAPI_V2:
         )
 
     def _aqs_metadata_services(
-        self, aqsfilter: Optional[str] = None, service: Optional[str] = None
-    ) -> Union[DataFrame, None]:
+        self, aqsfilter: str | None = None, service: str | None = None
+    ) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -1060,9 +1058,7 @@ class AQSAPI_V2:
         )
 
 
-def aqs_credentials(
-    username: Union[None, str] = None, key: Union[None, str] = None
-) -> None:
+def aqs_credentials(username: str | None = None, key: str | None = None) -> None:
     """
     Set the user credentials for the AQS API. This function
     needs to be called once and only once every time this library
@@ -1093,8 +1089,7 @@ def aqs_credentials(
 
 def aqs_removeheader(
     aqsobject: list[AQSAPI_V2],
-    # aqsobject: Union[Sized, list[DataFrame], list[AQSAPI_V2], DataFrame, AQSAPI_V2]
-) -> Union[DataFrame, AQSAPI_V2]:
+) -> DataFrame | AQSAPI_V2:
     """
     Coerces a single AQS_Data_Mart_APIv2 instance or a list of
     AQS_Data_Mart_APIv2 instance into a single DataFrame object.
@@ -1130,7 +1125,7 @@ def _aqsmultiyearcall(
     # name1: None | str,
     # name2: None | str,
     **kwargs: Any,
-) -> Optional[list[DataFrame]]:
+) -> list[DataFrame] | None:
     """
         A helper function not to be used by end users. Used to perform multiple
         calls to the API on API calls which only allow a single year of data to
@@ -1286,4 +1281,4 @@ def _aqsmultiyearcall(
     elif fun == "_aqs_services_by_box":
         return list(starmap(aqsresult._aqs_services_by_box, params))  # type: ignore
     else:
-        pass
+        return None
