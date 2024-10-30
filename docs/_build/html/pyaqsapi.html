@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyaqsapi package &mdash; pyaqsapi  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -522,7 +522,7 @@ pandas DataFrame.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.helperfunctions.aqs_credentials">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.helperfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.aqs_credentials" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.helperfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyaqsapi.helperfunctions.aqs_credentials" title="Link to this definition"></a></dt>
 <dd><p>Set the user credentials for the AQS API. This function
 needs to be called once and only once every time this library
 is re-loaded. Users must have a valid username and key which
@@ -544,8 +544,8 @@ use pyaqsapi.aqs_sign_up() to sign up for AQS data mart credentials.</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>username</strong> (<em>None</em><em> | </em><em>str</em>)</p></li>
-<li><p><strong>key</strong> (<em>None</em><em> | </em><em>str</em>)</p></li>
+<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>key</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -591,7 +591,7 @@ Else returns the input with no changes.</p>
 <p>listfunctions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_cbsas">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_cbsas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_cbsas" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_cbsas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_cbsas" title="Link to this definition"></a></dt>
 <dd><p>Return a table of all Core Based Statistical Areas (cbsa) and their
 associated cbsa_codes.</p>
 <dl class="field-list simple">
@@ -611,7 +611,7 @@ associated cbsa_codes.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -624,7 +624,7 @@ and their respective cbsa codes:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_classes">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_classes" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_classes" title="Link to this definition"></a></dt>
 <dd><p>Return a table of Parameter classes (groups of parameters, i.e. “criteria”
 or “all”). The information from this function can be used as input to other
 API calls.</p>
@@ -645,7 +645,7 @@ API calls.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -658,7 +658,7 @@ API calls.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_counties_by_state">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_counties_by_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_counties_by_state" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_counties_by_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_counties_by_state" title="Link to this definition"></a></dt>
 <dd><p>Return a table of all counties in within the stateFIPS provided.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -684,7 +684,7 @@ FIPS codes.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -697,7 +697,7 @@ in North Carolina the county FIPS codes (county codes) for each.:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_fields_by_service">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_fields_by_service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_fields_by_service" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_fields_by_service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_fields_by_service" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Return a table containing the list and definitions of fields in the</dt><dd><p>service requested.</p>
 </dd>
@@ -725,7 +725,7 @@ in North Carolina the county FIPS codes (county codes) for each.:</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -769,7 +769,7 @@ of fields in the Sample Data service.:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_knownissues">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_knownissues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_knownissues" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_knownissues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_knownissues" title="Link to this definition"></a></dt>
 <dd><p>Return a table of any known issues with system functionality or the data.
 These are usually issues that have been identified internally and will
 require some time to correct in Data Mart or the API. This function
@@ -793,7 +793,7 @@ the pyaqsapi python package.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -805,7 +805,7 @@ the pyaqsapi python package.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_mas">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_mas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_mas" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_mas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_mas" title="Link to this definition"></a></dt>
 <dd><p>Return a DataFrame of monitoring agencies (MA).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -824,7 +824,7 @@ the pyaqsapi python package.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -837,7 +837,7 @@ monitoring agency codes.:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_parameters_by_class">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_parameters_by_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameterclass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_parameters_by_class" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_parameters_by_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameterclass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_parameters_by_class" title="Link to this definition"></a></dt>
 <dd><p>Return a table of Parameter classes (groups of parameters, i.e. “criteria”
 or “all”). The information from this function can be used as input to other
 API calls.</p>
@@ -867,7 +867,7 @@ aqs_classes().</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -880,7 +880,7 @@ aqs_classes().</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_pqaos">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_pqaos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_pqaos" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_pqaos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_pqaos" title="Link to this definition"></a></dt>
 <dd><p>Return a table of primary quality assurance organizations (pqaos).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -899,7 +899,7 @@ aqs_classes().</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -911,7 +911,7 @@ aqs_classes().</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_revisionhistory">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_revisionhistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_revisionhistory" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_revisionhistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_revisionhistory" title="Link to this definition"></a></dt>
 <dd><p>Return a table Returns that contains change history to the AQS Data Mart
 API.</p>
 <dl class="field-list simple">
@@ -931,7 +931,7 @@ API.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -943,7 +943,7 @@ API.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_sampledurations">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sampledurations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_sampledurations" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sampledurations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_sampledurations" title="Link to this definition"></a></dt>
 <dd><p>Return a table of sample durations and their associated duration codes.
 Returned values are not calculated durations such as 8 hour carbon monoxide
 or ozone rolling averages, 3/6 day PM averages or Pb 3 month rolling
@@ -965,7 +965,7 @@ averages.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -977,7 +977,7 @@ averages.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_sites_by_county">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sites_by_county</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countycode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_sites_by_county" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_sites_by_county</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stateFIPS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countycode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_sites_by_county" title="Link to this definition"></a></dt>
 <dd><p>Return data containing a table of all air monitoring sites with the input
 state and county FIPS code combination.</p>
 <dl class="field-list simple">
@@ -1009,7 +1009,7 @@ the list of available county codes for each state.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -1022,7 +1022,7 @@ in North Carolina the county FIPS codes (county codes) for each.:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.listfunctions.aqs_states">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_states" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.listfunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.listfunctions.aqs_states" title="Link to this definition"></a></dt>
 <dd><p>Return a table of US states, US territories, and the district or Columbia
 with their respective FIPS codes.</p>
 <dl class="field-list simple">
@@ -1042,7 +1042,7 @@ with their respective FIPS codes.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -1058,7 +1058,7 @@ with their respective FIPS codes.</p>
 <p>metadatafunctions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.metadatafunctions.aqs_is_available">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_is_available" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_is_available" title="Link to this definition"></a></dt>
 <dd><p>Return the status of the AQS API.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1077,14 +1077,14 @@ with their respective FIPS codes.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.metadatafunctions.aqs_knownissues">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_knownissues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_knownissues" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_knownissues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_knownissues" title="Link to this definition"></a></dt>
 <dd><p>Return a table of any known issues with system functionality or the data.
 These are usually issues that have been identified internally and will
 require some time to correct in Data Mart or the API. This function
@@ -1108,14 +1108,14 @@ the pyaqsapi python package.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyaqsapi.metadatafunctions.aqs_revisionhistory">
-<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_revisionhistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_revisionhistory" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyaqsapi.metadatafunctions.</span></span><span class="sig-name descname"><span class="pre">aqs_revisionhistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><span class="pre">AQSAPI_V2</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#pyaqsapi.metadatafunctions.aqs_revisionhistory" title="Link to this definition"></a></dt>
 <dd><p>Return the change history to the AQS Data Mart API.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1134,7 +1134,7 @@ the pyaqsapi python package.</p>
 <dd class="field-odd"><p><strong>return_header</strong> (<em>bool</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> | <a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#pyaqsapi.helperfunctions.AQSAPI_V2" title="pyaqsapi.helperfunctions.AQSAPI_V2"><em>AQSAPI_V2</em></a> | <em>DataFrame</em></p>
 </dd>
 </dl>
 </dd></dl>
