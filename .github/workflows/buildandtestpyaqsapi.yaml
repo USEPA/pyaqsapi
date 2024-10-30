@@ -40,8 +40,7 @@ jobs:
           conda update --yes -n base conda
           conda install --yes -n base conda-libmamba-solver
           conda config --set solver libmamba
-          conda env create -n setuppyaqsapi --file=environment.yaml
-          source activate setuppyaqsapi
+          conda env update --file=environment.yaml -vv
           pip install build
       - name: Display Python version and system info
         run: python -c "import platform; print(platform.uname())"

@@ -1,5 +1,4 @@
 # environment.yaml
-name: setuppyaqsapi
 channels:
   - conda-forge
   - defaults
