@@ -41,10 +41,12 @@ jobs:
           conda install --yes -n base conda-libmamba-solver
           conda config --set solver libmamba
           conda env update -n base --file=environment.yml -vv
-          export PYTHONPATH=$PYTHONPATH:/opt/conda
+          #export PYTHONPATH=$PYTHONPATH:/opt/conda
           pip install build
-      - name: Display Python version and system info
-        run: python -c "import platform; print(platform.uname())"
+      - name: Display Python and sphinx version and system info
+        run: | 
+          python -c "import platform; print(platform.uname())"
+          sphinx-build --version
       - name: build and install pyaqsapi in a test environment
         run: |
           python -m build .
