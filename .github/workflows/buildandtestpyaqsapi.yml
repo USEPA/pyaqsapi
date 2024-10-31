@@ -41,7 +41,7 @@ jobs:
           conda install --yes -n base conda-libmamba-solver
           conda config --set solver libmamba
           conda env update -n base --file=environment.yml -vv
-          conda init
+          export PYTHONPATH=$PYTHONPATH:/opt/conda
           pip install build
       - name: Display Python version and system info
         run: python -c "import platform; print(platform.uname())"
