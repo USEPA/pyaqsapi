@@ -4,8 +4,7 @@ pandas
 pep517
 requests
 setuptools
-sphinx>=8.0
-#sphinxcontrib-napoleon
+sphinx
 sphinxcontrib-apidoc
 # the dependencies required for sphinxcontrib.spelling
 # do not seem to be maintained anymore
