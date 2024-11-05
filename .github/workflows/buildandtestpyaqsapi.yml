@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - github_workflow
   pull_request:
     branches:
       - main
