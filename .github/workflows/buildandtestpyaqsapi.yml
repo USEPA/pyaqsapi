@@ -63,5 +63,5 @@ jobs:
       - name: test_package
         env:
           AQSkey: ${{ secrets.AQSKEY }}
-          AQSuser: ${{ secrets.AQSUSER
+          AQSuser: ${{ secrets.AQSUSER }}
         run: pytest
