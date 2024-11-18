@@ -31,17 +31,24 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: "pip"
+          
+      - name: Activate Conda environment
+        run: |
+          eval "$(conda shell.bash hook)"
+          conda activate setuppyaqsapi
       
       - name: install_dependencies
         run: |
           conda config --add channels conda-forge
-          conda update --yes -n base conda
-          conda install --yes -n base conda-libmamba-solver
+          conda update --yes conda
+          conda install --yes conda-libmamba-solver
           conda config --set solver libmamba
-          conda env update -n base --file=environment.yml -vv
-          echo "source activate base" >> ~/.bashrc
-          source ~/.bashrc
+          conda env update --file=environment.yml -vv
+          #echo "source activate base" >> ~/.bashrc
+          #source ~/.bashrc
           sphinx-build --version  # Verify sphinx installation
+          
+      
 
       - name: Display Python and sphinx version and system info
         run: |

@@ -17,4 +17,3 @@ numpydoc
 certifi
 cryptography
 pytest
-sphinx_rtd_theme

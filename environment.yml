@@ -1,7 +1,9 @@
-# environment.yaml
-#channels:
-#  - conda-forge
-#  - defaults
+# environment.yml
+channels:
+  - conda-forge
+  - defaults
+environment:
+  - setuppyaqsapi
 dependencies:
 #  - python>=3.8
 #  - conda-build
