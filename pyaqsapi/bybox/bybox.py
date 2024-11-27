@@ -101,8 +101,7 @@ def monitors(
 
     if return_header:
         return aqsresultlist
-    else:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
+    return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
 def sampledata(
@@ -202,8 +201,7 @@ def sampledata(
 
     if return_header:
         return aqsresultlist
-    else:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
+    return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
 def annualsummary(
@@ -293,8 +291,7 @@ def annualsummary(
 
     if return_header:
         return aqsresultlist
-    else:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
+    return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
 def dailysummary(
@@ -384,8 +381,7 @@ def dailysummary(
 
     if return_header:
         return aqsresultlist
-    else:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
+    return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
 def quarterlysummary(
@@ -494,5 +490,4 @@ def quarterlysummary(
 
     if return_header:
         return aqsresultlist
-    else:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
+    return helperfunctions.aqs_removeheader(aqsresultlist)

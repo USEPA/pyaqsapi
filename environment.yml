@@ -1,12 +1,12 @@
 # environment.yml
+name: pyaqsapi
 channels:
   - conda-forge
-  - defaults
 environment:
   - setuppyaqsapi
 dependencies:
-#  - python>=3.8
-#  - conda-build
+  - python>=3.8
+  - conda-build
   - tox-conda
   - pandas
   - pep517
@@ -21,3 +21,4 @@ dependencies:
   - certifi
   - cryptography
   - pytest
+  - python-build

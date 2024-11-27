@@ -69,6 +69,7 @@ class AQSAPI_V2:
         self._request_time: str | None = None
         self._rows: str | None = None
         self._url: str | None = None
+        self._status_code: str = None
 
     def set_header(self, Header: DataFrame) -> None:
         """
@@ -297,7 +298,9 @@ class AQSAPI_V2:
         # AQS_domain = "https://aqs.epa.gov/data/api/" + service + "/" + aqsfilter
         header = {"User-Agent": user_agent, "From": AQS_user}
 
-        query = get(url=url, params=variables, headers=header, verify=where())
+        query = get(
+            url=url, params=variables, headers=header, verify=where(), timeout=15
+        )
         query.raise_for_status()
         self.set_header(DataFrame(query.headers))
         self.set_data(DataFrame.from_dict(query.json()["Data"]))
@@ -376,8 +379,8 @@ class AQSAPI_V2:
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
 
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         user = AQS_user
         key = AQS_key
         aqsfilter = "bySite"
@@ -468,8 +471,8 @@ class AQSAPI_V2:
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
 
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         aqsfilter = "byCounty"
         user = AQS_user
         key = AQS_key
@@ -554,8 +557,8 @@ class AQSAPI_V2:
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
 
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         aqsfilter = "byState"
         user = AQS_user
         key = AQS_key
@@ -653,8 +656,8 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         aqsfilter = "byBox"
         user = AQS_user
         key = AQS_key
@@ -739,8 +742,8 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         aqsfilter = "byCBSA"
         user = AQS_user
         key = AQS_key
@@ -820,8 +823,8 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         aqsfilter = "byPQAO"
         user = AQS_user
         key = AQS_key
@@ -891,8 +894,8 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         aqsfilter = "byMA"
         user = AQS_user
         key = AQS_key
@@ -963,8 +966,8 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         user = AQS_user
         key = AQS_key
         service = "list"
@@ -1009,8 +1012,8 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        global AQS_user
-        global AQS_key
+        # global AQS_user
+        # global AQS_key
         user = AQS_user
         key = AQS_key
         variables = {"email": user, "key": key, "service": service}
@@ -1110,7 +1113,7 @@ def aqs_removeheader(
 
     """
     aqsresult = DataFrame()
-    for x in range(len(aqsobject)):
+    for x in enumerate(aqsobject):
         aqsresult = concat([aqsresult, aqsobject[x].get_data()], axis=0)
 
     return aqsresult
@@ -1267,18 +1270,20 @@ def _aqsmultiyearcall(
     #     case _:
     #         RuntimeError("invalid function sent to _aqsmultiyearcall")
     if fun == "_aqs_services_by_site":
-        return list(starmap(aqsresult._aqs_services_by_site, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_site, params))  # type: ignore
     elif fun == "_aqs_services_by_county":
-        return list(starmap(aqsresult._aqs_services_by_county, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_county, params))  # type: ignore
     elif fun == "_aqs_services_by_state":
-        return list(starmap(aqsresult._aqs_services_by_state, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_state, params))  # type: ignore
     elif fun == "_aqs_services_by_MA":
-        return list(starmap(aqsresult._aqs_services_by_MA, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_MA, params))  # type: ignore
     elif fun == "_aqs_services_by_pqao":
-        return list(starmap(aqsresult._aqs_services_by_pqao, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_pqao, params))  # type: ignore
     elif fun == "_aqs_services_by_cbsa":
-        return list(starmap(aqsresult._aqs_services_by_cbsa, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_cbsa, params))  # type: ignore
     elif fun == "_aqs_services_by_box":
-        return list(starmap(aqsresult._aqs_services_by_box, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_box, params))  # type: ignore
     else:
-        return None
+        returnvalue = None
+
+    return returnvalue
