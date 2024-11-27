@@ -299,7 +299,7 @@ class AQSAPI_V2:
         header = {"User-Agent": user_agent, "From": AQS_user}
 
         query = get(
-            url=url, params=variables, headers=header, verify=where(), timeout=15
+            url=url, params=variables, headers=header, verify=where(), timeout=30
         )
         query.raise_for_status()
         self.set_header(DataFrame(query.headers))

@@ -41,7 +41,7 @@ jobs:
           cache-environment: true
           environment-name: pyaqsapi
           post-cleanup: 'all'
-          shell: powershell
+          shell: pwsh
 
       - name: Display Python and sphinx version and system info
         run: |
