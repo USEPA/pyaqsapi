@@ -11,6 +11,10 @@ on:
       - main
       - github_workflow
 
+defaults:
+  run:
+    shell: bash -leo pipefail {0}
+    
 jobs:
   setup_environment:
     runs-on: ubuntu-latest
@@ -45,6 +49,7 @@ jobs:
 
       - name: Display Python and sphinx version and system info
         run: |
+          conda init
           python -c "import platform; print(platform.uname())"
           sphinx-build --version
 
