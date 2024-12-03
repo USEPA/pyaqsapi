@@ -2,9 +2,8 @@
 
 from pandas import DataFrame
 
-import pyaqsapi.helperfunctions as helperfunctions
-
-from .helperfunctions import AQSAPI_V2
+from . import helperfunctions
+from pyaqsapi.helperfunctions import AQSAPI_V2
 
 
 def aqs_isavailable(
