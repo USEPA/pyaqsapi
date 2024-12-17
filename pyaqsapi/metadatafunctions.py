@@ -81,10 +81,9 @@ def aqs_revisionhistory(
     (pandas DataFrame or an AQSAPI_V2 object): Information on the revision
     history to the AQS Datamart API.
     """
-    service = "metaData"
     aqsfilter = "revisionHistory"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
+    aqsresult._aqs_metadata_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
     else:
