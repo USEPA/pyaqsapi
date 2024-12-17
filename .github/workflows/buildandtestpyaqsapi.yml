@@ -13,7 +13,7 @@ on:
 
 defaults:
   run:
-    shell: bash -leo pipefail {0}
+    shell: bash -el {0}
     
 jobs:
   setup_environment:
@@ -29,11 +29,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
 
       - name: setup environment
         uses: mamba-org/setup-micromamba@v2
@@ -41,11 +36,10 @@ jobs:
           environment-file: environment.yml
           init-shell: >-
             bash
-            powershell
           cache-environment: true
           environment-name: pyaqsapi
           post-cleanup: 'all'
-          shell: pwsh
+          shell: bash
 
       - name: Display Python and sphinx version and system info
         run: |
