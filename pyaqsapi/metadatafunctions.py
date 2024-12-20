@@ -55,10 +55,9 @@ def aqs_knownissues(
     (pandas DataFrame or an AQSAPI_V2 object): Information involving known
     issues with the Data Mart API.
     """
-    service = "metaData"
     aqsfilter = "issues"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
+    aqsresult._aqs_metadata_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
     else:
