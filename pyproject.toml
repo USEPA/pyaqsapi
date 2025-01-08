@@ -40,7 +40,14 @@ build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-testpaths = ["tests"]
+testpaths = ["tests",
+             "pyaqsapi/bybox/tests",
+             "pyaqsapi/bycbsa/tests",
+             "pyaqsapi/bycounty/tests",
+             "pyaqsapi/byma/tests",
+             "pyaqsapi/bypqao/tests",
+             "pyaqsapi/bysite/tests",
+             "pyaqsapi/bystate/tests"]
 pythonpath = ["pyaqsapi"]
 max-line-length = 85
 combine-as-imports = true
