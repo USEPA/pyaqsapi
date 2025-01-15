@@ -34,6 +34,9 @@ be used in any manner to imply endorsement of any commercial product or
 activity by the USEPA or the United States Government.
 """
 
+from pyaqsapi import helperfunctions
+from pyaqsapi import setupfunctions
+from pyaqsapi import metadatafunctions
 import pyaqsapi.bybox as bybox
 import pyaqsapi.bycbsa as bycbsa
 import pyaqsapi.bycounty as bycounty
@@ -57,15 +60,15 @@ from pyaqsapi.setupfunctions import *
 
 
 __all__ = [
-    ".pyaqsapi/helperfunctions",
-    ".pyaqsapi/metadatafunctions",
-    ".pyaqsapi/setupfunctions",
-    ".pyaqsapi/bysite/",
-    ".pyaqsapi/bycounty/",
-    ".pyaqsapi/bystate/",
-    ".pyaqsapi/byma/",
-    ".pyaqsapi/bypqao/",
-    ".pyaqsapi/bycbsa/",
-    ".pyaqsapi/bybox/",
-    ".pyaqsapi/listfunctions",
+    "helperfunctions",
+    "metadatafunctions",
+    "setupfunctions",
+    "bysite",
+    "bycounty",
+    "bystate",
+    "byma",
+    "bypqao",
+    "bycbsa",
+    "bybox",
+    "listfunctions",
 ]

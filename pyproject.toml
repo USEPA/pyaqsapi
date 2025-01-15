@@ -48,7 +48,14 @@ testpaths = ["tests",
              "pyaqsapi/bypqao/tests",
              "pyaqsapi/bysite/tests",
              "pyaqsapi/bystate/tests"]
-pythonpath = ["pyaqsapi"]
+pythonpath = ["pyaqsapi",
+              "pyaqsapi/bybox",
+              "pyaqsapi/bycbsa",
+              "pyaqsapi/bycounty",
+              "pyaqsapi/byma",
+              "pyaqsapi/bypqao",
+              "pyaqsapi/bysite",
+              "pyaqsapi/bystate"]
 max-line-length = 85
 combine-as-imports = true
 show-source = true
