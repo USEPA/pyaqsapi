@@ -19,6 +19,7 @@ from warnings import warn
 from certifi import where
 from pandas import DataFrame, concat
 from requests import get
+from requests.exceptions import ConnectionError, HTTPError, Timeout
 
 AQS_user: str | None = None
 AQS_key: str | None = None
@@ -292,21 +293,40 @@ class AQSAPI_V2:
             variables["cbdate"] = variables["cbdate"].strftime(format="%Y%m%d")
         if service is None:
             service = ""
-        # url = AQS_domain + service + "/" + aqsfilter
         url = "".join(filter(None, [AQS_domain, "/", service, "/", aqsfilter]))
         url = url.replace("///", "/")
-        # AQS_domain = "https://aqs.epa.gov/data/api/" + service + "/" + aqsfilter
         header = {"User-Agent": user_agent, "From": AQS_user}
-
-        query = get(
-            url=url, params=variables, headers=header, verify=where(), timeout=30
-        )
-        query.raise_for_status()
-        self.set_header(DataFrame(query.headers))
-        self.set_data(DataFrame.from_dict(query.json()["Data"]))
-        self._url = query.url
-        self._status_code = query.status_code
-        self.__aqs_ratelimit()
+        try:
+            query = get(
+                url=url, params=variables, headers=header, verify=where(), timeout=30
+            )
+            self.set_header(DataFrame(query.headers))
+            self.set_data(DataFrame.from_dict(query.json()["Data"]))
+            self._url = query.url
+            self._status_code = query.status_code
+            query.raise_for_status()
+        except ConnectionError as connectionerror:
+            warn(
+                f"pyaqsapi experienced a connection error: \
+                 \n {connectionerror}"
+            )
+        except Timeout as timeouterror:
+            warn(
+                f"pyaqsapi experienced a timeout error: \
+                 \n {timeouterror}"
+            )
+        except HTTPError as httperror:
+            warn(
+                f"pyaqsapi experienced a HTTP Error: \
+                 \n {httperror}"
+            )
+        except Exception as exception:
+            warn(
+                f"pyaqsapi experienced an error: \
+                 \n {exception}"
+            )
+        finally:
+            self.__aqs_ratelimit()
         return self
 
     def _aqs_services_by_site(

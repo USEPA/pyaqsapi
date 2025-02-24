@@ -4,7 +4,6 @@ from datetime import date
 
 from pandas import DataFrame
 
-
 import pyaqsapi.helperfunctions as helperfunctions
 from pyaqsapi.helperfunctions import AQSAPI_V2
 

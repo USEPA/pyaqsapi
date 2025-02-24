@@ -26,8 +26,10 @@ def setuppyaqsapi_bycbsa(autouse=True):
         try:
             import local
         except ImportError:
-            warn("unable to import ./dev/local.py in bycbsa/tests/setupaqsapi \
-                 setuppyaqsapi fixture")
+            warn(
+                "unable to import ./dev/local.py in bycbsa/tests/setupaqsapi \
+                 setuppyaqsapi fixture"
+            )
         AQSuser, AQSkey = local.setuppyaqsapitest()
     else:
         # get the credential information from environment variables if using

@@ -6,6 +6,14 @@ pyaqsapi.bycbsa package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyaqsapi.bycbsa.tests
+
 Submodules
 ----------
 

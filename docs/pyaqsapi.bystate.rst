@@ -6,6 +6,14 @@ pyaqsapi.bystate package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyaqsapi.bystate.tests
+
 Submodules
 ----------
 
