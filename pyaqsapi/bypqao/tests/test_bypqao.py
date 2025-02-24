@@ -14,9 +14,9 @@ def setuppyaqsapi(autouse=True):
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
-        # repostiory or in the final package. local looads the AQS user
+        # repostiory or in the final package. local loads the AQS user
         # credentials for testing
-        path.append(abspath("./dev"))
+        path.append(abspath("./dev/"))
         import local
 
         AQSuser, AQSkey = local.setuppyaqsapitest()

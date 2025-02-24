@@ -7,6 +7,7 @@ import pytest
 import pyaqsapi.metadatafunctions as metadatafunctions
 from pyaqsapi.helperfunctions import aqs_credentials
 
+
 @pytest.fixture
 def setuppyaqsapi(autouse=True):
     # print(f"the current working directory is: {getcwd()}")
@@ -31,8 +32,13 @@ def setuppyaqsapi(autouse=True):
 
 
 def test_aqs_knownissues(setuppyaqsapi):
-    assert metadatafunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
+    assert (
+        metadatafunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
+    )
 
 
 def test_aqs_revisionhistory(setuppyaqsapi):
-    assert metadatafunctions.aqs_revisionhistory(return_header=True).get_status_code() == "200"
+    assert (
+        metadatafunctions.aqs_revisionhistory(return_header=True).get_status_code()
+        == "200"
+    )

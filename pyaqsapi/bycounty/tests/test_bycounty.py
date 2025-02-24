@@ -5,8 +5,14 @@ from sys import path
 
 import pytest
 
-import pyaqsapi.bycounty as bycounty
-from pyaqsapi.helperfunctions import aqs_credentials
+from importlib import import_module
+
+# import pyaqsapi.bycounty as bycounty
+bycounty = import_module(name="..bycounty", package="pyaqsapi.bycounty")
+# from pyaqsapi.helperfunctions import aqs_credentials
+helperfunctions = import_module(
+    name="..helperfunctions", package="pyaqsapi.helperfunctions"
+)
 
 
 @pytest.fixture
@@ -14,13 +20,13 @@ def setuppyaqsapi(autouse=True):
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
-        # repostiory or in the final package. local looads the AQS user
+        # repostiory or in the final package. local loads the AQS user
         # credentials for testing
-        path.append(abspath("./dev"))
+        path.append(abspath("./dev/"))
         import local
 
         AQSuser, AQSkey = local.setuppyaqsapitest()
-        aqs_credentials(username=AQSuser, key=AQSkey)
+        # aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
         # github actions
@@ -28,7 +34,7 @@ def setuppyaqsapi(autouse=True):
         assert AQSuser is not None
         AQSkey = environ.get("AQSkey")
         assert AQSkey is not None
-        aqs_credentials(username=AQSuser, key=AQSkey)
+    helperfunctions.aqs_credentials(username=AQSuser, key=AQSkey)
 
 
 def test_annualsummary_bycounty(setuppyaqsapi):

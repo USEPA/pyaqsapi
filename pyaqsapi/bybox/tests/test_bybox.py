@@ -5,22 +5,28 @@ from importlib import import_module
 from sys import path
 
 import pytest
-from pyaqsapi import bybox
-from pyaqsapi.helperfunctions import aqs_credentials
+
+# from pyaqsapi import bybox
+# from pyaqsapi.helperfunctions import aqs_credentials
+bybox = import_module(name="..bybox", package="pyaqsapi.bybox")
+# from pyaqsapi.helperfunctions import aqs_credentials
+helperfunctions = import_module(
+    name="..helperfunctions", package="pyaqsapi.helperfunctions"
+)
 
 
 @pytest.fixture
-def setuppyaqsapi(autouse=True):
+def setuppyaqsapi_bybox(autouse=True):
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
-        # repostiory or in the final package. local looads the AQS user
+        # repostiory or in the final package. local loads the AQS user
         # credentials for testing
-        path.append(abspath("./dev"))
-        local = import_module(name="local", package="pyaqsapi")
-        # import local
+        path.append(abspath("./dev/"))
+        import local
+
         AQSuser, AQSkey = local.setuppyaqsapitest()
-        aqs_credentials(username=AQSuser, key=AQSkey)
+        # aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
         # github actions
@@ -28,10 +34,10 @@ def setuppyaqsapi(autouse=True):
         assert AQSuser is not None
         AQSkey = environ.get("AQSkey")
         assert AQSkey is not None
-        aqs_credentials(username=AQSuser, key=AQSkey)
+    helperfunctions.aqs_credentials(username=AQSuser, key=AQSkey)
 
 
-def test_sampledata_bybox(setuppyaqsapi):
+def test_sampledata_bybox(setuppyaqsapi_bybox):
     assert (
         bybox.sampledata(
             parameter="44201",
@@ -47,7 +53,7 @@ def test_sampledata_bybox(setuppyaqsapi):
     )
 
 
-def test_monitors_bybox(setuppyaqsapi):
+def test_monitors_bybox(setuppyaqsapi_bybox):
     assert (
         bybox.monitors(
             parameter="44201",
@@ -63,7 +69,7 @@ def test_monitors_bybox(setuppyaqsapi):
     )
 
 
-def test_annualsummary_bybox(setuppyaqsapi):
+def test_annualsummary_bybox(setuppyaqsapi_bybox):
     assert (
         bybox.annualsummary(
             parameter="44201",
@@ -79,7 +85,7 @@ def test_annualsummary_bybox(setuppyaqsapi):
     )
 
 
-def test_dailysummary_bybox(setuppyaqsapi):
+def test_dailysummary_bybox(setuppyaqsapi_bybox):
     assert (
         bybox.dailysummary(
             parameter="44201",
@@ -95,7 +101,7 @@ def test_dailysummary_bybox(setuppyaqsapi):
     )
 
 
-def test_quarterlysummary_bybox(setuppyaqsapi):
+def test_quarterlysummary_bybox(setuppyaqsapi_bybox):
     assert (
         bybox.quarterlysummary(
             parameter="44201",

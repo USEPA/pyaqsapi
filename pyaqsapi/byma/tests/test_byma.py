@@ -5,22 +5,29 @@ from sys import path
 
 import pytest
 
-import pyaqsapi.byma as byma
-from pyaqsapi.helperfunctions import aqs_credentials
+from importlib import import_module
+
+# import pyaqsapi.byma as byma
+# from pyaqsapi.helperfunctions import aqs_credentials
+byma = import_module(name="..byma", package="pyaqsapi.byma")
+# from pyaqsapi.helperfunctions import aqs_credentials
+helperfunctions = import_module(
+    name="..helperfunctions", package="pyaqsapi.helperfunctions"
+)
 
 
 @pytest.fixture
-def setuppyaqsapi(autouse=True):
+def setuppyaqsapi_byma(autouse=True):
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
-        # repostiory or in the final package. local looads the AQS user
+        # repostiory or in the final package. local loads the AQS user
         # credentials for testing
-        path.append(abspath("./dev"))
+        path.append(abspath("./dev/"))
         import local
 
         AQSuser, AQSkey = local.setuppyaqsapitest()
-        aqs_credentials(username=AQSuser, key=AQSkey)
+        # aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
         # github actions
@@ -28,10 +35,10 @@ def setuppyaqsapi(autouse=True):
         assert AQSuser is not None
         AQSkey = environ.get("AQSkey")
         assert AQSkey is not None
-        aqs_credentials(username=AQSuser, key=AQSkey)
+    helperfunctions.aqs_credentials(username=AQSuser, key=AQSkey)
 
 
-def test_qa_blanks_byma(setuppyaqsapi):
+def test_qa_blanks_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_blanks(
             parameter="88101",
@@ -44,7 +51,7 @@ def test_qa_blanks_byma(setuppyaqsapi):
     )
 
 
-def test_qa_collocated_assessments_byma(setuppyaqsapi):
+def test_qa_collocated_assessments_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_collocated_assessments(
             parameter="88101",
@@ -57,7 +64,7 @@ def test_qa_collocated_assessments_byma(setuppyaqsapi):
     )
 
 
-def test_qa_one_point_qc_byma(setuppyaqsapi):
+def test_qa_one_point_qc_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_one_point_qc(
             parameter="44201",
@@ -70,7 +77,7 @@ def test_qa_one_point_qc_byma(setuppyaqsapi):
     )
 
 
-def test_qa_flowrateaudit_byma(setuppyaqsapi):
+def test_qa_flowrateaudit_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_flowrateaudit(
             parameter="88101",
@@ -83,7 +90,7 @@ def test_qa_flowrateaudit_byma(setuppyaqsapi):
     )
 
 
-def test_qa_flowrateverification_byma(setuppyaqsapi):
+def test_qa_flowrateverification_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_flowrateverification(
             parameter="88101",
@@ -96,7 +103,7 @@ def test_qa_flowrateverification_byma(setuppyaqsapi):
     )
 
 
-def test_qa_pep_audit_byma(setuppyaqsapi):
+def test_qa_pep_audit_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_pep_audit(
             parameter="88101",
@@ -109,7 +116,7 @@ def test_qa_pep_audit_byma(setuppyaqsapi):
     )
 
 
-def test_transactionsample_byma(setuppyaqsapi):
+def test_transactionsample_byma(setuppyaqsapi_byma):
     assert (
         byma.transactionsample(
             parameter="44201",
@@ -122,7 +129,7 @@ def test_transactionsample_byma(setuppyaqsapi):
     )
 
 
-def test_qa_annualpeferomanceeval_byma(setuppyaqsapi):
+def test_qa_annualpeferomanceeval_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_annualpeferomanceeval(
             parameter="44201",
@@ -135,7 +142,7 @@ def test_qa_annualpeferomanceeval_byma(setuppyaqsapi):
     )
 
 
-def test_qa_annualperformanceevaltransaction_byma(setuppyaqsapi):
+def test_qa_annualperformanceevaltransaction_byma(setuppyaqsapi_byma):
     assert (
         byma.qa_annualperformanceevaltransaction(
             parameter="44201",

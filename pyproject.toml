@@ -38,28 +38,6 @@ requires = [
 
 build-backend = "setuptools.build_meta"
 
-[tool.pytest.ini_options]
-minversion = "6.0"
-testpaths = ["tests",
-             "pyaqsapi/bybox/tests",
-             "pyaqsapi/bycbsa/tests",
-             "pyaqsapi/bycounty/tests",
-             "pyaqsapi/byma/tests",
-             "pyaqsapi/bypqao/tests",
-             "pyaqsapi/bysite/tests",
-             "pyaqsapi/bystate/tests"]
-pythonpath = ["pyaqsapi",
-              "pyaqsapi/bybox",
-              "pyaqsapi/bycbsa",
-              "pyaqsapi/bycounty",
-              "pyaqsapi/byma",
-              "pyaqsapi/bypqao",
-              "pyaqsapi/bysite",
-              "pyaqsapi/bystate"]
-max-line-length = 85
-combine-as-imports = true
-show-source = true
-
 
 [tool.ruff]
 lint.select = ["I001",
@@ -92,8 +70,23 @@ exclude = [
     ".vscode",
     "conf.py",
     "setup.py",
-    "*tests/*"
+    "*tests/*",
+    "dev/*"
 ]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.setuptools]
+packages = ["pyaqsapi",
+            "pyaqsapi.bysite",
+            "pyaqsapi.bycounty",
+            "pyaqsapi.bystate",
+            "pyaqsapi.bycbsa",
+            "pyaqsapi.bypqao",
+            "pyaqsapi.byma",
+            "pyaqsapi.bybox"]
+
+# [tool.setuptools.packages.find]
+# where = ["pyaqsapi"]
+# exclude = ["dev*", "tests*"]

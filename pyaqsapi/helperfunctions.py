@@ -227,7 +227,7 @@ class AQSAPI_V2:
         variables: dict[str | None] | None | str | date = None,
         AQS_user: str | None = None,
         key: str | None = None,
-        AQS_domain: str | None = "https://aqs.epa.gov/data/api/",
+        AQS_domain: str | None = "https://aqs.epa.gov/data/api",
     ) -> DataFrame | None:
         """
         Send AQS request to the AQS API and returns the result.
