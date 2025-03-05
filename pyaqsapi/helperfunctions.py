@@ -297,9 +297,12 @@ class AQSAPI_V2:
         url = url.replace("///", "/")
         header = {"User-Agent": user_agent, "From": AQS_user}
         try:
-            query = get(
-                url=url, params=variables, headers=header, verify=where(), timeout=30
-            )
+            query = get(url=url,
+                        params=variables,
+                        headers=header,
+                        verify=where(),
+                        timeout=30
+                        )
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
             self._url = query.url
@@ -1081,7 +1084,8 @@ class AQSAPI_V2:
         )
 
 
-def aqs_credentials(username: str | None = None, key: str | None = None) -> None:
+def aqs_credentials(username: str | None = None,
+                    key: str | None = None) -> None:
     """
     Set the user credentials for the AQS API. This function
     needs to be called once and only once every time this library
@@ -1157,19 +1161,21 @@ def _aqsmultiyearcall(
         This function is used to make multiple calls to the Datamart API for
         request for data that exceed the request limit set by AQS Datamart.
         This is done by making multiple API request to the API and combining the
-        results from all requests into a single managable object that is returned
-        to the calling function for further processing. The first seven parameters
-        (fun, parameter, bdate, edate, service, name1 and name2) are all required
-        parameters that must be including in the function call (Name1 and Name2
-        can be set to None). Other parameters are captured by **kwargs to be sent
-        to the API. These optional parameters include sitenum, countycode,
-        stateFIPS, cbsa_code, ma_code, minlat, maxlat, minlon, pqao_code, duration,
-        cbdate and cedate for API calls that require those parameters.
+        results from all requests into a single managable object that is
+        returned to the calling function for further processing. The first seven
+        parameters (fun, parameter, bdate, edate, service, name1 and name2) are
+        all required parameters that must be including in the function call
+        (Name1 and Name2 can be set to None). Other parameters are captured by 
+        **kwargs to be sent to the API. These optional parameters include 
+        sitenum, countycode, stateFIPS, cbsa_code, ma_code, minlat, maxlat,
+        minlon, pqao_code, duration, cbdate and cedate for API calls that
+        require those parameters.
 
 
     Creates a DataFrame
-        containing all vaiables to be passed to multiyearcall()) with each column
-        representing a singe parameter and each row a single call to the API.
+        containing all vaiables to be passed to multiyearcall()) with each
+        column representing a singe parameter and each row a single call
+        to the API.
 
         Parameters
         ----------
@@ -1187,12 +1193,13 @@ def _aqsmultiyearcall(
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
         name1 : str
-                a character string representing the new name of the first column of
-                the Data portion of the AQSAPI_V2 object. (can be set to None)
+                a character string representing the new name of the first 
+                column of the Data portion of the AQSAPI_V2 object.
+                (can be set to None)
         name2 : str
                 a character string representing the new name of the second
-                column of the Data portion of the AQSAPI_V2 object. (can be set to
-                None)
+                column of the Data portion of the AQSAPI_V2 object.
+                (can be set to None)
         **kwargs : additional parameters to be set to the API as needed for each
                    API service requested. These optional parameters include
                    sitenum, countycode, stateFIPS, cbsa_code, ma_code, minlat,
@@ -1208,8 +1215,8 @@ def _aqsmultiyearcall(
         -------
         (list of itertools starmap objects): A list of itertools.starmap objects
         that contain AQSAPI_V2 objects where each item in the list represents a
-        single call to the AQS Datamart API. The aqs_removeheader function can be
-        used to simplify the returned list into a single DataFrame.
+        single call to the AQS Datamart API. The aqs_removeheader function can
+        be used to simplify the returned list into a single DataFrame.
 
     """
     aqsresult = AQSAPI_V2()  # ignore the variable not used warning.
@@ -1229,11 +1236,13 @@ def _aqsmultiyearcall(
         # until end date (including the year of bdate and not the year of
         # edate) with edate appended to the end.
         bdatelist = [
-            date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)
+            date(year=x, month=1, day=1)
+            for x in range(bdate.year + 1, edate.year + 1)
         ]
         bdatelist.insert(0, bdate)
         edatelist = [
-            date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)
+            date(year=y, month=12, day=31)
+            for y in range(bdate.year, edate.year)
         ]
         edatelist.append(edate)
 
@@ -1290,19 +1299,26 @@ def _aqsmultiyearcall(
     #     case _:
     #         RuntimeError("invalid function sent to _aqsmultiyearcall")
     if fun == "_aqs_services_by_site":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_site, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_site,
+                                   params))  # type: ignore
     elif fun == "_aqs_services_by_county":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_county, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_county,
+                                   params))  # type: ignore
     elif fun == "_aqs_services_by_state":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_state, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_state,
+                                   params))  # type: ignore
     elif fun == "_aqs_services_by_MA":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_MA, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_MA,
+                                   params))  # type: ignore
     elif fun == "_aqs_services_by_pqao":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_pqao, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_pqao,
+                                   params))  # type: ignore
     elif fun == "_aqs_services_by_cbsa":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_cbsa, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_cbsa,
+                                   params))  # type: ignore
     elif fun == "_aqs_services_by_box":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_box, params))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_box,
+                                   params))  # type: ignore
     else:
         returnvalue = None
 

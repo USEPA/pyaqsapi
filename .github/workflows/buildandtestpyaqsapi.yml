@@ -63,4 +63,4 @@ jobs:
         env:
           AQSkey: ${{ secrets.AQSKEY }}
           AQSuser: ${{ secrets.AQSUSER }}
-        run: python -m pytest --cache-clear
+        run: python -m pytest --cache-clear --reruns 3 --reruns-delay 30
