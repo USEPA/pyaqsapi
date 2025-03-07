@@ -70,7 +70,7 @@ class AQSAPI_V2:
         self._request_time: str | None = None
         self._rows: str | None = None
         self._url: str | None = None
-        self._status_code: str = None
+        self._status_code: str | None = None
 
     def set_header(self, Header: DataFrame) -> None:
         """
@@ -177,7 +177,7 @@ class AQSAPI_V2:
         None
 
         """
-        self._status_code: str = status_code
+        self._status_code = status_code
 
     def get_request_time(self) -> str:
         """
@@ -940,7 +940,7 @@ class AQSAPI_V2:
     def _aqs_list_services(
         self,
         aqsfilter: str,
-        countycode: date | None = None,
+        countycode: str | None = None,
         stateFIPS: str | None = None,
         cbsa_code: str | None = None,
         MA_code: str | None = None,
@@ -1111,7 +1111,7 @@ def aqs_credentials(username: str | None = None, key: str | None = None) -> None
 
 
 def aqs_removeheader(
-    aqsobject: list[AQSAPI_V2],
+    aqsobject: None | DataFrame | AQSAPI_V2 | list[DataFrame] | list[AQSAPI_V2],
 ) -> DataFrame | AQSAPI_V2:
     """
     Coerces a single AQS_Data_Mart_APIv2 instance or a list of
@@ -1232,11 +1232,13 @@ def _aqsmultiyearcall(
         # until end date (including the year of bdate and not the year of
         # edate) with edate appended to the end.
         bdatelist = [
-            date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)
+            date(year=x, month=1, day=1) for x in range(bdate.year + 1,
+                                                        edate.year + 1)
         ]
         bdatelist.insert(0, bdate)
         edatelist = [
-            date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)
+            date(year=y, month=12, day=31) for y in range(bdate.year,
+                                                          edate.year)
         ]
         edatelist.append(edate)
 
@@ -1294,33 +1296,33 @@ def _aqsmultiyearcall(
     #         RuntimeError("invalid function sent to _aqsmultiyearcall")
     if fun == "_aqs_services_by_site":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_site, params)
+            starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)) 
         )  # type: ignore
     elif fun == "_aqs_services_by_county":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_county, params)
+            starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params))
         )  # type: ignore
     elif fun == "_aqs_services_by_state":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_state, params)
+            starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params))
         )  # type: ignore
     elif fun == "_aqs_services_by_MA":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_MA, params)
+            starmap(aqsresult._aqs_services_by_MA,cast(Iterable[Any], params))
         )  # type: ignore
     elif fun == "_aqs_services_by_pqao":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_pqao, params)
+            starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params))
         )  # type: ignore
     elif fun == "_aqs_services_by_cbsa":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_cbsa, params)
+            starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params))
         )  # type: ignore
     elif fun == "_aqs_services_by_box":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_box, params)
+            starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params))
         )  # type: ignore
     else:
         returnvalue = None
 
-    return returnvalue
+    return cast(list[DataFrame] | None, returnvalue)

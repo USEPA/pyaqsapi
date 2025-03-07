@@ -16,7 +16,7 @@ def monitors(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> list[DataFrame] | AQSAPI_V2 | DataFrame:
     """
     Return a table of monitors.
 
