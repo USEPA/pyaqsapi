@@ -1,13 +1,34 @@
 [project]
 name = "pyaqsapi"
-requires-python = ">=3.8"
-dynamic = ["version", "dependencies", "optional-dependencies"]
-description="Retrieve ambient air monitoring data from the United States Environmental Protection Agency’s (US EPA) Air Quality System (AQS) Data Mart API v2 interface."
+requires-python = ">=3.9"
+dependencies = [
+    python
+    conda-build,
+    pandas,
+    requests,
+    setuptools,
+    sphinx,
+    sphinxcontrib-apidoc,
+    sphinxcontrib-bibtex,
+    numpydoc,
+    toml,
+    sphinx_rtd_theme,
+    certifi,
+    cryptography
+]
+optional-dependencies = [
+    pytest,
+    pytest-black,
+    pytest-rerunfailures
+]
+dynamic = ["version"]
+description = "United States Environmental Protection Agency (US EPA) Air \
+               Quality System (AQS) Data Mart API v2 interface."
 authors = [
-  {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"},
+  {name = "Clinton Mccrowey", email = "mccrowey<DOT>clinton<AT>epa<DOT>gov"},
 ]
 maintainers = [
-  {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"}
+  {name = "Clinton Mccrowey", email = "mccrowey<DOT>clinton<AT>epa<DOT>gov"}
 ]
 readme = {file = "README.rst", content-type = "text/x-rst"}
 license = {file = "LICENSE.rst"}
@@ -32,8 +53,8 @@ classifiers = [
 requires = [
     "sphinx",
     "sphinxcontrib-napoleon",
-	"setuptools>=42",
-	"wheel"
+	  "setuptools",
+	  "wheel"
 ]
 
 build-backend = "setuptools.build_meta"

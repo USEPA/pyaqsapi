@@ -18,7 +18,7 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.9
     - pep517
     - sphinx
     - sphinx-rtd-theme
@@ -35,7 +35,7 @@ requirements:
     - wheel
 
   run:
-    - python > = 3.8
+    - python > = 3.9
     - keyring
     - pandas
     - requests
@@ -52,8 +52,10 @@ test:
     commands:
       - pip check
     requires:
-    - python > = 3.8
+    - python > = 3.9
     - pytest
+    - pytest-rerunfailures
+    - pytest-black
     - pip
     # the dependencies required for sphinxcontrib.spelling
     # do not seem to be maintained anymore
