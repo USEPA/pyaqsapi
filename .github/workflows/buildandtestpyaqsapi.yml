@@ -34,23 +34,25 @@ jobs:
         uses: mamba-org/setup-micromamba@v2
         with:
           environment-file: environment.yml
+          create-args: --retry-clean-cache -v
           init-shell: >-
             bash
           cache-environment: true
           environment-name: pyaqsapi
           post-cleanup: 'all'
-          shell: bash
 
       - name: Display Python and sphinx version and system info
         run: |
           conda init
           python -c "import platform; print(platform.uname())"
           sphinx-build --version
+        shell: bash -el {0}
 
       - name: build and install pyaqsapi in a test environment using python-build and pip 
         run: |
           python -m build .
           pip install .
+        shell: bash -el {0}
 
       - name: build apidocs
         run: |
@@ -58,9 +60,11 @@ jobs:
           make clean
           sphinx-apidoc --ext-autodoc -o . ../pyaqsapi/
           make html
+        shell: bash -el {0}
       
       - name: test_package
         env:
           AQSkey: ${{ secrets.AQSKEY }}
           AQSuser: ${{ secrets.AQSUSER }}
         run: python -m pytest --cache-clear --reruns 3 --reruns-delay 30
+        shell: bash -el {0}

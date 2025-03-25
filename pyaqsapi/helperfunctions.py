@@ -15,7 +15,6 @@ from typing import (
     no_type_check,
 )
 from warnings import warn
-
 from certifi import where
 from pandas import DataFrame, concat
 from requests import get
@@ -1232,13 +1231,11 @@ def _aqsmultiyearcall(
         # until end date (including the year of bdate and not the year of
         # edate) with edate appended to the end.
         bdatelist = [
-            date(year=x, month=1, day=1) for x in range(bdate.year + 1,
-                                                        edate.year + 1)
+            date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)
         ]
         bdatelist.insert(0, bdate)
         edatelist = [
-            date(year=y, month=12, day=31) for y in range(bdate.year,
-                                                          edate.year)
+            date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)
         ]
         edatelist.append(edate)
 
@@ -1296,7 +1293,7 @@ def _aqsmultiyearcall(
     #         RuntimeError("invalid function sent to _aqsmultiyearcall")
     if fun == "_aqs_services_by_site":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)) 
+            starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params))
         )  # type: ignore
     elif fun == "_aqs_services_by_county":
         returnvalue = list(
@@ -1308,7 +1305,7 @@ def _aqsmultiyearcall(
         )  # type: ignore
     elif fun == "_aqs_services_by_MA":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_MA,cast(Iterable[Any], params))
+            starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params))
         )  # type: ignore
     elif fun == "_aqs_services_by_pqao":
         returnvalue = list(
