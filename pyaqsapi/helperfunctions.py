@@ -1,20 +1,18 @@
 """helperfunctions."""
 
-from collections.abc import Callable
+from collections.abc import Callable, Iterable, Sized
 from datetime import date
 from itertools import starmap
 from time import sleep
 from typing import (
     Any,
-    Iterable,
-    List,
     NewType,
-    Sized,
     TypeVar,
     cast,
     no_type_check,
 )
 from warnings import warn
+
 from certifi import where
 from pandas import DataFrame, concat
 from requests import get
@@ -1132,8 +1130,8 @@ def aqs_removeheader(
 
     """
     aqsresult = DataFrame()
-    for x in enumerate(aqsobject):
-        aqsresult = concat([aqsresult, aqsobject[x].get_data()], axis=0)
+    for x in enumerate(cast(Iterable, aqsobject)): # type: ignore
+        aqsresult = concat([aqsresult, aqsobject[x].get_data()], axis=0) # type: ignore
 
     return aqsresult
 
