@@ -10,11 +10,11 @@ maintainers = [
   {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"}
 ]
 readme = {file = "README.rst", content-type = "text/x-rst"}
-license = {file = "LICENSE.rst"}
+license = "MIT"
+license-files = ["LICENSE.rst"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent"
 ]
 
