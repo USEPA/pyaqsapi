@@ -3,48 +3,49 @@ package:
     version: 1.0.1
 
 source:
-    #git_url: https://github.com/USEPA/pyaqsapi.git
-    file: {.\dist\pyaqsapi-0.0.0.tar.gz}
-    sha256: A9EC10E79DCE04835D802ABB22A70249E2664E0875DAF3B6BEC9717B5B4322FA
+    path: ./dist/pyaqsapi-1.0.1.tar.gz
+    sha256: d09f4abbed5bcfb92d55c8178b176fefed9edb15a70c2b2a35830ef003868d97
 
 build:
     noarch: python
     number: 0
-    script: PYTHON -m pip install . -vv --no-deps --no-build-isolation --ignore-installed sphinxcontrib-bibtex.
+    script: PYTHON -m pip install . -vvv --no-deps --no-build-isolation --ignore-installed sphinxcontrib-bibtex.
 
 run:
-    - python >=3.9
+    - python
 
 requirements:
-  host:
-    - python >=3.9
-    - pep517
+  build:
+    - python
+    - setuptools
     - sphinx
-    - sphinx-rtd-theme
+    - sphinx_rtd_theme
     - sphinxcontrib-apidoc
     - sphinxcontrib-bibtex
-    - sphinxcontrib-napoleon
     - toml
+    - pep517
+    - conda-build
+
+  host:
+    - python
     - wheel
     - pip
     - setuptools
-    - codecov
-    - toml
-    - build
     - tox-conda
-    - wheel
 
   run:
-    - python >=3.9
+    - python
     - keyring
     - pandas
     - requests
     - wheel
     - pip
     - certifi
-    - datetime
     - cryptography
     - numpydoc
+
+  pip:
+    -  datetime
 
 test:
   imports:
@@ -52,16 +53,11 @@ test:
   commands:
     - pip check
   requires:
-    - python >=3.9
+    - python
     - pytest
     - pytest-rerunfailures
     - pytest-black
-    - pip
-    # the dependencies required for sphinxcontrib.spelling
-    # do not seem to be maintained anymore
-    # - sphinxcontrib-spelling
     - tox
-    - pytest-black
 
 about:
     home: https://github.com/USEPA/pyaqsapi

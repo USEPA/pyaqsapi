@@ -1,7 +1,8 @@
 [project]
 name = "pyaqsapi"
 requires-python = ">=3.9"
-dynamic = ["version"]
+version = "1.0.1"
+# dynamic = ["version"]
 description = "United States Environmental Protection Agency (US EPA) Air Quality System (AQS) Data Mart API v2 interface."
 authors = [
   {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"},
