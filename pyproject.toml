@@ -10,8 +10,7 @@ authors = [
 maintainers = [
   {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"}
 ]
-readme = {file = "README.rst", content-type = "text/x-rst"}
-license = "MIT"
+readme = "README.rst"
 license-files = ["LICENSE.rst"]
 classifiers = [
   "Development Status :: 4 - Beta",

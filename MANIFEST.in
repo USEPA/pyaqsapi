@@ -10,4 +10,4 @@ prune .spyproject
 prune .tox
 prune .vscode
 prune build
-prune dev 
+prune dev

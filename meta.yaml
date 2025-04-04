@@ -3,20 +3,20 @@ package:
     version: 1.0.1
 
 source:
-    path: ./dist/pyaqsapi-1.0.1.tar.gz
-    sha256: d09f4abbed5bcfb92d55c8178b176fefed9edb15a70c2b2a35830ef003868d97
+    path: .\dist\pyaqsapi-1.0.1.tar.bz2
+    sha256: ee37659075a5eaa25432464fe34ee3a00a2d906db9dbc85bcdd84e7178a7313c
 
 build:
     noarch: python
     number: 0
-    script: PYTHON -m pip install . -vvv --no-deps --no-build-isolation --ignore-installed sphinxcontrib-bibtex.
+    script: PYTHON setup.py install
 
 run:
     - python
 
 requirements:
   build:
-    - python
+    - python [py>=39]
     - setuptools
     - sphinx
     - sphinx_rtd_theme
@@ -27,14 +27,14 @@ requirements:
     - conda-build
 
   host:
-    - python
+    - python [py>=39]
     - wheel
     - pip
     - setuptools
     - tox-conda
 
   run:
-    - python
+    - python [py>=39]
     - keyring
     - pandas
     - requests
@@ -45,7 +45,7 @@ requirements:
     - numpydoc
 
   pip:
-    -  datetime
+    - datetime
 
 test:
   imports:
