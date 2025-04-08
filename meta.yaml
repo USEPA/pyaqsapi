@@ -6,9 +6,13 @@ source:
     path: ../pyaqsapi
 
 build:
-    noarch: python
-    number: 0
-    script: PYTHON -m build .
+  # only build for python versions that are still maintained
+  # reffer to https://devguide.python.org/versions/
+  skip: True  # [py<39]
+  noarch: python
+  script: {{ PYTHON }} -m pip install -vvv --no-build-isolation --no-deps .
+  number: 0
+
 
 requirements:
   build:
