@@ -8,7 +8,7 @@ pyaqsapi user documentation
    :maxdepth: 2
    :numbered:
    :hidden:
-   
+
 
 .. include:: manual/EPA_Disclaimer.rst
 .. include:: manual/Introduction.rst

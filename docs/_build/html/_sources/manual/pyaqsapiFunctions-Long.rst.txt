@@ -206,7 +206,7 @@ see which parameters are used with each function.
     data east of this longitude will be returned.
 
 * parameter:
-    a character list or single character object which represents the parameter 
+    a character list or single character object which represents the parameter
     code of the air pollutant related to the data being requested.
 
 * return_Header:
@@ -214,7 +214,7 @@ see which parameters are used with each function.
     True returns a AQSAPI_V2 object.
 
 * service:
-    a string which represents the services provided by the AQS API. For a list 
+    a string which represents the services provided by the AQS API. For a list
     of available services refer to
     `<https://aqs.epa.gov/aqsweb/documents/data_api.html#services>_`
     for the complete listing of services available through the EPA
@@ -357,8 +357,8 @@ Data Mart aggregate functions
 .. note::
     AQS Data Mart API restricts the  maximum amount of monitoring data to one
     full year of data per API call. These functions are able to return multiple
-    years of data by making repeated calls to the API. Each call to the Data 
-    Mart API will take time to complete. The more years of data being requested 
+    years of data by making repeated calls to the API. Each call to the Data
+    Mart API will take time to complete. The more years of data being requested
     the longer pyaqsapi will take to return the results.
 
 These functions retrieve aggregated data from the Data Mart API and are
@@ -391,7 +391,7 @@ These fourteen services are:
     parameters; cbdate and cedate.
 
       * cbdate:
-          a date object which represents a "beginning date of last 
+          a date object which represents a "beginning date of last
           change" that indicates when the data was last updated.
           cbdate is used to filter data based on the change date.
           Only data that changed on or after this date will be
@@ -412,7 +412,7 @@ These fourteen services are:
             based on duration code. Valid durations include actual sample
             durations and not calculated durations such as 8 hour
             CO or $O_3$ rolling averages, 3/6 day PM averages or
-            Pb 3 month rolling averages. Refer to 
+            Pb 3 month rolling averages. Refer to
             `aqs_sampledurations()`_ for a list of all available
             duration codes.
 
@@ -537,7 +537,7 @@ These fourteen services are:
 14. Quality Assurance - Annual performance Evaluations in transaction \
       format (RD):
       Quality assurance data - The raw transaction annual performance
-      evaluations data in RD format. Functions using this service contain 
+      evaluations data in RD format. Functions using this service contain
       aqs_qa_annualperformanceevaltransaction in the function name. Annual
       performance evaluations in transaction format are only available
       aggregated by site, county, state, monitoring agency, and primary quality
@@ -609,10 +609,10 @@ The bycounty submodule exports the following functions:
 Functions exported by the bycounty submodule aggregate data at the county
     level. All functions accept the following variables:
 
-* parameter: 
-* bdate: 
+* parameter:
+* bdate:
 * edate:
-* stateFIPS: 
+* stateFIPS:
 * countycode:
 * cbdate (optional):
     (This parameter is only used in conjunction with sampledata, dailysummary,
@@ -649,12 +649,12 @@ The bystate submodule exports the following functions:
 Functions exported by the bystate submodule aggregate data at the state level.
     All functions accept the following variables:
 
-* parameter: 
-* bdate: 
+* parameter:
+* bdate:
 * edate:
-* stateFIPS: 
+* stateFIPS:
 * countycode:
-* cbdate (optional): 
+* cbdate (optional):
     (This parameter is only used in conjunction with sampledata, dailysummary,
     annualdata and quarterlysummary functions).
 * cedate (optional):

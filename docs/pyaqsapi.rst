@@ -3,8 +3,8 @@ pyaqsapi package
 
 .. automodule:: pyaqsapi
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Subpackages
 -----------
@@ -28,29 +28,29 @@ pyaqsapi.helperfunctions module
 
 .. automodule:: pyaqsapi.helperfunctions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 pyaqsapi.listfunctions module
 -----------------------------
 
 .. automodule:: pyaqsapi.listfunctions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 pyaqsapi.metadatafunctions module
 ---------------------------------
 
 .. automodule:: pyaqsapi.metadatafunctions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 pyaqsapi.setupfunctions module
 ------------------------------
 
 .. automodule:: pyaqsapi.setupfunctions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

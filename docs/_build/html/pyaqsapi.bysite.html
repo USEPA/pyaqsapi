@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyaqsapi.bysite package &mdash; pyaqsapi  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
@@ -191,8 +191,8 @@ site (#0014) in Wake County, NC for 2017 (Note, for annual data, only
 the year portion of the bdate and edate are used and only whole
 years of data are returned. For example, bdate = 2017-12-31 and
 edate = 2018-01-01 will return full data for 2017 and 2018 ):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                           <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -290,8 +290,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Return a DataFrame of daily summary ozone data for the Millbrook School
 site (#0014) in Wake County, NC for June 18, 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                         <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -380,8 +380,8 @@ to None.</p>
 <p class="rubric">Examples</p>
 <p>Return a table of all SO2 monitors at the Hawaii NP site (#0007) in
 Hawaii County, HI that were operating between May 1 2015-2019:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">monitors</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;42401&quot;</span><span class="p">,</span>
                     <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2015</span><span class="p">,</span>
@@ -480,8 +480,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p class="rubric">Examples</p>
 <p>Return an DataFrame containing annual performance evaluation data for
 ozone at the Fairhope site in Baldwin County, AL for 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">annualpeferomanceeval</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                                  <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -582,8 +582,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p>Return a DataFrame containing annual performance evaluation data (raw)
 for ozone at the Fairhope site in Baldwin County, AL for 2017
 in RD format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_annualperformanceevaltransaction</span><span class="p">(</span><span class="n">parameter</span> <span class="o">=</span> <span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                                                <span class="n">bdate</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -682,8 +682,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Return a table of PM2.5 blank data for the Muscle Shoals site (#0014) in
 Colbert County, AL for January 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_blanks</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                      <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -780,8 +780,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p>Return a DataFrame of collocated assessment data for FRM PM2.5 at the
 Huntsville Old Airport site (#0014) in Madison County, AL
 for January 2013:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_collocated_assessments</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                                      <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span>
@@ -881,8 +881,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Returns a table of all SO2 monitors at the Hawaii NP site (#0007) in
 Hawaii County, HI that were operating on May 1, 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_flowrateaudit</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                             <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -979,8 +979,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p>Return a DataFrame of flow rate verification
 data for the Muscle Shoals site (#1002) in Colbert County, AL
 for January 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_flowrateverification</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                                    <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -1075,8 +1075,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Returns a One Point QC data for ozone at the Truro National Seashore
 site (#0002) in Barnstable County, MA in January 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_one_point_qc</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                            <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -1174,8 +1174,8 @@ API server. This operation has a linear run time of
 <p>Return a DataFrame of pep Audit data for FRM PM2.5
 at the Huntsville Old Airport site (#0014) in Madison County, AL
 for 2017 - 2019:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_pep_audit</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                         <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -1274,8 +1274,8 @@ and edate are used and all 4 quarters in the year are returned.</p>
 <p class="rubric">Examples</p>
 <p>Return DataFrame containing quarterly summaries for FRM/FEM PM2.5 data
 for Millbrook School in Wake County, NC for each quarter of 2016.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">aqs_quarterlysummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                                 <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
@@ -1380,8 +1380,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Return a DataFrame of ozone monitoring data for the
 Millbrook School site (/#0014) in Wake County, NC for June 18, 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">sampledata</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                       <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -1479,8 +1479,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p class="rubric">Examples</p>
 <p>Return all ozone transaction data for the Millbrook School site (#0014)
 in Wake County, NC for June 18, 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">transactionsample</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                              <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -1616,8 +1616,8 @@ site (#0014) in Wake County, NC for 2017 (Note, for annual data, only
 the year portion of the bdate and edate are used and only whole
 years of data are returned. For example, bdate = 2017-12-31 and
 edate = 2018-01-01 will return full data for 2017 and 2018 ):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                           <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -1715,8 +1715,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Return a DataFrame of daily summary ozone data for the Millbrook School
 site (#0014) in Wake County, NC for June 18, 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                         <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -1805,8 +1805,8 @@ to None.</p>
 <p class="rubric">Examples</p>
 <p>Return a table of all SO2 monitors at the Hawaii NP site (#0007) in
 Hawaii County, HI that were operating between May 1 2015-2019:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">monitors</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;42401&quot;</span><span class="p">,</span>
                     <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2015</span><span class="p">,</span>
@@ -1905,8 +1905,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p class="rubric">Examples</p>
 <p>Return an DataFrame containing annual performance evaluation data for
 ozone at the Fairhope site in Baldwin County, AL for 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">annualpeferomanceeval</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                                  <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -2007,8 +2007,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p>Return a DataFrame containing annual performance evaluation data (raw)
 for ozone at the Fairhope site in Baldwin County, AL for 2017
 in RD format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_annualperformanceevaltransaction</span><span class="p">(</span><span class="n">parameter</span> <span class="o">=</span> <span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                                                <span class="n">bdate</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -2107,8 +2107,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Return a table of PM2.5 blank data for the Muscle Shoals site (#0014) in
 Colbert County, AL for January 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_blanks</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                      <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -2205,8 +2205,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p>Return a DataFrame of collocated assessment data for FRM PM2.5 at the
 Huntsville Old Airport site (#0014) in Madison County, AL
 for January 2013:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_collocated_assessments</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                                      <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span>
@@ -2306,8 +2306,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Returns a table of all SO2 monitors at the Hawaii NP site (#0007) in
 Hawaii County, HI that were operating on May 1, 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_flowrateaudit</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                             <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -2404,8 +2404,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p>Return a DataFrame of flow rate verification
 data for the Muscle Shoals site (#1002) in Colbert County, AL
 for January 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_flowrateverification</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                                    <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -2500,8 +2500,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Returns a One Point QC data for ozone at the Truro National Seashore
 site (#0002) in Barnstable County, MA in January 2018:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_one_point_qc</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                            <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
@@ -2599,8 +2599,8 @@ API server. This operation has a linear run time of
 <p>Return a DataFrame of pep Audit data for FRM PM2.5
 at the Huntsville Old Airport site (#0014) in Madison County, AL
 for 2017 - 2019:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">qa_pep_audit</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                         <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -2699,8 +2699,8 @@ and edate are used and all 4 quarters in the year are returned.</p>
 <p class="rubric">Examples</p>
 <p>Return DataFrame containing quarterly summaries for FRM/FEM PM2.5 data
 for Millbrook School in Wake County, NC for each quarter of 2016.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">aqs_quarterlysummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
                                 <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
@@ -2805,8 +2805,8 @@ API server. This operation has a linear run time of
 <p class="rubric">Examples</p>
 <p>Return a DataFrame of ozone monitoring data for the
 Millbrook School site (/#0014) in Wake County, NC for June 18, 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">sampledata</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                       <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -2904,8 +2904,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).</p>
 <p class="rubric">Examples</p>
 <p>Return all ozone transaction data for the Millbrook School site (#0014)
 in Wake County, NC for June 18, 2017:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyaqsapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">aqs</span>
 <span class="o">...</span>
 <span class="n">aqs</span><span class="o">.</span><span class="n">bysite</span><span class="o">.</span><span class="n">transactionsample</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
                              <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
@@ -2932,7 +2932,7 @@ in Wake County, NC for June 18, 2017:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, US Environmental Protection Agency.</p>
+    <p>&#169; Copyright 2025, US Environmental Protection Agency.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

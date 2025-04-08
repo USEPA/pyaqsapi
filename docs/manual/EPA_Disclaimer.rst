@@ -18,7 +18,7 @@ EPA Disclaimer
     Government.
 
 AQS DataMart Disclaimer
-=======================
+========================
 
 .. warning::
     US EPA’s AQS Data Mart API V2 is currently in beta phase of development,

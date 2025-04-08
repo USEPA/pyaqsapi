@@ -43,7 +43,7 @@ before using any of it’s functions use the aqs_credentials function to enter i
 the user credentials so that pyaqsapi can access the AQS Data Mart server.
 
 Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency's Air
-Quality Service DataMart to retrieve data. The same credentials can be used for 
+Quality Service DataMart to retrieve data. The same credentials can be used for
 access to either project. Note however, that AQS and AQS DataMart are similar
 and related data sources, however the credentials used to access AQS are not the
 same as those used to access AQS DataMart.

@@ -38,7 +38,7 @@ EPA Disclaimer
     Government.
 
 AQS Data Mart Disclaimer
-=======================
+========================
 
 .. warning::
     US EPA’s AQS Data Mart API V2 is currently in beta phase of development,
@@ -84,17 +84,17 @@ does not work with AirNow and cannot retrieve real time data. For more details
 see section 7.1 of the About AQS Data page.
 
 About ``RAQSAPI``
-=============
+=================
 ``pyaqsapi`` is a port of `RAQSAPI <https://github.com/USEpa/RAQSAPI>`_ to the
-python 3 programming environment. For anyone that is familiar with ``RAQSAPI``, 
-the pyaqsapi API will feel familiar to you, most of the functions are similar 
-and the parameters sent to each functions are the same. pyaqsapi aims to have 
+python 3 programming environment. For anyone that is familiar with ``RAQSAPI``,
+the pyaqsapi API will feel familiar to you, most of the functions are similar
+and the parameters sent to each functions are the same. pyaqsapi aims to have
 feature parity with ``RAQSAPI`` and neither project will have features that the
 other project does not - other than programming language environment or
 language preference there is no benefit to using one package over the other.
 
 Install ``pyaqsapi``
-================
+====================
 To install ``pyaqsapi`` first clone the ``pyaqsapi`` repository.
 
 .. code-block:: console
@@ -118,7 +118,7 @@ to install the package.
     python -m build . && python -m pip install .
 
 Load ``pyaqsapi``
-=============
+=================
 Like any other python package make sure that you are loading ``pyaqsapi`` in the
 same virtual environment where ``pyaqsapi`` was installed. Load ``pyaqsapi`` in the
 same any other python package is loaded.
@@ -128,7 +128,7 @@ same any other python package is loaded.
    import pyaqsapi as aqs
 
 Using ``pyaqsapi``
-==============
+==================
 For those who are already familiar with using ``RAQSAPI`` then the ``pyaqsapi`` API
 should feel familiar with a few minor differences regarding how the data is
 returned.
@@ -141,7 +141,7 @@ Use the ``get_data()`` class method to retrieve the data, ``get_header()`` class
 method to retrieve header information.
 
 Sign up and setting up user credentials with the ``pyaqsapi`` library
-=================================================================
+=====================================================================
 If you have not already done so you will need to sign up with AQS Data Mart
 using ``aqs_sign_up`` function, this function takes one input, ``email``, which
 is a python 3 character object, that represents the email address that you want
@@ -162,21 +162,22 @@ this means that the key is stored in plain text and there are no attempts to
 encrypt Data Mart credentials as would be done for a username and password
 combination. The key that is supplied to use with Data Mart is not intended for
 authentication but only account monitoring. Each time ``pyaqsapi`` is loaded and
-before using any of it’s functions use the ``aqs_credentials`` function to enter in
-the user credentials so that ``pyaqsapi`` can access the AQS Data Mart server.
+before using any of it’s functions use the ``aqs_credentials`` function to enter
+in the user credentials so that ``pyaqsapi`` can access the AQS Data Mart
+server.
 
-Both ``pyaqsapi`` and ``RAQSAPI`` use the US Environmental Protection Agency\'s Air
-Quality Service Data Mart to retrieve data. The same credentials can be used for 
-access to either project. Note however, that AQS and AQS Data Mart are similar
-and related data sources, however the credentials used to access AQS are not the
-same as those used to access AQS Data Mart.
+Both ``pyaqsapi`` and ``RAQSAPI`` use the US Environmental Protection Agency\'s
+Air Quality Service Data Mart to retrieve data. The same credentials can be used
+for access to either project. Note however, that AQS and AQS Data Mart are
+similar and related data sources, however the credentials used to access AQS are
+not the same as those used to access AQS Data Mart.
 
 .. note::
     The credentials used to access AQS Data Mart API are not the same as the
     credentials used to access AQS. AQS users who do not have access to the
     AQS Data Mart will need to create new credentials. However, you may use the
-    same credentials used in ``RAQSAPI`` in ``pyaqsapi`` since ``RAQSAPI`` uses the same
-    AQS Data Mart API as ``pyaqsapi``.
+    same credentials used in ``RAQSAPI`` in ``pyaqsapi`` since ``RAQSAPI`` uses
+    the same AQS Data Mart API as ``pyaqsapi``.
 
 
 Data Mart aggregate functions
@@ -228,7 +229,7 @@ Aggregate functions are named ``aqs.<aggregation>.<service>()`` where ``<service
 is one of the 13 services listed above and ``<aggregation>`` is either
 ``bysite``, ``bycounty``, ``bystate``, ``bybox``, ``bycbsa``, ``byma`` or ``bypqao``.
 
-    
-Read the full 
+
+Read the full
 `API documentation <https://usepa.github.io/pyaqsapi/>`_ online.
 
