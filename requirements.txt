@@ -11,6 +11,7 @@ sphinxcontrib-apidoc
 # do not seem to be maintained anymore
 # sphinxcontrib-spelling
 sphinxcontrib-bibtex
+sphinxcontrib-napoleon
 numpydoc
 toml
 sphinx_rtd_theme

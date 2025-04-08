@@ -18,6 +18,7 @@ classifiers = [
   "Operating System :: OS Independent"
 ]
 
+
 [project.urls]
 "Homepage" = "https://github.com/USEPA/pyaqsapi"
 "AQS" = "https://www.epa.gov/aqs"
@@ -30,34 +31,31 @@ classifiers = [
 
 [build-system]
 requires = [
-    "sphinx",
-    "sphinxcontrib-napoleon",
-	  "setuptools",
-	  "wheel"
+  "setuptools",
+  "build"
 ]
 
 build-backend = "setuptools.build_meta"
 
 
 [tool.ruff]
-lint.select = ["I001",
-               "I002",
-               "E101",
-               "D100",
-               "D401",
-               "D402",
-               "D403",
-               "D404",
-               "D406",
-               "D407",
-               "D408",
-               "D409",
-               "D414",
-               "D415",
-               "D417",
-               "D419"]
-          
+lint.select = [
+  "I001",
+  "I002",
+  "E101",
+  "D100",
+  "D402",
+  "D403",
+  "D406",
+  "D407",
+  "D408",
+  "D409",
+  "D414",
+  "D415",
+  "D417",
+  "D419"]
 lint.extend-select = ["UP"]
+lint.ignore = ["D404"]
 
 
 exclude = [
@@ -69,7 +67,6 @@ exclude = [
     ".github",
     ".vscode",
     "conf.py",
-    "setup.py",
     "*tests/*",
     "dev/*"
 ]
@@ -86,7 +83,3 @@ packages = ["pyaqsapi",
             "pyaqsapi.bypqao",
             "pyaqsapi.byma",
             "pyaqsapi.bybox"]
-
-# [tool.setuptools.packages.find]
-# where = ["pyaqsapi"]
-# exclude = ["dev*", "tests*"]

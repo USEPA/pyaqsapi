@@ -1,1 +1,1 @@
-PYTHON setup.py install     # Python command to install the script.
+python -m pip install .     # Python command to install the script.

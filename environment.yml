@@ -20,7 +20,7 @@ dependencies:
   - numpydoc
   - certifi
   - cryptography
-  - pytest
   - python-build
+  - pytest
   - pytest-rerunfailures
   - pytest-black

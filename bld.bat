@@ -1,2 +1,1 @@
-"%PYTHON%" setup.py install
-if errorlevel 1 exit 1
+python -m pip install --no-build-isolation --no-deps .

@@ -340,9 +340,9 @@ class AQSAPI_V2:
         cedate: date | None = None,
     ) -> DataFrame | None:
         """
-        This is a helper function and should not be called by the end user.
+        A helper function and should not be called by the end user.
 
-        This function is used by bysite functions to call the AQSAPI_V2._aqs()
+        A helper function used by bysite functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
@@ -435,7 +435,7 @@ class AQSAPI_V2:
         cedate: date | None = None,
     ) -> DataFrame | None:
         """
-        This is a helper function and should not be called by the end user.
+        A helper function and should not be called by the end user.
 
         This function is used by bycounty functions to call the
         AQSAPI_V2._aqs() function.
@@ -1044,7 +1044,7 @@ class AQSAPI_V2:
 
     def _renameaqsvariables(self, name1: str, name2: str) -> DataFrame:
         """
-        Renames the two columns returned in the Data
+        Rename the two columns returned in the Data
         portion of a AQSAPI_v2 object from "value" and
         "value_represented" to name1 and name2 respectively.
 
@@ -1130,8 +1130,8 @@ def aqs_removeheader(
 
     """
     aqsresult = DataFrame()
-    for x in enumerate(cast(Iterable, aqsobject)): # type: ignore
-        aqsresult = concat([aqsresult, aqsobject[x].get_data()], axis=0) # type: ignore
+    for x in enumerate(cast(Iterable, aqsobject)):  # type: ignore
+        aqsresult = concat([aqsresult, aqsobject[x].get_data()], axis=0)  # type: ignore
 
     return aqsresult
 
