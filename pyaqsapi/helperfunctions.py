@@ -4,13 +4,7 @@ from collections.abc import Callable, Iterable, Sized
 from datetime import date
 from itertools import starmap
 from time import sleep
-from typing import (
-    Any,
-    NewType,
-    TypeVar,
-    cast,
-    no_type_check,
-)
+from typing import Any, NewType, TypeVar, cast, no_type_check
 from warnings import warn
 
 from certifi import where

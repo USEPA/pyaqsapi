@@ -1,5 +1,5 @@
 include README.rst LICENSE.rst README.md TODO.rst TODO.md
-graft docs
+graft *build*
 graft tests
 exclude tests/local.py
 prune .git
@@ -11,3 +11,6 @@ prune .tox
 prune .vscode
 prune build
 prune dev
+prune etc
+prune docs/_static
+prune decs/_build

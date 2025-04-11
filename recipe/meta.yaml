@@ -1,0 +1,84 @@
+package:
+    name: pyaqsapi
+    version: 1.0.1
+
+source:
+    path: ./..
+
+build:
+    # only build for python versions that are still maintained
+    # reffer to https://devguide.python.org/versions/
+    skip: True  # [py<39]
+    noarch: python
+    script: python -m pip install -vvv --no-build-isolation --no-deps .
+    number: 0
+
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - sphinx
+    - sphinx_rtd_theme
+    - sphinxcontrib-apidoc
+    - sphinxcontrib-bibtex
+    - sphinxcontrib-napoleon
+    - toml
+    - pep517
+    - conda-build
+    - python-build
+    - pip
+    - tox-conda
+
+  host:
+    - python
+    - pip
+    - setuptools
+    - tox-conda
+
+  run:
+    - python
+    - keyring
+    - pandas
+    - requests
+    - certifi
+    - cryptography
+    - numpydoc
+    - setuptools
+    - python-build
+
+outputs:
+  - name: pyaqsapi
+    files:
+      exclude:
+          - dev
+          - .git
+          - .github
+          - dist
+          - .spyproject
+          - .tox
+          - tests/local.py
+          - .vscode
+          - .mypy_cache
+          - .pytest_cache
+          - .ruff_cache
+          - build
+          - .vscode
+          - etc
+          - docs/_build
+          - docs/_static
+
+about:
+    home: https://github.com/USEPA/pyaqsapi
+    license: MIT
+    license_family: MIT
+    license_file: LICENSE.rst
+    summary: Retrieve Ambient Air Monitoring data from US EPA AQS DataMart
+    description: >
+      Retrieve air monitoring data and associated metadata from the United
+      States Environmental Protection Agencys Air Quality System (AQS) DataMart
+      API service using python functions.
+
+extra:
+  recipe-maintainers:
+    - MCCROWEYCLINTON-EPA

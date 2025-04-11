@@ -19,6 +19,10 @@
    :alt: GitHub Workflow Status (with event)
    :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml
    :align: center
+.. image:: https://img.shields.io/github/last-commit/USEpa/pyaqsapi?style=plastic
+   :alt: GitHub last commit
+   :target: https://github.com/USEPA/pyaqsapi
+   :align: center
 
 EPA Disclaimer
 ==============
@@ -54,34 +58,34 @@ AQS Data Mart Disclaimer
 
 Introduction
 ============
-The ``pyaqsapi`` module for the python 3 programming environment allows a python 3
-programming environment to connect to and retrieve data from the United States
-Environmental Protection Agency\’s (US EPA) Air Quality System (AQS) Data Mart
-API v2 (Air Quality System) interface directly. This package enables the data
-user to omit legacy challenges including coercing data from a JSON object to a
-usable python 3 object, retrieving multiple years of data, formatting API
-requests, retrieving results, handling credentials, requesting multiple
-pollutant data and rate limiting data requests. All the basic functionality
-of the API have been implemented that are available from the AQS API Data Mart
-server. The library connects to AQS Data Mart API via Hypertext Transfer
-Protocol (HTTP) so there is no need to install external ODBC drivers, configure
-ODBC connections or deal with the security vulnerabilities associated with
-them. Most functions have a parameter, ``return_header`` which by default is set
-to ``FALSE``. If the user decides to set ``return_header`` to ``TRUE``, then that function
-will return a python 3 ``AQSAPI_V2`` object. An ``AQSAPI_V2`` object
-has instance methods for retrieving the data requested, header information,
-and other metadata related to the API call. After each call to the API a five
-second stall is invoked to help prevent overloading the Data Mart API server
-and to serve as a simple rate limit.
+The ``pyaqsapi`` module for the python 3 programming environment allows a
+python 3 programming environment to connect to and retrieve data from the
+United States Environmental Protection Agency\’s (US EPA) Air Quality System
+(AQS) Data Mart API v2 (Air Quality System) interface directly. This package
+enables the data user to omit legacy challenges including coercing data from a
+JSON object to a usable python 3 object, retrieving multiple years of data,
+formatting API requests, retrieving results, handling credentials, requesting
+multiple pollutant data and rate limiting data requests. All the basic
+functionality of the API have been implemented that are available from the AQS
+API Data Mart server. The library connects to AQS Data Mart API via Hypertext
+Transfer Protocol (HTTP) so there is no need to install external ODBC drivers,
+configure ODBC connections or deal with the security vulnerabilities associated
+with them. Most functions have a parameter, ``return_header`` which by default
+is set to ``FALSE``. If the user decides to set ``return_header`` to ``TRUE``,
+then that function will return a python 3 ``AQSAPI_V2`` object. An ``AQSAPI_V2``
+object has instance methods for retrieving the data requested, header
+information, and other metadata related to the API call. After each call to the
+API a five second stall is invoked to help prevent overloading the Data Mart API
+server and to serve as a simple rate limit.
 
 About the timeliness of AQS Data
 ================================
 
-EPA's AQS Data Mart API, the service that ``pyaqsapi`` retrieves data from, does not
-host real time (collected now/today) data. If real time data is needed, please
-use the AirNow API and direct all questions toward real time data there. ``pyaqsapi``
-does not work with AirNow and cannot retrieve real time data. For more details
-see section 7.1 of the About AQS Data page.
+EPA's AQS Data Mart API, the service that ``pyaqsapi`` retrieves data from, does
+not host real time (collected now/today) data. If real time data is needed,
+please use the AirNow API and direct all questions toward real time data there.
+``pyaqsapi`` does not work with AirNow and cannot retrieve real time data.
+For more details see section 7.1 of the About AQS Data page.
 
 About ``RAQSAPI``
 =================
@@ -93,29 +97,43 @@ feature parity with ``RAQSAPI`` and neither project will have features that the
 other project does not - other than programming language environment or
 language preference there is no benefit to using one package over the other.
 
-Install ``pyaqsapi``
-====================
-To install ``pyaqsapi`` first clone the ``pyaqsapi`` repository.
+Install pyaqsapi
+================
+Chose either to install from source or install a release binary package.
+Installing binary package releases are the preferred method since
+it is generally easier to do and safer to do. Installing from source on github
+will ensure that the latest development updates are used but those updates
+can be unstable.
+
+Install a stable release binary package from pypi.org
+-----------------------------------------------------
+.. code-block:: console
+
+   pip install pyaqsapi
+
+Install the latest development from source on github
+----------------------------------------------------
+To install pyaqsapi first clone the pyaqsapi repository.
 
 .. code-block:: console
 
    git clone https://github.com/USEPA/pyaqsapi.git
 
-Next, in the project\'s root directory use pip to install the proper
+Next, in the project's root directory use pip to install the proper
 dependencies that are required to build
-and install ``pyaqsapi``.
+and install pyaqsapi.
 
 .. code-block:: console
 
-    cd pyaqsapi
     pip install -r requirements.txt
 
-While still in the project\'s root directory use setuptools to build and pip
+While still in the project's root directory use setuptools to build and pip
 to install the package.
 
 .. code-block:: console
 
-    python -m build . && python -m pip install .
+    python -m build .
+    python -m pip install .
 
 Load ``pyaqsapi``
 =================

@@ -1,4 +1,4 @@
-from .bybox import monitors, sampledata, annualsummary, dailysummary, quarterlysummary
+from .bybox import annualsummary, dailysummary, monitors, quarterlysummary, sampledata
 
 __all__ = [
     "monitors",

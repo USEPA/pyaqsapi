@@ -1,11 +1,10 @@
 from datetime import date
+from importlib import import_module
 from os import environ, getcwd
 from os.path import abspath, exists
 from sys import path
 
 import pytest
-
-from importlib import import_module
 
 # import pyaqsapi.byma as byma
 # from pyaqsapi.helperfunctions import aqs_credentials

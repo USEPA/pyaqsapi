@@ -12,7 +12,7 @@ dist
 *.egg/
 *.bak
 *.pyc
-#docs/_build/
 .coverage
 .dev/
 *tests/local.py
+etc/

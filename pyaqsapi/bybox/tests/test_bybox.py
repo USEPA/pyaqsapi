@@ -1,7 +1,7 @@
 from datetime import date
+from importlib import import_module
 from os import environ, getcwd
 from os.path import abspath, exists
-from importlib import import_module
 from sys import path
 
 import pytest

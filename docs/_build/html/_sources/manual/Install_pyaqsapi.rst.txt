@@ -1,8 +1,16 @@
 .. index:: Install pyaqsapi;
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
-Install pyaqsapi
-================
+Packaged binary install of pyaqsapi(preferred method)
+=====================================================
+from pypi.org
+-------------
+.. code-block:: console
+
+   pip install pyaqsapi
+
+Install pyaqsapi from source (manual install from github)
+=========================================================
 To install pyaqsapi first clone the pyaqsapi repository.
 
 .. code-block:: console

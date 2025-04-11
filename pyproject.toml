@@ -21,6 +21,7 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/USEPA/pyaqsapi"
+"Package on pypi.org" = "https://pypi.org/project/pyaqsapi/"
 "AQS" = "https://www.epa.gov/aqs"
 "AQS DataMart" = "https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html"
 "AQS Data Mart API" = "https://aqs.epa.gov/aqsweb/documents/data_api.html"
@@ -30,12 +31,8 @@ classifiers = [
 "Issue Tracker" = "https://github.com/USEPA/pyaqsapi/issues"
 
 [build-system]
-requires = [
-  "setuptools",
-  "build"
-]
-
-build-backend = "setuptools.build_meta"
+  requires = ["setuptools >= 77.0.3", "build"]
+  build-backend = "setuptools.build_meta"
 
 
 [tool.ruff]
