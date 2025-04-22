@@ -6,7 +6,6 @@ pep517
 requests
 setuptools
 sphinx
-sphinxcontrib-apidoc
 # the dependencies required for sphinxcontrib.spelling
 # do not seem to be maintained anymore
 # sphinxcontrib-spelling

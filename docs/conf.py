@@ -29,8 +29,10 @@ author = "Clinton Mccrowey (US Environmental Protection Agency)"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    # "sphinx.ext.autodoc",
-    "sphinxcontrib.apidoc",
+    "sphinx.ext.autodoc",
+    #replaced sphinxcontrib.apidoc with sphinx.ext.apidoc
+    # "sphinxcontrib.apidoc",
+    "sphinx.ext.apidoc",
     "sphinx.ext.doctest",
     "sphinx.ext.coverage",
     # the dependencies required for sphinxcontrib.spelling
@@ -51,7 +53,12 @@ bibtex_bibfiles = ["manual/pyaqsapi.bib"]
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "setup.py"]
+exclude_patterns = ["_build",
+                    "Thumbs.db",
+                    ".DS_Store",
+                    "setup.py",
+                    "*tests/",
+                    "dev/"]
 
 # get rid of those duplicate label warnings when embedding a child rst file
 # into another rst file.
@@ -104,7 +111,7 @@ numpydoc_show_class_members = False
 # -- Options for sphinx-contrib\apidoc, sphinxcontrib\autodoc------------------
 apidoc_separate_modules = False
 apidoc_module_dir = "../pyaqsapi"
-apidoc_excluded_paths = ["tests"]
+apidoc_excluded_paths = ["*tests/", "dev/"]
 apidoc_module_first = True
 apidoc_toc_file = "modules"
 apidoc_output_dir = "."

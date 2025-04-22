@@ -287,9 +287,14 @@ class AQSAPI_V2:
         url = "".join(filter(None, [AQS_domain, "/", service, "/", aqsfilter]))
         url = url.replace("///", "/")
         header = {"User-Agent": user_agent, "From": AQS_user}
+        newline = '\n'
         try:
             query = get(
-                url=url, params=variables, headers=header, verify=where(), timeout=30
+                url=url,
+                params=variables,
+                headers=header,
+                verify=where(),
+                timeout=30
             )
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
@@ -297,25 +302,40 @@ class AQSAPI_V2:
             self._status_code = query.status_code
             query.raise_for_status()
         except ConnectionError as connectionerror:
-            warn(
-                f"pyaqsapi experienced a connection error: \
-                 \n {connectionerror}"
-            )
+            warn(category=ResourceWarning,
+                 message=f"pyaqsapi experienced a connection error: \
+                 {newline} {connectionerror}"
+                 )
         except Timeout as timeouterror:
-            warn(
-                f"pyaqsapi experienced a timeout error: \
-                 \n {timeouterror}"
-            )
+            warn(category=ResourceWarning,
+                 message=f"pyaqsapi experienced a timeout error: \
+                 {newline} {timeouterror}"
+                 )
         except HTTPError as httperror:
             warn(
                 f"pyaqsapi experienced a HTTP Error: \
-                 \n {httperror}"
-            )
+                 {newline} {httperror}"
+                 )
         except Exception as exception:
-            warn(
-                f"pyaqsapi experienced an error: \
-                 \n {exception}"
-            )
+            if query.status_code == 400:
+                if "error" in query.json()["Header"][0].keys():
+                    # newline = '\n'
+                    warn(category=UserWarning,
+                         message="AQSDataMArt returned the following " +
+                         f"message: {newline}" +
+                         f"{query.json()['Header'][0]['error']}{newline}" +
+                         "Perhaps you've entered an incorrect username and/or" +
+                         f" key to the aqs_credentials function?{newline}" +
+                         f"Here is the {newline}" +
+                         f"username: {variables['email']}" +
+                         f"{newline}and{newline}" +
+                         f"key: {variables['key']} {newline}" +
+                         "that was provided")
+                else:
+                    warn(category=UserWarning,
+                         message="pyaqsapi experienced an error:" +
+                         f"{newline} {exception}"
+                         )
         finally:
             self.__aqs_ratelimit()
         return self
@@ -1124,8 +1144,8 @@ def aqs_removeheader(
 
     """
     aqsresult = DataFrame()
-    for x in enumerate(cast(Iterable, aqsobject)):  # type: ignore
-        aqsresult = concat([aqsresult, aqsobject[x].get_data()], axis=0)  # type: ignore
+    for index, value in enumerate(aqsobject):
+        aqsresult = concat([aqsresult, value.get_data()], axis=0)
 
     return aqsresult
 

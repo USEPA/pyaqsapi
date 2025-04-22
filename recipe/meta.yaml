@@ -1,6 +1,6 @@
 package:
     name: pyaqsapi
-    version: 1.0.1
+    version: 1.0.2
 
 source:
     path: ./..
@@ -20,7 +20,6 @@ requirements:
     - setuptools
     - sphinx
     - sphinx_rtd_theme
-    - sphinxcontrib-apidoc
     - sphinxcontrib-bibtex
     - sphinxcontrib-napoleon
     - toml

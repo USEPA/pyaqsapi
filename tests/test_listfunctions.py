@@ -10,7 +10,6 @@ from pyaqsapi.helperfunctions import aqs_credentials
 
 @pytest.fixture
 def setuppyaqsapi(autouse=True):
-    # print(f"the current working directory is: {getcwd()}")
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git

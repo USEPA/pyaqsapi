@@ -819,5 +819,3 @@ with return_header = True set but later decides that they want just a
 simple pandas DataFrame object. This function takes only one variable:
 
 * AQSobject:
-
-

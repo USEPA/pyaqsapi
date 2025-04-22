@@ -3,8 +3,9 @@ from os.path import abspath, exists
 from sys import path
 
 import pytest
+from pandas import DataFrame
 
-import pyaqsapi.metadatafunctions as metadatafunctions
+import pyaqsapi.listfunctions as listfunctions
 from pyaqsapi.helperfunctions import aqs_credentials
 
 
@@ -30,14 +31,8 @@ def setuppyaqsapi(autouse=True):
         aqs_credentials(username=AQSuser, key=AQSkey)
 
 
-def test_aqs_knownissues(setuppyaqsapi):
-    assert (
-        metadatafunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
-    )
-
-
-def test_aqs_revisionhistory(setuppyaqsapi):
-    assert (
-        metadatafunctions.aqs_revisionhistory(return_header=True).get_status_code()
-        == "200"
-    )
+# none of the other test functions use aqsremove_header, so we create a unit
+# test to make sure that
+def test_aqs_removeheader(setuppyaqsapi):
+    returnvalue = listfunctions.aqs_knownissues(return_header=False)
+    assert isinstance(returnvalue, DataFrame)

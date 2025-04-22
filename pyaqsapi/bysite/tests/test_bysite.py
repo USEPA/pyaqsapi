@@ -97,11 +97,7 @@ def test_monitors(setuppyaqsapi):
     assert (
         bysite.monitors(
             parameter="42401",
-            bdate=date(
-                year=2015,
-                month=5,
-                day=1,
-            ),
+            bdate=date(year=2015, month=5, day=1),
             edate=date(year=2019, month=5, day=2),
             stateFIPS="15",
             countycode="001",
@@ -141,9 +137,9 @@ def test_qa_flowrateaudit(setuppyaqsapi):
             parameter="88101",
             bdate=date(year=2018, month=1, day=1),
             edate=date(year=2018, month=1, day=31),
-            stateFIPS="37",
-            countycode="183",
-            sitenum="0014",
+            stateFIPS="01",
+            countycode="073",
+            sitenum="2003",
             return_header=True,
         )[0].get_status_code()
         == "200"

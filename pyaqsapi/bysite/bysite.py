@@ -197,9 +197,9 @@ def qa_flowrateaudit(
                                     edate=date(year=2018,
                                                month=1,
                                                day=31),
-                                    stateFIPS="37",
-                                    countycode="183",
-                                    sitenum="0014")
+                                    stateFIPS="01",
+                                    countycode="073",
+                                    sitenum="2003")
 
     Returns
     -------

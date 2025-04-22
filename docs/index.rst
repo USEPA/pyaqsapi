@@ -9,7 +9,8 @@ pyaqsapi user documentation
    :numbered:
    :hidden:
 
-
+pyaqsapi documentation
+======================
 .. include:: manual/EPA_Disclaimer.rst
 .. include:: manual/Introduction.rst
 .. include:: manual/TimelinessofAQSdata.rst
@@ -31,6 +32,7 @@ Indices and tables
 
 References
 ----------
+
 .. bibliography::
    :style: plain
    :list: enumerated

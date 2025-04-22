@@ -58,7 +58,10 @@ jobs:
         run: |
           cd docs
           make clean
-          sphinx-apidoc --ext-autodoc -o . ../pyaqsapi/
+          sphinx-build -M html . _build --color --keep-going --show-traceback --write-all
+          sphinx-apidoc -o . ..\pyaqsapi\ ["dev", "*tests"]
+          # run make html twice
+          make html
           make html
         shell: bash -el {0}
       
