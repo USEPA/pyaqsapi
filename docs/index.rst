@@ -5,12 +5,23 @@ pyaqsapi user documentation
 ===========================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :numbered:
-   :hidden:
+
+   manual/EPA_Disclaimer
+   manual/Introduction
+   manual/TimelinessofAQSdata
+   manual/Install_pyaqsapi
+   manual/Load_pyaqsapi
+   manual/Using_pyaqsapi
+   manual/pyaqsapiusagetipsandprecautions
+   manual/pyaqsapiFunctions-Long
+   manual/Troubleshooting
+   manual/RAQSAPI
 
 pyaqsapi documentation
 ======================
+
 .. include:: manual/EPA_Disclaimer.rst
 .. include:: manual/Introduction.rst
 .. include:: manual/TimelinessofAQSdata.rst
@@ -28,10 +39,9 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
 
 References
-----------
+==========
 
 .. bibliography::
    :style: plain

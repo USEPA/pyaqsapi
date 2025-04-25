@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Functions Exported by pyaqsapi &mdash; pyaqsapi  documentation</title>
+  <title>11. Functions Exported by pyaqsapi &mdash; pyaqsapi  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,9 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14. Troubleshooting" href="Troubleshooting.html" />
+    <link rel="prev" title="10. Usage tips and precautions" href="pyaqsapiusagetipsandprecautions.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,27 +42,38 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Functions Exported by pyaqsapi</a></li>
-<li><a class="reference internal" href="#variable-descriptions-and-usage">Variable descriptions and usage</a></li>
-<li><a class="reference internal" href="#pyaqsapi-functional-families">pyaqsapi functional families</a><ul>
-<li><a class="reference internal" href="#sign-up-and-credentials">Sign up and credentials</a></li>
-<li><a class="reference internal" href="#data-mart-api-metadata-functions">Data Mart API metadata functions</a></li>
-<li><a class="reference internal" href="#data-mart-api-list-functions">Data Mart API list functions</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions">Data Mart aggregate functions</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions-bysite">Data Mart aggregate functions bysite</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions-bycounty">Data Mart aggregate functions bycounty</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions-bystate">Data Mart aggregate functions bystate</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions-by-monitoring-agency-ma">Data Mart aggregate functions by Monitoring agency (MA)</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions-by-core-based-statistical-area-cbsa">Data Mart aggregate functions by Core Based Statistical Area (cbsa)</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions-by-primary-quality-assurance-organization-pqao">Data Mart aggregate functions by Primary Quality Assurance Organization (pqao)</a></li>
-<li><a class="reference internal" href="#data-mart-aggregate-functions-by-latitude-longitude-bounding-box-bybox">Data Mart aggregate functions by latitude/longitude bounding box (bybox)</a></li>
-<li><a class="reference internal" href="#pyaqsapi-miscellaneous-functions">pyaqsapi Miscellaneous functions</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="EPA_Disclaimer.html">1. EPA Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EPA_Disclaimer.html#aqs-datamart-disclaimer">2. AQS DataMart Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">3. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TimelinessofAQSdata.html">4. About the timeliness of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install_pyaqsapi.html">5. Packaged binary install of pyaqsapi(preferred method)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install_pyaqsapi.html#install-pyaqsapi-from-source-manual-install-from-github">6. Install pyaqsapi from source (manual install from github)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Load_pyaqsapi.html">7. Load pyaqsapi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using_pyaqsapi.html">8. Using pyaqsapi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using_pyaqsapi.html#sign-up-and-setting-up-user-credentials-with-the-pyaqsapi-library">9. Sign up and setting up user credentials with the pyaqsapi library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyaqsapiusagetipsandprecautions.html">10. Usage tips and precautions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Functions Exported by pyaqsapi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#variable-descriptions-and-usage">12. Variable descriptions and usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pyaqsapi-functional-families">13. pyaqsapi functional families</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sign-up-and-credentials">13.1. Sign up and credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-api-metadata-functions">13.2. Data Mart API metadata functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-api-list-functions">13.3. Data Mart API list functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions">13.4. Data Mart aggregate functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions-bysite">13.5. Data Mart aggregate functions bysite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions-bycounty">13.6. Data Mart aggregate functions bycounty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions-bystate">13.7. Data Mart aggregate functions bystate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions-by-monitoring-agency-ma">13.8. Data Mart aggregate functions by Monitoring agency (MA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions-by-core-based-statistical-area-cbsa">13.9. Data Mart aggregate functions by Core Based Statistical Area (cbsa)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions-by-primary-quality-assurance-organization-pqao">13.10. Data Mart aggregate functions by Primary Quality Assurance Organization (pqao)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-mart-aggregate-functions-by-latitude-longitude-bounding-box-bybox">13.11. Data Mart aggregate functions by latitude/longitude bounding box (bybox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyaqsapi-miscellaneous-functions">13.12. pyaqsapi Miscellaneous functions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting.html">14. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RAQSAPI.html">15. About RAQSAPI</a></li>
 </ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -75,7 +88,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Functions Exported by pyaqsapi</li>
+      <li class="breadcrumb-item active"><span class="section-number">11. </span>Functions Exported by pyaqsapi</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/manual/pyaqsapiFunctions-Long.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,7 +99,7 @@
            <div itemprop="articleBody">
              
   <section id="functions-exported-by-pyaqsapi">
-<span id="index-0"></span><h1>Functions Exported by pyaqsapi<a class="headerlink" href="#functions-exported-by-pyaqsapi" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1><span class="section-number">11. </span>Functions Exported by pyaqsapi<a class="headerlink" href="#functions-exported-by-pyaqsapi" title="Link to this heading"></a></h1>
 <p>The pyaqsapi package includes the following submodules which are not
 loaded by default:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">pyaqsapi</span><span class="o">.</span><span class="n">bysite</span>
@@ -203,7 +216,7 @@ are available by the AQS Data Mart API. Refer to <a class="reference external" h
 AQS DataMart API.</p>
 </section>
 <section id="variable-descriptions-and-usage">
-<h1>Variable descriptions and usage<a class="headerlink" href="#variable-descriptions-and-usage" title="Link to this heading"></a></h1>
+<h1><span class="section-number">12. </span>Variable descriptions and usage<a class="headerlink" href="#variable-descriptions-and-usage" title="Link to this heading"></a></h1>
 <p>These are all the available variables that can be used with various functions
 exported from the pyaqsapi library listed alphabetically. Not all of these
 variables are used with every function, and not all of these parameters are
@@ -359,9 +372,9 @@ connect to the AQS API.</p>
 </ul>
 </section>
 <section id="pyaqsapi-functional-families">
-<h1>pyaqsapi functional families<a class="headerlink" href="#pyaqsapi-functional-families" title="Link to this heading"></a></h1>
+<h1><span class="section-number">13. </span>pyaqsapi functional families<a class="headerlink" href="#pyaqsapi-functional-families" title="Link to this heading"></a></h1>
 <section id="sign-up-and-credentials">
-<h2>Sign up and credentials<a class="headerlink" href="#sign-up-and-credentials" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.1. </span>Sign up and credentials<a class="headerlink" href="#sign-up-and-credentials" title="Link to this heading"></a></h2>
 <p>The functions included in this family of functions are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">aqs_credentials</span>
 <span class="o">*</span> <span class="n">aqs_sign_up</span>
@@ -382,7 +395,7 @@ one parameter:</p>
 </ul>
 </section>
 <section id="data-mart-api-metadata-functions">
-<h2>Data Mart API metadata functions<a class="headerlink" href="#data-mart-api-metadata-functions" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.2. </span>Data Mart API metadata functions<a class="headerlink" href="#data-mart-api-metadata-functions" title="Link to this heading"></a></h2>
 <p>The functions included in this family of functions are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">aqs_isavailable</span>
 <span class="o">*</span> <span class="n">aqs_knownissues</span>
@@ -410,7 +423,7 @@ change history to the API.</p>
 </div></blockquote>
 </section>
 <section id="data-mart-api-list-functions">
-<h2>Data Mart API list functions<a class="headerlink" href="#data-mart-api-list-functions" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.3. </span>Data Mart API list functions<a class="headerlink" href="#data-mart-api-list-functions" title="Link to this heading"></a></h2>
 <p>The functions included in this family of functions are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">aqs_cbsas</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">aqs_classes</span><span class="p">,</span>
@@ -461,7 +474,7 @@ object containing a table of monitoring agencies (MA).</p>
 </div></blockquote>
 </section>
 <section id="data-mart-aggregate-functions">
-<h2>Data Mart aggregate functions<a class="headerlink" href="#data-mart-aggregate-functions" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.4. </span>Data Mart aggregate functions<a class="headerlink" href="#data-mart-aggregate-functions" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>AQS Data Mart API restricts the  maximum amount of monitoring data to one
@@ -717,7 +730,7 @@ assurance organization.</p>
 </ol>
 </section>
 <section id="data-mart-aggregate-functions-bysite">
-<h2>Data Mart aggregate functions bysite<a class="headerlink" href="#data-mart-aggregate-functions-bysite" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.5. </span>Data Mart aggregate functions bysite<a class="headerlink" href="#data-mart-aggregate-functions-bysite" title="Link to this heading"></a></h2>
 <p>The bysite submodule exports the following functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">bysite</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">bysite</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">,</span>
@@ -772,7 +785,7 @@ annualdata functions and quarterlysummary functions).</p>
 </ul>
 </section>
 <section id="data-mart-aggregate-functions-bycounty">
-<h2>Data Mart aggregate functions bycounty<a class="headerlink" href="#data-mart-aggregate-functions-bycounty" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.6. </span>Data Mart aggregate functions bycounty<a class="headerlink" href="#data-mart-aggregate-functions-bycounty" title="Link to this heading"></a></h2>
 <p>The bycounty submodule exports the following functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">bycounty</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">bycounty</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">,</span>
@@ -826,7 +839,7 @@ annualdata and quarterlysummary functions).</p>
 </ul>
 </section>
 <section id="data-mart-aggregate-functions-bystate">
-<h2>Data Mart aggregate functions bystate<a class="headerlink" href="#data-mart-aggregate-functions-bystate" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.7. </span>Data Mart aggregate functions bystate<a class="headerlink" href="#data-mart-aggregate-functions-bystate" title="Link to this heading"></a></h2>
 <p>The bystate submodule exports the following functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">bystate</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">bystate</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">,</span>
@@ -880,7 +893,7 @@ annualdata and quarterlysummary functions).</p>
 </ul>
 </section>
 <section id="data-mart-aggregate-functions-by-monitoring-agency-ma">
-<h2>Data Mart aggregate functions by Monitoring agency (MA)<a class="headerlink" href="#data-mart-aggregate-functions-by-monitoring-agency-ma" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.8. </span>Data Mart aggregate functions by Monitoring agency (MA)<a class="headerlink" href="#data-mart-aggregate-functions-by-monitoring-agency-ma" title="Link to this heading"></a></h2>
 <p>The byma submodule exports the following functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">byma</span><span class="o">.</span><span class="n">qa_annualpeferomanceeval</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">byma</span><span class="o">.</span><span class="n">qa_annualperformanceevaltransaction</span><span class="p">,</span>
@@ -959,7 +972,7 @@ annualdata and quarterlysummary functions).</p>
 </ul>
 </section>
 <section id="data-mart-aggregate-functions-by-core-based-statistical-area-cbsa">
-<h2>Data Mart aggregate functions by Core Based Statistical Area (cbsa)<a class="headerlink" href="#data-mart-aggregate-functions-by-core-based-statistical-area-cbsa" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.9. </span>Data Mart aggregate functions by Core Based Statistical Area (cbsa)<a class="headerlink" href="#data-mart-aggregate-functions-by-core-based-statistical-area-cbsa" title="Link to this heading"></a></h2>
 <p>The bycbsa submodule exports the following functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">bycbsa</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">bycbsa</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">,</span>
@@ -1004,7 +1017,7 @@ annualdata and quarterlysummary functions).</p>
 </ul>
 </section>
 <section id="data-mart-aggregate-functions-by-primary-quality-assurance-organization-pqao">
-<h2>Data Mart aggregate functions by Primary Quality Assurance Organization (pqao)<a class="headerlink" href="#data-mart-aggregate-functions-by-primary-quality-assurance-organization-pqao" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.10. </span>Data Mart aggregate functions by Primary Quality Assurance Organization (pqao)<a class="headerlink" href="#data-mart-aggregate-functions-by-primary-quality-assurance-organization-pqao" title="Link to this heading"></a></h2>
 <p>The bypqao submodule exports the following functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">bypqao</span><span class="o">.</span><span class="n">qa_annualperformanceeval</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">bypqao</span><span class="o">.</span><span class="n">qa_annualperformanceevaltransaction</span><span class="p">,</span>
@@ -1030,7 +1043,7 @@ the following variables:</p>
 </ul>
 </section>
 <section id="data-mart-aggregate-functions-by-latitude-longitude-bounding-box-bybox">
-<h2>Data Mart aggregate functions by latitude/longitude bounding box (bybox)<a class="headerlink" href="#data-mart-aggregate-functions-by-latitude-longitude-bounding-box-bybox" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.11. </span>Data Mart aggregate functions by latitude/longitude bounding box (bybox)<a class="headerlink" href="#data-mart-aggregate-functions-by-latitude-longitude-bounding-box-bybox" title="Link to this heading"></a></h2>
 <p>The bybox submodule exports the following functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">bybox</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">,</span>
 <span class="o">*</span> <span class="n">bybox</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">,</span>
@@ -1078,7 +1091,7 @@ annualdata and quarterlysummary functions).</p>
 </ul>
 </section>
 <section id="pyaqsapi-miscellaneous-functions">
-<h2>pyaqsapi Miscellaneous functions<a class="headerlink" href="#pyaqsapi-miscellaneous-functions" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.12. </span>pyaqsapi Miscellaneous functions<a class="headerlink" href="#pyaqsapi-miscellaneous-functions" title="Link to this heading"></a></h2>
 <p>These are miscellaneous functions exported by pyaqsapi.</p>
 <p>aqs_removeheader is the function that the pyaqsapi library
 uses internally to coerce an AQSAPI_V2 object into a pandas DataFrame.
@@ -1094,12 +1107,17 @@ simple pandas DataFrame object. This function takes only one variable:</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyaqsapiusagetipsandprecautions.html" class="btn btn-neutral float-left" title="10. Usage tips and precautions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Troubleshooting.html" class="btn btn-neutral float-right" title="14. Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, US Environmental Protection Agency.</p>
+    <p>&#169; Copyright 2025, US Environmental Protection Agency.
+      <span class="lastupdated">Last updated on Apr 25, 2025.
+      </span></p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

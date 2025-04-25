@@ -97,22 +97,16 @@ feature parity with ``RAQSAPI`` and neither project will have features that the
 other project does not - other than programming language environment or
 language preference there is no benefit to using one package over the other.
 
-Install pyaqsapi
-================
-Chose either to install from source or install a release binary package.
-Installing binary package releases are the preferred method since
-it is generally easier to do and safer to do. Installing from source on github
-will ensure that the latest development updates are used but those updates
-can be unstable.
-
-Install a stable release binary package from pypi.org
------------------------------------------------------
+Packaged binary install of pyaqsapi(preferred method)
+=====================================================
+Packaged binary install of pyaqsapi from pypi.org
+-------------------------------------------------
 .. code-block:: console
 
    pip install pyaqsapi
 
-Install the latest development from source on github
-----------------------------------------------------
+Install pyaqsapi from source (manual install from github)
+=========================================================
 To install pyaqsapi first clone the pyaqsapi repository.
 
 .. code-block:: console

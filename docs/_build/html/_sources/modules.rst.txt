@@ -1,7 +1,11 @@
+:orphan:
+
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
+
 pyaqsapi
 ========
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    pyaqsapi

@@ -1,11 +1,6 @@
 pyaqsapi.bypqao package
 =======================
 
-.. automodule:: pyaqsapi.bypqao
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 Subpackages
 -----------
 
@@ -21,6 +16,14 @@ pyaqsapi.bypqao.bypqao module
 -----------------------------
 
 .. automodule:: pyaqsapi.bypqao.bypqao
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: pyaqsapi.bypqao
    :members:
    :show-inheritance:
    :undoc-members:

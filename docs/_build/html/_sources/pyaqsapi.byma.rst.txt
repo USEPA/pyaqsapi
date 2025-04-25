@@ -1,11 +1,6 @@
 pyaqsapi.byma package
 =====================
 
-.. automodule:: pyaqsapi.byma
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 Subpackages
 -----------
 
@@ -21,6 +16,14 @@ pyaqsapi.byma.byma module
 -------------------------
 
 .. automodule:: pyaqsapi.byma.byma
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: pyaqsapi.byma
    :members:
    :show-inheritance:
    :undoc-members:

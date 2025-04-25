@@ -10,7 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    pyaqsapi.bybox
    pyaqsapi.bycbsa
@@ -19,38 +19,63 @@ Subpackages
    pyaqsapi.bypqao
    pyaqsapi.bysite
    pyaqsapi.bystate
+   ./genindex
 
 Submodules
 ----------
 
-pyaqsapi.helperfunctions module
+pyaqsapi.bysite module
 -------------------------------
 
-.. automodule:: pyaqsapi.helperfunctions
-   :members:
-   :show-inheritance:
-   :undoc-members:
+  .. automodule:: pyaqsapi.bysite
+     :members:
+     :show-inheritance:
+     :undoc-members:
 
-pyaqsapi.listfunctions module
------------------------------
+   pyaqsapi.bycounty module
+   -------------------------------
 
-.. automodule:: pyaqsapi.listfunctions
-   :members:
-   :show-inheritance:
-   :undoc-members:
+  .. automodule:: pyaqsapi.bycounty
+      :members:
+      :show-inheritance:
+      :undoc-members:
 
-pyaqsapi.metadatafunctions module
----------------------------------
+  pyaqsapi.bystate module
+  -------------------------------
 
-.. automodule:: pyaqsapi.metadatafunctions
-   :members:
-   :show-inheritance:
-   :undoc-members:
+  .. automodule:: pyaqsapi.bystate
+     :members:
+     :show-inheritance:
+     :undoc-members:
 
-pyaqsapi.setupfunctions module
-------------------------------
+  pyaqsapi.bybox module
+  -------------------------------
 
-.. automodule:: pyaqsapi.setupfunctions
-   :members:
-   :show-inheritance:
-   :undoc-members:
+  .. automodule:: pyaqsapi.bybox
+     :members:
+     :show-inheritance:
+     :undoc-members:
+
+  pyaqsapi.bypqao module
+  -------------------------------
+
+  .. automodule:: pyaqsapi.bypqao
+     :members:
+     :show-inheritance:
+     :undoc-members:
+
+  pyaqsapi.byma module
+  -------------------------------
+
+  .. automodule:: pyaqsapi.byma
+     :members:
+     :show-inheritance:
+     :undoc-members:
+
+  pyaqsapi.bycbsa module
+  -------------------------------
+
+  .. automodule:: pyaqsapi.bycbsa
+     :members:
+     :show-inheritance:
+     :undoc-members:

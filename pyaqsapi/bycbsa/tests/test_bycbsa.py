@@ -48,7 +48,7 @@ def test_monitors(setuppyaqsapi_bycbsa):
             bdate=date(year=2017, month=1, day=1),
             edate=date(year=2017, month=1, day=1),
             cbsa_code="16740",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -61,7 +61,7 @@ def test_annualsummary(setuppyaqsapi_bycbsa):
             bdate=date(year=2017, month=1, day=1),
             edate=date(year=2017, month=1, day=1),
             cbsa_code="16740",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -74,7 +74,7 @@ def test_dailysummary(setuppyaqsapi_bycbsa):
             bdate=date(year=2017, month=1, day=1),
             edate=date(year=2017, month=1, day=1),
             cbsa_code="16740",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -87,7 +87,7 @@ def test_sampledata(setuppyaqsapi_bycbsa):
             bdate=date(year=2015, month=1, day=1),
             edate=date(year=2017, month=1, day=1),
             cbsa_code="16740",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -100,7 +100,7 @@ def test_quarterlysummary(setuppyaqsapi_bycbsa):
             bdate=date(year=2017, month=1, day=1),
             edate=date(year=2017, month=12, day=31),
             cbsa_code="16740",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )

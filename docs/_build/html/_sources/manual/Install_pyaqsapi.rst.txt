@@ -3,8 +3,8 @@
 
 Packaged binary install of pyaqsapi(preferred method)
 =====================================================
-from pypi.org
--------------
+Packaged binary install of pyaqsapi from pypi.org
+-------------------------------------------------
 .. code-block:: console
 
    pip install pyaqsapi

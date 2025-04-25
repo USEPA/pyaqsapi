@@ -44,7 +44,7 @@ def test_annualsummary_bycounty(setuppyaqsapi):
             edate=date(year=2016, month=2, day=28),
             stateFIPS="37",
             countycode="183",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -58,7 +58,7 @@ def test_dailysummary_bycounty(setuppyaqsapi):
             edate=date(year=2016, month=2, day=28),
             stateFIPS="37",
             countycode="183",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -72,7 +72,7 @@ def test_sampledata_bycounty(setuppyaqsapi):
             edate=date(year=2016, month=2, day=28),
             stateFIPS="37",
             countycode="183",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -86,7 +86,7 @@ def test_monitors_bycounty(setuppyaqsapi):
             edate=date(year=2015, month=5, day=2),
             stateFIPS="15",
             countycode="001",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -100,7 +100,7 @@ def test_qa_collocated_assessments_bycounty(setuppyaqsapi):
             edate=date(year=2013, month=1, day=31),
             stateFIPS="01",
             countycode="089",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -114,7 +114,7 @@ def test_qa_blanks_bycounty(setuppyaqsapi):
             edate=date(year=2018, month=1, day=31),
             stateFIPS="01",
             countycode="033",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -128,7 +128,7 @@ def test_qa_flowrateaudit_bycounty(setuppyaqsapi):
             edate=date(year=2018, month=1, day=31),
             stateFIPS="01",
             countycode="033",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -142,7 +142,7 @@ def test_qa_flowrateverification_bycounty(setuppyaqsapi):
             edate=date(year=2018, month=1, day=31),
             stateFIPS="01",
             countycode="033",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -156,7 +156,7 @@ def test_qa_one_point_qc_bycounty(setuppyaqsapi):
             edate=date(year=2018, month=1, day=31),
             stateFIPS="25",
             countycode="001",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -170,7 +170,7 @@ def test_qa_pep_audit_bycounty(setuppyaqsapi):
             edate=date(year=2017, month=12, day=31),
             stateFIPS="01",
             countycode="089",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -184,7 +184,7 @@ def test_transactionsample_bycounty(setuppyaqsapi):
             edate=date(year=2016, month=2, day=28),
             stateFIPS="37",
             countycode="183",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -198,7 +198,7 @@ def test_qa_annualperformanceeval_bycounty(setuppyaqsapi):
             edate=date(year=2017, month=12, day=31),
             stateFIPS="01",
             countycode="003",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -212,7 +212,7 @@ def test_qa_annualperformanceevaltransaction_bycounty(setuppyaqsapi):
             edate=date(year=2017, month=12, day=31),
             stateFIPS="01",
             countycode="003",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -226,7 +226,7 @@ def test_quarterlysummary_bycounty(setuppyaqsapi):
             edate=date(year=2017, month=2, day=28),
             stateFIPS="37",
             countycode="183",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )

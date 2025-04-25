@@ -1,11 +1,6 @@
 pyaqsapi.bysite package
 =======================
 
-.. automodule:: pyaqsapi.bysite
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 Subpackages
 -----------
 
@@ -21,6 +16,14 @@ pyaqsapi.bysite.bysite module
 -----------------------------
 
 .. automodule:: pyaqsapi.bysite.bysite
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: pyaqsapi.bysite
    :members:
    :show-inheritance:
    :undoc-members:

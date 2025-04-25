@@ -47,7 +47,7 @@ def test_sampledata_bybox(setuppyaqsapi_bybox):
             maxlat="33.6",
             minlon="-87.0",
             maxlon="-86.7",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -63,7 +63,7 @@ def test_monitors_bybox(setuppyaqsapi_bybox):
             maxlat="33.6",
             minlon="-87.0",
             maxlon="-86.7",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -79,7 +79,7 @@ def test_annualsummary_bybox(setuppyaqsapi_bybox):
             maxlat="33.6",
             minlon="-87.0",
             maxlon="-86.7",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -95,7 +95,7 @@ def test_dailysummary_bybox(setuppyaqsapi_bybox):
             maxlat="33.6",
             minlon="-87.0",
             maxlon="-86.7",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )
@@ -111,7 +111,7 @@ def test_quarterlysummary_bybox(setuppyaqsapi_bybox):
             maxlat="33.6",
             minlon="-87.0",
             maxlon="-86.7",
-            return_header=True
+            return_header=True,
         )[0].get_status_code()
         == "200"
     )

@@ -1,11 +1,6 @@
 pyaqsapi.bystate package
 ========================
 
-.. automodule:: pyaqsapi.bystate
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 Subpackages
 -----------
 
@@ -21,6 +16,14 @@ pyaqsapi.bystate.bystate module
 -------------------------------
 
 .. automodule:: pyaqsapi.bystate.bystate
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: pyaqsapi.bystate
    :members:
    :show-inheritance:
    :undoc-members:

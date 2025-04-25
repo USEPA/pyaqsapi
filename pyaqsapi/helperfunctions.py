@@ -159,8 +159,8 @@ class AQSAPI_V2:
         """
         Set the status code of the AQS DataMart API call.
 
-        Parameter
-        ---------
+        Parameters
+        ----------
         status_code : A string representing the status code
 
         Returns
@@ -195,8 +195,8 @@ class AQSAPI_V2:
             An integer representing the amount of time in seconds that the
             function should wait before executing the next API call.
 
-        Note
-        ----
+        Notes
+        -----
         Although this function is designed to prevent users from exceeding
         allowed data limits, it can not garuntee that the user exceed rate
         limits. Users are advised to monitor their own usage to ensure that
@@ -287,14 +287,10 @@ class AQSAPI_V2:
         url = "".join(filter(None, [AQS_domain, "/", service, "/", aqsfilter]))
         url = url.replace("///", "/")
         header = {"User-Agent": user_agent, "From": AQS_user}
-        newline = '\n'
+        newline = "\n"
         try:
             query = get(
-                url=url,
-                params=variables,
-                headers=header,
-                verify=where(),
-                timeout=30
+                url=url, params=variables, headers=header, verify=where(), timeout=30
             )
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
@@ -302,40 +298,45 @@ class AQSAPI_V2:
             self._status_code = query.status_code
             query.raise_for_status()
         except ConnectionError as connectionerror:
-            warn(category=ResourceWarning,
-                 message=f"pyaqsapi experienced a connection error: \
-                 {newline} {connectionerror}"
-                 )
+            warn(
+                category=ResourceWarning,
+                message=f"pyaqsapi experienced a connection error: \
+                 {newline} {connectionerror}",
+            )
         except Timeout as timeouterror:
-            warn(category=ResourceWarning,
-                 message=f"pyaqsapi experienced a timeout error: \
-                 {newline} {timeouterror}"
-                 )
+            warn(
+                category=ResourceWarning,
+                message=f"pyaqsapi experienced a timeout error: \
+                 {newline} {timeouterror}",
+            )
         except HTTPError as httperror:
             warn(
                 f"pyaqsapi experienced a HTTP Error: \
                  {newline} {httperror}"
-                 )
+            )
         except Exception as exception:
             if query.status_code == 400:
                 if "error" in query.json()["Header"][0].keys():
                     # newline = '\n'
-                    warn(category=UserWarning,
-                         message="AQSDataMArt returned the following " +
-                         f"message: {newline}" +
-                         f"{query.json()['Header'][0]['error']}{newline}" +
-                         "Perhaps you've entered an incorrect username and/or" +
-                         f" key to the aqs_credentials function?{newline}" +
-                         f"Here is the {newline}" +
-                         f"username: {variables['email']}" +
-                         f"{newline}and{newline}" +
-                         f"key: {variables['key']} {newline}" +
-                         "that was provided")
+                    warn(
+                        category=UserWarning,
+                        message="AQSDataMArt returned the following "
+                        + f"message: {newline}"
+                        + f"{query.json()['Header'][0]['error']}{newline}"
+                        + "Perhaps you've entered an incorrect username and/or"
+                        + f" key to the aqs_credentials function?{newline}"
+                        + f"Here is the {newline}"
+                        + f"username: {variables['email']}"
+                        + f"{newline}and{newline}"
+                        + f"key: {variables['key']} {newline}"
+                        + "that was provided",
+                    )
                 else:
-                    warn(category=UserWarning,
-                         message="pyaqsapi experienced an error:" +
-                         f"{newline} {exception}"
-                         )
+                    warn(
+                        category=UserWarning,
+                        message="pyaqsapi experienced an error:"
+                        + f"{newline} {exception}",
+                    )
         finally:
             self.__aqs_ratelimit()
         return self
