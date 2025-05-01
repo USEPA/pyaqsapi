@@ -1,16 +1,11 @@
 pyaqsapi package
 ================
 
-.. automodule:: pyaqsapi
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
 Subpackages
 -----------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    pyaqsapi.bybox
    pyaqsapi.bycbsa
@@ -19,63 +14,46 @@ Subpackages
    pyaqsapi.bypqao
    pyaqsapi.bysite
    pyaqsapi.bystate
-   ./genindex
 
 Submodules
 ----------
 
-pyaqsapi.bysite module
+pyaqsapi.helperfunctions module
 -------------------------------
 
-  .. automodule:: pyaqsapi.bysite
-     :members:
-     :show-inheritance:
-     :undoc-members:
+.. automodule:: pyaqsapi.helperfunctions
+   :members:
+   :show-inheritance:
+   :undoc-members:
 
-   pyaqsapi.bycounty module
-   -------------------------------
+pyaqsapi.listfunctions module
+-----------------------------
 
-  .. automodule:: pyaqsapi.bycounty
-      :members:
-      :show-inheritance:
-      :undoc-members:
+.. automodule:: pyaqsapi.listfunctions
+   :members:
+   :show-inheritance:
+   :undoc-members:
 
-  pyaqsapi.bystate module
-  -------------------------------
+pyaqsapi.metadatafunctions module
+---------------------------------
 
-  .. automodule:: pyaqsapi.bystate
-     :members:
-     :show-inheritance:
-     :undoc-members:
+.. automodule:: pyaqsapi.metadatafunctions
+   :members:
+   :show-inheritance:
+   :undoc-members:
 
-  pyaqsapi.bybox module
-  -------------------------------
+pyaqsapi.setupfunctions module
+------------------------------
 
-  .. automodule:: pyaqsapi.bybox
-     :members:
-     :show-inheritance:
-     :undoc-members:
+.. automodule:: pyaqsapi.setupfunctions
+   :members:
+   :show-inheritance:
+   :undoc-members:
 
-  pyaqsapi.bypqao module
-  -------------------------------
+Module contents
+---------------
 
-  .. automodule:: pyaqsapi.bypqao
-     :members:
-     :show-inheritance:
-     :undoc-members:
-
-  pyaqsapi.byma module
-  -------------------------------
-
-  .. automodule:: pyaqsapi.byma
-     :members:
-     :show-inheritance:
-     :undoc-members:
-
-  pyaqsapi.bycbsa module
-  -------------------------------
-
-  .. automodule:: pyaqsapi.bycbsa
-     :members:
-     :show-inheritance:
-     :undoc-members:
+.. automodule:: pyaqsapi
+   :members:
+   :show-inheritance:
+   :undoc-members:

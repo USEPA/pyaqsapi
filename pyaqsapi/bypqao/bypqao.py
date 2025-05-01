@@ -1,5 +1,6 @@
 """Functions that aggregate data by pqao
-(By Primary Quality Assurance Organization)."""
+(By Primary Quality Assurance Organization).
+"""
 
 from datetime import date
 

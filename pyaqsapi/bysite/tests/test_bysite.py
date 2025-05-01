@@ -1,5 +1,5 @@
 from datetime import date
-from os import environ, getcwd
+from os import environ
 from os.path import abspath, exists
 from sys import path
 
@@ -21,7 +21,7 @@ def setuppyaqsapi(autouse=True):
             import local
         except ImportError:
             raise (ImportError("test_bysite did not import local.py"))
-        AQSuser, AQSkey = local.setuppyaqsapitest()
+        (AQSuser, AQSkey) = local.setuppyaqsapitest()
         aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
@@ -112,16 +112,8 @@ def test_qa_collocated_assessments(setuppyaqsapi):
     assert (
         bysite.qa_collocated_assessments(
             parameter="88101",
-            bdate=date(
-                year=2013,
-                month=1,
-                day=1,
-            ),
-            edate=date(
-                year=2013,
-                month=1,
-                day=31,
-            ),
+            bdate=date(year=2013, month=1, day=1),
+            edate=date(year=2013, month=1, day=31),
             stateFIPS="01",
             countycode="089",
             sitenum="0014",
@@ -181,11 +173,7 @@ def test_transactionsample(setuppyaqsapi):
         bysite.transactionsample(
             parameter="44201",
             bdate=date(year=2017, month=6, day=18),
-            edate=date(
-                year=2017,
-                month=6,
-                day=18,
-            ),
+            edate=date(year=2017, month=6, day=18),
             stateFIPS="37",
             countycode="183",
             sitenum="0014",

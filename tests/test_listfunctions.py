@@ -18,7 +18,7 @@ def setuppyaqsapi(autouse=True):
         path.append(abspath("./dev"))
         import local
 
-        AQSuser, AQSkey = local.setuppyaqsapitest()
+        (AQSuser, AQSkey) = local.setuppyaqsapitest()
         aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
@@ -31,11 +31,17 @@ def setuppyaqsapi(autouse=True):
 
 
 def test_aqs_isavailable(setuppyaqsapi):
-    assert listfunctions.aqs_isavailable(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_isavailable(return_header=True).get_status_code()
+        == "200"
+    )
 
 
 def test_aqs_knownissues(setuppyaqsapi):
-    assert listfunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_knownissues(return_header=True).get_status_code()
+        == "200"
+    )
 
 
 def test_counties_by_state(setuppyaqsapi):
@@ -57,7 +63,9 @@ def test_aqs_sites_by_county(setuppyaqsapi):
 
 
 def test_aqs_classes(setuppyaqsapi):
-    assert listfunctions.aqs_classes(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_classes(return_header=True).get_status_code() == "200"
+    )
 
 
 def test_aqs_parameters_by_class(setuppyaqsapi):
@@ -74,20 +82,27 @@ def test_aqs_mas(setuppyaqsapi):
 
 
 def test_aqs_pqaos(setuppyaqsapi):
-    assert listfunctions.aqs_pqaos(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_pqaos(return_header=True).get_status_code() == "200"
+    )
 
 
 def test_aqs_cbsas(setuppyaqsapi):
-    assert listfunctions.aqs_cbsas(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_cbsas(return_header=True).get_status_code() == "200"
+    )
 
 
 def test_aqs_states(setuppyaqsapi):
-    assert listfunctions.aqs_states(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_states(return_header=True).get_status_code() == "200"
+    )
 
 
 def test_aqs_revisionhistory(setuppyaqsapi):
     assert (
-        listfunctions.aqs_revisionhistory(return_header=True).get_status_code() == "200"
+        listfunctions.aqs_revisionhistory(return_header=True).get_status_code()
+        == "200"
     )
 
 
@@ -102,5 +117,6 @@ def test_aqs_fields_by_service(setuppyaqsapi):
 
 def test_aqs_sampledurations(setuppyaqsapi):
     assert (
-        listfunctions.aqs_sampledurations(return_header=True).get_status_code() == "200"
+        listfunctions.aqs_sampledurations(return_header=True).get_status_code()
+        == "200"
     )

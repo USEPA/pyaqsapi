@@ -221,7 +221,9 @@ def aqs_parameters_by_class(
     """
     aqsfilter = "parametersByClass"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(parameterclass=parameterclass, aqsfilter=aqsfilter)
+    aqsresult._aqs_list_services(
+        parameterclass=parameterclass, aqsfilter=aqsfilter
+    )
     if return_header:
         return aqsresult
     else:

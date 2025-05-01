@@ -290,7 +290,11 @@ class AQSAPI_V2:
         newline = "\n"
         try:
             query = get(
-                url=url, params=variables, headers=header, verify=where(), timeout=30
+                url=url,
+                params=variables,
+                headers=header,
+                verify=where(),
+                timeout=30,
             )
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
@@ -1093,7 +1097,9 @@ class AQSAPI_V2:
         )
 
 
-def aqs_credentials(username: str | None = None, key: str | None = None) -> None:
+def aqs_credentials(
+    username: str | None = None, key: str | None = None
+) -> None:
     """
     Set the user credentials for the AQS API. This function
     needs to be called once and only once every time this library
@@ -1244,11 +1250,13 @@ def _aqsmultiyearcall(
         # until end date (including the year of bdate and not the year of
         # edate) with edate appended to the end.
         bdatelist = [
-            date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)
+            date(year=x, month=1, day=1)
+            for x in range(bdate.year + 1, edate.year + 1)
         ]
         bdatelist.insert(0, bdate)
         edatelist = [
-            date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)
+            date(year=y, month=12, day=31)
+            for y in range(bdate.year, edate.year)
         ]
         edatelist.append(edate)
 
@@ -1306,15 +1314,21 @@ def _aqsmultiyearcall(
     #         RuntimeError("invalid function sent to _aqsmultiyearcall")
     if fun == "_aqs_services_by_site":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params))
+            starmap(
+                aqsresult._aqs_services_by_site, cast(Iterable[Any], params)
+            )
         )  # type: ignore
     elif fun == "_aqs_services_by_county":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params))
+            starmap(
+                aqsresult._aqs_services_by_county, cast(Iterable[Any], params)
+            )
         )  # type: ignore
     elif fun == "_aqs_services_by_state":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params))
+            starmap(
+                aqsresult._aqs_services_by_state, cast(Iterable[Any], params)
+            )
         )  # type: ignore
     elif fun == "_aqs_services_by_MA":
         returnvalue = list(
@@ -1322,11 +1336,15 @@ def _aqsmultiyearcall(
         )  # type: ignore
     elif fun == "_aqs_services_by_pqao":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params))
+            starmap(
+                aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)
+            )
         )  # type: ignore
     elif fun == "_aqs_services_by_cbsa":
         returnvalue = list(
-            starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params))
+            starmap(
+                aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)
+            )
         )  # type: ignore
     elif fun == "_aqs_services_by_box":
         returnvalue = list(

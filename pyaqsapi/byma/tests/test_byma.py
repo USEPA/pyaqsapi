@@ -1,6 +1,6 @@
 from datetime import date
 from importlib import import_module
-from os import environ, getcwd
+from os import environ
 from os.path import abspath, exists
 from sys import path
 
@@ -25,7 +25,7 @@ def setuppyaqsapi_byma(autouse=True):
         path.append(abspath("./dev/"))
         import local
 
-        AQSuser, AQSkey = local.setuppyaqsapitest()
+        (AQSuser, AQSkey) = local.setuppyaqsapitest()
         # aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using

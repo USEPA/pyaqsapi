@@ -30,7 +30,7 @@ def setuppyaqsapi_bycbsa(autouse=True):
                 "unable to import ./dev/local.py in bycbsa/tests/setupaqsapi \
                  setuppyaqsapi fixture"
             )
-        AQSuser, AQSkey = local.setuppyaqsapitest()
+        (AQSuser, AQSkey) = local.setuppyaqsapitest()
     else:
         # get the credential information from environment variables if using
         # github actions

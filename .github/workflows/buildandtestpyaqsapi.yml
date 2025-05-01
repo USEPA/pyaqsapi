@@ -58,8 +58,8 @@ jobs:
         run: |
           cd docs
           make clean
+          sphinx-apidoc -o . ..\pyaqsapi\
           sphinx-build -M html . _build --color --keep-going --show-traceback --write-all -j auto
-          sphinx-apidoc -o . ..\pyaqsapi\ ["*/dev", "**/tests*"]
           # run "make html" twice, specifically for bibtex referernces to work
           make html
           make html

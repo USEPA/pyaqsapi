@@ -18,7 +18,7 @@ def setuppyaqsapi(autouse=True):
         path.append(abspath("./dev"))
         import local
 
-        AQSuser, AQSkey = local.setuppyaqsapitest()
+        (AQSuser, AQSkey) = local.setuppyaqsapitest()
         aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
@@ -32,12 +32,15 @@ def setuppyaqsapi(autouse=True):
 
 def test_aqs_knownissues(setuppyaqsapi):
     assert (
-        metadatafunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
+        metadatafunctions.aqs_knownissues(return_header=True).get_status_code()
+        == "200"
     )
 
 
 def test_aqs_revisionhistory(setuppyaqsapi):
     assert (
-        metadatafunctions.aqs_revisionhistory(return_header=True).get_status_code()
+        metadatafunctions.aqs_revisionhistory(
+            return_header=True
+        ).get_status_code()
         == "200"
     )

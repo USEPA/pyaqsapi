@@ -17,18 +17,32 @@ sys.path.insert(0, os.path.abspath(".."))
 
 
 # -- Exclude test files from sphinx.ext.apidoc ---------------------------------
-# def autodoc_skip_member_helper(app, what, name, obj, skip, options):
-#     return name.startswith("test")
+autosummary_mock_imports = [
+    "pyaqsapi.bysite.tests",
+    "pyaqsapi.bycounty.tests",
+    "pyaqsapi.bystate.tests",
+    "pyaqsapi.byma.tests",
+    "pyaqsapi.bypqao.tests",
+    "pyaqsapi.bybox.tests",
+    "pyaqsapi.bycbsa.tests",
+]
 
-# def setup(app):
-#     app.connect('autodoc-skip-member', autodoc_skip_member_helper)
-
+autodoc_mock_imports = [
+    "pyaqsapi.bysite.tests",
+    "pyaqsapi.bycounty.tests",
+    "pyaqsapi.bystate.tests",
+    "pyaqsapi.byma.tests",
+    "pyaqsapi.bypqao.tests",
+    "pyaqsapi.bybox.tests",
+    "pyaqsapi.bycbsa.tests",
+]
 
 # -- Project information ------------------------------------------------------
 
 project = "pyaqsapi"
 copyright = "2025, US Environmental Protection Agency"
 author = "Clinton Mccrowey (US Environmental Protection Agency)"
+version = "1.0.2"
 
 
 # -- General configuration ----------------------------------------------------
@@ -40,7 +54,7 @@ extensions = [
     "sphinx.ext.autodoc",
     # replaced sphinxcontrib.apidoc with sphinx.ext.apidoc
     # "sphinxcontrib.apidoc",
-    "sphinx.ext.apidoc",
+    # "sphinx.ext.apidoc",
     "sphinx.ext.doctest",
     "sphinx.ext.coverage",
     # the dependencies required for sphinxcontrib.spelling
@@ -58,6 +72,7 @@ extensions = [
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = "en"
+ibtex_encoding = "utf-8"
 
 # Language to be used for generating the HTML full-text search index.
 # Sphinx supports the following languages:
@@ -72,11 +87,21 @@ bibtex_bibfiles = ["manual/pyaqsapi.bib"]
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "setup.py", "*tests*", "dev/"]
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "setup.py",
+    "**tests*",
+    "dev/",
+]
 
 # get rid of those duplicate label warnings when embedding a child rst file
 # into another rst file.
 suppress_warnings = ["autosectionlabel"]
+
+# tell sphinx not to complain about missing files and folders.
+nitpick_ignore_regex = ["*./dev/*, *test*"]
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -102,11 +127,11 @@ html_theme = "sphinx_rtd_theme"
 
 # sphinx_rtd_theme html options
 html_theme_options = {
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False
+    "collapse_navigation": False,
+    "sticky_navigation": True,
+    "navigation_depth": 1,
+    "includehidden": True,
+    "titles_only": False,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -147,11 +172,36 @@ napoleon_google_docstring = True
 numpydoc_show_class_members = False
 
 # -- Options for sphinx-contrib\apidoc, sphinxcontrib\autodoc------------------
-apidoc_separate_modules = False
+apidoc_modules = [
+    {"path": "../pyaqsapi", "destination": "./_build"},
+    {
+        "path": "../pyaqsapi",
+        "destination": "./_build",
+        "exclude_patterns": ["**/test*", "**/__pycache__"],
+        "max_depth": 2,
+        "follow_links": False,
+        "separate_modules": True,
+        "include_private": False,
+        "no_headings": False,
+        "module_first": True,
+        "implicit_namespaces": False,
+        "automodule_options": {
+            "members",
+            "show-inheritance",
+            "no-undoc-members",
+        },
+    },
+]
+
 apidoc_module_dir = "../pyaqsapi"
-apidoc_excluded_paths = ["**/tests*", "*dev/"]
+apidoc_excluded_paths = ["**/tests*", "*dev/", "__pycache__"]
 apidoc_module_first = True
 apidoc_toc_file = "modules"
 apidoc_output_dir = "."
 autodoc_typehints = "both"
-autodoc_default_options = {"exclude-members": '**/test*'}
+autodoc_default_options = {"exclude-members": "**/tests*"}
+autoapi_dirs = ["../pyaqsapi"]
+SPHINX_APIDOC_OPTIONS = ["members", "no-undoc-members", "ignore-module-all"]
+autoapi_options = ["members", "no-undoc-members", "ignore-module-all"]
+autosummary_ignore_module_all = False
+autosummary_imported_members = True

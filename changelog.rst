@@ -13,3 +13,5 @@ pyaqsapi is now available via pypi
 fix issue that caused aqs_remove_header function to throw an error
 replace sphinxcontrib/apidoc with sphinx.ext.apidoc
 remove *test directories from documentation
+included file in documentation are now also included in the table of contents
+many other improvements to the documentation
