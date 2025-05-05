@@ -22,5 +22,6 @@ dependencies:
   - cryptography
   - python-build
   - pytest
+  - pytest-sugar
   - pytest-rerunfailures
   - pytest-black

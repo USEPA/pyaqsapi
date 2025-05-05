@@ -34,12 +34,20 @@ pyaqsapi documentation
 .. include:: manual/Troubleshooting.rst
 .. include:: manual/RAQSAPI.rst
 
+.. index:: Indices and tables;
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 <!-- known limitation of sphinxcontrib-bibtex, references can not be added to
 toc, refer to:
 https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#citation-\
 references-not-rendered-in-toctree-directives
 -->
-
 .. index:: References;
 
 References

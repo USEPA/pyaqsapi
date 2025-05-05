@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+python = ">=3.9"
+conda-build = "*"
+tox-conda = "*"
+pandas = "*"
+pep517 = "*"
+requests = "*"
+sphinx = "*"
+sphinxcontrib-bibtex = "*"
+sphinxcontrib-napoleon = "*"
+toml = "*"
+sphinx-rtd-theme = "*"
+numpydoc = "*"
+certifi = "*"
+cryptography = "*"
+pytest = "*"
+pytest-rerunfailures = "*"
+keyring = "*"
+datetime = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

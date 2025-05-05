@@ -1,4 +1,4 @@
-.. index:: EPA Disclaimer;
+.. index:: EPA Disclaimers and AQS DataMart warnings;
 
 EPA Disclaimer
 ==============
