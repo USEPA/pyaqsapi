@@ -1151,8 +1151,8 @@ def aqs_removeheader(
 
     """
     aqsresult = DataFrame()
-    for index, value in enumerate(aqsobject):
-        aqsresult = concat([aqsresult, value.get_data()], axis=0)
+    for index, value in enumerate(aqsobject):  # type: ignore
+        aqsresult = concat([aqsresult, value.get_data()], axis=0)  # type: ignore
 
     return aqsresult
 
