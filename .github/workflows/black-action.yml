@@ -4,6 +4,9 @@ on: [push, pull_request]
 
 jobs:
   lint:
+    permissions:
+      contents: write
+      checks: write
     runs-on: ubuntu-latest
     steps:
       #- uses: actions/checkout@v2
