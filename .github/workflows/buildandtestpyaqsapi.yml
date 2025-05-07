@@ -17,6 +17,9 @@ defaults:
     
 jobs:
   setup_environment:
+    permissions:
+      contents: write
+      checks: write
     runs-on: ubuntu-latest
     env:
       AQSkey: ${{ secrets.AQSKEY }}

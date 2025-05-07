@@ -1,7 +1,7 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://github.com/USEPA/pyaqsapi"
 verify_ssl = true
-name = "pypi"
+name = "pyaqsapi"
 
 [packages]
 python = ">=3.9"
@@ -26,4 +26,4 @@ datetime = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.12"
+python_version >= "3.9"
