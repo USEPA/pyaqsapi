@@ -23,6 +23,11 @@
    :alt: GitHub last commit
    :target: https://github.com/USEPA/pyaqsapi
    :align: center
+.. image:: https://img.shields.io/pypi/dm/pyaqsapi?style=plastic
+   :alt: PyPI - Downloads
+   :target: https://pypi.org/project/pyaqsapi/
+   :align: center
+
 
 EPA Disclaimer
 ==============
@@ -243,5 +248,5 @@ is one of the 13 services listed above and ``<aggregation>`` is either
 
 
 Read the full
-`API documentation <https://usepa.github.io/pyaqsapi/>`_ online.
+`documentation <https://usepa.github.io/pyaqsapi/>`_ online.
 
