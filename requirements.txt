@@ -4,7 +4,7 @@ tox-conda
 pandas
 pep517
 requests
-setuptools
+setuptools >=77.0.3
 sphinx
 # the dependencies required for sphinxcontrib.spelling
 # do not seem to be maintained anymore

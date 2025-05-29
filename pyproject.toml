@@ -17,7 +17,29 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Operating System :: OS Independent"
 ]
+dependencies = [
+  "pandas",
+  "requests",
+  "certifi",
+  "cryptography",
+  "datetime"
+]
 
+[project.optional-dependencies]
+doc = [
+  "sphinx",
+  "sphinxcontrib-bibtex",
+  "sphinxcontrib-napoleon",
+  "numpydoc",
+  "sphinx_rtd_theme"
+]
+test = [
+  "pytest",
+  "pytest-rerunfailures",
+  "tox",
+  "pytest-black",
+  "pytest-sugar"
+]
 
 [project.urls]
 "Homepage" = "https://github.com/USEPA/pyaqsapi"
