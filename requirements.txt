@@ -2,7 +2,6 @@ python >=3.9
 conda-build
 tox-conda
 pandas
-pep517
 requests
 setuptools >=77.0.3
 sphinx
@@ -12,12 +11,10 @@ sphinx
 sphinxcontrib-bibtex
 sphinxcontrib-napoleon
 numpydoc
-toml
 sphinx_rtd_theme
 numpydoc
 certifi
 cryptography
 pytest
 pytest-rerunfailures
-keyring
 datetime

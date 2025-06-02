@@ -40,6 +40,14 @@ test = [
   "pytest-black",
   "pytest-sugar"
 ]
+dev = [
+    "ruff",
+    "pytest",
+    "pytest-back",
+    "tox",
+    "pytest-rerunfailures",
+    "pytest-sugar"
+    ]
 
 [project.urls]
 "Homepage" = "https://github.com/USEPA/pyaqsapi"
