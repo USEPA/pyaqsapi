@@ -27,6 +27,11 @@
    :alt: PyPI - Downloads
    :target: https://pypi.org/project/pyaqsapi/
    :align: center
+.. image:: https://img.shields.io/github/license/USEpa/pyaqsapi?style=plastic
+   :alt: GitHub License
+   :align: center
+   :target: https://pypi.org/project/pyaqsapi/ https://github.com/USEPA/pyaqsapi/blob/main/LICENSE.rst
+   
 
 
 EPA Disclaimer
