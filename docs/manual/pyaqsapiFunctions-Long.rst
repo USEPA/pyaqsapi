@@ -3,7 +3,7 @@
 
 Functions Exported by pyaqsapi
 ====================================================
-The pyaqsapi package includes the following submodules which are not
+The pyaqsapi package includes the following submodules that are
 loaded by default:
 ::
 
@@ -15,7 +15,7 @@ loaded by default:
 * pyaqsapi.byma
 * pyaqsapi.ma
 
-With these submodules loaded the entire list of functions exported by the
+With these submodules loaded, the entire list of functions exported by the
 pyaqsapi package includes:
 
 ::
@@ -281,7 +281,7 @@ These functions return Data Mart meta data
     `Air Quality System (AQS) API - Services Overview
     <https://aqs.epa.gov/aqsweb/documents/data_api.html#services>`_
 
-    The aqs_knownissues function takes no parameters and Returns a
+    The aqs_knownissues function takes no parameters and returns a
     table of any known issues with system functionality or the data. These are
     usually issues that have been identified internally and will require some
     time to correct in Data Mart or the API. This function implements a direct

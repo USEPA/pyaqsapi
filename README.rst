@@ -31,7 +31,10 @@
    :alt: GitHub License
    :align: center
    :target: https://pypi.org/project/pyaqsapi/ https://github.com/USEPA/pyaqsapi/blob/main/LICENSE.rst
-   
+.. image:: https://github.com/USEPA/pyaqsapi/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main
+   :alt: CodeQL
+   :align: center
+   :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-code-scanning/codeql
 
 
 EPA Disclaimer

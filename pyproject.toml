@@ -1,6 +1,6 @@
 [project]
 name = "pyaqsapi"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 version = "1.0.2"
 # dynamic = ["version"]
 description = "United States Environmental Protection Agency (US EPA) Air Quality System (AQS) Data Mart API v2 interface."
@@ -19,6 +19,7 @@ classifiers = [
 ]
 dependencies = [
   "pandas",
+  "pip",
   "requests",
   "certifi",
   "cryptography",
@@ -113,5 +114,5 @@ packages = ["pyaqsapi",
 
 [tool.black]
 line-length = 80
-target-version = ['py39', 'py310', 'py311', 'py312', 'py313']
+target-version = ['py310', 'py311', 'py312', 'py313']
 skip_magic_trailing_comma = true

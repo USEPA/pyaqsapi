@@ -3,7 +3,7 @@
 
 About RAQSAPI
 =============
-pyaqsapi is a port of :cite:t:`Rpackage:RAQSAPI` to the
+pyaqsapi is a port of RAQSAPI :cite:t:`Rpackage:RAQSAPI` to the
 python 3 programming environment. For anyone that is familiar with RAQSAPI,
 the pyaqsapi API will feel familiar to you, most of the functions are similar
 and the parameters sent to each functions are the same. pyaqsapi aims to have
