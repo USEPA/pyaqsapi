@@ -1295,21 +1295,62 @@ def _aqsmultiyearcall(
     )
     params = params.dropna(axis="columns", how="any")
     params = [tuple(x) for x in params.values]  # type: ignore
-    match fun:  # requires Python>=3.10, use if statements instead
-        case "_aqs_services_by_site":
-            return list(starmap(aqsresult._aqs_services_by_site, params))
-        case "_aqs_services_by_county":
-            return list(starmap(aqsresult._aqs_services_by_county, params))
-        case "_aqs_services_by_state":
-            return list(starmap(aqsresult._aqs_services_by_state, params))
-        case "_aqs_services_by_MA":
-            return list(starmap(aqsresult._aqs_services_by_MA, params))
-        case "_aqs_services_by_pqao":
-            return list(starmap(aqsresult._aqs_services_by_pqao, params))
-        case "_aqs_services_by_cbsa":
-            return list(starmap(aqsresult._aqs_services_by_cbsa, params))
-        case "_aqs_services_by_box":
-            return list(starmap(aqsresult._aqs_services_by_box, params))
-        case _:
-            RuntimeError("invalid function sent to _aqsmultiyearcall")
+    # match fun: #requires Python>=3.10, use if statements instead
+    #     case "_aqs_services_by_site":
+    #         return(list(starmap(aqsresult._aqs_services_by_site, params)))
+    #     case "_aqs_services_by_county":
+    #         return(list(starmap(aqsresult._aqs_services_by_county, params)))
+    #     case "_aqs_services_by_state":
+    #         return(list(starmap(aqsresult._aqs_services_by_state, params)))
+    #     case "_aqs_services_by_MA":
+    #         return(list(starmap(aqsresult._aqs_services_by_MA, params)))
+    #     case "_aqs_services_by_pqao":
+    #         return(list(starmap(aqsresult._aqs_services_by_pqao, params)))
+    #     case "_aqs_services_by_cbsa":
+    #         return(list(starmap(aqsresult._aqs_services_by_cbsa, params)))
+    #     case "_aqs_services_by_box":
+    #         return(list(starmap(aqsresult._aqs_services_by_box, params)))
+    #     case _:
+    #         RuntimeError("invalid function sent to _aqsmultiyearcall")
+    if fun == "_aqs_services_by_site":
+        returnvalue = list(
+            starmap(
+                aqsresult._aqs_services_by_site, cast(Iterable[Any], params)
+            )
+        )  # type: ignore
+    elif fun == "_aqs_services_by_county":
+        returnvalue = list(
+            starmap(
+                aqsresult._aqs_services_by_county, cast(Iterable[Any], params)
+            )
+        )  # type: ignore
+    elif fun == "_aqs_services_by_state":
+        returnvalue = list(
+            starmap(
+                aqsresult._aqs_services_by_state, cast(Iterable[Any], params)
+            )
+        )  # type: ignore
+    elif fun == "_aqs_services_by_MA":
+        returnvalue = list(
+            starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params))
+        )  # type: ignore
+    elif fun == "_aqs_services_by_pqao":
+        returnvalue = list(
+            starmap(
+                aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)
+            )
+        )  # type: ignore
+    elif fun == "_aqs_services_by_cbsa":
+        returnvalue = list(
+            starmap(
+                aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)
+            )
+        )  # type: ignore
+    elif fun == "_aqs_services_by_box":
+        returnvalue = list(
+            starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params))
+        )  # type: ignore
+    else:
+        returnvalue = None
+
     return cast(list[DataFrame] | None, returnvalue)

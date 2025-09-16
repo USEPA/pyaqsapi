@@ -1,7 +1,7 @@
 .. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
 ===========================
-pyaqsapi User Documentation
+pyaqsapi user documentation
 ===========================
 
 .. toctree::
@@ -20,7 +20,7 @@ pyaqsapi User Documentation
    manual/RAQSAPI
    modules
 
-pyaqsapi Documentation
+pyaqsapi documentation
 ======================
 
 .. include:: manual/EPA_Disclaimer.rst

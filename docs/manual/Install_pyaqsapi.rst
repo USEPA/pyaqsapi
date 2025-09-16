@@ -17,7 +17,7 @@ Packaged binary install of pyaqsapi from pypi.org
 
 Install pyaqsapi from source (manual install from github)
 ---------------------------------------------------------
-To install pyaqsapi first, clone the pyaqsapi repository.
+To install pyaqsapi first clone the pyaqsapi repository.
 
 .. code-block:: console
 
@@ -31,7 +31,7 @@ and install pyaqsapi.
 
     pip install -r requirements.txt
 
-While still in the project's root directory, use setuptools to build and pip
+While still in the project's root directory use setuptools to build and pip
 to install the package.
 
 .. code-block:: console

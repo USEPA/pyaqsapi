@@ -1,0 +1,27 @@
+[[source]]
+url = "https://github.com/USEPA/pyaqsapi"
+verify_ssl = true
+name = "pyaqsapi"
+
+[packages]
+python = ">=3.9"
+conda-build = "*"
+tox-conda = "*"
+pandas = "*"
+requests = "*"
+sphinx = "*"
+sphinxcontrib-bibtex = "*"
+sphinxcontrib-napoleon = "*"
+sphinx-rtd-theme = "*"
+numpydoc = "*"
+certifi = "*"
+cryptography = "*"
+pytest = "*"
+pytest-rerunfailures = "*"
+keyring = "*"
+datetime = "*"
+
+[dev-packages]
+
+[requires]
+python_version >= "3.9"

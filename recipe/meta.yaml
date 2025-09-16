@@ -1,6 +1,7 @@
 {% set name = "pyaqsapi" %}
 {% set version = "1.0.2" %}
-{% set python_min = "3.10" %}
+{% set python_min = "3.9" %}
+{% set setuptools_min = "77.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -11,16 +12,18 @@ source:
   sha256: 9d3ae6cadf8332b0dee6314c0c52fb86d64dcb300300c439d4bebb0566a39344
 
 build:
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  noarch: python
 
 requirements:
-  host:
-    - python {{ python_min }}
-    - setuptools >=77.0.3
+  build:
+    - python
+    - setuptools >={{ setuptools_min }}
     - python-build
     - pip
+  host:
+    - python {{ python_min }}
   run:
     - python >={{ python_min }}
     - requests
@@ -29,8 +32,6 @@ requirements:
     - cryptography
 
 test:
-  imports:
-    - pyaqsapi
   commands:
     - pip check
   requires:

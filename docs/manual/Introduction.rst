@@ -23,7 +23,7 @@ data requested, header information, and other metadata related to the API call.
 After each call to the API a five second stall is invoked to help prevent
 overloading the Data Mart API server and to serve as a simple rate limit.
 
-The Air Quality System (AQS)
+The air Quality System (AQS)
 ----------------------------
 The Clean Air act :cite:t:`cleanairact` requires all federal, state, local and
 tribal air pollution control agencies monitor ambient air for concentrations of
@@ -39,7 +39,7 @@ and/or voluntary air monitoring.
 
     * Provide air pollution data to the public in a timely manner;
     * Support compliance with ambient air quality standards and emissions
-      strategy development; and
+        strategy development; and
     * Support for air pollution research studies.
 
 As required by 40 CFR Part 58, air pollution and meteorological data is

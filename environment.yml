@@ -5,8 +5,7 @@ channels:
 environment:
   - setuppyaqsapi
 dependencies:
-  - python>=3.10
-  - pip
+  - python>=3.9
   - conda-build
   - tox-conda
   - pandas
