@@ -1,0 +1,21 @@
+﻿{
+  "name": "pyaqsapi",
+  "description": "pyaqsapi: A Simple Interface to the US EPA Air Quality System Data Mart API",
+  "license": "https://github.com/USEPA/pyaqsapi/blob/main/LICENSE.rst",
+  "openSourceProject": 1,
+  "governmentWideReuseProject": 1,
+  "tags": [
+    "environmental monitoring",
+    "Air Quality System datamart",
+    "United States Environmental Protection Agency",
+    "python package",
+    "air monitoring",
+    "Clean Air Act",
+    "ambient air quality",
+    "air quality data"
+
+  ],
+  "contact": {
+    "email": "mccrowey.clinton@epa.gov"
+  }
+}

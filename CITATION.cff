@@ -1,0 +1,67 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'pyaqsapi: A Simple Interface to the US EPA Air Quality System Data Mart API'
+message: 'To cite package "pyaqsapi" in publications use:'
+type: software
+license: MIT
+authors:
+  - given-names: Clinton
+    family-names: Mccrowey
+    email: mccrowey.clinton@epa.gov
+    affiliation: United States Enviromental Protection Agency
+contact:
+- family-names: Mccrowey
+  given-names: Clinton
+  email: mccrowey.clinton@epa.gov
+  affiliation: United States Enviromental Protection Agency
+identifiers:
+  - type: url
+    value: 'https://pypi.org/project/pyaqsapi/'
+    description: pyaqsapi package on pypi.org
+  - type: url
+    value: 'https://usepa.github.io/pyaqsapi/'
+    description: Online Documentation
+  - type: url
+    value: 'https://www.epa.gov/aqs'
+    description: US EPA AQS website
+repository-code: 'https://github.com/USEPA/pyaqsapi'
+abstract: >-
+  A python 3 package to retrieve ambient air monitoring data
+  from the United States Environmental Protection Agency’s
+  (US EPA) Air Quality System (AQS) Data Mart API v2
+  interface
+keywords:
+  - environmental monitoring
+  - ambient air monitoring
+  - United States Environmental Protection Agency
+  - usepa
+  - air quality
+  - Air Quality System
+  - AQS
+  - Data Mart
+  - environmental data
+  - environmental data retrieval
+  - python
+  - python package
+  - r03
+references:
+- type: website
+  title: AQS DataMart Welcome
+  authors:
+    - name: AQS Data Mart Team
+  url: https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html
+- type: website
+  title: Overview of the Clean Air Act and Air Pollution
+  authors:
+    - name: US Environmental Protection Agency
+  url: https://www.epa.gov/clean-air-act-overview
+- type: software
+  title: A R extension to retrieve EPA Air Quality System Data via the AQS Data Mart API
+  url: https://github.com/USEPA/RAQSAPI
+  authors:
+    - given-names: Clinton
+      family-names: Mccrowey
+      email: mccrowey.clinton@epa.gov
+      affiliation: United States Environmental Protection Agency

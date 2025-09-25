@@ -1,3 +1,12 @@
 include README.rst
 prune */dev/
 global-exclude */__pycache__/*
+exclude  .gitignore
+exclude codemeta.json
+exclude condeinventory.json
+exclude codemeta.json
+exclude ./github/
+prune *cache*
+prune .spyproject/
+prune .vscode/
+prune codeql-custom-queries/
