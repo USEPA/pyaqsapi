@@ -1237,6 +1237,8 @@ def _aqsmultiyearcall(
     if bdate > edate:
         # throw a warning if bdate > edate
         warn("bdate > edate", UserWarning)
+        bdatelist = []
+        edatelist = []
     elif bdate.year == edate.year:
         # create date lists of a single year
         edatelist = [edate]
