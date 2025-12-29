@@ -15,3 +15,4 @@ replace sphinxcontrib/apidoc with sphinx.ext.apidoc
 remove *test directories from documentation
 included files in documentation are now also included in the table of contents
 many other improvements to the documentation!
+pyaqsapi is now available via conda-forge!

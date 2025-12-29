@@ -86,19 +86,60 @@
              
   <section id="install-pyaqsapi">
 <span id="index-0"></span><h1><span class="section-number">5. </span>Install pyaqsapi<a class="headerlink" href="#install-pyaqsapi" title="Link to this heading"></a></h1>
-<p>The user has the choice of installing pyaqspi as a precompiled binary or
-installing from source.</p>
-<section id="packaged-binary-install-options">
-<h2><span class="section-number">5.1. </span>Packaged Binary install options<a class="headerlink" href="#packaged-binary-install-options" title="Link to this heading"></a></h2>
+<p>The user has the choice of installing pyaqspi as a precompiled binary or from either
+pypi or conda-forge or installing from source.</p>
+<section id="packaged-binary-install-options-preferred-method">
+<h2><span class="section-number">5.1. </span>Packaged Binary install options (preferred method)<a class="headerlink" href="#packaged-binary-install-options-preferred-method" title="Link to this heading"></a></h2>
+<p>Most users should install pyaqsapi using one of the packaged binary install options below.</p>
 </section>
-<section id="packaged-binary-install-of-pyaqsapi-from-pypi-org">
-<h2><span class="section-number">5.2. </span>Packaged binary install of pyaqsapi from pypi.org<a class="headerlink" href="#packaged-binary-install-of-pyaqsapi-from-pypi-org" title="Link to this heading"></a></h2>
+<section id="packaged-binary-install-of-pyaqsapi-from-pypi-org-using-pip-or-uv-https-github-com-astral-sh-uv">
+<h2><span class="section-number">5.2. </span>Packaged binary install of pyaqsapi from pypi.org using pip or (uv)[<a class="reference external" href="https://github.com/astral-sh/uv">https://github.com/astral-sh/uv</a>]<a class="headerlink" href="#packaged-binary-install-of-pyaqsapi-from-pypi-org-using-pip-or-uv-https-github-com-astral-sh-uv" title="Link to this heading"></a></h2>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install pyaqsapi</span>
+
+<span class="gp"># </span>List<span class="w"> </span><span class="sb">`</span>pyaqsapi<span class="sb">`</span><span class="w"> </span>metadata<span class="w"> </span>using<span class="w"> </span>pip:
+<span class="go">pip show pyaqsapi</span>
+
+<span class="go">Alternatively, (uv)[https://github.com/astral-sh/uv] can be used as an alternative to pip by replacing the command</span>
+<span class="go">`pip` with `uv pip` if `uv` is installed</span>
 </pre></div>
 </div>
 </section>
+<section id="packaged-binary-install-of-pyaqsapi-from-conda-forge-using-conda-or-mamba-https-github-com-mamba-org-mamba">
+<h2><span class="section-number">5.3. </span>Packaged binary install of pyaqsapi from conda-forge using conda or (mamba)[<a class="reference external" href="https://github.com/mamba-org/mamba">https://github.com/mamba-org/mamba</a>}<a class="headerlink" href="#packaged-binary-install-of-pyaqsapi-from-conda-forge-using-conda-or-mamba-https-github-com-mamba-org-mamba" title="Link to this heading"></a></h2>
+<p>Installing pyaqsapi from the conda-forge channel can be achieved by adding conda-forge to your channels with:
+.. code-block:: console</p>
+<blockquote>
+<div><p>conda config –add channels conda-forge
+conda config –set channel_priority strict</p>
+</div></blockquote>
+<p>Once the conda-forge channel has been enabled, pyaqsapi can be installed with conda:
+.. code-block:: console</p>
+<blockquote>
+<div><p>conda install pyaqsapi</p>
+</div></blockquote>
+<p>mamba can be used as an alternative to conda:
+.. code-block:: console</p>
+<blockquote>
+<div><p>mamba config –add channels conda-forge
+mamba –set channel_priority strict
+mamba install pyaqsapi</p>
+</div></blockquote>
+<p>It is possible to list all of the versions of pyaqsapi available on your platform:
+.. code-block:: console</p>
+<blockquote>
+<div><p>conda/mamba search pyaqsapi –channel conda-forge</p>
+</div></blockquote>
+<p>Alternatively, conda/mamba repoquery may provide more information:
+.. code-block:: console</p>
+<blockquote>
+<div><p># Search all versions available on your platform:
+{conda/mamba} repoquery search pyaqsapi –channel conda-forge</p>
+<p># List dependencies of <cite>pyaqsapi</cite>:
+{conda/mamba} repoquery depends pyaqsapi –channel conda-forge</p>
+</div></blockquote>
+</section>
 <section id="install-pyaqsapi-from-source-manual-install-from-github">
-<h2><span class="section-number">5.3. </span>Install pyaqsapi from source (manual install from github)<a class="headerlink" href="#install-pyaqsapi-from-source-manual-install-from-github" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.4. </span>Install pyaqsapi from source (manual install from github)<a class="headerlink" href="#install-pyaqsapi-from-source-manual-install-from-github" title="Link to this heading"></a></h2>
 <p>To install pyaqsapi first clone the pyaqsapi repository.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/USEPA/pyaqsapi.git</span>
 </pre></div>

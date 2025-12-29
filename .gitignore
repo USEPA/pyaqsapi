@@ -16,3 +16,4 @@ dist
 .dev/
 *tests/local.py
 etc/
+*_build/

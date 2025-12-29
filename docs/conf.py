@@ -61,7 +61,7 @@ extensions = [
     # do not seem to be maintained anymore
     # "sphinxcontrib.spelling",
     "numpydoc",
-    "sphinx.ext.napoleon",
+    #"sphinx.ext.napoleon",
     "sphinxcontrib.bibtex",
     "sphinx.ext.autosectionlabel",
 ]
@@ -72,7 +72,7 @@ extensions = [
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = "en"
-ibtex_encoding = "utf-8"
+bibtex_encoding = "utf-8"
 
 # Language to be used for generating the HTML full-text search index.
 # Sphinx supports the following languages:
@@ -88,14 +88,17 @@ bibtex_bibfiles = ["manual/pyaqsapi.bib"]
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    "_build",
+    "_build/",
     "Thumbs.db",
     ".DS_Store",
     "setup.py",
     "**/tests*",
-    "tests",
-    "test_*",
+    "tests/",
+    "test_*/",
     "dev/",
+    "build/",
+    "dist/",
+    ".tox/"
 ]
 
 # get rid of those duplicate label warnings when embedding a child rst file
@@ -139,22 +142,12 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ["_static"]
+#html_static_path = []
 
 # -- Options for sphinxcontrib.bibtex -----------------------------------------
 bibtex_reference_style = "label"
 bibtex_default_style = "plain"
 bibtex_tooltips = True
-
-# -- Options for Napolean output ---------------------------------------------
-napolean_include_private_with_doc = False
-napolean_include_special_with_doc = False
-napoleon_include_init_with_doc = False
-napolean_use_param = True
-napolean_use_rtype = True
-napolean_reprocess_types = True
-napoleon_google_docstring = True
-# napoleon_numpy_docstring = True
 
 # the dependencies required for sphinxcontrib.spelling
 # do not seem to be maintained anymore
