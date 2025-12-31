@@ -1,15 +1,5 @@
-from .bybox import (
-    annualsummary,
-    dailysummary,
-    monitors,
-    quarterlysummary,
-    sampledata,
-)
+"""Functions that aggregate data by latitude/longitude bounding box."""
 
-__all__ = [
-    "monitors",
-    "sampledata",
-    "annualsummary",
-    "dailysummary",
-    "quarterlysummary",
-]
+from .bybox import annualsummary, dailysummary, monitors, quarterlysummary, sampledata
+
+__all__ = ["monitors", "sampledata", "annualsummary", "dailysummary", "quarterlysummary"]

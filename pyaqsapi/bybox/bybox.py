@@ -1,6 +1,4 @@
-"""Functions that aggregate data by box.
-(by latitude/longitude bounding box).
-"""
+"""Functions that aggregate data by latitude/longitude bounding box."""
 
 from datetime import date
 
@@ -76,7 +74,7 @@ def monitors(
     box (_by_box).
 
     """
-    # The monitors service does not is able to oull multiple years of data
+    # The monitors service is able to pull multiple years of data
     # without making repeated calls to the API but is done this way to
     # maintain consistency. For the aqs_monitors* function using a single API
     # call will allow the function to finish faster for multiyear calls.
@@ -479,6 +477,7 @@ def quarterlysummary(
         edate=edate,
         name1=None,
         name2=None,
+        duration=duration,
         minlat=minlat,
         maxlat=maxlat,
         minlon=minlon,

@@ -1,3 +1,5 @@
+"""pyaqsapi tests for functions imported from the bysite submodule."""
+
 from .bysite import (
     annualsummary,
     dailysummary,

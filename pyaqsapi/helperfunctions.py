@@ -1,10 +1,10 @@
-"""helperfunctions."""
+"""pyaqsapi core functions."""
 
-from collections.abc import Callable, Iterable, Sized
+from collections.abc import Iterable
 from datetime import date
 from itertools import starmap
 from time import sleep
-from typing import Any, NewType, TypeVar, cast, no_type_check
+from typing import Any, cast, no_type_check
 from warnings import warn
 
 from certifi import where
@@ -198,7 +198,7 @@ class AQSAPI_V2:
         Notes
         -----
         Although this function is designed to prevent users from exceeding
-        allowed data limits, it can not garuntee that the user exceed rate
+        allowed data limits, it can not guarantee that the user exceed rate
         limits. Users are advised to monitor their own usage to ensure that
         data limits are not exceeded. Use of this package is at the users own
         risk. The maintainers of this code assume no responsibility due to
@@ -240,7 +240,7 @@ class AQSAPI_V2:
         variables : A python dictionary of containing key-value pairs of
                     variables to be sent to the AQS DataMart API.
         AQS_user : A python character object which represents the email account
-                   that will be used to autheticate with the AQS API.
+                   that will be used to authenticate with the AQS API.
         key : The key associated with the AQS_user account represented as a
               character string.
         AQS_domain : The base domain for the url used in API requests. Normally
@@ -249,22 +249,16 @@ class AQSAPI_V2:
 
         Returns
         -------
-        (AQSAPI_v2) An AQSAPI_V2 instance containg the data requested.
+        (AQSAPI_v2) An AQSAPI_V2 instance containing the data requested.
 
         """
         user_agent = "pyAQSAPI module for python3"
         # server = ":AQSDatamartAPI:"
         # check if either aqs_username or aqs_key are None
         if AQS_user is None or key is None:
-            print(
-                "Please use the aqs_credentials  function to enter your",
-                "credentials before using this function",
-            )
+            print("Please use the aqs_credentials  function to enter your", "credentials before using this function")
             return None
-        # key is formatted like this to maintain consitency with RAQSAPI
-        # key = keyring.get_password(service_name = server +
-        # re.sub(pattern = "@", repl = "%40", string = AQS_user),
-        # username = AQS_user )
+        # key is formatted like this to maintain consistency with RAQSAPI
         # rename the "parameter" key to "param" if it exists.
         if "parameter" in variables.keys():
             variables["param"] = variables.pop("parameter")
@@ -289,13 +283,7 @@ class AQSAPI_V2:
         header = {"User-Agent": user_agent, "From": AQS_user}
         newline = "\n"
         try:
-            query = get(
-                url=url,
-                params=variables,
-                headers=header,
-                verify=where(),
-                timeout=30,
-            )
+            query = get(url=url, params=variables, headers=header, verify=where(), timeout=30)
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
             self._url = query.url
@@ -336,11 +324,7 @@ class AQSAPI_V2:
                         + "that was provided",
                     )
                 else:
-                    warn(
-                        category=UserWarning,
-                        message="pyaqsapi experienced an error:"
-                        + f"{newline} {exception}",
-                    )
+                    warn(category=UserWarning, message="pyaqsapi experienced an error:" + f"{newline} {exception}")
         finally:
             self.__aqs_ratelimit()
         return self
@@ -433,13 +417,7 @@ class AQSAPI_V2:
             "cedate": cedate,
             "cbdate": cbdate,
         }
-        return self.__aqs(
-            AQS_user=user,
-            key=key,
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-        )
+        return self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables)
 
     def _aqs_services_by_county(
         self,
@@ -524,13 +502,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-            AQS_user=user,
-            key=key,
-        )
+        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
 
     def _aqs_services_by_state(
         self,
@@ -609,13 +581,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-            AQS_user=user,
-            key=key,
-        )
+        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
 
     def _aqs_services_by_box(
         self,
@@ -711,13 +677,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-            AQS_user=user,
-            key=key,
-        )
+        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
 
     def _aqs_services_by_cbsa(
         self,
@@ -794,13 +754,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-            AQS_user=user,
-            key=key,
-        )
+        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
 
     def _aqs_services_by_pqao(
         self,
@@ -874,13 +828,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-            AQS_user=user,
-            key=AQS_key,
-        )
+        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
 
     def _aqs_services_by_MA(
         self,
@@ -945,13 +893,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-            AQS_user=user,
-            key=AQS_key,
-        )
+        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
 
     def _aqs_list_services(
         self,
@@ -1017,17 +959,9 @@ class AQSAPI_V2:
             "pqao_code": pqao_code,
             "agency": MA_code,
         }
-        return self.__aqs(
-            AQS_user=user,
-            key=key,
-            service=service,
-            aqsfilter=aqsfilter,
-            variables=variables,
-        )
+        return self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables)
 
-    def _aqs_metadata_services(
-        self, aqsfilter: str | None = None, service: str | None = None
-    ) -> DataFrame | None:
+    def _aqs_metadata_services(self, aqsfilter: str | None = None, service: str | None = None) -> DataFrame | None:
         """
         A helper function and should not be called by the end user.
 
@@ -1053,13 +987,7 @@ class AQSAPI_V2:
         user = AQS_user
         key = AQS_key
         variables = {"email": user, "key": key, "service": service}
-        return self.__aqs(
-            AQS_user=user,
-            key=key,
-            service="metaData",
-            aqsfilter=aqsfilter,
-            variables=variables,
-        )
+        return self.__aqs(AQS_user=user, key=key, service="metaData", aqsfilter=aqsfilter, variables=variables)
 
     def _renameaqsvariables(self, name1: str, name2: str) -> DataFrame:
         """
@@ -1088,18 +1016,10 @@ class AQSAPI_V2:
         to name1 and name2 respectively.
 
         """
-        return self._data.rename(
-            columns={
-                self._data.columns[0]: name1,
-                self._data.columns[1]: name2,
-            },
-            # inplace=True,
-        )
+        return self._data.rename(columns={self._data.columns[0]: name1, self._data.columns[1]: name2})
 
 
-def aqs_credentials(
-    username: str | None = None, key: str | None = None
-) -> None:
+def aqs_credentials(username: str | None = None, key: str | None = None) -> None:
     """
     Set the user credentials for the AQS API. This function
     needs to be called once and only once every time this library
@@ -1128,9 +1048,7 @@ def aqs_credentials(
         print("Please set the username and key parameters")
 
 
-def aqs_removeheader(
-    aqsobject: None | DataFrame | AQSAPI_V2 | list[DataFrame] | list[AQSAPI_V2],
-) -> DataFrame | AQSAPI_V2:
+def aqs_removeheader(aqsobject: None | DataFrame | AQSAPI_V2 | list[DataFrame] | list[AQSAPI_V2]) -> DataFrame | AQSAPI_V2:
     """
     Coerces a single AQS_Data_Mart_APIv2 instance or a list of
     AQS_Data_Mart_APIv2 instance into a single DataFrame object.
@@ -1151,7 +1069,7 @@ def aqs_removeheader(
 
     """
     aqsresult = DataFrame()
-    for index, value in enumerate(aqsobject):  # type: ignore
+    for index, value in enumerate(aqsobject):  # type: ignore # pylint: disable=W0612
         aqsresult = concat([aqsresult, value.get_data()], axis=0)  # type: ignore
 
     return aqsresult
@@ -1170,12 +1088,12 @@ def _aqsmultiyearcall(
     """
         A helper function not to be used by end users. Used to perform multiple
         calls to the API on API calls which only allow a single year of data to
-        be returned, simplifiying mutli-year calls for the end user.
+        be returned, simplifying multi-year calls for the end user.
 
         This function is used to make multiple calls to the Datamart API for
         request for data that exceed the request limit set by AQS Datamart.
         This is done by making multiple API request to the API and combining the
-        results from all requests into a single managable object that is
+        results from all requests into a single manageable object that is
         returned to the calling function for further processing. The first seven
         parameters (fun, parameter, bdate, edate, service, name1 and name2) are
         all required parameters that must be including in the function call
@@ -1187,7 +1105,7 @@ def _aqsmultiyearcall(
 
 
     Creates a DataFrame
-        containing all vaiables to be passed to multiyearcall()) with each
+        containing all variables to be passed to multiyearcall()) with each
         column representing a singe parameter and each row a single call
         to the API.
 
@@ -1251,25 +1169,12 @@ def _aqsmultiyearcall(
         # likewise, the list of end dates should be December 31 for each year
         # until end date (including the year of bdate and not the year of
         # edate) with edate appended to the end.
-        bdatelist = [
-            date(year=x, month=1, day=1)
-            for x in range(bdate.year + 1, edate.year + 1)
-        ]
+        bdatelist = [date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)]
         bdatelist.insert(0, bdate)
-        edatelist = [
-            date(year=y, month=12, day=31)
-            for y in range(bdate.year, edate.year)
-        ]
+        edatelist = [date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)]
         edatelist.append(edate)
 
-    params = DataFrame(
-        {
-            "parameter": parameter,
-            "bdate": bdatelist,
-            "edate": edatelist,
-            "service": service,
-        }
-    )
+    params = DataFrame({"parameter": parameter, "bdate": bdatelist, "edate": edatelist, "service": service})
 
     for k, v in kwargs.items():
         params.insert(0, k, v)
@@ -1299,60 +1204,36 @@ def _aqsmultiyearcall(
     params = [tuple(x) for x in params.values]  # type: ignore
     # match fun: #requires Python>=3.10, use if statements instead
     #     case "_aqs_services_by_site":
-    #         return(list(starmap(aqsresult._aqs_services_by_site, params)))
+    #         return(list(starmap(aqsresult._aqs_services_by_site, params))) # type: ignore
     #     case "_aqs_services_by_county":
-    #         return(list(starmap(aqsresult._aqs_services_by_county, params)))
+    #         return(list(starmap(aqsresult._aqs_services_by_county, params))) # type: ignore
     #     case "_aqs_services_by_state":
-    #         return(list(starmap(aqsresult._aqs_services_by_state, params)))
+    #         return(list(starmap(aqsresult._aqs_services_by_state, params))) # type: ignore
     #     case "_aqs_services_by_MA":
-    #         return(list(starmap(aqsresult._aqs_services_by_MA, params)))
+    #         return(list(starmap(aqsresult._aqs_services_by_MA, params))) # type: ignore
     #     case "_aqs_services_by_pqao":
-    #         return(list(starmap(aqsresult._aqs_services_by_pqao, params)))
+    #         return(list(starmap(aqsresult._aqs_services_by_pqao, params))) # type: ignore
     #     case "_aqs_services_by_cbsa":
-    #         return(list(starmap(aqsresult._aqs_services_by_cbsa, params)))
+    #         return(list(starmap(aqsresult._aqs_services_by_cbsa, params))) # type: ignore
     #     case "_aqs_services_by_box":
-    #         return(list(starmap(aqsresult._aqs_services_by_box, params)))
+    #         return(list(starmap(aqsresult._aqs_services_by_box, params))) # type: ignore
     #     case _:
-    #         RuntimeError("invalid function sent to _aqsmultiyearcall")
+    #         RuntimeError("invalid function sent to _aqsmultiyearcall") # type: ignore
     if fun == "_aqs_services_by_site":
-        returnvalue = list(
-            starmap(
-                aqsresult._aqs_services_by_site, cast(Iterable[Any], params)
-            )
-        )  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)))  # type: ignore
     elif fun == "_aqs_services_by_county":
-        returnvalue = list(
-            starmap(
-                aqsresult._aqs_services_by_county, cast(Iterable[Any], params)
-            )
-        )  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params)))  # type: ignore
     elif fun == "_aqs_services_by_state":
-        returnvalue = list(
-            starmap(
-                aqsresult._aqs_services_by_state, cast(Iterable[Any], params)
-            )
-        )  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params)))  # type: ignore
     elif fun == "_aqs_services_by_MA":
-        returnvalue = list(
-            starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params))
-        )  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params)))  # type: ignore
     elif fun == "_aqs_services_by_pqao":
-        returnvalue = list(
-            starmap(
-                aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)
-            )
-        )  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)))  # type: ignore
     elif fun == "_aqs_services_by_cbsa":
-        returnvalue = list(
-            starmap(
-                aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)
-            )
-        )  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)))  # type: ignore
     elif fun == "_aqs_services_by_box":
-        returnvalue = list(
-            starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params))
-        )  # type: ignore
-    else:
+        returnvalue = list(starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params)))  # type: ignore
+    else:  # pylint disable=R1705
         returnvalue = None
 
     return cast(list[DataFrame] | None, returnvalue)

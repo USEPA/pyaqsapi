@@ -112,6 +112,6 @@ packages = ["pyaqsapi",
             "pyaqsapi.bybox"]
 
 [tool.black]
-line-length = 80
+line-length = 125
 target-version = ['py39', 'py310', 'py311', 'py312', 'py313']
 skip_magic_trailing_comma = true

@@ -71,7 +71,7 @@ def monitors(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors at a site.
     """
-    # The monitors service does not is able to oull multiple years of data
+    # The monitors service is able to pull multiple years of data
     # without making repeated calls to the API but is done this way to
     # maintain consistency. For the aqs_monitors* function using a single API
     # call will allow the function to finish faster for multiyear calls.
@@ -93,7 +93,7 @@ def monitors(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -174,6 +174,7 @@ def sampledata(
         bdate=bdate,
         edate=edate,
         cbsa_code=cbsa_code,
+        duration=duration,
         name1=None,
         name2=None,
         service=service,
@@ -183,7 +184,7 @@ def sampledata(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -268,7 +269,7 @@ def annualsummary(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -353,7 +354,7 @@ def dailysummary(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -451,5 +452,5 @@ def quarterlysummary(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)

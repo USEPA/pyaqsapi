@@ -10,8 +10,8 @@ Packaged Binary install options (preferred method)
 --------------------------------------------------
 Most users should install pyaqsapi using one of the packaged binary install options below.
 
-Packaged binary install of pyaqsapi from pypi.org using pip or (uv)[https://github.com/astral-sh/uv]
-----------------------------------------------------------------------------------------------------
+Packaged binary install of pyaqsapi from pypi.org using pip or `uv <https://github.com/astral-sh/uv>`_
+--------------------------------------------------------------------------------------------------------
 .. code-block:: console
 
    pip install pyaqsapi
@@ -23,8 +23,8 @@ Packaged binary install of pyaqsapi from pypi.org using pip or (uv)[https://gith
    `pip` with `uv pip` if `uv` is installed
 
 
-Packaged binary install of pyaqsapi from conda-forge using conda or (mamba)[https://github.com/mamba-org/mamba}
-----------------------------------------------------------------------------------
+Packaged binary install of pyaqsapi from `conda-forge <https://conda-forge.org/>`_ using conda or `mamba <https://github.com/mamba-org/mamba>`_
+-----------------------------------------------------------------------------------------------------------------------------------------------
 Installing pyaqsapi from the conda-forge channel can be achieved by adding conda-forge to your channels with:
 .. code-block:: console
 

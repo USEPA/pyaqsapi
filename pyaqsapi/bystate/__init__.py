@@ -1,3 +1,5 @@
+"""Functions that aggregated data by state."""
+
 from .bystate import (
     annualsummary,
     dailysummary,

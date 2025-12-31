@@ -89,7 +89,7 @@ def qa_flowrateaudit(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -171,7 +171,7 @@ def qa_one_point_qc(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -251,7 +251,7 @@ def qa_pep_audit(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -333,7 +333,7 @@ def qa_blanks(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -420,7 +420,7 @@ def qa_collocated_assessments(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -505,7 +505,7 @@ def qa_flowrateverification(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -592,7 +592,7 @@ def qa_annualperformanceeval(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
@@ -681,5 +681,5 @@ def qa_annualperformanceevaltransaction(
 
     if return_header:
         return aqsresultlist
-    else:
+    if not return_header:
         return helperfunctions.aqs_removeheader(aqsresultlist)

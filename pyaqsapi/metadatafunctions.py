@@ -6,9 +6,7 @@ from pyaqsapi import helperfunctions
 from pyaqsapi.helperfunctions import AQSAPI_V2
 
 
-def aqs_is_available(
-    return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+def aqs_is_available(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return the status of the AQS API.
 
@@ -29,14 +27,12 @@ def aqs_is_available(
 
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         # for the isAvailable service the information is stored in the data.
         return aqsresult.get_data()
 
 
-def aqs_knownissues(
-    return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of any known issues with system functionality or the data.
     These are usually issues that have been identified internally and will
@@ -60,13 +56,11 @@ def aqs_knownissues(
     aqsresult._aqs_metadata_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
-def aqs_revisionhistory(
-    return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+def aqs_revisionhistory(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return the change history to the AQS Data Mart API.
 
@@ -85,5 +79,5 @@ def aqs_revisionhistory(
     aqsresult._aqs_metadata_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()

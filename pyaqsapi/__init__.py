@@ -1,10 +1,14 @@
-from pyaqsapi.bybox import bybox as bybox
-from pyaqsapi.bycbsa import bycbsa as bycbsa
-from pyaqsapi.bycounty import bycounty as bycounty
-from pyaqsapi.byma import byma as byma
-from pyaqsapi.bypqao import bypqao as bypqao
-from pyaqsapi.bysite import bysite as bysite
-from pyaqsapi.bystate import bystate as bystate
+"""retrieve ambient air monitoring data from the United States
+Environmental Protection Agency’s (US EPA)
+Air Quality System (AQS) Data Mart API v2 interface."""
+
+from pyaqsapi.bybox import bybox
+from pyaqsapi.bycbsa import bycbsa
+from pyaqsapi.bycounty import bycounty
+from pyaqsapi.byma import byma
+from pyaqsapi.bypqao import bypqao
+from pyaqsapi.bysite import bysite
+from pyaqsapi.bystate import bystate
 from pyaqsapi.helperfunctions import *
 from pyaqsapi.listfunctions import *
 from pyaqsapi.metadatafunctions import *

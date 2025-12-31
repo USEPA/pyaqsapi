@@ -61,7 +61,7 @@ extensions = [
     # do not seem to be maintained anymore
     # "sphinxcontrib.spelling",
     "numpydoc",
-    #"sphinx.ext.napoleon",
+    # "sphinx.ext.napoleon",
     "sphinxcontrib.bibtex",
     "sphinx.ext.autosectionlabel",
 ]
@@ -98,7 +98,7 @@ exclude_patterns = [
     "dev/",
     "build/",
     "dist/",
-    ".tox/"
+    ".tox/",
 ]
 
 # get rid of those duplicate label warnings when embedding a child rst file
@@ -142,7 +142,7 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = []
+# html_static_path = []
 
 # -- Options for sphinxcontrib.bibtex -----------------------------------------
 bibtex_reference_style = "label"
@@ -180,11 +180,7 @@ apidoc_modules = [
         "no_headings": False,
         "module_first": True,
         "implicit_namespaces": False,
-        "automodule_options": {
-            "members",
-            "show-inheritance",
-            "no-undoc-members",
-        },
+        "automodule_options": {"members", "show-inheritance", "no-undoc-members"},
     },
 ]
 

@@ -29,4 +29,4 @@ def aqs_sign_up(email: str) -> None:  # pragma: no cover
     """
     url = "https://aqs.epa.gov/data/api/signup?email=" + email
     print(f"A verification email will be sent to {email}", email)
-    get(url=url)
+    get(url=url, timeout=30)

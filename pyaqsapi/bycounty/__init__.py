@@ -1,3 +1,5 @@
+"""Functions that aggregate data by county."""
+
 from .bycounty import (
     annualsummary,
     dailysummary,

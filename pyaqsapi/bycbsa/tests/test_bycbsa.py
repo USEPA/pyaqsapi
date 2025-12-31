@@ -1,3 +1,5 @@
+"""pyaqsapi tests for functions imported from the bycbsa submodule"""
+
 from datetime import date
 from importlib import import_module
 from os import environ
@@ -10,9 +12,7 @@ import pytest
 # import pyaqsapi.bycbsa as bycbsa
 bycbsa = import_module(name="..bycbsa", package="pyaqsapi.bycbsa")
 # from pyaqsapi.helperfunctions import aqs_credentials
-helperfunctions = import_module(
-    name="..helperfunctions", package="pyaqsapi.helperfunctions"
-)
+helperfunctions = import_module(name="..helperfunctions", package="pyaqsapi.helperfunctions")
 
 
 @pytest.fixture
@@ -20,7 +20,7 @@ def setuppyaqsapi_bycbsa(autouse=True):
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
-        # repostiory or in the final package. local loads the AQS user
+        # repository or in the final package. local loads the AQS user
         # credentials for testing
         path.append(abspath("./dev/"))
         try:

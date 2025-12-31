@@ -7,9 +7,7 @@ from pyaqsapi.helperfunctions import AQSAPI_V2
 from . import helperfunctions
 
 
-def aqs_isavailable(
-    return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+def aqs_isavailable(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table explaining the status of the AQS API.
 
@@ -34,13 +32,11 @@ def aqs_isavailable(
     aqsresult._aqs_metadata_services(service="metaData", aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
-        return aqsresult.get_data()
+    if not return_header:
+        return aqsresult.get_data()  # pylint disable=R1710
 
 
-def aqs_knownissues(
-    return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of any known issues with system functionality or the data.
     These are usually issues that have been identified internally and will
@@ -71,13 +67,11 @@ def aqs_knownissues(
     aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
-def aqs_counties_by_state(
-    stateFIPS: str, return_header: bool | None = False
-) -> AQSAPI_V2 | DataFrame:
+def aqs_counties_by_state(stateFIPS: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of all counties in within the stateFIPS provided.
 
@@ -107,13 +101,11 @@ def aqs_counties_by_state(
     aqsresult._aqs_list_services(aqsfilter=aqsfilter, stateFIPS=stateFIPS)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
-def aqs_sites_by_county(
-    stateFIPS: str, countycode: str, return_header: bool | None = False
-) -> AQSAPI_V2 | DataFrame:
+def aqs_sites_by_county(stateFIPS: str, countycode: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return data containing a table of all air monitoring sites with the input
     state and county FIPS code combination.
@@ -145,12 +137,10 @@ def aqs_sites_by_county(
     """
     aqsfilter = "sitesByCounty"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(
-        aqsfilter=aqsfilter, stateFIPS=stateFIPS, countycode=countycode
-    )
+    aqsresult._aqs_list_services(aqsfilter=aqsfilter, stateFIPS=stateFIPS, countycode=countycode)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
@@ -183,13 +173,11 @@ def aqs_classes(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     aqsresult._aqs_list_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
-def aqs_parameters_by_class(
-    parameterclass: str, return_header: bool | None = False
-) -> AQSAPI_V2 | DataFrame:
+def aqs_parameters_by_class(parameterclass: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of Parameter classes (groups of parameters, i.e. "criteria"
     or "all"). The information from this function can be used as input to other
@@ -221,12 +209,10 @@ def aqs_parameters_by_class(
     """
     aqsfilter = "parametersByClass"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(
-        parameterclass=parameterclass, aqsfilter=aqsfilter
-    )
+    aqsresult._aqs_list_services(parameterclass=parameterclass, aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
@@ -256,7 +242,7 @@ def aqs_mas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     aqsresult._aqs_list_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
@@ -285,7 +271,7 @@ def aqs_pqaos(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     aqsresult._aqs_list_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
@@ -316,7 +302,7 @@ def aqs_cbsas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     aqsresult._aqs_list_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
@@ -346,13 +332,11 @@ def aqs_states(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     aqsresult._aqs_list_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
-def aqs_revisionhistory(
-    return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+def aqs_revisionhistory(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table Returns that contains change history to the AQS Data Mart
     API.
@@ -379,13 +363,11 @@ def aqs_revisionhistory(
     aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
-def aqs_fields_by_service(
-    service: str, return_header: bool | None = False
-) -> AQSAPI_V2 | DataFrame:
+def aqs_fields_by_service(service: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table containing the list and definitions of fields in the
         service requested.
@@ -415,13 +397,11 @@ def aqs_fields_by_service(
     aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()
 
 
-def aqs_sampledurations(
-    return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+def aqs_sampledurations(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """
     Return a table of sample durations and their associated duration codes.
     Returned values are not calculated durations such as 8 hour carbon monoxide
@@ -450,5 +430,5 @@ def aqs_sampledurations(
     aqsresult._aqs_list_services(aqsfilter=aqsfilter)
     if return_header:
         return aqsresult
-    else:
+    if not return_header:
         return aqsresult.get_data()

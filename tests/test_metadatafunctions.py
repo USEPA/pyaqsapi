@@ -13,7 +13,7 @@ def setuppyaqsapi(autouse=True):
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
-        # repostiory or in the final package. local looads the AQS user
+        # repository or in the final package. local loads the AQS user
         # credentials for testing
         path.append(abspath("./dev"))
         import local
@@ -31,16 +31,8 @@ def setuppyaqsapi(autouse=True):
 
 
 def test_aqs_knownissues(setuppyaqsapi):
-    assert (
-        metadatafunctions.aqs_knownissues(return_header=True).get_status_code()
-        == "200"
-    )
+    assert metadatafunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_revisionhistory(setuppyaqsapi):
-    assert (
-        metadatafunctions.aqs_revisionhistory(
-            return_header=True
-        ).get_status_code()
-        == "200"
-    )
+    assert metadatafunctions.aqs_revisionhistory(return_header=True).get_status_code() == "200"

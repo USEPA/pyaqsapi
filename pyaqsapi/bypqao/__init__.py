@@ -1,3 +1,7 @@
+"""Functions that aggregate data by pqao
+(By Primary Quality Assurance Organization).
+"""
+
 from .bypqao import (
     qa_annualperformanceeval,
     qa_annualperformanceevaltransaction,
