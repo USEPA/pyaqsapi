@@ -1,12 +1,29 @@
 include README.rst
-prune */dev/
-global-exclude */__pycache__/*
-exclude  .gitignore
+
+#exclude config files
+exclude environment.yml
+exclude conda-forge.yaml
+exclude mypy.ini
+exclude tox.ini
+exclude pytest.ini
+exclude pyrightconfig.json
+exclude codeinventory.json
 exclude codemeta.json
-exclude condeinventory.json
-exclude codemeta.json
-exclude ./github/
-prune *cache*
-prune .spyproject/
+exclude .coveragerc
+
+
+# Exclude common build and editor artifacts
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+
+# Prune top-level development, CI, and editor folders
+prune .devcontainer/
+prune .github/
 prune .vscode/
-prune codeql-custom-queries/
+prune .spyproject/
+prune .git/
+prune .tox/
+prune dist/
+prune dev/
+prune codeql-custom-queries-python/

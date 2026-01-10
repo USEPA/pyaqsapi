@@ -2,7 +2,7 @@
 (By Primary Quality Assurance Organization).
 """
 
-from .bypqao import (
+from .bypqao import (  # pylint: disable=R0402
     qa_annualperformanceeval,
     qa_annualperformanceevaltransaction,
     qa_blanks,

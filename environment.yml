@@ -7,8 +7,9 @@ environment:
 dependencies:
   - python>=3.9
   - conda-build
-  - tox-conda
+  # - tox-conda # currently, tox-conda is incompatible with tox>=4.0
   - pandas
+  - ratelimit
   - requests
   - setuptools
   - sphinx

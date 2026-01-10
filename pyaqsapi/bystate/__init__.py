@@ -1,6 +1,6 @@
 """Functions that aggregated data by state."""
 
-from .bystate import (
+from .bystate import (  # pylint: disable=R0402
     annualsummary,
     dailysummary,
     monitors,

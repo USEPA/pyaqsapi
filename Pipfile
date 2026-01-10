@@ -6,7 +6,7 @@ name = "pyaqsapi"
 [packages]
 python = ">=3.9"
 conda-build = "*"
-tox-conda = "*"
+#tox-conda = "*" # currently, tox-conda is incompatible with tox>=4.0
 pandas = "*"
 requests = "*"
 sphinx = "*"
@@ -20,6 +20,7 @@ pytest = "*"
 pytest-rerunfailures = "*"
 keyring = "*"
 datetime = "*"
+ratelimit = "*"
 
 [dev-packages]
 

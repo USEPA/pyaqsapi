@@ -27,6 +27,7 @@ requirements:
     - certifi
     - pandas
     - cryptography
+    - ratelimit
 
 test:
   imports:

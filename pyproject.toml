@@ -1,6 +1,6 @@
 [project]
 name = "pyaqsapi"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 version = "1.0.2"
 # dynamic = ["version"]
 description = "United States Environmental Protection Agency (US EPA) Air Quality System (AQS) Data Mart API v2 interface."
@@ -22,31 +22,38 @@ dependencies = [
   "requests",
   "certifi",
   "cryptography",
-  "datetime"
+  "datetime",
+  "ratelimit"
 ]
 
 [project.optional-dependencies]
 doc = [
+  "numpydoc",
   "sphinx",
   "sphinxcontrib-bibtex",
   "sphinxcontrib-napoleon",
-  "numpydoc",
   "sphinx_rtd_theme"
 ]
+
 test = [
   "pytest",
-  "pytest-rerunfailures",
-  "tox",
   "pytest-black",
-  "pytest-sugar"
+  "pytest-cov",
+  "pytest-sugar",
+  "pytest-rerunfailures",
+  "tox"
 ]
+
 dev = [
+    "black",
+    "mypy",
     "ruff",
     "pytest",
     "pytest-back",
-    "tox",
+    "pytest-cov",
     "pytest-rerunfailures",
-    "pytest-sugar"
+    "pytest-sugar",
+    "tox"
     ]
 
 [project.urls]
@@ -64,6 +71,8 @@ dev = [
   requires = ["setuptools >= 77.0.3", "build"]
   build-backend = "setuptools.build_meta"
 
+[tool.setuptools.package-data]
+pyaqsapi = ["py.typed"]
 
 [tool.ruff]
 lint.select = [
@@ -83,8 +92,7 @@ lint.select = [
   "D419"]
 lint.extend-select = ["UP"]
 lint.ignore = ["D404"]
-
-
+line-length = 125
 exclude = [
     "__init__.py",
     ".git",
@@ -97,6 +105,10 @@ exclude = [
     "*tests/*",
     "dev/*"
 ]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
@@ -113,5 +125,6 @@ packages = ["pyaqsapi",
 
 [tool.black]
 line-length = 125
-target-version = ['py39', 'py310', 'py311', 'py312', 'py313']
+target-version = ['py310', 'py311', 'py312', 'py313']
 skip_magic_trailing_comma = true
+

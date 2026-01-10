@@ -17,7 +17,7 @@ def monitors(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of monitors.
 
@@ -114,7 +114,7 @@ def qa_flowrateaudit(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return Quality assurance flowrate audit data.
 
@@ -207,7 +207,7 @@ def qa_one_point_qc(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table containing flow rate audit data aggregated by parameter
     code, stateFIPS and countycode for bdate - edate time frame.
@@ -298,7 +298,7 @@ def qa_pep_audit(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table containing quality assurance Performance Evaluation Program
     (PEP) audit data aggregated by parameter code, stateFIPS and countycode for
@@ -406,7 +406,7 @@ def sampledata(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return sample data where the data is aggregated at the county level.
 
@@ -512,7 +512,7 @@ def annualsummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of annual data aggregated at the county level.
 
@@ -607,7 +607,7 @@ def qa_blanks(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of blank quality assurance data.
     Blanks are unexposed sample collection devices (e.g.,
@@ -701,7 +701,7 @@ def dailysummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of data aggregated at the county level.
 
@@ -795,7 +795,7 @@ def qa_collocated_assessments(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of collocated assessment data aggregated by matching input
     parameter, stateFIPS and county_code provided for bdate - edate time
@@ -887,7 +887,7 @@ def qa_flowrateverification(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table containing flow rate Verification data for a parameter code
     aggregated matching input parameter, stateFIPS, and county_code, provided
@@ -979,7 +979,7 @@ def transactionsample(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return transactionsample data - aggregated by county in the AQS Submission
     Transaction Format (RD) sample (raw) data for a parameter code aggregated
@@ -1074,7 +1074,7 @@ def qa_annualperformanceeval(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return quality assurance performance evaluation data - aggregated by
     site for a parameter code aggregated by matching input
@@ -1168,7 +1168,7 @@ def qa_annualperformanceevaltransaction(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return AQS submissions transaction format (RD) of the annual
     performance evaluation data (raw). Includes data pairs for
@@ -1264,7 +1264,7 @@ def quarterlysummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of quarterly data aggregated at the county level.
 

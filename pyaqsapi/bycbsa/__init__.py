@@ -2,6 +2,6 @@
 (by Core Based Statistic Area, as defined by the Census Bureau).
 """
 
-from .bycbsa import annualsummary, dailysummary, monitors, quarterlysummary, sampledata
+from .bycbsa import annualsummary, dailysummary, monitors, quarterlysummary, sampledata  # pylint: disable=R0402
 
 __all__ = ["monitors", "sampledata", "annualsummary", "dailysummary", "quarterlysummary"]

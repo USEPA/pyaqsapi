@@ -19,7 +19,7 @@ def monitors(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-):
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of monitors.
 
@@ -114,7 +114,7 @@ def sampledata(
     cedate: date | None = None,
     duration: str | None = None,
     return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return sample data where the data is aggregated by latitude/longitude
     bounding box (_by_box).
@@ -204,8 +204,8 @@ def sampledata(
 
 def annualsummary(
     parameter: str,
-    bdate: str,
-    edate: str,
+    bdate: date,
+    edate: date,
     minlat: str,
     maxlat: str,
     minlon: str,
@@ -213,7 +213,7 @@ def annualsummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of annual data aggregated by latitude/longitude
     bounding box (_by_box).
@@ -303,7 +303,7 @@ def dailysummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> DataFrame | AQSAPI_V2:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of daily summary data aggregated by latitude/longitude
     bounding box (_by_box).
@@ -394,7 +394,7 @@ def quarterlysummary(
     cedate: date | None = None,
     duration: str | None = None,
     return_header: bool = False,
-) -> DataFrame | AQSAPI_V2:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of quarterly data aggregate by latitude/longitude
     bounding box (_by_box).

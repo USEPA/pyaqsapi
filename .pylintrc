@@ -104,10 +104,6 @@ recursive=yes
 # source root.
 source-roots=., pyaqsapi
 
-# When enabled, pylint would attempt to guess common misconfiguration and emit
-# user-friendly hints instead of false-positive error messages.
-suggestion-mode=yes
-
 # Allow loading of arbitrary C extensions. Extensions are imported into the
 # active Python interpreter and may run arbitrary code.
 unsafe-load-any-extension=no
@@ -290,7 +286,7 @@ exclude-too-few-public-methods=
 ignored-parents=
 
 # Maximum number of arguments for function / method.
-max-args=5
+max-args=10
 
 # Maximum number of attributes for a class (see R0902).
 max-attributes=7
@@ -448,7 +444,12 @@ disable=raw-checker-failed,
         redefined-outer-name,
         protected-access,
         invalid-all-format,
-        duplicate-code
+        duplicate-code,
+        too-many-branches,
+        inconsistent-return-statements,
+        consider-using-from-import,
+        useless-import-alias,
+        redefined-builtin
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option

@@ -18,7 +18,7 @@ def monitors(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of monitors.
 
@@ -106,7 +106,7 @@ def sampledata(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return sample data where the data is aggregated at the Core Based
     Statistical Area (cbsa) level.
@@ -196,7 +196,7 @@ def annualsummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of annual data aggregated at the Core Based
     Statistical Area (cbsa) level.
@@ -281,7 +281,7 @@ def dailysummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a DataFrame of data aggregated by Core Based Statistical Area
     (cbsa).
@@ -366,7 +366,7 @@ def quarterlysummary(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return quarterly summary data aggregated by Core Based Statistical Area
     (cbsa_code).

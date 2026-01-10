@@ -15,8 +15,8 @@
     :target: https://github.com/USEPA/pyaqsapi/blob/main/LICENSE.rst
     :alt: MIT License
     :align: center
-.. image:: https://img.shields.io/github/actions/workflow/status/USEPA/pyaqsapi/.github%2Fworkflows%2Fbuild/\
-           andtestpyaqsapi.yml?style=plastic
+.. image:: https://img.shields.io/github/actions/workflow/status/USEPA/
+             pyaqsapi/.github%2Fworkflows%2Fbuildandtestpyaqsapi.yml?style=plastic
    :alt: GitHub Workflow Status (with event)
    :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml
    :align: center

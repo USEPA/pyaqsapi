@@ -1,4 +1,6 @@
-from .byma import (
+"""Functions that aggregate data by ma (By Monitoring Agency)."""
+
+from .byma import (  # pylint: disable=R0402
     qa_annualpeferomanceeval,
     qa_annualperformanceevaltransaction,
     qa_blanks,

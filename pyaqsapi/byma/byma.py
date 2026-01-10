@@ -16,7 +16,7 @@ def qa_flowrateaudit(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool | None = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return Quality assurance flowrate audit data.
 
@@ -97,7 +97,7 @@ def qa_one_point_qc(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table one point QC check data aggregated by monitoring agency
     code (_by_MA).
@@ -176,7 +176,7 @@ def qa_pep_audit(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of Performance Evaluation Program (PEP) audit data
     aggregated by monitoring agency code (_by_MA) for the time frame between
@@ -254,13 +254,13 @@ def qa_pep_audit(
 
 def qa_blanks(
     parameter: str,
-    bdate: str,
-    edate: str,
+    bdate: date,
+    edate: date,
     MA_code: str,
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of blank quality assurance data. Blanks are unexposed
     sample collection devices (e.g., filters) that are transported with the
@@ -342,7 +342,7 @@ def qa_collocated_assessments(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table of collocated assessment data aggregated by matching input
     parameter, and monitoring agency (MA) code provided for bdate - edate
@@ -426,7 +426,7 @@ def qa_flowrateverification(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return a table containing flow rate Verification data for a parameter code
     aggregated by matching input parameter, and monitoring agency (MA) code
@@ -504,13 +504,13 @@ def qa_flowrateverification(
 
 def transactionsample(
     parameter: str,
-    bdate: str,
+    bdate: date,
     edate: date,
     MA_code: str,
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return transactionsample data - aggregated by Monitoring agency (MA) in
     the AQS Submission Transaction Format (RD) sample (raw) data for a
@@ -593,7 +593,7 @@ def qa_annualpeferomanceeval(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return quality assurance performance evaluation data - aggregated by
     by Monitoring agency (MA) for a parameter code aggregated by matching input
@@ -678,7 +678,7 @@ def qa_annualperformanceevaltransaction(
     cbdate: date | None = None,
     cedate: date | None = None,
     return_header: bool = False,
-) -> AQSAPI_V2 | DataFrame:
+) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """
     Return AQS submissions transaction format (RD) of the annual performance
     evaluation data (raw). Includes data pairs for QA - aggregated by

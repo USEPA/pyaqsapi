@@ -4,9 +4,8 @@ from sys import path
 
 import pytest
 from pandas import DataFrame
-
-import pyaqsapi.listfunctions as listfunctions
 from pyaqsapi.helperfunctions import aqs_credentials
+from pyaqsapi import listfunctions
 
 
 @pytest.fixture

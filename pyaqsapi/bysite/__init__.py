@@ -1,6 +1,6 @@
 """pyaqsapi tests for functions imported from the bysite submodule."""
 
-from .bysite import (
+from .bysite import (  # pylint: disable=R0402
     annualsummary,
     dailysummary,
     monitors,

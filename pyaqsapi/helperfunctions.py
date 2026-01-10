@@ -3,17 +3,19 @@
 from collections.abc import Iterable
 from datetime import date
 from itertools import starmap
-from time import sleep
+
+# from time import sleep __aqs_ratelimit() is deprecated, use ratelimit package instead
 from typing import Any, cast, no_type_check
 from warnings import warn
-
 from certifi import where
 from pandas import DataFrame, concat
+from ratelimit import limits, sleep_and_retry
 from requests import get
-from requests.exceptions import ConnectionError, HTTPError, Timeout
+from requests.exceptions import ConnectionError, HTTPError, Timeout  # noqa # pylint: disable=wrong-spelling-in-comment
 
 AQS_user: str | None = None
 AQS_key: str | None = None
+ONE_MINUTE = 60  # set 60 second period for ratelimit package decorator
 
 
 class AQSAPI_V2:
@@ -182,36 +184,9 @@ class AQSAPI_V2:
         """
         return str(self._request_time)
 
-    def __aqs_ratelimit(self, waittime: int = 5) -> None:
-        """
-        Wrapper function to time.sleep() used as a rudimentary ratelimit
-        between API requests.
-
-        This is a helper function not intended for end use.
-
-        Parameters
-        ----------
-        waittime : int
-            An integer representing the amount of time in seconds that the
-            function should wait before executing the next API call.
-
-        Notes
-        -----
-        Although this function is designed to prevent users from exceeding
-        allowed data limits, it can not guarantee that the user exceed rate
-        limits. Users are advised to monitor their own usage to ensure that
-        data limits are not exceeded. Use of this package is at the users own
-        risk. The maintainers of this code assume no responsibility due to
-        anything that may happen as a result of using this code.
-
-        Returns
-        -------
-        None.
-
-        """
-        sleep(waittime)
-
     @no_type_check
+    @sleep_and_retry
+    @limits(calls=10, period=ONE_MINUTE)
     def __aqs(
         self,
         service: str | None = None,
@@ -306,7 +281,7 @@ class AQSAPI_V2:
                 f"pyaqsapi experienced a HTTP Error: \
                  {newline} {httperror}"
             )
-        except Exception as exception:
+        except Exception as exception:  # pylint: disable=broad-exception-caught
             if query.status_code == 400:
                 if "error" in query.json()["Header"][0].keys():
                     # newline = '\n'
@@ -325,8 +300,8 @@ class AQSAPI_V2:
                     )
                 else:
                     warn(category=UserWarning, message="pyaqsapi experienced an error:" + f"{newline} {exception}")
-        finally:
-            self.__aqs_ratelimit()
+        # finally:
+        # self.__aqs_ratelimit() # use ratelimit package instead
         return self
 
     def _aqs_services_by_site(
@@ -1204,35 +1179,35 @@ def _aqsmultiyearcall(
     params = [tuple(x) for x in params.values]  # type: ignore
     # match fun: #requires Python>=3.10, use if statements instead
     #     case "_aqs_services_by_site":
-    #         return(list(starmap(aqsresult._aqs_services_by_site, params))) # type: ignore
+    #         return(list(starmap(aqsresult._aqs_services_by_site, params)))  # type: ignore
     #     case "_aqs_services_by_county":
-    #         return(list(starmap(aqsresult._aqs_services_by_county, params))) # type: ignore
+    #         return(list(starmap(aqsresult._aqs_services_by_county, params)))  # type: ignore
     #     case "_aqs_services_by_state":
-    #         return(list(starmap(aqsresult._aqs_services_by_state, params))) # type: ignore
+    #         return(list(starmap(aqsresult._aqs_services_by_state, params)))  # type: ignore
     #     case "_aqs_services_by_MA":
-    #         return(list(starmap(aqsresult._aqs_services_by_MA, params))) # type: ignore
+    #         return(list(starmap(aqsresult._aqs_services_by_MA, params)))  # type: ignore
     #     case "_aqs_services_by_pqao":
-    #         return(list(starmap(aqsresult._aqs_services_by_pqao, params))) # type: ignore
+    #         return(list(starmap(aqsresult._aqs_services_by_pqao, params)))  # type: ignore
     #     case "_aqs_services_by_cbsa":
-    #         return(list(starmap(aqsresult._aqs_services_by_cbsa, params))) # type: ignore
+    #         return(list(starmap(aqsresult._aqs_services_by_cbsa, params)))  # type: ignore
     #     case "_aqs_services_by_box":
-    #         return(list(starmap(aqsresult._aqs_services_by_box, params))) # type: ignore
+    #         return(list(starmap(aqsresult._aqs_services_by_box, params)))  # type: ignore
     #     case _:
-    #         RuntimeError("invalid function sent to _aqsmultiyearcall") # type: ignore
+    #         RuntimeError("invalid function sent to _aqsmultiyearcall")  # type: ignore
     if fun == "_aqs_services_by_site":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)))
     elif fun == "_aqs_services_by_county":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params)))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params)))
     elif fun == "_aqs_services_by_state":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params)))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params)))
     elif fun == "_aqs_services_by_MA":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params)))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params)))
     elif fun == "_aqs_services_by_pqao":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)))
     elif fun == "_aqs_services_by_cbsa":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)))
     elif fun == "_aqs_services_by_box":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params)))  # type: ignore
+        returnvalue = list(starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params)))
     else:  # pylint disable=R1705
         returnvalue = None
 

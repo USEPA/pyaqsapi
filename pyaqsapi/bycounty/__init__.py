@@ -1,6 +1,6 @@
 """Functions that aggregate data by county."""
 
-from .bycounty import (
+from .bycounty import (  # pylint: disable=R0402
     annualsummary,
     dailysummary,
     monitors,
