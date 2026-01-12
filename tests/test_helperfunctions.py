@@ -4,7 +4,7 @@ from sys import path
 
 import pytest
 from pandas import DataFrame
-from pyaqsapi.helperfunctions import aqs_credentials
+from pyaqsapi.helperfunctions import aqs_credentials, TokenBucketRateLimiter, RATE_LIMIT_CALLS, RATE_LIMIT_PERIOD
 from pyaqsapi import listfunctions
 
 
@@ -35,3 +35,13 @@ def setuppyaqsapi(autouse=True):
 def test_aqs_removeheader(setuppyaqsapi):
     returnvalue = listfunctions.aqs_knownissues(return_header=False)
     assert isinstance(returnvalue, DataFrame)
+
+
+def test_rate_limiter_exists():
+    """Test that TokenBucketRateLimiter class exists and has correct defaults."""
+    limiter = TokenBucketRateLimiter()
+    assert limiter.calls == RATE_LIMIT_CALLS
+    assert limiter.period == RATE_LIMIT_PERIOD
+    assert limiter.min_interval == RATE_LIMIT_PERIOD / RATE_LIMIT_CALLS
+    # Test that acquire method exists and can be called
+    limiter.acquire()  # Should not raise an exception
