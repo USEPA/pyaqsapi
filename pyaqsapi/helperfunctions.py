@@ -1,21 +1,74 @@
 """pyaqsapi core functions."""
 
+import threading
+import time
 from collections.abc import Iterable
 from datetime import date
 from itertools import starmap
-
-# from time import sleep __aqs_ratelimit() is deprecated, use ratelimit package instead
 from typing import Any, cast, no_type_check
 from warnings import warn
+
 from certifi import where
 from pandas import DataFrame, concat
-from ratelimit import limits, sleep_and_retry
 from requests import get
 from requests.exceptions import ConnectionError, HTTPError, Timeout  # noqa # pylint: disable=wrong-spelling-in-comment
 
 AQS_user: str | None = None
 AQS_key: str | None = None
-ONE_MINUTE = 60  # set 60 second period for ratelimit package decorator
+ONE_MINUTE = 60  # 60 second period for rate limiting
+
+# Rate limiting configuration: 10 calls per minute = 1 call every 6 seconds
+RATE_LIMIT_CALLS = 10
+RATE_LIMIT_PERIOD = ONE_MINUTE
+MIN_INTERVAL_BETWEEN_CALLS = RATE_LIMIT_PERIOD / RATE_LIMIT_CALLS  # 6 seconds
+
+
+class TokenBucketRateLimiter:
+    """
+    A token bucket rate limiter that evenly spaces out API calls.
+    
+    This implementation ensures that calls are spaced evenly over time
+    rather than allowing bursts followed by long waits. This is similar
+    to httr2's req_throttle behavior in R.
+    """
+
+    def __init__(self, calls: int = RATE_LIMIT_CALLS, period: float = RATE_LIMIT_PERIOD) -> None:
+        """
+        Initialize the rate limiter.
+        
+        Parameters
+        ----------
+        calls : int
+            Maximum number of calls allowed in the period
+        period : float
+            Time period in seconds
+        """
+        self.calls = calls
+        self.period = period
+        self.min_interval = period / calls
+        self.last_call_time: float = 0.0
+        self.lock = threading.Lock()
+
+    def acquire(self) -> None:
+        """
+        Acquire permission to make an API call.
+        
+        This method will block if necessary to ensure calls are spaced
+        evenly according to the rate limit.
+        """
+        with self.lock:
+            current_time = time.time()
+            time_since_last_call = current_time - self.last_call_time
+            
+            if time_since_last_call < self.min_interval:
+                sleep_time = self.min_interval - time_since_last_call
+                time.sleep(sleep_time)
+            
+            self.last_call_time = time.time()
+
+
+# Global rate limiter instance
+_rate_limiter = TokenBucketRateLimiter(calls=RATE_LIMIT_CALLS, period=RATE_LIMIT_PERIOD)
 
 
 class AQSAPI_V2:
@@ -185,8 +238,6 @@ class AQSAPI_V2:
         return str(self._request_time)
 
     @no_type_check
-    @sleep_and_retry
-    @limits(calls=10, period=ONE_MINUTE)
     def __aqs(
         self,
         service: str | None = None,
@@ -227,6 +278,9 @@ class AQSAPI_V2:
         (AQSAPI_v2) An AQSAPI_V2 instance containing the data requested.
 
         """
+        # Apply rate limiting before making the API call
+        _rate_limiter.acquire()
+        
         user_agent = "pyAQSAPI module for python3"
         # server = ":AQSDatamartAPI:"
         # check if either aqs_username or aqs_key are None
@@ -300,8 +354,6 @@ class AQSAPI_V2:
                     )
                 else:
                     warn(category=UserWarning, message="pyaqsapi experienced an error:" + f"{newline} {exception}")
-        # finally:
-        # self.__aqs_ratelimit() # use ratelimit package instead
         return self
 
     def _aqs_services_by_site(
