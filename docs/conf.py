@@ -1,3 +1,13 @@
+import sphinx.builders.latex.transforms
+
+
+class DummyTransform(sphinx.builders.latex.transforms.BibliographyTransform):
+    def run(self, **kwargs):
+        pass
+
+
+sphinx.builders.latex.transforms.BibliographyTransform = DummyTransform
+
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -42,7 +52,7 @@ autodoc_mock_imports = [
 project = "pyaqsapi"
 copyright = "2025, US Environmental Protection Agency"
 author = "Clinton Mccrowey (US Environmental Protection Agency)"
-version = "1.0.2"
+version = "1.0.3"
 
 
 # -- General configuration ----------------------------------------------------
@@ -132,7 +142,7 @@ html_theme = "sphinx_rtd_theme"
 
 # sphinx_rtd_theme html options
 html_theme_options = {
-    "collapse_navigation": False,
+    "collapse_navigation": True,
     "sticky_navigation": True,
     "navigation_depth": 1,
     "includehidden": True,
@@ -196,3 +206,4 @@ SPHINX_APIDOC_OPTIONS = ["members", "no-undoc-members", "ignore-module-all"]
 autoapi_options = ["members", "no-undoc-members", "ignore-module-all"]
 autosummary_ignore_module_all = False
 autosummary_imported_members = True
+latex_appendices = ["manual/appendix/references", "genindex", "modindex", "search"]

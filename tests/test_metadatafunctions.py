@@ -16,9 +16,9 @@ def setuppyaqsapi(autouse=True):
         # repository or in the final package. local loads the AQS user
         # credentials for testing
         path.append(abspath("./dev"))
-        import local
+        import local  # type: ignore[import-not-found]
 
-        (AQSuser, AQSkey) = local.setuppyaqsapitest()
+        AQSuser, AQSkey = local.setuppyaqsapitest()
         aqs_credentials(username=AQSuser, key=AQSkey)
     else:
         # get the credential information from environment variables if using
@@ -28,6 +28,10 @@ def setuppyaqsapi(autouse=True):
         AQSkey = environ.get("AQSkey")
         assert AQSkey is not None
         aqs_credentials(username=AQSuser, key=AQSkey)
+
+
+def test_aqs_is_available(setuppyaqsapi):
+    assert metadatafunctions.aqs_is_available(return_header=True).get_status_code() == "200"
 
 
 def test_aqs_knownissues(setuppyaqsapi):

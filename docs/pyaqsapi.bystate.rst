@@ -1,8 +1,8 @@
-pyaqsapi.bystate package
-========================
+.. index:: pyaqsapi.bystate subpackage;
 
-Subpackages
------------
+pyaqsapi.bystate subpackage
+===========================
+
 
 .. toctree::
    :maxdepth: 4
@@ -10,8 +10,6 @@ Subpackages
 Submodules
 ----------
 
-Module contents
----------------
 
 .. automodule:: pyaqsapi.bystate
    :members:

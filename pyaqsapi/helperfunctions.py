@@ -6,7 +6,8 @@ from itertools import starmap
 
 # from time import sleep __aqs_ratelimit() is deprecated, use ratelimit package instead
 from typing import Any, cast, no_type_check
-from warnings import warn
+from warnings import warn as _warn
+
 from certifi import where
 from pandas import DataFrame, concat
 from ratelimit import limits, sleep_and_retry
@@ -53,6 +54,8 @@ class AQSAPI_V2:
     get_url():
     get_header():
     get_request_time():
+    get_status()
+    get_numberofrows()
 
     """
 
@@ -61,9 +64,11 @@ class AQSAPI_V2:
         self._header: DataFrame = DataFrame()
         self._data: DataFrame = DataFrame()
         self._request_time: str | None = None
-        self._rows: str | None = None
+        self._rows: int | None = None
         self._url: str | None = None
         self._status_code: str | None = None
+        self._status: str | None = None
+        self._numberofrows: int | None = None
 
     def set_header(self, Header: DataFrame) -> None:
         """
@@ -72,7 +77,8 @@ class AQSAPI_V2:
 
         Warns
         -----
-        A warning is thrown if Header is not a pandas DataFrame
+        UserWarning
+            A warning is thrown if Header is not a pandas DataFrame
 
         Parameters
         ----------
@@ -87,7 +93,31 @@ class AQSAPI_V2:
         if isinstance(Header, DataFrame):
             self._header = Header
         else:
-            warn("AQSAPI_V2 header must be a pandas DataFrame", UserWarning)
+            _warn("AQSAPI_V2 header must be a pandas DataFrame", UserWarning)
+
+    def get_request_time(self) -> str:
+        """
+        Retrieve the time that the request to the AQS DataMart API was made.
+
+        Returns
+        -------
+        (str) A string representing the time that that request to the AQS
+        DataMart API was made.
+
+        """
+        return str(self._request_time)
+
+    def get_numberofrows(self) -> int:
+        """
+        Retrieve the number of rows of data returned from the API call. This information can be used to track the amount
+        of data requested.
+
+        Returns
+        -------
+        (int) An int representing the number of rows of data returned from the API call.
+
+        """
+        return int(cast(int, self._numberofrows))
 
     def get_data(self) -> DataFrame:
         """
@@ -109,7 +139,8 @@ class AQSAPI_V2:
 
         Warns
         -----
-        A warning is thrown if Data is not a pandas DataFrame
+        UserWarning
+            A warning is thrown if Data is not a pandas DataFrame
 
         Returns
         -------
@@ -119,7 +150,7 @@ class AQSAPI_V2:
         if isinstance(Data, DataFrame):
             self._data = Data
         else:
-            warn("AQSAPI_V2 data must be a pandas DataFrame", UserWarning)
+            _warn("AQSAPI_V2 data must be a pandas DataFrame", UserWarning)
 
     def get_header(self) -> DataFrame:
         """
@@ -157,32 +188,62 @@ class AQSAPI_V2:
         """
         return str(self._url)
 
-    def _set_status_code(self, status_code: str) -> None:
+    def get_status(self) -> str:
         """
-        Set the status code of the AQS DataMart API call.
-
-        Parameters
-        ----------
-        status_code : A string representing the status code
+        Retrieve the status message from the API call.
 
         Returns
         -------
-        None
+        (str) A string representing the status message returned from the EPA
+        DataMart API.
 
         """
-        self._status_code = status_code
+        return str(self._status)
 
-    def get_request_time(self) -> str:
-        """
-        Retrieve the time that the request to the AQS DataMart API was made.
+    # def _set_status(self, status: str) -> None:
+    #     """
+    #     Set the status message of the AQS DataMart API call.
 
-        Returns
-        -------
-        (str) A string representing the time that that request to the AQS
-        DataMart API was made.
+    #     Parameters
+    #     ----------
+    #     status_code : A string representing the status code
 
-        """
-        return str(self._request_time)
+    #     Returns
+    #     -------
+    #     None
+
+    #     """
+    #     self._status = status
+
+    # def _set_numberofrows(self, numberofrows: int) -> None:
+    #     """
+    #     Set the number of rows of data returned from the API call.
+
+    #     Parameters
+    #     ----------
+    #     numberofrows : A integer representing the number of rows of data returned.
+
+    #     Returns
+    #     -------
+    #     None
+
+    #     """
+    #     self._numberofrows = numberofrows
+
+    # def _set_status_code(self, status_code: str) -> None:
+    #     """
+    #     Set the status code of the AQS DataMart API call.
+
+    #     Parameters
+    #     ----------
+    #     status_code : A string representing the status code
+
+    #     Returns
+    #     -------
+    #     None
+
+    #     """
+    #     self._status_code = status_code
 
     @no_type_check
     @sleep_and_retry
@@ -263,29 +324,23 @@ class AQSAPI_V2:
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
             self._url = query.url
             self._status_code = query.status_code
+            self._status = query.status
+            self._numberofrows = int(query.rows)
             query.raise_for_status()
         except ConnectionError as connectionerror:
-            warn(
-                category=ResourceWarning,
-                message=f"pyaqsapi experienced a connection error: \
-                 {newline} {connectionerror}",
-            )
+            _warn(category=ResourceWarning, message=f"pyaqsapi experienced a connection error: \
+                 {newline} {connectionerror}")
         except Timeout as timeouterror:
-            warn(
-                category=ResourceWarning,
-                message=f"pyaqsapi experienced a timeout error: \
-                 {newline} {timeouterror}",
-            )
+            _warn(category=ResourceWarning, message=f"pyaqsapi experienced a timeout error: \
+                 {newline} {timeouterror}")
         except HTTPError as httperror:
-            warn(
-                f"pyaqsapi experienced a HTTP Error: \
-                 {newline} {httperror}"
-            )
+            _warn(f"pyaqsapi experienced a HTTP Error: \
+                 {newline} {httperror}")
         except Exception as exception:  # pylint: disable=broad-exception-caught
             if query.status_code == 400:
                 if "error" in query.json()["Header"][0].keys():
                     # newline = '\n'
-                    warn(
+                    _warn(
                         category=UserWarning,
                         message="AQSDataMArt returned the following "
                         + f"message: {newline}"
@@ -299,7 +354,7 @@ class AQSAPI_V2:
                         + "that was provided",
                     )
                 else:
-                    warn(category=UserWarning, message="pyaqsapi experienced an error:" + f"{newline} {exception}")
+                    _warn(category=UserWarning, message="pyaqsapi experienced an error:" + f"{newline} {exception}")
         # finally:
         # self.__aqs_ratelimit() # use ratelimit package instead
         return self
@@ -392,7 +447,7 @@ class AQSAPI_V2:
             "cedate": cedate,
             "cbdate": cbdate,
         }
-        return self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables)
+        return cast(DataFrame, self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables))
 
     def _aqs_services_by_county(
         self,
@@ -477,7 +532,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
+        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
 
     def _aqs_services_by_state(
         self,
@@ -556,7 +611,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
+        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
 
     def _aqs_services_by_box(
         self,
@@ -652,7 +707,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
+        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
 
     def _aqs_services_by_cbsa(
         self,
@@ -729,7 +784,7 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key)
+        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
 
     def _aqs_services_by_pqao(
         self,
@@ -803,7 +858,9 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
+        return cast(
+            DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
+        )
 
     def _aqs_services_by_MA(
         self,
@@ -868,7 +925,9 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
+        return cast(
+            DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
+        )
 
     def _aqs_list_services(
         self,
@@ -934,7 +993,7 @@ class AQSAPI_V2:
             "pqao_code": pqao_code,
             "agency": MA_code,
         }
-        return self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables)
+        return cast(DataFrame, self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables))
 
     def _aqs_metadata_services(self, aqsfilter: str | None = None, service: str | None = None) -> DataFrame | None:
         """
@@ -962,7 +1021,9 @@ class AQSAPI_V2:
         user = AQS_user
         key = AQS_key
         variables = {"email": user, "key": key, "service": service}
-        return self.__aqs(AQS_user=user, key=key, service="metaData", aqsfilter=aqsfilter, variables=variables)
+        return cast(
+            DataFrame, self.__aqs(AQS_user=user, key=key, service="metaData", aqsfilter=aqsfilter, variables=variables)
+        )
 
     def _renameaqsvariables(self, name1: str, name2: str) -> DataFrame:
         """
@@ -1116,7 +1177,8 @@ def _aqsmultiyearcall(
 
         Warns
         -----
-        A warning is thrown if bdate > edate
+        UserWarning
+            A warning is thrown if bdate > edate
 
         Returns
         -------
@@ -1129,7 +1191,7 @@ def _aqsmultiyearcall(
     aqsresult = AQSAPI_V2()  # ignore the variable not used warning.
     if bdate > edate:
         # throw a warning if bdate > edate
-        warn("bdate > edate", UserWarning)
+        _warn("bdate > edate", UserWarning)
         bdatelist = []
         edatelist = []
     elif bdate.year == edate.year:
@@ -1175,7 +1237,9 @@ def _aqsmultiyearcall(
             "cedate",
         ]
     )
-    params = params.dropna(axis="columns", how="any")
+    # Drop columns that are entirely NaN (never provided by caller).
+    # Keep columns that have at least one non-NaN value across all rows.
+    params = params.dropna(axis="columns", how="all")
     params = [tuple(x) for x in params.values]  # type: ignore
     # match fun: #requires Python>=3.10, use if statements instead
     #     case "_aqs_services_by_site":

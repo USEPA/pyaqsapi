@@ -1,14 +1,12 @@
-pyaqsapi.bysite package
-=======================
+.. index:: pyaqsapi.bysite subpackage;
 
-Subpackages
------------
+pyaqsapi.bysite subpackage
+==========================
+
 
 .. toctree::
    :maxdepth: 4
 
-Submodules
-----------
 
 Module contents
 ---------------

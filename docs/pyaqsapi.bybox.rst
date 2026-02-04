@@ -1,15 +1,12 @@
-pyaqsapi.bybox package
-======================
+.. index:: pyaqsapi.bybox subpackage;
 
-Subpackages
------------
+pyaqsapi.bybox subpackage
+==========================
+
 
 .. toctree::
    :maxdepth: 4
 
-
-Submodules
-----------
 
 Module contents
 ---------------

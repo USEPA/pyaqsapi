@@ -1,15 +1,11 @@
-pyaqsapi.byma package
-=====================
+.. index:: pyaqsapi.byma subpackage;
 
-Subpackages
------------
+pyaqsapi.byma subpackage
+========================
+
 
 .. toctree::
    :maxdepth: 4
-
-
-Submodules
-----------
 
 
 Module contents

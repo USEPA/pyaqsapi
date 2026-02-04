@@ -1,6 +1,3 @@
-pyaqsapi
-========
-
 .. toctree::
    :maxdepth: 4
 

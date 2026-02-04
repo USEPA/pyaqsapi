@@ -1,14 +1,12 @@
-pyaqsapi.bypqao package
-=======================
+.. index:: pyaqsapi.bypqao subpackage;
 
-Subpackages
------------
+pyaqsapi.bypqao subpackage
+==========================
+
 
 .. toctree::
    :maxdepth: 4
 
-Submodules
-----------
 
 Module contents
 ---------------

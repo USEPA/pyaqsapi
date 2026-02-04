@@ -24,3 +24,6 @@ dependencies:
   - pytest-sugar
   - pytest-rerunfailures
   - pytest-black
+  - pytest-cov
+  - pytest-sugar
+  - tox

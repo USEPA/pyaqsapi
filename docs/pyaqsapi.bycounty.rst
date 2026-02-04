@@ -1,8 +1,7 @@
-pyaqsapi.bycounty package
-=========================
+.. index:: pyaqsapi.bycounty subpackage;
 
-Subpackages
------------
+pyaqsapi.bycounty subpackage
+============================
 
 .. toctree::
    :maxdepth: 4
@@ -11,10 +10,12 @@ Subpackages
 Submodules
 ----------
 
-Module contents
----------------
 
 .. automodule:: pyaqsapi.bycounty
    :members:
    :show-inheritance:
    :undoc-members:
+
+
+
+

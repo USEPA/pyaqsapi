@@ -16,24 +16,9 @@ from pyaqsapi import setupfunctions as setupfunctions
 from pyaqsapi import listfunctions as listfunctions
 
 from .helperfunctions import *
-from .listfunctions import *
+from .listfunctions import *  # type: ignore[no-redef]
 from .setupfunctions import *
-from .metadatafunctions import *
-
-# from pyaqsapi.helperfunctions import *
-# from pyaqsapi.listfunctions import *
-# from pyaqsapi.metadatafunctions import *
-# from pyaqsapi.setupfunctions import *
-
-
-# import pyaqsapi.bybox as bybox
-# import pyaqsapi.bycbsa as bycbsa
-# import pyaqsapi.bycounty as bycounty
-# import pyaqsapi.byma as byma
-# import pyaqsapi.bypqao as bypqao
-# import pyaqsapi.bysite as bysite
-# import pyaqsapi.bystate as bystate
-
+from .metadatafunctions import *  # type: ignore[assignment]
 
 __all__ = [
     "helperfunctions",

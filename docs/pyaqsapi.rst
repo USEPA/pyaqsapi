@@ -1,11 +1,11 @@
-pyaqsapi package
-================
+pyaqsapi package API
+====================
 
 Subpackages
 -----------
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    pyaqsapi.bybox
    pyaqsapi.bycbsa
@@ -19,7 +19,7 @@ Submodules
 ----------
 
 pyaqsapi.helperfunctions module
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: pyaqsapi.helperfunctions
    :members:
@@ -27,7 +27,7 @@ pyaqsapi.helperfunctions module
    :undoc-members:
 
 pyaqsapi.listfunctions module
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: pyaqsapi.listfunctions
    :members:
@@ -35,7 +35,7 @@ pyaqsapi.listfunctions module
    :undoc-members:
 
 pyaqsapi.metadatafunctions module
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: pyaqsapi.metadatafunctions
    :members:
@@ -43,7 +43,7 @@ pyaqsapi.metadatafunctions module
    :undoc-members:
 
 pyaqsapi.setupfunctions module
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: pyaqsapi.setupfunctions
    :members:

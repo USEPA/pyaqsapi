@@ -1,8 +1,11 @@
 {
     "reportMissingTypeStubs": true,
+    "reportMissingImports": "none",
+    "reportPossiblyUnboundVariable": "none",
 
   "ignore": [
     "dev/**",
-    "*tests**"
+    "*tests/**",
+    "**/test_*.py"
   ]
 }

@@ -1,14 +1,10 @@
-pyaqsapi.bycbsa package
-=======================
+.. index:: pyaqsapi.bycbsa subpackage;
 
-Subpackages
------------
+pyaqsapi.bycbsa subpackage
+==========================
 
 .. toctree::
    :maxdepth: 4
-
-Submodules
-----------
 
 
 Module contents

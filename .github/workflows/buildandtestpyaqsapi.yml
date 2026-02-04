@@ -14,7 +14,7 @@ on:
 defaults:
   run:
     shell: bash -el {0}
-    
+
 jobs:
   setup_environment:
     permissions:
@@ -51,7 +51,7 @@ jobs:
           sphinx-build --version
         shell: bash -el {0}
 
-      - name: build and install pyaqsapi in a test environment using python-build and pip 
+      - name: build and install pyaqsapi in a test environment using python-build and pip
         run: |
           python -m build .
           pip install .
@@ -59,18 +59,13 @@ jobs:
 
       - name: build apidocs
         run: |
-          cd docs
-          make clean
-          #sphinx-apidoc -o . ..\pyaqsapi\
-          #sphinx-build -M html . _build --color --keep-going --show-traceback --write-all -j auto
-          # run "make html" twice, specifically for bibtex referernces to work
-          make html
-          make html
+          #use the tox doc environment to build documentation
+          tox -e docs
         shell: bash -el {0}
-      
+
       - name: test_package
         env:
           AQSkey: ${{ secrets.AQSKEY }}
           AQSuser: ${{ secrets.AQSUSER }}
-        run: pytest --cache-clear --reruns 3 --reruns-delay 30
+        run: pytest
         shell: bash -el {0}

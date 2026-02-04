@@ -1,4 +1,6 @@
 include README.rst
+include *.pyi
+include *py.typed
 
 #exclude config files
 exclude environment.yml
@@ -10,6 +12,7 @@ exclude pyrightconfig.json
 exclude codeinventory.json
 exclude codemeta.json
 exclude .coveragerc
+exclude pylint_import-dependency-graph.png
 
 
 # Exclude common build and editor artifacts
@@ -27,3 +30,4 @@ prune .tox/
 prune dist/
 prune dev/
 prune codeql-custom-queries-python/
+prune htmlcov/

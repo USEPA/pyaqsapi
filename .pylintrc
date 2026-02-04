@@ -365,19 +365,19 @@ allow-any-import-level=
 allow-reexport-from-package=no
 
 # Allow wildcard imports from modules that define __all__.
-allow-wildcard-with-all=no
+allow-wildcard-with-all=yes
 
 # Deprecated modules which should not be used, separated by a comma.
 deprecated-modules=
 
 # Output a graph (.gv or any supported image format) of external dependencies
 # to the given file (report RP0402 must not be disabled).
-ext-import-graph=
+#ext-import-graph=pylint_import-dependency-graph.png
 
 # Output a graph (.gv or any supported image format) of all (i.e. internal and
 # external) dependencies to the given file (report RP0402 must not be
 # disabled).
-import-graph=
+import-graph=pylint_import-dependency-graph.png
 
 # Output a graph (.gv or any supported image format) of internal dependencies
 # to the given file (report RP0402 must not be disabled).
@@ -449,7 +449,8 @@ disable=raw-checker-failed,
         inconsistent-return-statements,
         consider-using-from-import,
         useless-import-alias,
-        redefined-builtin
+        redefined-builtin,
+        too-many-instance-attributes
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -514,7 +515,7 @@ msg-template=
 #output-format=
 
 # Tells whether to display a full report or only the messages.
-reports=no
+reports=yes
 
 # Activate the evaluation score.
 score=yes

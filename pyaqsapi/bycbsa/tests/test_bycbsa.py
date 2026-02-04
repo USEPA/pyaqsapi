@@ -24,16 +24,15 @@ def setuppyaqsapi_bycbsa(autouse=True):
         # credentials for testing
         path.append(abspath("./dev/"))
         try:
-            import local
+            import local  # type: ignore[import-not-found]
         except ImportError:
-            warn(
-                "unable to import ./dev/local.py in bycbsa/tests/setupaqsapi \
-                 setuppyaqsapi fixture"
-            )
-        (AQSuser, AQSkey) = local.setuppyaqsapitest()
+            warn("unable to import ./dev/local.py in bycbsa/tests/setupaqsapi \
+                 setuppyaqsapi fixture")
+        AQSuser, AQSkey = local.setuppyaqsapitest()
     else:
         # get the credential information from environment variables if using
         # github actions
+        local = None
         AQSuser = environ.get("AQSuser")
         assert AQSuser is not None
         AQSkey = environ.get("AQSkey")

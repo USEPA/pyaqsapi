@@ -5,7 +5,8 @@ pyaqsapi user documentation
 ===========================
 
 .. toctree::
-   :maxdepth: 2
+   :caption: Table of Contents
+   :maxdepth: 4
    :numbered:
 
    manual/EPA_Disclaimer
@@ -20,6 +21,15 @@ pyaqsapi user documentation
    manual/RAQSAPI
    modules
 
+.. toctree::
+   :caption: Appendicies
+   :maxdepth: 4
+
+   manual/appendix/references
+   genindex
+   modindex
+   search
+
 pyaqsapi documentation
 ======================
 
@@ -33,27 +43,5 @@ pyaqsapi documentation
 .. include:: manual/pyaqsapiFunctions-Long.rst
 .. include:: manual/Troubleshooting.rst
 .. include:: manual/RAQSAPI.rst
-
-.. index:: Indices and tables;
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-<!-- known limitation of sphinxcontrib-bibtex, references can not be added to
-toc, refer to:
-https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#citation-\
-references-not-rendered-in-toctree-directives
--->
-.. index:: References;
-
-References
-==========
-
-.. bibliography::
-   :style: plain
-   :list: enumerated
-   :filter: docname in docnames
+.. include:: manual/appendix/references.rst
+   
