@@ -9,7 +9,7 @@ References
     \def\chapter#1#2{}
     \begin{thebibliography}{1234}
 
-.. bibliography:: ../pyaqsapi.bib
+.. bibliography:: pyaqsapi.bib
 
 .. raw:: latex
 

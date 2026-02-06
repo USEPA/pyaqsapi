@@ -89,7 +89,7 @@ bibtex_encoding = "utf-8"
 html_search_language = "en"
 
 # sphinxcontrib.bibtex bibtext file location
-bibtex_bibfiles = ["manual/pyaqsapi.bib"]
+bibtex_bibfiles = [os.path.join(os.path.dirname(__file__), "manual/pyaqsapi.bib")]
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ["_templates"]

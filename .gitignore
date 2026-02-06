@@ -5,7 +5,7 @@
 .spyproject
 .vscode/
 build/
-dev
+dev/
 *__pycache__/
 dist
 *.egg-info/
