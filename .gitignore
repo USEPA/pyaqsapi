@@ -18,3 +18,4 @@ dist
 etc/
 *_build/
 pylint_import-dependency-graph.png
+codeql-custom-queries-python/
