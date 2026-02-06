@@ -5,7 +5,7 @@ name: Deploy_static_content_to_Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: 
+    branches:
       - 'main'
 
   # Allows you to run this workflow manually from the Actions tab
@@ -32,6 +32,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: setup environment to rebuild documentation
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          create-args: --retry-clean-cache -v
+          init-shell: >-
+            bash
+          cache-environment: true
+          environment-name: pyaqsapi
+          post-cleanup: 'all'
+
+      - name: Display Python and sphinx version and system info
+        run: |
+          conda init
+          python -c "import platform; print(platform.uname())"
+          sphinx-build --version
+        shell: bash -el {0}
+
+      - name: build apidocs
+        run: |
+          #use the tox doc environment to build documentation
+          tox -e docs
+        shell: bash -el {0}
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
