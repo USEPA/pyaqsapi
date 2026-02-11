@@ -28,7 +28,6 @@ pyaqsapi user documentation
    manual/appendix/references
    genindex
    modindex
-   search
 
 pyaqsapi documentation
 ======================
@@ -44,4 +43,3 @@ pyaqsapi documentation
 .. include:: manual/Troubleshooting.rst
 .. include:: manual/RAQSAPI.rst
 .. include:: manual/appendix/references.rst
-   
