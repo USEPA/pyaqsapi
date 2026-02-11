@@ -1,0 +1,6 @@
+.git
+.tox
+codeql-custom-queries-python
+dist
+__pycache__
+docs/_build

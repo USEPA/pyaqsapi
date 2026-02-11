@@ -1,0 +1,32 @@
+{
+  "name": "pyaqsapi Dev Container",
+  // Use the mambaorg/micromamba image as the base
+  "image": "mambaorg/micromamba:latest",
+
+  // Copy the environment file into the container and create the environment
+  "postCreateCommand": "micromamba env create -f environment.yml",
+
+  // Set the environment variable so the container uses the newly created environment
+  "containerEnv": {
+    "ENV_NAME": "pyaqsapi"
+  },
+
+  // (Optional) Configure VS Code specific settings
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/conda/envs/pyaqsapi_env/bin/python",
+        "python.linting.enabled": true,
+        "python.formatting.provider": "none"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+
+  // Forward your SSH agent to handle Git operations if needed
+  "forwardPorts": [],
+  "remoteUser": "mambauser"
+}

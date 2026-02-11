@@ -53,7 +53,6 @@ jobs:
 
       - name: build apidocs
         run: |
-          #use the tox doc environment to build documentation
           tox -e docs
         shell: bash -el {0}
 
