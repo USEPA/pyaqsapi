@@ -23,11 +23,12 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - requests
     - certifi
-    - pandas
     - cryptography
+    - keyring
+    - pandas
     - ratelimit
+    - requests
 
 test:
   imports:

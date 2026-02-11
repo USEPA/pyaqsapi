@@ -18,41 +18,36 @@ classifiers = [
   "Operating System :: OS Independent"
 ]
 dependencies = [
-  "pandas",
-  "requests",
   "certifi",
   "cryptography",
-  "datetime",
-  "ratelimit"
+  "keyring",
+  "pandas",
+  "ratelimit",
+  "requests"
 ]
 
 [project.optional-dependencies]
 doc = [
   "numpydoc",
   "sphinx",
-  "sphinxcontrib-bibtex",
-  "sphinxcontrib-napoleon",
-  "sphinx_rtd_theme"
+  "sphinx-rtd-theme",
+  "sphinxcontrib-bibtex"
 ]
 
 test = [
   "pytest",
   "pytest-black",
   "pytest-cov",
-  "pytest-sugar",
   "pytest-rerunfailures",
-  "tox"
+  "pytest-sugar"
 ]
 
 dev = [
     "black",
+    "conda-build",
     "mypy",
+    "pylint",
     "ruff",
-    "pytest",
-    "pytest-back",
-    "pytest-cov",
-    "pytest-rerunfailures",
-    "pytest-sugar",
     "tox"
     ]
 

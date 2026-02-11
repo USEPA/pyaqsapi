@@ -5,28 +5,29 @@ channels:
 environment:
   - setuppyaqsapi
 dependencies:
-  - python>=3.10
-  #- conda-build
-  # - tox-conda # currently, tox-conda is incompatible with tox>=4.0
-  - pip
-  - wheel
-  - setuptools
-  - pandas
-  - ratelimit
-  - requests
-  - setuptools
-  - sphinx
-  - sphinxcontrib-apidoc
-  - sphinxcontrib-bibtex
-  - sphinx_rtd_theme
-  - numpydoc
+  - black
+  - build
   - certifi
+  - conda-build
   - cryptography
-  - python-build
+  - keyring
+  - mypy
+  - numpydoc
+  - pip
+  - pylint
   - pytest
-  - pytest-sugar
-  - pytest-rerunfailures
   - pytest-black
   - pytest-cov
+  - pytest-rerunfailures
   - pytest-sugar
+  - python>=3.10
+  - python-build
+  - ratelimit
+  - requests
+  - ruff
+  - setuptools
+  - sphinx
+  - sphinx-rtd-theme
+  - sphinxcontrib-bibtex
   - tox
+  - wheel

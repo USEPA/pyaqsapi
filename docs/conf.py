@@ -62,16 +62,12 @@ version = "1.0.3"
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
-    # replaced sphinxcontrib.apidoc with sphinx.ext.apidoc
-    # "sphinxcontrib.apidoc",
-    # "sphinx.ext.apidoc",
     "sphinx.ext.doctest",
     "sphinx.ext.coverage",
     # the dependencies required for sphinxcontrib.spelling
     # do not seem to be maintained anymore
     # "sphinxcontrib.spelling",
     "numpydoc",
-    # "sphinx.ext.napoleon",
     "sphinxcontrib.bibtex",
     "sphinx.ext.autosectionlabel",
 ]

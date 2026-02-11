@@ -1,28 +1,38 @@
+#This file is only used for github's dependabot and dependency graph generation. It is not used for development or testing. For that see the pyproject.toml file.
 [[source]]
-url = "https://github.com/USEPA/pyaqsapi"
+url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pyaqsapi"
+name = "pypi"
 
 [packages]
-python = ">=3.9"
-conda-build = "*"
-#tox-conda = "*" # currently, tox-conda is incompatible with tox>=4.0
-pandas = "*"
-requests = "*"
-sphinx = "*"
-sphinxcontrib-bibtex = "*"
-sphinxcontrib-napoleon = "*"
-sphinx-rtd-theme = "*"
-numpydoc = "*"
 certifi = "*"
 cryptography = "*"
-pytest = "*"
-pytest-rerunfailures = "*"
 keyring = "*"
-datetime = "*"
+pandas = "*"
 ratelimit = "*"
+requests = "*"
+
+[doc]
+numpydoc = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
+sphinxcontrib-bibtex = "*"
 
 [dev-packages]
+black = "*"
+conda-build = "*"
+mypy = "*"
+pylint = "*"
+ruff = "*"
+#tox-conda = "*" # currently, tox-conda is incompatible with tox>=4.0
+tox = "*"
+
+[tests]
+pytest = "*"
+pytest-black = "*"
+pytest-cov = "*"
+pytest-rerunfailures = "*"
+pytest-sugar = "*"
 
 [requires]
-python_version >= "3.9"
+python_version = ">=3.10"

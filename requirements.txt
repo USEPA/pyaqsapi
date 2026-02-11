@@ -1,17 +1,13 @@
-# tox-conda # currently tox-conda is incompaitble with tox >= 4.0
-pandas
-requests
-setuptools >=77.0.3
-sphinx
-# the dependencies required for sphinxcontrib.spelling
-# do not seem to be maintained anymore
-# sphinxcontrib-spelling
-sphinxcontrib-bibtex
-sphinxcontrib-napoleon
-numpydoc
-sphinx_rtd_theme
-numpydoc
+# Core dependencies
 certifi
 cryptography
-datetime
+keyring
+pandas
 ratelimit
+requests
+
+# Documentation dependencies
+numpydoc
+sphinx
+sphinx-rtd-theme
+sphinxcontrib-bibtex
