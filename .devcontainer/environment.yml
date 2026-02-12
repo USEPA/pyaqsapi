@@ -6,13 +6,13 @@ environment:
   - setuppyaqsapi
 dependencies:
   - black
-  - build
   - certifi
   - conda-build
   - cryptography
   - keyring
   - mypy
   - numpydoc
+  - pandas
   - pip
   - pylint
   - pytest
