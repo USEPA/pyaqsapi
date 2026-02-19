@@ -121,3 +121,11 @@ packages = ["pyaqsapi",
 [tool.black]
 line-length = 125
 target-version = ['py310', 'py311', 'py312', 'py313']
+exclude = '''
+/(
+    \.git
+  | _build
+  | build
+  | dist
+)/
+'''
