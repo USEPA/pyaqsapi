@@ -30,6 +30,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node.js (Local Only)
+       # installs Node only if running locally via act,
+       # otherwise skip to save time and resources on Github Actions runners
+        if: ${{ env.ACT }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '25'
       - name: Checkout
         uses: actions/checkout@v6
 
@@ -46,8 +53,8 @@ jobs:
 
       - name: Display Python and sphinx version and system info
         run: |
-          # load the conda/micromamba shell integration so `conda activate` works
-          source /home/runner/micromamba/etc/profile.d/conda.sh
+          # initialise conda/micromamba in this shell via the generic hook
+          eval "$(micromamba shell hook --shell=bash)"
           conda activate pyaqsapi
           python -c "import platform; print(platform.uname())"
           sphinx-build --version
@@ -55,8 +62,8 @@ jobs:
 
       - name: build apidocs
         run: |
-          # load the conda/micromamba shell integration so `conda activate` works
-          source /home/runner/micromamba/etc/profile.d/conda.sh
+          # initialise conda/micromamba in this shell via the generic hook
+          eval "$(micromamba shell hook --shell=bash)"
           conda activate pyaqsapi
           tox -e docs
         shell: bash -el {0}
