@@ -33,11 +33,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Install Node.js (required for setup-micromamba action)
-        run: |
-          apt-get update
-          apt-get install -y nodejs npm
-
       - name: setup environment to rebuild documentation
         uses: mamba-org/setup-micromamba@v2
         with:
