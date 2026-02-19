@@ -33,12 +33,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Install CA certificates
-        run: |
-          apt-get update
-          apt-get install -y ca-certificates
-          update-ca-certificates
-
       - name: Install Node.js (required for setup-micromamba action)
         run: |
           apt-get update
