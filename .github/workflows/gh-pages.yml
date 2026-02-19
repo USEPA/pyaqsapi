@@ -46,6 +46,8 @@ jobs:
 
       - name: Display Python and sphinx version and system info
         run: |
+          # load the conda/micromamba shell integration so `conda activate` works
+          source /home/runner/micromamba/etc/profile.d/conda.sh
           conda activate pyaqsapi
           python -c "import platform; print(platform.uname())"
           sphinx-build --version
@@ -53,6 +55,8 @@ jobs:
 
       - name: build apidocs
         run: |
+          # load the conda/micromamba shell integration so `conda activate` works
+          source /home/runner/micromamba/etc/profile.d/conda.sh
           conda activate pyaqsapi
           tox -e docs
         shell: bash -el {0}
