@@ -46,13 +46,18 @@ jobs:
 
       - name: Display Python and sphinx version and system info
         run: |
+          conda init
+          conda activate pyaqsapi
           python -c "import platform; print(platform.uname())"
           sphinx-build --version
         shell: bash -el {0}
 
       - name: build apidocs
         run: |
+          conda init
+          conda activate pyaqsapi
           tox -e docs
+        shell: bash -el {0}
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
