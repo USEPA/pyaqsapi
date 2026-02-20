@@ -29,14 +29,18 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      TZ: UTC
+      DEBIAN_FRONTEND: noninteractive
     steps:
       - name: Setup Node.js (Local Only)
        # installs Node only if running locally via act,
        # otherwise skip to save time and resources on Github Actions runners
         if: ${{ env.ACT }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: '25'
+        run: |
+          apt update
+          apt install -y nodejs npm
+      
       - name: Checkout
         uses: actions/checkout@v6
 
@@ -51,19 +55,11 @@ jobs:
           environment-name: pyaqsapi
           post-cleanup: 'all'
 
-      - name: Display Python and sphinx version and system info
-        run: |
-          # initialise conda/micromamba in this shell via the generic hook
-          eval "$(micromamba shell hook --shell=bash)"
-          conda activate pyaqsapi
-          python -c "import platform; print(platform.uname())"
-          sphinx-build --version
-        shell: bash -el {0}
-
       - name: build apidocs
         run: |
           # initialise conda/micromamba in this shell via the generic hook
           eval "$(micromamba shell hook --shell=bash)"
+          conda init
           conda activate pyaqsapi
           tox -e docs
         shell: bash -el {0}
