@@ -328,14 +328,22 @@ class AQSAPI_V2:
             self._numberofrows = int(query.rows)
             query.raise_for_status()
         except ConnectionError as connectionerror:
-            _warn(category=ResourceWarning, message=f"pyaqsapi experienced a connection error: \
-                 {newline} {connectionerror}")
+            _warn(
+                category=ResourceWarning,
+                message=f"pyaqsapi experienced a connection error: \
+                 {newline} {connectionerror}",
+            )
         except Timeout as timeouterror:
-            _warn(category=ResourceWarning, message=f"pyaqsapi experienced a timeout error: \
-                 {newline} {timeouterror}")
+            _warn(
+                category=ResourceWarning,
+                message=f"pyaqsapi experienced a timeout error: \
+                 {newline} {timeouterror}",
+            )
         except HTTPError as httperror:
-            _warn(f"pyaqsapi experienced a HTTP Error: \
-                 {newline} {httperror}")
+            _warn(
+                f"pyaqsapi experienced a HTTP Error: \
+                 {newline} {httperror}"
+            )
         except Exception as exception:  # pylint: disable=broad-exception-caught
             if query.status_code == 400:
                 if "error" in query.json()["Header"][0].keys():

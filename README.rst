@@ -3,9 +3,9 @@
        (US EPA) Air quality System (AQS) Data Mart API.
    :keywords: pyaqsapi, RAQSAPI, USEPA, ambient air monitoring, AQS, Data Mart
 
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=plastic
-    :target: https://github.com/psf/black
-    :alt: This repository uses black for code formatting
+.. image:: https://img.shields.io/badge/Linter-Ruff-brightgreen?style=plastic
+    :target: https://github.com/USEpa/pyaqsapi
+    :alt: This project uses the Astral/Ruff formatter and linter
     :align: center
 .. image:: https://img.shields.io/github/issues/USEpa/pyaqsapi?style=plastic
     :target: https://github.com/USEPA/pyaqsapi/issues
@@ -40,6 +40,10 @@
    :alt: Conda-forge - version
    :align: center
    :target: https://github.com/conda-forge/pyaqsapi-feedstock/
+.. image:: https://img.shields.io/badge/security-bandit-yellow.svg
+   :alt: Security Status
+   :align: center
+   :target: https://github.com/PyCQA/bandit
 
 
 EPA Disclaimer

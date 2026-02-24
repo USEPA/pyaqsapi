@@ -3,7 +3,7 @@ name: pyaqsapi
 channels:
   - conda-forge
 dependencies:
-  - black
+  - bandit
   - certifi
   - conda-build
   - cryptography
@@ -14,9 +14,9 @@ dependencies:
   - pip
   - pylint
   - pytest
-  - pytest-black
   - pytest-cov
   - pytest-rerunfailures
+  - pytest_ruff
   - pytest-sugar
   - python>=3.10
   - python-build

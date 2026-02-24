@@ -36,7 +36,7 @@ jobs:
       - name: Setup Node.js (Local Only)
        # installs Node only if running locally via act,
        # otherwise skip to save time and resources on Github Actions runners
-        if: ${{ env.ACT }}
+        if: false  # disabled for local testing to avoid outdated apt repos
         run: |
           apt update
           apt install -y nodejs npm
@@ -56,13 +56,15 @@ jobs:
           post-cleanup: 'all'
 
       - name: build apidocs
+        shell: bash -el {0}
         run: |
           # initialise conda/micromamba in this shell via the generic hook
           eval "$(micromamba shell hook --shell=bash)"
+          micromamba activate pyaqsapi
           conda init
           conda activate pyaqsapi
           tox -e docs
-        shell: bash -el {0}
+        
 
       - name: Setup Pages
         uses: actions/configure-pages@v2

@@ -19,7 +19,7 @@ sphinx-rtd-theme = "*"
 sphinxcontrib-bibtex = "*"
 
 [dev-packages]
-black = "*"
+bandit = "*"
 conda-build = "*"
 mypy = "*"
 pylint = "*"
@@ -29,9 +29,9 @@ tox = "*"
 
 [tests]
 pytest = "*"
-pytest-black = "*"
 pytest-cov = "*"
 pytest-rerunfailures = "*"
+pytest-ruff = "*"
 pytest-sugar = "*"
 
 [requires]
