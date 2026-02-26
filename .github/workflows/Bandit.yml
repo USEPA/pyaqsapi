@@ -3,7 +3,7 @@ name: Bandit
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  analyze:
+  bandit_analyze:
     runs-on: ubuntu-latest
     permissions:
       # required for all workflows
@@ -14,4 +14,6 @@ jobs:
     steps:
       - name: Perform Bandit Analysis
         uses: PyCQA/bandit-action@v1
-Inputs
+        with:
+          configfile: "pyproject.toml"
+          targets: "."
