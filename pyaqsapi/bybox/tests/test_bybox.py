@@ -2,7 +2,7 @@
 
 from datetime import date
 from importlib import import_module
-from os import environ, getcwd
+from os import environ
 from os.path import abspath, exists
 from sys import path
 
@@ -12,7 +12,9 @@ import pytest
 # from pyaqsapi.helperfunctions import aqs_credentials
 bybox = import_module(name="..bybox", package="pyaqsapi.bybox")
 # from pyaqsapi.helperfunctions import aqs_credentials
-helperfunctions = import_module(name="..helperfunctions", package="pyaqsapi.helperfunctions")
+helperfunctions = import_module(
+    name="..helperfunctions", package="pyaqsapi.helperfunctions"
+)
 
 
 @pytest.fixture

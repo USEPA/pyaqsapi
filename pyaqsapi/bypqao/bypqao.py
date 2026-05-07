@@ -19,8 +19,7 @@ def qa_flowrateaudit(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return Quality assurance flowrate audit data.
+    """Return Quality assurance flowrate audit data.
 
     Return quality assurance flow rate audit data aggregated by parameter code
     and Primary Quality Assurance Organization (PQAO) code for bdate - edate
@@ -49,7 +48,7 @@ def qa_flowrateaudit(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -102,8 +101,7 @@ def qa_one_point_qc(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return Quality assurance data - collocated assessment raw data aggregated
+    """Return Quality assurance data - collocated assessment raw data aggregated
     by Primary Quality Assurance Organization (PQAO) code.
 
     Parameters
@@ -129,7 +127,7 @@ def qa_one_point_qc(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -184,8 +182,7 @@ def qa_pep_audit(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of Performance Evaluation Program (PEP) audit data
+    """Return a table of Performance Evaluation Program (PEP) audit data
     aggregated by Primary Quality Assurance Organization (PQAO) code for the
     time frame between bdate and edate.
 
@@ -212,7 +209,7 @@ def qa_pep_audit(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -264,8 +261,7 @@ def qa_blanks(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of blank quality assurance data. Blanks are unexposed
+    """Return a table of blank quality assurance data. Blanks are unexposed
     sample collection devices (e.g., filters) that are transported with the
     exposed sample devices to assess if contamination is occurring during the
     transport or handling of the samples. Data is aggregated by Primary Quality
@@ -294,7 +290,7 @@ def qa_blanks(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -346,8 +342,7 @@ def qa_collocated_assessments(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of blank quality assurance data. Blanks are unexposed
+    """Return a table of blank quality assurance data. Blanks are unexposed
     sample collection devices (e.g., filters) that are transported with the
     exposed sample devices to assess if contamination is occurring during the
     transport or handling of the samples. Data is aggregated by Primary Quality
@@ -376,7 +371,7 @@ def qa_collocated_assessments(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -433,8 +428,7 @@ def qa_flowrateverification(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table containing flow rate Verification data for a parameter code
+    """Return a table containing flow rate Verification data for a parameter code
     aggregated by matching input parameter, and Primary Quality Assurance
     Organization (PQAO) code provided for bdate - edate time.
 
@@ -461,7 +455,7 @@ def qa_flowrateverification(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -518,8 +512,7 @@ def qa_annualperformanceeval(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return quality assurance performance evaluation data - aggregated by
+    """Return quality assurance performance evaluation data - aggregated by
     Primary Quality Assurance Organization (PQAO) for a parameter
     code aggregated by matching input parameter and pqao_code for the
     time frame between bdate and edate.
@@ -547,7 +540,7 @@ def qa_annualperformanceeval(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -605,8 +598,7 @@ def qa_annualperformanceevaltransaction(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return AQS submissions transaction format (RD) of the annual
+    """Return AQS submissions transaction format (RD) of the annual
     performance evaluation data (raw). Includes data pairs for
     QA - aggregated by Primary Quality Assurance Organization (PQAO)
     for a parameter code aggregated by matching input parameter and
@@ -635,7 +627,7 @@ def qa_annualperformanceevaltransaction(
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples

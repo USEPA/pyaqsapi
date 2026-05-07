@@ -12,7 +12,13 @@ from certifi import where
 from pandas import DataFrame, concat
 from ratelimit import limits, sleep_and_retry
 from requests import get
-from requests.exceptions import ConnectionError, HTTPError, Timeout  # noqa # pylint: disable=wrong-spelling-in-comment
+from requests.exceptions import (
+    ConnectionError,
+    HTTPError,
+    Timeout,
+)  # noqa # pylint: disable=wrong-spelling-in-comment
+
+#from typing_extensions import Self
 
 AQS_user: str | None = None
 AQS_key: str | None = None
@@ -20,8 +26,7 @@ ONE_MINUTE = 60  # set 60 second period for ratelimit package decorator
 
 
 class AQSAPI_V2:
-    """
-     AQSAPI_V2 class used to store and retrieve data from the EPA AQS
+    """AQSAPI_V2 class used to store and retrieve data from the EPA AQS
      Datamart API.
 
       # for some reason Sphinx does not like this Attributes section so it is
@@ -56,7 +61,6 @@ class AQSAPI_V2:
     get_request_time():
     get_status()
     get_numberofrows()
-
     """
 
     def __init__(self) -> None:
@@ -71,8 +75,7 @@ class AQSAPI_V2:
         self._numberofrows: int | None = None
 
     def set_header(self, Header: DataFrame) -> None:
-        """
-        Set the header of a single AQSAPI_V2 object. Header must be a
+        """Set the header of a single AQSAPI_V2 object. Header must be a
         pandas DataFrame.
 
         Warns
@@ -96,8 +99,7 @@ class AQSAPI_V2:
             _warn("AQSAPI_V2 header must be a pandas DataFrame", UserWarning)
 
     def get_request_time(self) -> str:
-        """
-        Retrieve the time that the request to the AQS DataMart API was made.
+        """Retrieve the time that the request to the AQS DataMart API was made.
 
         Returns
         -------
@@ -108,8 +110,7 @@ class AQSAPI_V2:
         return str(self._request_time)
 
     def get_numberofrows(self) -> int:
-        """
-        Retrieve the number of rows of data returned from the API call. This information can be used to track the amount
+        """Retrieve the number of rows of data returned from the API call. This information can be used to track the amount
         of data requested.
 
         Returns
@@ -120,8 +121,7 @@ class AQSAPI_V2:
         return int(cast(int, self._numberofrows))
 
     def get_data(self) -> DataFrame:
-        """
-        Return the Data portion of the AQSAPI_V2 instance.
+        """Return the Data portion of the AQSAPI_V2 instance.
 
         Returns
         -------
@@ -132,13 +132,10 @@ class AQSAPI_V2:
         return self._data
 
     def set_data(self, Data: DataFrame) -> None:
-        """
-        Set the Data of a single AQSAPI_V2 object.
+        """Set the Data of a single AQSAPI_V2 object. Data must be a pandas DataFrame.
 
-        Data must be a pandas DataFrame.
-
-        Warns
-        -----
+        Raises
+        ------
         UserWarning
             A warning is thrown if Data is not a pandas DataFrame
 
@@ -153,8 +150,7 @@ class AQSAPI_V2:
             _warn("AQSAPI_V2 data must be a pandas DataFrame", UserWarning)
 
     def get_header(self) -> DataFrame:
-        """
-        Return the Header portion of the AQSAPI_V2 instance.
+        """Return the Header portion of the AQSAPI_V2 instance.
 
         Returns
         -------
@@ -165,8 +161,7 @@ class AQSAPI_V2:
         return self._header
 
     def get_status_code(self) -> str:
-        """
-        Retrieve the status code from the API call.
+        """Retrieve the status code from the API call.
 
         Returns
         -------
@@ -177,8 +172,7 @@ class AQSAPI_V2:
         return str(self._status_code)
 
     def get_url(self) -> str:
-        """
-        Retrieve the URL of the AQS DataMart API request.
+        """Retrieve the URL of the AQS DataMart API request.
 
         Returns
         -------
@@ -189,8 +183,7 @@ class AQSAPI_V2:
         return str(self._url)
 
     def get_status(self) -> str:
-        """
-        Retrieve the status message from the API call.
+        """Retrieve the status message from the API call.
 
         Returns
         -------
@@ -257,8 +250,7 @@ class AQSAPI_V2:
         key: str | None = None,
         AQS_domain: str | None = "https://aqs.epa.gov/data/api",
     ) -> DataFrame | None:
-        """
-        Send AQS request to the AQS API and returns the result.
+        """Send AQS request to the AQS API and returns the result.
 
         This helper function is used to abstract the call to AQS API away from
         functions that need it's result. This helper function is not
@@ -266,20 +258,26 @@ class AQSAPI_V2:
 
         Parameters
         ----------
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        filter : a string which represents the filter used in conjunction with
-                 the service requested. For a list of available services
-                 and filters see
+        aqsfilter : str
+                    a string which represents the filter used in conjunction with
+                    the service requested. For a list of available services
+                    and filters see
                  https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        variables : A python dictionary of containing key-value pairs of
+        variables : dict
+                    A python dictionary of containing key-value pairs of
                     variables to be sent to the AQS DataMart API.
-        AQS_user : A python character object which represents the email account
+        AQS_user : str
+                   A python character object which represents the email account
                    that will be used to authenticate with the AQS API.
-        key : The key associated with the AQS_user account represented as a
+        key : str
+              The key associated with the AQS_user account represented as a
               character string.
-        AQS_domain : The base domain for the url used in API requests. Normally
+        AQS_domain : str
+                     The base domain for the url used in API requests. Normally
                      this should be set to <https://aqs.epa.gov/data/api/>,
                      this parameter allows the domain to be overridden.
 
@@ -292,7 +290,10 @@ class AQSAPI_V2:
         # server = ":AQSDatamartAPI:"
         # check if either aqs_username or aqs_key are None
         if AQS_user is None or key is None:
-            print("Please use the aqs_credentials  function to enter your", "credentials before using this function")
+            print(
+                "Please use the aqs_credentials  function to enter your",
+                "credentials before using this function",
+            )
             return None
         # key is formatted like this to maintain consistency with RAQSAPI
         # rename the "parameter" key to "param" if it exists.
@@ -319,7 +320,9 @@ class AQSAPI_V2:
         header = {"User-Agent": user_agent, "From": AQS_user}
         newline = "\n"
         try:
-            query = get(url=url, params=variables, headers=header, verify=where(), timeout=30)
+            query = get(
+                url=url, params=variables, headers=header, verify=where(), timeout=30
+            )
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
             self._url = query.url
@@ -340,10 +343,8 @@ class AQSAPI_V2:
                  {newline} {timeouterror}",
             )
         except HTTPError as httperror:
-            _warn(
-                f"pyaqsapi experienced a HTTP Error: \
-                 {newline} {httperror}"
-            )
+            _warn(f"pyaqsapi experienced a HTTP Error: \
+                 {newline} {httperror}")
         except Exception as exception:  # pylint: disable=broad-exception-caught
             if query.status_code == 400:
                 if "error" in query.json()["Header"][0].keys():
@@ -362,7 +363,11 @@ class AQSAPI_V2:
                         + "that was provided",
                     )
                 else:
-                    _warn(category=UserWarning, message="pyaqsapi experienced an error:" + f"{newline} {exception}")
+                    _warn(
+                        category=UserWarning,
+                        message="pyaqsapi experienced an error:"
+                        + f"{newline} {exception}",
+                    )
         # finally:
         # self.__aqs_ratelimit() # use ratelimit package instead
         return self
@@ -380,37 +385,44 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         A helper function used by bysite functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        stateFIPS : a python character object which represents the 2 digit
+        stateFIPS : str
+                    a python character object which represents the 2 digit
                     state FIPS code (with leading zero) for the state being
                     requested. Use aqs_states() for the list of available
                     FIPS codes.
-        countycode : a python character object which represents the 3 digit
+        countycode : str
+                    a python character object which represents the 3 digit
                     state FIPS code for the county being requested
                     (with leading zero(s)). Use aqs_counties_by_state() for
                     the list of available county codes for each state.
-        sitenum : a python character object which represents the 4 digit site
+        sitenum : str
+                  a python character object which represents the 4 digit site
                   number (with leading zeros) within the county and state
                   being requested.
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        duration : an optional python character string that represents the
+        duration : str, optional
+                   an optional python character string that represents the
                    parameter duration code that limits returned data to a
                    specific sample duration. The default value of None results
                    in no filtering based on duration code.Valid durations
@@ -419,13 +431,15 @@ class AQSAPI_V2:
                    3/6 day PM averages or lead 3 month rolling averages. Use
                    aqs_sampledurations() for a list of all available
                    duration codes.
-        cbdate : a python date object which represents a "beginning date of
+        cbdate : datetime.date
+                 a python date object which represents a "beginning date of
                  last change" that indicates when the data was last updated.
                  cbdate is used to filter data based on the change date.
                  Only data that changed on or after this date will be
                  returned. This is an optional variable which defaults to
                  None.
-        cedate : a python date object which represents an "end date of last
+        cedate : datetime.date
+                 a python date object which represents an "end date of last
                  change" that indicates when the data was last updated.
                  cedate is used to filter data based on the change date.
                  Only data that changed on or before this date will be
@@ -455,7 +469,16 @@ class AQSAPI_V2:
             "cedate": cedate,
             "cbdate": cbdate,
         }
-        return cast(DataFrame, self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables))
+        return cast(
+            DataFrame,
+            self.__aqs(
+                AQS_user=user,
+                key=key,
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+            ),
+        )
 
     def _aqs_services_by_county(
         self,
@@ -469,34 +492,40 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         This function is used by bycounty functions to call the
         AQSAPI_V2._aqs() function.
 
         Parameters
         ----------
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        stateFIPS : a python character object which represents the 2 digit
+        stateFIPS : str
+                    a python character object which represents the 2 digit
                     state FIPS code (with leading zero) for the state being
                     requested. Use aqs_states() for the list of available
                     FIPS codes.
-        countycode : a python character object which represents the 3 digit
+        countycode : str
+                    a python character object which represents the 3 digit
                     state FIPS code for the county being requested
                     (with leading zero(s)). Use aqs_counties_by_state() for
                     the list of available county codes for each state.
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        duration : an optional python character string that represents the
+        duration : str, optional
+                   an optional python character string that represents the
                    parameter duration code that limits returned data to a
                    specific sample duration. The default value of None results
                    in no filtering based on duration code.Valid durations
@@ -505,13 +534,15 @@ class AQSAPI_V2:
                    3/6 day PM averages or lead 3 month rolling averages. Use
                    aqs_sampledurations() for a list of all available
                    duration codes.
-        cbdate : a python date object which represents a "beginning date of
+        cbdate : datetime.date, optional
+                 a python date object which represents a "beginning date of
                  last change" that indicates when the data was last updated.
                  cbdate is used to filter data based on the change date.
                  Only data that changed on or after this date will be
                  returned. This is an optional variable which defaults to
                  None.
-        cedate : a python date object which represents an "end date of last
+        cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
                  change" that indicates when the data was last updated.
                  cedate is used to filter data based on the change date.
                  Only data that changed on or before this date will be
@@ -540,7 +571,16 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
+        return cast(
+            DataFrame,
+            self.__aqs(
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+                AQS_user=user,
+                key=key,
+            ),
+        )
 
     def _aqs_services_by_state(
         self,
@@ -553,30 +593,35 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         This function is used by bystate functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        stateFIPS : a python character object which represents the 2 digit
+        stateFIPS : str
+                    a python character object which represents the 2 digit
                     state FIPS code (with leading zero) for the state being
                     requested. Use aqs_states() for the list of available
                     FIPS codes.
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        duration : an optional python character string that represents the
+        duration : str, optional
+                   an optional python character string that represents the
                    parameter duration code that limits returned data to a
                    specific sample duration. The default value of None results
                    in no filtering based on duration code.Valid durations
@@ -585,13 +630,15 @@ class AQSAPI_V2:
                    3/6 day PM averages or lead 3 month rolling averages. Use
                    aqs_sampledurations() for a list of all available
                    duration codes.
-        cbdate : a python date object which represents a "beginning date of
+        cbdate : datetime.date, optional
+                 a python date object which represents a "beginning date of
                  last change" that indicates when the data was last updated.
                  cbdate is used to filter data based on the change date.
                  Only data that changed on or after this date will be
                  returned. This is an optional variable which defaults to
                  None.
-        cedate : a python date object which represents an "end date of last
+        cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
                  change" that indicates when the data was last updated.
                  cedate is used to filter data based on the change date.
                  Only data that changed on or before this date will be
@@ -619,7 +666,16 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
+        return cast(
+            DataFrame,
+            self.__aqs(
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+                AQS_user=user,
+                key=key,
+            ),
+        )
 
     def _aqs_services_by_box(
         self,
@@ -635,42 +691,50 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         This function is used by bybox functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        minlat : a python character object which represents the minimum
+        minlat : str
+                 a python character object which represents the minimum
                  latitude of a geographic box. Decimal latitude with north
                  begin positive. Only data north of this latitude will be
                  returned.
-        maxlat : a python character object which represents the maximum
+        maxlat : str
+                 a python character object which represents the maximum
                  latitude of a geographic box. Decimal latitude with north
                  begin positive. Only data south of this latitude will be
                  returned.
-        minlon : a python character object which represents the minimum
+        minlon : str
+                 a python character object which represents the minimum
                  longitude of a geographic box. Decimal longitude with east
                  begin positive. Only data east of this longitude will be
                  returned.
-        maxlon : a python character object which represents the maximum
+        maxlon : str
+                 a python character object which represents the maximum
                  longitude of a geographic box. Decimal longitude with east
                  begin positive. Only data west of this longitude will be
                  returned. Note that -80 is less than -70.
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        duration : an optional python character string that represents the
+        duration : str, optional
+                   an optional python character string that represents the
                    parameter duration code that limits returned data to a
                    specific sample duration. The default value of None results
                    in no filtering based on duration code.Valid durations
@@ -679,13 +743,15 @@ class AQSAPI_V2:
                    3/6 day PM averages or lead 3 month rolling averages. Use
                    aqs_sampledurations() for a list of all available
                    duration codes.
-        cbdate : a python date object which represents a "beginning date of
+        cbdate : datetime.date, optional
+                 a python date object which represents a "beginning date of
                  last change" that indicates when the data was last updated.
                  cbdate is used to filter data based on the change date.
                  Only data that changed on or after this date will be
                  returned. This is an optional variable which defaults to
                  None.
-        cedate : a python date object which represents an "end date of last
+        cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
                  change" that indicates when the data was last updated.
                  cedate is used to filter data based on the change date.
                  Only data that changed on or before this date will be
@@ -715,7 +781,16 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
+        return cast(
+            DataFrame,
+            self.__aqs(
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+                AQS_user=user,
+                key=key,
+            ),
+        )
 
     def _aqs_services_by_cbsa(
         self,
@@ -728,29 +803,34 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         This function is used by bycbsa functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        cbsa_code: a python character object which represents the 5 digit AQS
+        cbsa_code: str
+                   a python character object which represents the 5 digit AQS
                    Core Based Statistical Area code (the same as the census
                    code, with leading zeros).
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        duration : an optional python character string that represents the
+        duration : str, optional
+                   an optional python character string that represents the
                    parameter duration code that limits returned data to a
                    specific sample duration. The default value of None results
                    in no filtering based on duration code.Valid durations
@@ -759,13 +839,15 @@ class AQSAPI_V2:
                    3/6 day PM averages or lead 3 month rolling averages. Use
                    aqs_sampledurations() for a list of all available
                    duration codes.
-        cbdate : a python date object which represents a "beginning date of
+        cbdate : datetime.date, optional
+                 a python date object which represents a "beginning date of
                  last change" that indicates when the data was last updated.
                  cbdate is used to filter data based on the change date.
                  Only data that changed on or after this date will be
                  returned. This is an optional variable which defaults to
                  None.
-        cedate : a python date object which represents an "end date of last
+        cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
                  change" that indicates when the data was last updated.
                  cedate is used to filter data based on the change date.
                  Only data that changed on or before this date will be
@@ -792,7 +874,16 @@ class AQSAPI_V2:
             "cbdate": cbdate,
             "cedate": cedate,
         }
-        return cast(DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=key))
+        return cast(
+            DataFrame,
+            self.__aqs(
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+                AQS_user=user,
+                key=key,
+            ),
+        )
 
     def _aqs_services_by_pqao(
         self,
@@ -804,29 +895,34 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         This function is used by bypqao functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        pqao_code : a python character object which represents the 4 digit AQS
+        pqao_code : str
+                    a python character object which represents the 4 digit AQS
                     Primary Quality Assurance Organization code
                     (with leading zeroes).
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        duration : an optional python character string that represents the
+        duration : str, optional
+                   an optional python character string that represents the
                    parameter duration code that limits returned data to a
                    specific sample duration. The default value of None results
                    in no filtering based on duration code.Valid durations
@@ -835,13 +931,15 @@ class AQSAPI_V2:
                    3/6 day PM averages or lead 3 month rolling averages. Use
                    aqs_sampledurations() for a list of all available
                    duration codes.
-        cbdate : a python date object which represents a "beginning date of
+        cbdate : datetime.date, optional
+                 a python date object which represents a "beginning date of
                  last change" that indicates when the data was last updated.
                  cbdate is used to filter data based on the change date.
                  Only data that changed on or after this date will be
                  returned. This is an optional variable which defaults to
                  None.
-        cedate : a python date object which represents an "end date of last
+        cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
                  change" that indicates when the data was last updated.
                  cedate is used to filter data based on the change date.
                  Only data that changed on or before this date will be
@@ -867,7 +965,14 @@ class AQSAPI_V2:
             "cedate": cedate,
         }
         return cast(
-            DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
+            DataFrame,
+            self.__aqs(
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+                AQS_user=user,
+                key=AQS_key,
+            ),
         )
 
     def _aqs_services_by_MA(
@@ -880,34 +985,40 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         This function is used by byma functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        MA_code : a python character object which represents the 4 digit AQS
+        MA_code : str
+                  a python character object which represents the 4 digit AQS
                   Monitoring Agency code (with leading zeroes).
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        cbdate : a python date object which represents a "beginning date of
+        cbdate : datetime.date, optional
+                 a python date object which represents a "beginning date of
                  last change" that indicates when the data was last updated.
                  cbdate is used to filter data based on the change date.
                  Only data that changed on or after this date will be
                  returned. This is an optional variable which defaults to
                  None.
-        cedate : a python date object which represents an "end date of last
+        cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
                  change" that indicates when the data was last updated.
                  cedate is used to filter data based on the change date.
                  Only data that changed on or before this date will be
@@ -934,7 +1045,14 @@ class AQSAPI_V2:
             "cedate": cedate,
         }
         return cast(
-            DataFrame, self.__aqs(service=service, aqsfilter=aqsfilter, variables=variables, AQS_user=user, key=AQS_key)
+            DataFrame,
+            self.__aqs(
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+                AQS_user=user,
+                key=AQS_key,
+            ),
         )
 
     def _aqs_list_services(
@@ -947,35 +1065,41 @@ class AQSAPI_V2:
         pqao_code: str | None = None,
         parameterclass: str | None = None,
     ) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+        """A helper function and should not be called by the end user.
 
         This function is used by list functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        aqsfilter : a string which represents the filter used in conjunction
+        aqsfilter : str or list[str]
+                    a string which represents the filter used in conjunction
                     with the service requested. For a list of available
                     services and filters see
                     https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        countycode : a python character object which represents the 3 digit
+        countycode : str, optional
+                     a python character object which represents the 3 digit
                     state FIPS code for the county being requested
                     (with leading zero(s)). Use aqs_counties_by_state() for
                     the list of available county codes for each state.
-        stateFIPS : a python character object which represents the 2 digit
+        stateFIPS : str, optional
+                    a python character object which represents the 2 digit
                     state FIPS code (with leading zero) for the state being
                     requested. Use aqs_states() for the list of available
                     FIPS codes.
-        cbsa_code : a python character object which represents the 5 digit AQS
+        cbsa_code : str, optional
+                   a python character object which represents the 5 digit AQS
                    Core Based Statistical Area code (the same as the census
                    code, with leading zeros).
-        MA_code : a python character object which represents the 4 digit AQS
+        MA_code : str, optional
+                  a python character object which represents the 4 digit AQS
                   Monitoring Agency code (with leading zeroes).
-        pqao_code : a python character object which represents the 4 digit AQS
+        pqao_code : str, optional
+                    a python character object which represents the 4 digit AQS
                     Primary Quality Assurance Organization code
                     (with leading zeroes).
-        parameterclass: a python character object that represents the class
+        parameterclass: str, optional
+                    a python character object that represents the class
                     requested, use aqs_classes() for retrieving available
                     classes. The parameterclass python character object must be
                     a valid parameterclass as returned from aqs_classes().
@@ -1001,22 +1125,34 @@ class AQSAPI_V2:
             "pqao_code": pqao_code,
             "agency": MA_code,
         }
-        return cast(DataFrame, self.__aqs(AQS_user=user, key=key, service=service, aqsfilter=aqsfilter, variables=variables))
+        return cast(
+            DataFrame,
+            self.__aqs(
+                AQS_user=user,
+                key=key,
+                service=service,
+                aqsfilter=aqsfilter,
+                variables=variables,
+            ),
+        )
 
-    def _aqs_metadata_services(self, aqsfilter: str | None = None, service: str | None = None) -> DataFrame | None:
-        """
-        A helper function and should not be called by the end user.
+    def _aqs_metadata_services(
+        self, aqsfilter: str | None = None, service: str | None = None
+    ) -> DataFrame | None:
+        """A helper function and should not be called by the end user.
 
         This function is used by list functions to call the AQSAPI_V2._aqs()
         function.
 
         Parameters
         ----------
-        aqsfilter : a string which represents the filter used in conjunction
+        aqsfilter : str, optional
+                    a string which represents the filter used in conjunction
                     with the service requested. For a list of available
                     services and filters see
                     https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        service : the service requested by the AQS API encoded as a string;
+        service : str, optional
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
 
@@ -1030,12 +1166,18 @@ class AQSAPI_V2:
         key = AQS_key
         variables = {"email": user, "key": key, "service": service}
         return cast(
-            DataFrame, self.__aqs(AQS_user=user, key=key, service="metaData", aqsfilter=aqsfilter, variables=variables)
+            DataFrame,
+            self.__aqs(
+                AQS_user=user,
+                key=key,
+                service="metaData",
+                aqsfilter=aqsfilter,
+                variables=variables,
+            ),
         )
 
     def _renameaqsvariables(self, name1: str, name2: str) -> DataFrame:
-        """
-        Rename the two columns returned in the Data
+        """Rename the two columns returned in the Data
         portion of a AQSAPI_v2 object from "value" and
         "value_represented" to name1 and name2 respectively.
 
@@ -1044,8 +1186,6 @@ class AQSAPI_V2:
 
         Parameters
         ----------
-        self : an AQSAPI_V2 object
-            DESCRIPTION.
         name1 : str
             a character string representing the new name of the first column of
             the Data portion of the AQSAPI_V2 object. (can be set to None)
@@ -1060,12 +1200,13 @@ class AQSAPI_V2:
         to name1 and name2 respectively.
 
         """
-        return self._data.rename(columns={self._data.columns[0]: name1, self._data.columns[1]: name2})
+        return self._data.rename(
+            columns={self._data.columns[0]: name1, self._data.columns[1]: name2}
+        )
 
 
 def aqs_credentials(username: str | None = None, key: str | None = None) -> None:
-    """
-    Set the user credentials for the AQS API. This function
+    """Set the user credentials for the AQS API. This function
     needs to be called once and only once every time this library
     is re-loaded. Users must have a valid username and key which
     can be obtained through the use of the aqs_sign_up function,
@@ -1073,10 +1214,12 @@ def aqs_credentials(username: str | None = None, key: str | None = None) -> None
 
     Parameters
     ----------
-    username : a python character object which represents the email account
-                   that will be used to connect to the AQS API.
-    key : the key used in conjunction with the username given to connect to
-              AQS Data Mart.
+    username : str
+               a python character object which represents the email account
+               that will be used to connect to the AQS API.
+    key : str
+          the key used in conjunction with the username given to connect to
+          AQS Data Mart.
 
     Returns
     -------
@@ -1092,19 +1235,21 @@ def aqs_credentials(username: str | None = None, key: str | None = None) -> None
         print("Please set the username and key parameters")
 
 
-def aqs_removeheader(aqsobject: None | DataFrame | AQSAPI_V2 | list[DataFrame] | list[AQSAPI_V2]) -> DataFrame | AQSAPI_V2:
-    """
-    Coerces a single AQS_Data_Mart_APIv2 instance or a list of
+def aqs_removeheader(
+    aqsobject: None | DataFrame | AQSAPI_V2 | list[DataFrame] | list[AQSAPI_V2],
+) -> DataFrame | AQSAPI_V2:
+    """Coerces a single AQS_Data_Mart_APIv2 instance or a list of
     AQS_Data_Mart_APIv2 instance into a single DataFrame object.
     This function decouples the Data from the AQSAPI_v2 object and returns
     only the Data portion as a DataFrame. If the input is a list of AQSAPI_v2
     objects combines the Data portion of each AQS_Data_Mart_APIv2 object
-    into a DataFrame with Header information discarded.
-    Else returns the input with no changes.
+    into a DataFrame with Header information discarded,
+    else returns the input with no changes.
 
     Parameters
     ----------
-    aqsobject : An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.
+    aqsobject : pyaqsapi.helperfunctions.AQSAPI_V2
+        An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.
 
     Returns
     -------
@@ -1127,10 +1272,10 @@ def _aqsmultiyearcall(
     service: str,
     # name1: None | str,
     # name2: None | str,
+    singlecall: bool | None = False,
     **kwargs: Any,
 ) -> list[DataFrame] | None:
-    """
-        A helper function not to be used by end users. Used to perform multiple
+    """A helper function not to be used by end users. Used to perform multiple
         calls to the API on API calls which only allow a single year of data to
         be returned, simplifying multi-year calls for the end user.
 
@@ -1155,17 +1300,22 @@ def _aqsmultiyearcall(
 
         Parameters
         ----------
-        fun : The name of the pyaqsapi.services_by_* helperfunction to be called
+        fun : str
+              The name of the pyaqsapi.services_by_* helperfunction to be called
               represented as a string.
-        parameter : a character list or a single character string
+        parameter : str or list[str]
+                    a character list or a single character string
                     which represents the parameter code of the air
                     pollutant related to the data being requested.
-        bdate : a python date object which represents that begin date of the
+        bdate : datetime.date
+                a python date object which represents that begin date of the
                 data selection. Only data on or after this date will be
                 returned.
-        edate : a python date object which represents that end date of the data
+        edate : datetime.date
+                a python date object which represents that end date of the data
                 selection. Only data on or before this date will be returned.
-        service : the service requested by the AQS API encoded as a string;
+        service : str
+                  the service requested by the AQS API encoded as a string;
                   For a list of available services see
                   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
         name1 : str
@@ -1176,7 +1326,11 @@ def _aqsmultiyearcall(
                 a character string representing the new name of the second
                 column of the Data portion of the AQSAPI_V2 object.
                 (can be set to None)
-        **kwargs : additional parameters to be set to the API as needed for each
+        singlecall: bool, optional, default=False
+                   A boolean value, when set to True will send multiple years of data as a single API call. Currently only
+                   the monitors service supports this functionality.
+        **kwargs : optional
+                   additional parameters to be set to the API as needed for each
                    API service requested. These optional parameters include
                    sitenum, countycode, stateFIPS, cbsa_code, ma_code, minlat,
                    maxlat, minlon, pqao_code, duration, cbdate and cedate.
@@ -1186,7 +1340,8 @@ def _aqsmultiyearcall(
         Warns
         -----
         UserWarning
-            A warning is thrown if bdate > edate
+            A UserWarning is thrown if bdate > edate, a  NameError is thrown if fun is not one of the available
+            AQSAPI_V2 service helper functions.
 
         Returns
         -------
@@ -1197,13 +1352,14 @@ def _aqsmultiyearcall(
 
     """
     aqsresult = AQSAPI_V2()  # ignore the variable not used warning.
+
     if bdate > edate:
         # throw a warning if bdate > edate
         _warn("bdate > edate", UserWarning)
         bdatelist = []
         edatelist = []
-    elif bdate.year == edate.year:
-        # create date lists of a single year
+    elif (bdate.year == edate.year) or singlecall:
+        # create date lists of a single year of a single call
         edatelist = [edate]
         bdatelist = [bdate]
     elif bdate.year < edate.year:
@@ -1214,73 +1370,100 @@ def _aqsmultiyearcall(
         # likewise, the list of end dates should be December 31 for each year
         # until end date (including the year of bdate and not the year of
         # edate) with edate appended to the end.
-        bdatelist = [date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)]
+        bdatelist = [
+            date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)
+        ]
         bdatelist.insert(0, bdate)
-        edatelist = [date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)]
+        edatelist = [
+            date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)
+        ]
         edatelist.append(edate)
 
-    params = DataFrame({"parameter": parameter, "bdate": bdatelist, "edate": edatelist, "service": service})
+    params = DataFrame(
+        {
+            "parameter": parameter,
+            "bdate": bdatelist,
+            "edate": edatelist,
+            "service": service,
+        }
+    )
 
     for k, v in kwargs.items():
         params.insert(0, k, v)
 
-    params = params.reindex(
-        columns=[
-            "parameter",
-            "bdate",
-            "edate",
-            "stateFIPS",
-            "countycode",
-            "sitenum",
-            "MA_code",
-            "pqao_code",
-            "cbsa_code",
-            "minlat",
-            "maxlat",
-            "minlon",
-            "maxlon",
-            "service",
-            "duration",
-            "cbdate",
-            "cedate",
-        ]
-    )
+    params = cast(DataFrame,
+                  params.reindex(
+                    columns=[
+                      "parameter",
+                      "bdate",
+                      "edate",
+                      "stateFIPS",
+                      "countycode",
+                      "sitenum",
+                      "MA_code",
+                      "pqao_code",
+                      "cbsa_code",
+                      "minlat",
+                      "maxlat",
+                      "minlon",
+                      "maxlon",
+                      "service",
+                      "duration",
+                      "cbdate",
+                      "cedate",
+                      ]
+                    )
+                  )
     # Drop columns that are entirely NaN (never provided by caller).
     # Keep columns that have at least one non-NaN value across all rows.
     params = params.dropna(axis="columns", how="all")
     params = [tuple(x) for x in params.values]  # type: ignore
-    # match fun: #requires Python>=3.10, use if statements instead
-    #     case "_aqs_services_by_site":
-    #         return(list(starmap(aqsresult._aqs_services_by_site, params)))  # type: ignore
-    #     case "_aqs_services_by_county":
-    #         return(list(starmap(aqsresult._aqs_services_by_county, params)))  # type: ignore
-    #     case "_aqs_services_by_state":
-    #         return(list(starmap(aqsresult._aqs_services_by_state, params)))  # type: ignore
-    #     case "_aqs_services_by_MA":
-    #         return(list(starmap(aqsresult._aqs_services_by_MA, params)))  # type: ignore
-    #     case "_aqs_services_by_pqao":
-    #         return(list(starmap(aqsresult._aqs_services_by_pqao, params)))  # type: ignore
-    #     case "_aqs_services_by_cbsa":
-    #         return(list(starmap(aqsresult._aqs_services_by_cbsa, params)))  # type: ignore
-    #     case "_aqs_services_by_box":
-    #         return(list(starmap(aqsresult._aqs_services_by_box, params)))  # type: ignore
-    #     case _:
-    #         RuntimeError("invalid function sent to _aqsmultiyearcall")  # type: ignore
-    if fun == "_aqs_services_by_site":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)))
-    elif fun == "_aqs_services_by_county":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params)))
-    elif fun == "_aqs_services_by_state":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params)))
-    elif fun == "_aqs_services_by_MA":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params)))
-    elif fun == "_aqs_services_by_pqao":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)))
-    elif fun == "_aqs_services_by_cbsa":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)))
-    elif fun == "_aqs_services_by_box":
-        returnvalue = list(starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params)))
-    else:  # pylint disable=R1705
-        returnvalue = None
+    match fun:  # requires Python>=3.10, use if statements instead
+        case "_aqs_services_by_site":
+            return list(starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)))  # type: ignore
+        case "_aqs_services_by_county":
+            return list(starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params)))  # type: ignore
+        case "_aqs_services_by_state":
+            return list(starmap(aqsresult._aqs_services_by_state,cast(Iterable[Any], params)))  # type: ignore
+        case "_aqs_services_by_MA":
+            return list(starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params)))  # type: ignore
+        case "_aqs_services_by_pqao":
+            return list(starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)))  # type: ignore
+        case "_aqs_services_by_cbsa":
+            return list(starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)))  # type: ignore
+        case "_aqs_services_by_box":
+            return list(starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params)))  # type: ignore
+        case _:
+            raise NameError("invalid function sent to _aqsmultiyearcall")  # type: ignore
+    # if fun == "_aqs_services_by_site":
+    #     returnvalue = list(
+    #         starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params))
+    #     )
+    # elif fun == "_aqs_services_by_county":
+    #     returnvalue = list(
+    #         starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params))
+    #     )
+    # elif fun == "_aqs_services_by_state":
+    #     returnvalue = list(
+    #         starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params))
+    #     )
+    # elif fun == "_aqs_services_by_MA":
+    #     returnvalue = list(
+    #         starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params))
+    #     )
+    # elif fun == "_aqs_services_by_pqao":
+    #     returnvalue = list(
+    #         starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params))
+    #     )
+    # elif fun == "_aqs_services_by_cbsa":
+    #     returnvalue = list(
+    #         starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params))
+    #     )
+    # elif fun == "_aqs_services_by_box":
+    #     returnvalue = list(
+    #         starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params))
+    #     )
+    # else:  # pylint disable=R1705
+    #     returnvalue = None
 
-    return cast(list[DataFrame] | None, returnvalue)
+    # return cast(list[DataFrame] | None, returnvalue)

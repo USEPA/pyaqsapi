@@ -35,11 +35,21 @@ def test_aqs_knownissues(setuppyaqsapi):
 
 
 def test_counties_by_state(setuppyaqsapi):
-    assert listfunctions.aqs_counties_by_state(stateFIPS="37", return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_counties_by_state(
+            stateFIPS="37", return_header=True
+        ).get_status_code()
+        == "200"
+    )
 
 
 def test_aqs_sites_by_county(setuppyaqsapi):
-    assert listfunctions.aqs_sites_by_county(stateFIPS="15", countycode="001", return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_sites_by_county(
+            stateFIPS="15", countycode="001", return_header=True
+        ).get_status_code()
+        == "200"
+    )
 
 
 def test_aqs_classes(setuppyaqsapi):
@@ -47,7 +57,12 @@ def test_aqs_classes(setuppyaqsapi):
 
 
 def test_aqs_parameters_by_class(setuppyaqsapi):
-    assert listfunctions.aqs_parameters_by_class(parameterclass="CRITERIA", return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_parameters_by_class(
+            parameterclass="CRITERIA", return_header=True
+        ).get_status_code()
+        == "200"
+    )
 
 
 def test_aqs_mas(setuppyaqsapi):
@@ -67,12 +82,21 @@ def test_aqs_states(setuppyaqsapi):
 
 
 def test_aqs_revisionhistory(setuppyaqsapi):
-    assert listfunctions.aqs_revisionhistory(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_revisionhistory(return_header=True).get_status_code() == "200"
+    )
 
 
 def test_aqs_fields_by_service(setuppyaqsapi):
-    assert listfunctions.aqs_fields_by_service(service="sampleData", return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_fields_by_service(
+            service="sampleData", return_header=True
+        ).get_status_code()
+        == "200"
+    )
 
 
 def test_aqs_sampledurations(setuppyaqsapi):
-    assert listfunctions.aqs_sampledurations(return_header=True).get_status_code() == "200"
+    assert (
+        listfunctions.aqs_sampledurations(return_header=True).get_status_code() == "200"
+    )

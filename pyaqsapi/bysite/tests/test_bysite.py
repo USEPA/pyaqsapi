@@ -20,7 +20,7 @@ def setuppyaqsapi(autouse=True):
             path.append(abspath("./dev/"))
             import local  # type: ignore[import-not-found]
         except ImportError:
-            raise (ImportError("test_bysite did not import local.py"))
+            raise ImportError("test_bysite did not import local.py")
         AQSuser, AQSkey = local.setuppyaqsapitest()
         aqs_credentials(username=AQSuser, key=AQSkey)
     else:

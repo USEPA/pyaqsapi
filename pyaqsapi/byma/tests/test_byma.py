@@ -12,7 +12,9 @@ import pytest
 # from pyaqsapi.helperfunctions import aqs_credentials
 byma = import_module(name="..byma", package="pyaqsapi.byma")
 # from pyaqsapi.helperfunctions import aqs_credentials
-helperfunctions = import_module(name="..helperfunctions", package="pyaqsapi.helperfunctions")
+helperfunctions = import_module(
+    name="..helperfunctions", package="pyaqsapi.helperfunctions"
+)
 
 
 @pytest.fixture

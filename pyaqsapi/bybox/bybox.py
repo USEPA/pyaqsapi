@@ -20,8 +20,7 @@ def monitors(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of monitors.
+    """Return a table of monitors.
 
     Return a table of monitors and related metadata sites with the provided
     parameter, aggregated by latitude/longitude bounding box (_by_box) for
@@ -29,26 +28,48 @@ def monitors(
 
     Parameters
     ----------
-    parameter : a character string which represents the parameter code of the
+    parameter : str or list[str]
+                a character string which represents the parameter code of the
                 air pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    minlat : a python character object which represents the minimum latitude
+    minlat : str
+             a python character object which represents the minimum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data north of this latitude will be returned.
-    maxlat : a python character object which represents the maximum latitude
+    maxlat : str
+             a python character object which represents the maximum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data south of this latitude will be returned.
-    minlon : a python character object which represents the minimum longitude
+    minlon : str
+             a python character object which represents the minimum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data east of this longitude will be returned.
-    maxlon : a python character object which represents the maximum longitude
+    maxlon : str
+             a python character object which represents the maximum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
+             last change" that indicates when the data was last updated.
+             cbdate is used to filter data based on the change date.
+             Only data that changed on or after this date will be
+             returned. This is an optional variable which defaults to
+                 None.
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
+             change" that indicates when the data was last updated.
+             cedate is used to filter data based on the change date.
+             Only data that changed on or before this date will be
+             returned. This is an optional variable which defaults
+             to None.
+    return_header : datetime.date, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_V2 object.
 
     Examples
@@ -74,10 +95,6 @@ def monitors(
     box (_by_box).
 
     """
-    # The monitors service is able to pull multiple years of data
-    # without making repeated calls to the API but is done this way to
-    # maintain consistency. For the aqs_monitors* function using a single API
-    # call will allow the function to finish faster for multiyear calls.
     service = "monitors"
     fun = "_aqs_services_by_box"
 
@@ -95,6 +112,7 @@ def monitors(
         service=service,
         cbdate=cbdate,
         cedate=cedate,
+        singlecall=True,
     )
 
     if return_header:
@@ -115,36 +133,57 @@ def sampledata(
     duration: str | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return sample data where the data is aggregated by latitude/longitude
+    """Return sample data where the data is aggregated by latitude/longitude
     bounding box (_by_box).
 
-    If return_header is FALSE (default) this function
+    If return_header is False (default) this function
     returns a single DataFrame with the requested data. If return_header is
-    TRUE returns a list of AQSAPI_V2 objects
+    True returns a list of AQSAPI_V2 objects
 
     Parameters
     ----------
-    parameter : a character string which represents the parameter code of the
+    parameter : str or list[str]
+                a character string which represents the parameter code of the
                 air pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    minlat : a python character object which represents the minimum latitude
+    minlat : datetime.date
+             a python character object which represents the minimum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data north of this latitude will be returned.
-    maxlat : a python character object which represents the maximum latitude
+    maxlat : str
+             a python character object which represents the maximum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data south of this latitude will be returned.
-    minlon : a python character object which represents the minimum longitude
+    minlon : str
+             a python character object which represents the minimum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data east of this longitude will be returned.
-    maxlon : a python character object which represents the maximum longitude
+    maxlon : str
+              a python character object which represents the maximum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
-    duration : an optional python character string that represents the
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
+             last change" that indicates when the data was last updated.
+             cbdate is used to filter data based on the change date.
+             Only data that changed on or after this date will be
+             returned. This is an optional variable which defaults to
+             None.
+    cedate : datetime.date
+             a python date object which represents an "end date of last
+             change" that indicates when the data was last updated.
+             cedate is used to filter data based on the change date.
+             Only data that changed on or before this date will be
+             returned. This is an optional variable which defaults
+             to None.
+    duration : str, optional
+               an optional python character string that represents the
                parameter duration code that limits returned data to a
                specific sample duration. The default value of None results
                in no filtering based on duration code.Valid durations
@@ -153,7 +192,8 @@ def sampledata(
                3/6 day PM averages or lead 3 month rolling averages. Use
                aqs_sampledurations() for a list of all available
                duration codes.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_V2 object.
 
     Examples
@@ -214,8 +254,7 @@ def annualsummary(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of annual data aggregated by latitude/longitude
+    """Return a DataFrame of annual data aggregated by latitude/longitude
     bounding box (_by_box).
 
     Annual summary contains a DataFrame matching the input parameter for the
@@ -225,26 +264,48 @@ def annualsummary(
 
     Parameters
     ----------
-    parameter : a character string which represents the parameter code of the
+    parameter : str or list[str]
+                a character string which represents the parameter code of the
                 air pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    minlat : a python character object which represents the minimum latitude
+    minlat : str
+             a python character object which represents the minimum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data north of this latitude will be returned.
-    maxlat : a python character object which represents the maximum latitude
+    maxlat : str
+             a python character object which represents the maximum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data south of this latitude will be returned.
-    minlon : a python character object which represents the minimum longitude
+    minlon : str
+             a python character object which represents the minimum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data east of this longitude will be returned.
-    maxlon : a python character object which represents the maximum longitude
+    maxlon : str
+             a python character object which represents the maximum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    cbdate : datetime.date, optional
+                 a python date object which represents a "beginning date of
+                 last change" that indicates when the data was last updated.
+                 cbdate is used to filter data based on the change date.
+                 Only data that changed on or after this date will be
+                 returned. This is an optional variable which defaults to
+                 None.
+    cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
+                 change" that indicates when the data was last updated.
+                 cedate is used to filter data based on the change date.
+                 Only data that changed on or before this date will be
+                 returned. This is an optional variable which defaults
+                 to None.
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_V2 object.
 
     Examples
@@ -304,8 +365,7 @@ def dailysummary(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of daily summary data aggregated by latitude/longitude
+    """Return a DataFrame of daily summary data aggregated by latitude/longitude
     bounding box (_by_box).
 
     Daily summary contains a DataFrame matching the input parameter and
@@ -314,26 +374,47 @@ def dailysummary(
 
     Parameters
     ----------
-    parameter : a character string which represents the parameter code of the
+    parameter : str or list[str]
+                a character string which represents the parameter code of the
                 air pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    minlat : a python character object which represents the minimum latitude
+    minlat : str
+             a python character object which represents the minimum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data north of this latitude will be returned.
-    maxlat : a python character object which represents the maximum latitude
+    maxlat : str
+             a python character object which represents the maximum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data south of this latitude will be returned.
-    minlon : a python character object which represents the minimum longitude
+    minlon : str
+             a python character object which represents the minimum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data east of this longitude will be returned.
-    maxlon : a python character object which represents the maximum longitude
+    maxlon : str
+             a python character object which represents the maximum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    cbdate : datetime.dat, optional
+                 a python date object which represents a "beginning date of
+                 last change" that indicates when the data was last updated.
+                 cbdate is used to filter data based on the change date.
+                 Only data that changed on or after this date will be
+                 returned. This is an optional variable which defaults to
+                 None.
+    cedate : datetime.date, optional
+                 a python date object which represents an "end date of last
+                 change" that indicates when the data was last updated.
+                 cedate is used to filter data based on the change date.
+                 Only data that changed on or before this date will be
+                 returned. This is an optional variable which defaults
+                 to None.
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_V2 object.
 
     Examples
@@ -395,8 +476,7 @@ def quarterlysummary(
     duration: str | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of quarterly data aggregate by latitude/longitude
+    """Return a DataFrame of quarterly data aggregate by latitude/longitude
     bounding box (_by_box).
 
     Quarterly summary contains a DataFrame matching the input parameter,
@@ -422,26 +502,58 @@ def quarterlysummary(
 
     Parameters
     ----------
-    parameter : a character string which represents the parameter code of the
+    parameter : str or list[str]
+                a character string which represents the parameter code of the
                 air pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    minlat : a python character object which represents the minimum latitude
+    minlat : str
+             a python character object which represents the minimum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data north of this latitude will be returned.
-    maxlat : a python character object which represents the maximum latitude
+    maxlat : str
+             a python character object which represents the maximum latitude
              of a geographic box. Decimal latitude with north begin positive.
              Only data south of this latitude will be returned.
-    minlon : a python character object which represents the minimum longitude
+    minlon : str
+             a python character object which represents the minimum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data east of this longitude will be returned.
-    maxlon : a python character object which represents the maximum longitude
+    maxlon : str
+             a python character object which represents the maximum longitude
              of a geographic box. Decimal longitude with east begin positive.
              Only data west of this longitude will be returned. Note that -80
              is less than -70.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
+             last change" that indicates when the data was last updated.
+             cbdate is used to filter data based on the change date.
+             Only data that changed on or after this date will be
+             returned. This is an optional variable which defaults to
+             None.
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
+             change" that indicates when the data was last updated.
+             cedate is used to filter data based on the change date.
+             Only data that changed on or before this date will be
+             returned. This is an optional variable which defaults
+             to None.
+    duration : str, optional
+               an optional python character string that represents the
+               parameter duration code that limits returned data to a
+               specific sample duration. The default value of None results
+               in no filtering based on duration code.Valid durations
+               include actual sample durations and not calculated durations
+               such as 8 hour carbon monoxide or ozone rolling averages,
+               3/6 day PM averages or lead 3 month rolling averages. Use
+               aqs_sampledurations() for a list of all available
+               duration codes.
+    return_header : bool, optional,default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_V2 object.
 
     Examples

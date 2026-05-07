@@ -96,3 +96,7 @@ url
 verifications
 waittime
 numberofrows
+elif
+returnvalue
+bool
+singlecall

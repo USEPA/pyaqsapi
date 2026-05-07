@@ -93,7 +93,7 @@ API Data Mart server. The library connects to AQS Data Mart API via Hypertext
 Transfer Protocol (HTTP) so there is no need to install external ODBC drivers,
 configure ODBC connections or deal with the security vulnerabilities associated
 with them. Most functions have a parameter, ``return_header`` which by default
-is set to ``FALSE``. If the user decides to set ``return_header`` to ``TRUE``,
+is set to ``False``. If the user decides to set ``return_header`` to ``True``,
 then that function will return a python 3 ``AQSAPI_V2`` object. An ``AQSAPI_V2``
 object has instance methods for retrieving the data requested, header
 information, and other metadata related to the API call. After each call to the

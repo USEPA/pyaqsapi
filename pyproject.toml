@@ -106,7 +106,7 @@ quote-style = "double"
 indent-style = "space"
 
 [tool.ruff.lint.pydocstyle]
-convention = "google"
+convention = "numpy"
 
 [tool.setuptools]
 packages = ["pyaqsapi",
@@ -139,3 +139,6 @@ exclude_dirs = ["tests",
                "pyaqsapi/bypqao/tests",
                "pyaqsapi/bybox/tests",
                "pyaqsapi/bycbsa/tests"]
+
+[tool.sphinx-linter]
+max-line-length = 125

@@ -8,8 +8,7 @@ from . import helperfunctions
 
 
 def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of any known issues with system functionality or the data.
+    """Return a table of any known issues with system functionality or the data.
     These are usually issues that have been identified internally and will
     require some time to correct in Data Mart or the API. This function
     implements a direct API call to Data Mart and returns data directly from
@@ -18,7 +17,8 @@ def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -42,17 +42,20 @@ def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame
         return aqsresult.get_data()
 
 
-def aqs_counties_by_state(stateFIPS: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of all counties in within the stateFIPS provided.
+def aqs_counties_by_state(
+    stateFIPS: str, return_header: bool | None = False
+) -> AQSAPI_V2 | DataFrame:
+    """Return a table of all counties in within the stateFIPS provided.
 
     Parameters
     ----------
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=True
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -76,22 +79,25 @@ def aqs_counties_by_state(stateFIPS: str, return_header: bool | None = False) ->
         return aqsresult.get_data()
 
 
-def aqs_sites_by_county(stateFIPS: str, countycode: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return data containing a table of all air monitoring sites with the input
+def aqs_sites_by_county(
+    stateFIPS: str, countycode: str, return_header: bool | None = False
+) -> AQSAPI_V2 | DataFrame:
+    """Return data containing a table of all air monitoring sites with the input
     state and county FIPS code combination.
 
     Parameters
     ----------
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -108,7 +114,9 @@ def aqs_sites_by_county(stateFIPS: str, countycode: str, return_header: bool | N
     """
     aqsfilter = "sitesByCounty"
     aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter, stateFIPS=stateFIPS, countycode=countycode)
+    aqsresult._aqs_list_services(
+        aqsfilter=aqsfilter, stateFIPS=stateFIPS, countycode=countycode
+    )
     if return_header:
         return aqsresult
     if not return_header:
@@ -116,15 +124,14 @@ def aqs_sites_by_county(stateFIPS: str, countycode: str, return_header: bool | N
 
 
 def aqs_classes(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of Parameter classes (groups of parameters, i.e. "criteria"
+    """Return a table of Parameter classes (groups of parameters, i.e. "criteria"
     or "all"). The information from this function can be used as input to other
     API calls.
 
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -148,22 +155,25 @@ def aqs_classes(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
         return aqsresult.get_data()
 
 
-def aqs_parameters_by_class(parameterclass: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of Parameter classes (groups of parameters, i.e. "criteria"
+def aqs_parameters_by_class(
+    parameterclass: str, return_header: bool | None = False
+) -> AQSAPI_V2 | DataFrame:
+    """Return a table of Parameter classes (groups of parameters, i.e. "criteria"
     or "all"). The information from this function can be used as input to other
     API calls.
 
 
     Parameters
     ----------
-    parameterclass: a python character object that represents the class
+    parameterclass: str
+                    a python character object that represents the class
                     requested, use aqs_classes() for retrieving available
                     classes. The parameterclass python character object must be
                     a valid parameterclass as returned from aqs_classes().
                     The class must be an exact match to what is returned from
                     aqs_classes().
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -188,12 +198,12 @@ def aqs_parameters_by_class(parameterclass: str, return_header: bool | None = Fa
 
 
 def aqs_mas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a DataFrame of monitoring agencies (MA).
+    """Return a DataFrame of monitoring agencies (MA).
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -218,12 +228,12 @@ def aqs_mas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
 
 
 def aqs_pqaos(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of primary quality assurance organizations (pqaos).
+    """Return a table of primary quality assurance organizations (pqaos).
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -247,13 +257,13 @@ def aqs_pqaos(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
 
 
 def aqs_cbsas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of all Core Based Statistical Areas (cbsa) and their
+    """Return a table of all Core Based Statistical Areas (cbsa) and their
     associated cbsa_codes.
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -278,13 +288,13 @@ def aqs_cbsas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
 
 
 def aqs_states(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of US states, US territories, and the district or Columbia
+    """Return a table of US states, US territories, and the district or Columbia
     with their respective FIPS codes.
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -308,13 +318,13 @@ def aqs_states(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
 
 
 def aqs_revisionhistory(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table Returns that contains change history to the AQS Data Mart
+    """Return a table Returns that contains change history to the AQS Data Mart
     API.
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -338,18 +348,20 @@ def aqs_revisionhistory(return_header: bool | None = False) -> AQSAPI_V2 | DataF
         return aqsresult.get_data()
 
 
-def aqs_fields_by_service(service: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table containing the list and definitions of fields in the
+def aqs_fields_by_service(
+    service: str, return_header: bool | None = False
+) -> AQSAPI_V2 | DataFrame:
+    """Return a table containing the list and definitions of fields in the
         service requested.
 
     Parameters
     ----------
-    service :   a string which represents the services provided by the AQS
-                API. For a list of available services refer to
-                https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    service : str
+              a string which represents the services provided by the AQS
+              API. For a list of available services refer to
+              https://aqs.epa.gov/aqsweb/documents/data_api.html#services
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -373,8 +385,7 @@ def aqs_fields_by_service(service: str, return_header: bool | None = False) -> A
 
 
 def aqs_sampledurations(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
-    """
-    Return a table of sample durations and their associated duration codes.
+    """Return a table of sample durations and their associated duration codes.
     Returned values are not calculated durations such as 8 hour carbon monoxide
     or ozone rolling averages, 3/6 day PM averages or Pb 3 month rolling
     averages.
@@ -382,8 +393,8 @@ def aqs_sampledurations(return_header: bool | None = False) -> AQSAPI_V2 | DataF
 
     Parameters
     ----------
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------

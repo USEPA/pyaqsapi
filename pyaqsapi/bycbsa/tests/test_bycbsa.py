@@ -12,7 +12,9 @@ import pytest
 # import pyaqsapi.bycbsa as bycbsa
 bycbsa = import_module(name="..bycbsa", package="pyaqsapi.bycbsa")
 # from pyaqsapi.helperfunctions import aqs_credentials
-helperfunctions = import_module(name="..helperfunctions", package="pyaqsapi.helperfunctions")
+helperfunctions = import_module(
+    name="..helperfunctions", package="pyaqsapi.helperfunctions"
+)
 
 
 @pytest.fixture
@@ -40,7 +42,7 @@ def setuppyaqsapi_bycbsa(autouse=True):
     helperfunctions.aqs_credentials(username=AQSuser, key=AQSkey)
 
 
-def test_monitors(setuppyaqsapi_bycbsa):
+def test_monitors_bycbsa(setuppyaqsapi_bycbsa):
     assert (
         bycbsa.monitors(
             parameter="42602",
@@ -53,7 +55,7 @@ def test_monitors(setuppyaqsapi_bycbsa):
     )
 
 
-def test_annualsummary(setuppyaqsapi_bycbsa):
+def test_annualsummary_bycbsa(setuppyaqsapi_bycbsa):
     assert (
         bycbsa.annualsummary(
             parameter="42602",
@@ -66,7 +68,7 @@ def test_annualsummary(setuppyaqsapi_bycbsa):
     )
 
 
-def test_dailysummary(setuppyaqsapi_bycbsa):
+def test_dailysummary_bycbsa(setuppyaqsapi_bycbsa):
     assert (
         bycbsa.dailysummary(
             parameter="42602",
@@ -79,7 +81,7 @@ def test_dailysummary(setuppyaqsapi_bycbsa):
     )
 
 
-def test_sampledata(setuppyaqsapi_bycbsa):
+def test_sampledata_bycbsa(setuppyaqsapi_bycbsa):
     assert (
         bycbsa.sampledata(
             parameter="42602",
@@ -92,7 +94,7 @@ def test_sampledata(setuppyaqsapi_bycbsa):
     )
 
 
-def test_quarterlysummary(setuppyaqsapi_bycbsa):
+def test_quarterlysummary_bycbsa(setuppyaqsapi_bycbsa):
     assert (
         bycbsa.quarterlysummary(
             parameter="42602",

@@ -31,12 +31,20 @@ def setuppyaqsapi(autouse=True):
 
 
 def test_aqs_is_available(setuppyaqsapi):
-    assert metadatafunctions.aqs_is_available(return_header=True).get_status_code() == "200"
+    assert (
+        metadatafunctions.aqs_is_available(return_header=True).get_status_code()
+        == "200"
+    )
 
 
 def test_aqs_knownissues(setuppyaqsapi):
-    assert metadatafunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
+    assert (
+        metadatafunctions.aqs_knownissues(return_header=True).get_status_code() == "200"
+    )
 
 
 def test_aqs_revisionhistory(setuppyaqsapi):
-    assert metadatafunctions.aqs_revisionhistory(return_header=True).get_status_code() == "200"
+    assert (
+        metadatafunctions.aqs_revisionhistory(return_header=True).get_status_code()
+        == "200"
+    )

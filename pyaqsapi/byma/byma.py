@@ -17,35 +17,41 @@ def qa_flowrateaudit(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return Quality assurance flowrate audit data.
+    """Return Quality assurance flowrate audit data.
 
     Return a table containing flow rate audit data aggregated by parameter
     code and monitoring agency code (_by_MA) for bdate - edate time frame.
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -98,33 +104,39 @@ def qa_one_point_qc(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table one point QC check data aggregated by monitoring agency
+    """Return a table one point QC check data aggregated by monitoring agency
     code (_by_MA).
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -177,34 +189,40 @@ def qa_pep_audit(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of Performance Evaluation Program (PEP) audit data
+    """Return a table of Performance Evaluation Program (PEP) audit data
     aggregated by monitoring agency code (_by_MA) for the time frame between
     bdate and edate.
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -261,8 +279,7 @@ def qa_blanks(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of blank quality assurance data. Blanks are unexposed
+    """Return a table of blank quality assurance data. Blanks are unexposed
     sample collection devices (e.g., filters) that are transported with the
     exposed sample devices to assess if contamination is occurring during the
     transport or handling of the samples. Data is aggregated by monitoring
@@ -270,27 +287,34 @@ def qa_blanks(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -343,34 +367,40 @@ def qa_collocated_assessments(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of collocated assessment data aggregated by matching input
+    """Return a table of collocated assessment data aggregated by matching input
     parameter, and monitoring agency (MA) code provided for bdate - edate
     time frame.
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -427,34 +457,40 @@ def qa_flowrateverification(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table containing flow rate Verification data for a parameter code
+    """Return a table containing flow rate Verification data for a parameter code
     aggregated by matching input parameter, and monitoring agency (MA) code
     provided for bdate - edate time frame.
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -511,8 +547,7 @@ def transactionsample(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return transactionsample data - aggregated by Monitoring agency (MA) in
+    """Return transactionsample data - aggregated by Monitoring agency (MA) in
     the AQS Submission Transaction Format (RD) sample (raw) data for a
     parameter code aggregated by matching input parameter, and monitoring
     agency (MA) code provided for bdate - edate time frame. Includes data both
@@ -520,27 +555,34 @@ def transactionsample(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -594,34 +636,40 @@ def qa_annualpeferomanceeval(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return quality assurance performance evaluation data - aggregated by
+    """Return quality assurance performance evaluation data - aggregated by
     by Monitoring agency (MA) for a parameter code aggregated by matching input
     parameter and MA_code for the time frame between bdate and edate.
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -679,35 +727,41 @@ def qa_annualperformanceevaltransaction(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return AQS submissions transaction format (RD) of the annual performance
+    """Return AQS submissions transaction format (RD) of the annual performance
     evaluation data (raw). Includes data pairs for QA - aggregated by
     Monitoring agency (MA) for a parameter code aggregated by matching input
     parameter and MA_code provided for bdate - edate time frame.
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    MA_code : a python character object which represents the 4 digit AQS
+    MA_code : str
+              a python character object which represents the 4 digit AQS
               Monitoring Agency code (with leading zeroes).
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples

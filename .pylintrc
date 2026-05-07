@@ -52,7 +52,17 @@ ignore=CVS
 # ignore-list. The regex matches against paths and can be in Posix or Windows
 # format. Because '\\' represents the directory delimiter on Windows systems,
 # it can't be used as an escape character.
-ignore-paths=^(.*/|)tests/.*$
+ignore-paths=^tests/*,
+             ^.tox/.*$,
+             ^dev/.*$,
+             ^docs/conf.py$,
+             ^pyaqsapi/bysite/tests/*,
+             ^pyaqsapi/bycounty/tests/*,
+             ^pyaqsapi/bystate/tests/*,
+             ^pyaqsapi/bypqao/tests/*,
+             ^pyaqsapi/byma/tests/*,
+             ^pyaqsapi/bybox/tests/*,
+             ^pyaqsapi/bycbsa/tests/*
 
 # Files or directories matching the regular expression patterns are skipped.
 # The regex matches against base names, not paths. The default value ignores
@@ -464,7 +474,14 @@ enable=wrong-spelling-in-comment,
 
 # List of qualified names (i.e., library.method) which require a timeout
 # parameter e.g. 'requests.api.get,requests.api.post'
-timeout-methods=requests.api.delete,requests.api.get,requests.api.head,requests.api.options,requests.api.patch,requests.api.post,requests.api.put,requests.api.request
+timeout-methods=requests.api.delete,
+                requests.api.get,
+                requests.api.head,
+                requests.api.options,
+                requests.api.patch,
+                requests.api.post,
+                requests.api.put,
+                requests.api.request
 
 
 [MISCELLANEOUS]

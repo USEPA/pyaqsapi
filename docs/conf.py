@@ -6,7 +6,7 @@ class DummyTransform(sphinx.builders.latex.transforms.BibliographyTransform):
         pass
 
 
-sphinx.builders.latex.transforms.BibliographyTransform = DummyTransform
+sphinx.builders.latex.transforms.BibliographyTransform = DummyTransform  # type: ignore
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -85,7 +85,7 @@ bibtex_encoding = "utf-8"
 html_search_language = "en"
 
 # sphinxcontrib.bibtex bibtext file location
-bibtex_bibfiles = [os.path.join(os.path.dirname(__file__), "manual/pyaqsapi.bib")]
+bibtex_bibfiles = ["manual/pyaqsapi.bib"]
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ["_templates"]

@@ -19,8 +19,7 @@ def monitors(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of monitors.
+    """Return a table of monitors.
 
     Return a table of monitors and related metadata at sites
          with the provided parameter, stateFIPS, county_code, and sitenum
@@ -32,36 +31,45 @@ def monitors(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -108,6 +116,7 @@ def monitors(
         service=service,
         cbdate=cbdate,
         cedate=cedate,
+        singlecall=True,
     )
 
     if return_header:
@@ -127,8 +136,7 @@ def qa_flowrateaudit(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return Quality assurance flowrate audit data.
+    """Return Quality assurance flowrate audit data.
 
     Return a table containing flow rate audit data aggregated by
     parameter code, stateFIPS, countycode and site number for
@@ -150,36 +158,45 @@ def qa_flowrateaudit(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -242,8 +259,7 @@ def qa_one_point_qc(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of one point QC raw data aggregated
+    """Return a table of one point QC raw data aggregated
     by parameter code, stateFIPS, countycode and site number.
 
     Notes
@@ -262,36 +278,45 @@ def qa_one_point_qc(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -354,8 +379,7 @@ def sampledata(
     duration: str | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return sample data where the data is aggregated at the site level.
+    """Return sample data where the data is aggregated at the site level.
 
     Notes
     -----
@@ -373,36 +397,45 @@ def sampledata(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    duration : an optional python character string that represents the
+    duration : str, optional
+               an optional python character string that represents the
                parameter duration code that limits returned data to a
                specific sample duration. The default value of None results
                in no filtering based on duration code.Valid durations
@@ -411,8 +444,8 @@ def sampledata(
                3/6 day PM averages or lead 3 month rolling averages. Use
                aqs_sampledurations() for a list of all available
                duration codes.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+               If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -475,8 +508,7 @@ def annualsummary(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of annual data aggregated at the site level.
+    """Return a DataFrame of annual data aggregated at the site level.
 
     Annual summary contains a DataFrame matching the input parameter,
     stateFIPS, county_code, and sitenum provided for bdate - edate time frame.
@@ -498,37 +530,45 @@ def annualsummary(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -593,8 +633,7 @@ def qa_blanks(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of blank quality assurance data.
+    """Return a table of blank quality assurance data.
     Blanks are unexposed sample collection devices (e.g.,
     filters) that are transported with the exposed sample devices
     to assess if contamination is occurring during the transport
@@ -616,37 +655,45 @@ def qa_blanks(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-    returns a AQSAPI_v2 object.
+    return_header : bool, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -708,8 +755,7 @@ def dailysummary(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of data aggregated at the site level.
+    """Return a DataFrame of data aggregated at the site level.
 
     Daily summary contains a DataFrame matching the input parameter, stateFIPS,
     county_code, and sitenum provided for bdate - edate time frame. Variables
@@ -731,37 +777,45 @@ def dailysummary(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, Default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -823,8 +877,7 @@ def qa_collocated_assessments(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of collocated assessment data aggregated by matching
+    """Return a table of collocated assessment data aggregated by matching
     input parameter, stateFIPS, county_code, and sitenum provided for
     bdate - edate time frame.
 
@@ -844,37 +897,45 @@ def qa_collocated_assessments(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+             a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -938,8 +999,7 @@ def qa_flowrateverification(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of containing flow rate verification data aggregated by
+    """Return a table of containing flow rate verification data aggregated by
     matching input parameter, stateFIPS, county_code, and sitenum provided for
     bdate - edate time frame.
 
@@ -959,37 +1019,45 @@ def qa_flowrateverification(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date,optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool,optional, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -1051,8 +1119,7 @@ def transactionsample(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of Returns transactionsample data aggregated by site
+    """Return a table of Returns transactionsample data aggregated by site
     in the AQS Submission Transaction Format (RD) sample (raw) data aggregated
     by matching input parameter, stateFIPS, county_code, and sitenum provided
     for bdate - edate time frame.
@@ -1073,37 +1140,45 @@ def transactionsample(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=True
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -1165,8 +1240,7 @@ def qa_annualpeferomanceeval(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return quality assurance performance evaluation data - aggregated by
+    """Return quality assurance performance evaluation data - aggregated by
     site for a parameter code aggregated by matching input
     parameter, sitenum, countycode and stateFIPS provided for
     bdate - edate time frame.
@@ -1187,37 +1261,45 @@ def qa_annualpeferomanceeval(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date,optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -1280,8 +1362,7 @@ def qa_annualperformanceevaltransaction(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return AQS submissions transaction format (RD) of the annual
+    """Return AQS submissions transaction format (RD) of the annual
     performance evaluation data (raw). Includes data pairs for
     QA - aggregated by site for a parameter code aggregated by matching
     input parameter, sitenum, countycode and stateFIPS provided for
@@ -1303,37 +1384,45 @@ def qa_annualperformanceevaltransaction(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -1397,8 +1486,7 @@ def quarterlysummary(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of quarterly data aggregated at the site level.
+    """Return a DataFrame of quarterly data aggregated at the site level.
 
     Quarterly summary contains a DataFrame matching the input parameter,
     stateFIPS, county_code, and sitenum provided for bdate - edate time frame.
@@ -1423,37 +1511,45 @@ def quarterlysummary(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date,optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date,optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------
@@ -1514,8 +1610,7 @@ def qa_pep_audit(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of Performance Evaluation Program (PEP) audit
+    """Return a table of Performance Evaluation Program (PEP) audit
     data aggregated by parameter code, stateFIPS, countycode and
     site number for the time frame between bdate and edate.
 
@@ -1535,37 +1630,45 @@ def qa_pep_audit(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : str
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    stateFIPS : a python character object which represents the 2 digit
+    stateFIPS : str
+                a python character object which represents the 2 digit
                 state FIPS code (with leading zero) for the state being
                 requested. Use aqs_states() for the list of available
                 FIPS codes.
-    countycode : a python character object which represents the 3 digit
+    countycode : str
+                 a python character object which represents the 3 digit
                  state FIPS code for the county being requested
                  (with leading zero(s)). Use aqs_counties_by_state() for
                  the list of available county codes for each state.
-    sitenum : a python character object which represents the 4 digit site
+    sitenum : str
+              a python character object which represents the 4 digit site
               number (with leading zeros) within the county and state
               being requested.
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
-                    returns a AQSAPI_v2 object.
+    return_header : bool, optional, default=False
+             If False (default) only returns data requested. If True returns a AQSAPI_v2 object.
 
     Examples
     --------

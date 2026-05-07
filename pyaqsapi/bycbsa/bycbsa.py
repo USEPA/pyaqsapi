@@ -19,8 +19,7 @@ def monitors(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a table of monitors.
+    """Return a table of monitors.
 
     Return a table of monitors at all sites with the provided parameter,
     aggregated by Core Based Statistical Area (CBSA) for bdate - edate
@@ -28,28 +27,35 @@ def monitors(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    cbsa_code: a python character object which represents the 5 digit AQS Core
+    cbsa_code: str
+               a python character object which represents the 5 digit AQS Core
                Based Statistical Area code (the same as the census code, with
                leading zeros)
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -71,6 +77,7 @@ def monitors(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors at a site.
     """
+
     # The monitors service is able to pull multiple years of data
     # without making repeated calls to the API but is done this way to
     # maintain consistency. For the aqs_monitors* function using a single API
@@ -89,6 +96,7 @@ def monitors(
         service=service,
         cbdate=cbdate,
         cedate=cedate,
+        singlecall=True,
     )
 
     if return_header:
@@ -107,34 +115,40 @@ def sampledata(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return sample data where the data is aggregated at the Core Based
+    """Return sample data where the data is aggregated at the Core Based
     Statistical Area (cbsa) level.
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : str
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    cbsa_code: a python character object which represents the 5 digit AQS Core
+    cbsa_code: datetime.date
+               a python character object which represents the 5 digit AQS Core
                Based Statistical Area code (the same as the census code, with
                leading zeros)
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    duration : an optional python character string that represents the
+    duration : str, optional
+               an optional python character string that represents the
                parameter duration code that limits returned data to a specific
                sample duration. The default value of None results in
                no filtering based on duration code.Valid durations include
@@ -143,7 +157,7 @@ def sampledata(
                averages or lead 3 month rolling averages. Use
                aqs_sampledurations() for a list of all available
                duration codes.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -197,8 +211,7 @@ def annualsummary(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of annual data aggregated at the Core Based
+    """Return a DataFrame of annual data aggregated at the Core Based
     Statistical Area (cbsa) level.
 
     Annual summary contains a DataFrame matching the input parameter and
@@ -207,28 +220,35 @@ def annualsummary(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+           a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    cbsa_code: a python character object which represents the 5 digit AQS Core
+    cbsa_code: str
+               a python character object which represents the 5 digit AQS Core
                Based Statistical Area code (the same as the census code, with
                leading zeros)
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime,date,optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date,optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                   If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -282,8 +302,7 @@ def dailysummary(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return a DataFrame of data aggregated by Core Based Statistical Area
+    """Return a DataFrame of data aggregated by Core Based Statistical Area
     (cbsa).
 
     Daily summary contains a DataFrame matching the input parameter and
@@ -292,28 +311,35 @@ def dailysummary(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    cbsa_code: a python character object which represents the 5 digit AQS Core
+    cbsa_code: str
+               a python character object which represents the 5 digit AQS Core
                Based Statistical Area code (the same as the census code, with
                leading zeros)
-    cbdate : a python date object which represents a "beginning date of
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
@@ -367,8 +393,7 @@ def quarterlysummary(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """
-    Return quarterly summary data aggregated by Core Based Statistical Area
+    """Return quarterly summary data aggregated by Core Based Statistical Area
     (cbsa_code).
 
     Notes
@@ -390,28 +415,35 @@ def quarterlysummary(
 
     Parameters
     ----------
-    parameter : a character list or a single character string
+    parameter : str or list[str]
+                a character list or a single character string
                 which represents the parameter code of the air
                 pollutant related to the data being requested.
-    bdate : a python date object which represents that begin date of the data
+    bdate : datetime.date
+            a python date object which represents that begin date of the data
             selection. Only data on or after this date will be returned.
-    edate : a python date object which represents that end date of the data
+    edate : datetime.date
+            a python date object which represents that end date of the data
             selection. Only data on or before this date will be returned.
-    cbsa_code: a python character object which represents the 5 digit AQS Core
-               Based Statistical Area code (the same as the census code, with
-               leading zeros).
-    cbdate : a python date object which represents a "beginning date of
+    cbsa_code:str
+              a python character object which represents the 5 digit AQS Core
+              Based Statistical Area code (the same as the census code, with
+              leading zeros).
+    cbdate : datetime.date, optional
+             a python date object which represents a "beginning date of
              last change" that indicates when the data was last updated.
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be returned.
              This is an optional variable which defaults to None.
-    cedate : a python date object which represents an "end date of last
+    cedate : datetime.date, optional
+             a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
              cedate is used to filter data based on the change date.
              Only data that changed on or before this date will be
              returned. This is an optional variable which defaults
              to None.
-    return_header : If FALSE (default) only returns data requested. If TRUE
+    return_header : bool, optional, default=False
+                    If False (default) only returns data requested. If True
                     returns a AQSAPI_v2 object.
 
     Examples
