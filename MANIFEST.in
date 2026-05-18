@@ -13,12 +13,19 @@ exclude codeinventory.json
 exclude codemeta.json
 exclude .coveragerc
 exclude pylint_import-dependency-graph.png
+exclude .actrc
+exclude .bandit
+exclude .coverage
+exclude .coveragerc
+exclude .dockerignore
+exclude .gitattributes
+exclude .gitignore
 
-
-# Exclude common build and editor artifacts
+# Exclude common development, build and editor artifacts
 global-exclude __pycache__
 global-exclude *.py[cod]
 global-exclude *.so
+exclude pylint_import-dependency-graph.png
 
 # Prune top-level development, CI, and editor folders
 prune .devcontainer/
@@ -31,3 +38,6 @@ prune dist/
 prune dev/
 prune codeql-custom-queries-python/
 prune htmlcov/
+exclude pyaqsapi.code-workspace
+exclude .ruff_cache/
+exclude .pytest_cache/

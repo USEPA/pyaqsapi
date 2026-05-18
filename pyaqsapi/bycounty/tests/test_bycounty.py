@@ -1,4 +1,4 @@
-"""pyaqsapi tests for functions imported from the bycounty submodule"""
+"""pyaqsapi tests for functions imported from the bycounty submodule."""
 
 from datetime import date
 from importlib import import_module
@@ -11,9 +11,7 @@ import pytest
 # import pyaqsapi.bycounty as bycounty
 bycounty = import_module(name="..bycounty", package="pyaqsapi.bycounty")
 # from pyaqsapi.helperfunctions import aqs_credentials
-helperfunctions = import_module(
-    name="..helperfunctions", package="pyaqsapi.helperfunctions"
-)
+helperfunctions = import_module(name="..helperfunctions", package="pyaqsapi.helperfunctions")
 
 
 @pytest.fixture

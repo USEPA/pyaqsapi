@@ -1,18 +1,9 @@
-import sphinx.builders.latex.transforms
+"""Configuration file for the Sphinx documentation builder.
 
-
-class DummyTransform(sphinx.builders.latex.transforms.BibliographyTransform):
-    def run(self, **kwargs):
-        pass
-
-
-sphinx.builders.latex.transforms.BibliographyTransform = DummyTransform  # type: ignore
-
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+This file only contains a selection of the most common options. For a full
+list see the documentation:
+https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
 
 # -- Path setup ---------------------------------------------------------------
 
@@ -22,6 +13,16 @@ sphinx.builders.latex.transforms.BibliographyTransform = DummyTransform  # type:
 #
 import os
 import sys
+
+import sphinx.builders.latex.transforms
+
+
+class DummyTransform(sphinx.builders.latex.transforms.BibliographyTransform):
+    def run(self, **kwargs):
+        pass
+
+
+sphinx.builders.latex.transforms.BibliographyTransform = DummyTransform  # type: ignore
 
 sys.path.insert(0, os.path.abspath(".."))
 

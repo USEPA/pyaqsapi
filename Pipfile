@@ -34,5 +34,3 @@ pytest-rerunfailures = "*"
 pytest-ruff = "*"
 pytest-sugar = "*"
 
-[requires]
-python_version = ">=3.10"

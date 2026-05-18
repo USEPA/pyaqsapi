@@ -1,10 +1,7 @@
-"""listfunctions."""
-
 from pandas import DataFrame
 
-from pyaqsapi import helperfunctions
-from pyaqsapi.helperfunctions import AQSAPI_V2
-
+from pyaqsapi import helperfunctions as helperfunctions
+from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
 def aqs_counties_by_state(stateFIPS: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of all counties in within the stateFIPS provided.
@@ -32,14 +29,6 @@ def aqs_counties_by_state(stateFIPS: str, return_header: bool | None = False) ->
     (pandas DataFrame or an AQSAPI_V2 object): all counties in the requested
     state.
     """
-    aqsfilter = "countiesByState"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter, stateFIPS=stateFIPS)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_sites_by_county(stateFIPS: str, countycode: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return data containing a table of all air monitoring sites with the input
@@ -72,14 +61,6 @@ def aqs_sites_by_county(stateFIPS: str, countycode: str, return_header: bool | N
     (pandas DataFrame or an AQSAPI_V2 object): all air monitoring sites with
     the requested state and county FIPS codes.
     """
-    aqsfilter = "sitesByCounty"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter, stateFIPS=stateFIPS, countycode=countycode)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_classes(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of Parameter classes (groups of parameters, i.e. "criteria"
@@ -104,19 +85,12 @@ def aqs_classes(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     (pandas DataFrame or an AQSAPI_V2 object): Parameter classes (groups of
     parameters, i.e. "criteria" or "all").
     """
-    aqsfilter = "classes"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_parameters_by_class(parameterclass: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of Parameter classes (groups of parameters, i.e. "criteria"
     or "all"). The information from this function can be used as input to other
     API calls.
+
 
     Parameters
     ----------
@@ -144,15 +118,6 @@ def aqs_parameters_by_class(parameterclass: str, return_header: bool | None = Fa
     parameterclass requested. None is returned for parameterclasses not found.
     """
 
-    aqsfilter = "parametersByClass"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(parameterclass=parameterclass, aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
-
 def aqs_mas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a DataFrame of monitoring agencies (MA).
 
@@ -174,14 +139,6 @@ def aqs_mas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     (pandas DataFrame or an AQSAPI_V2 object): monitoring agencies and their
     associated agency code.
     """
-    aqsfilter = "mas"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_pqaos(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of primary quality assurance organizations (pqaos).
@@ -203,14 +160,6 @@ def aqs_pqaos(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     (pandas DataFrame or an AQSAPI_V2 object): pqaos and their associated
     pqao_codes.
     """
-    aqsfilter = "pqaos"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_cbsas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of all Core Based Statistical Areas (cbsa) and their
@@ -234,14 +183,6 @@ def aqs_cbsas(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     (pandas DataFrame or an AQSAPI_V2 object): all cbsas and their associated
     cbsa_codes.
     """
-    aqsfilter = "cbsas"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_states(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of US states, US territories, and the district or Columbia
@@ -264,14 +205,6 @@ def aqs_states(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     (pandas DataFrame or an AQSAPI_V2 object): states and their associated FIPS
     code.
     """
-    aqsfilter = "states"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_fields_by_service(service: str, return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table containing the list and definitions of fields in the
@@ -298,14 +231,6 @@ def aqs_fields_by_service(service: str, return_header: bool | None = False) -> A
     (pandas DataFrame or an AQSAPI_V2 object): details the status of the AQS
         API.
     """
-    aqsfilter = "fieldsByService"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_metadata_services(service=service, aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()
-
 
 def aqs_sampledurations(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of sample durations and their associated duration codes.
@@ -330,10 +255,3 @@ def aqs_sampledurations(return_header: bool | None = False) -> AQSAPI_V2 | DataF
     (pandas DataFrame or an AQSAPI_V2 object): sample durations and
     their associated duration codes
     """
-    aqsfilter = "duration"
-    aqsresult = helperfunctions.AQSAPI_V2()
-    aqsresult._aqs_list_services(aqsfilter=aqsfilter)
-    if return_header:
-        return aqsresult
-    if not return_header:
-        return aqsresult.get_data()

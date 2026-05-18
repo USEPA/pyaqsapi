@@ -1,14 +1,8 @@
-"""Functions that aggregate data by pqao
-(By Primary Quality Assurance Organization).
-"""
-
 from datetime import date
 
 from pandas import DataFrame
 
-import pyaqsapi.helperfunctions as helperfunctions
-from pyaqsapi.helperfunctions import AQSAPI_V2
-
+from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
 def qa_flowrateaudit(
     parameter: str,
@@ -73,27 +67,6 @@ def qa_flowrateaudit(
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested pqao_code.
     """
-    service = "qaOnePointQcRawData"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_one_point_qc(
     parameter: str,
@@ -153,27 +126,6 @@ def qa_one_point_qc(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): one point qc data within a pqao
     """
-    service = "qaOnePointQcRawData"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_pep_audit(
     parameter: str,
@@ -235,27 +187,6 @@ def qa_pep_audit(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance PEP audit data
     for a Primary Quality Assurance Organization.
     """
-    service = "qaPepAudits"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_blanks(
     parameter: str,
@@ -319,27 +250,6 @@ def qa_blanks(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance blank data
     for monitors within a pqao.
     """
-    service = "qaBlanks"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_collocated_assessments(
     parameter: str,
@@ -401,27 +311,6 @@ def qa_collocated_assessments(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance blank data
     for monitors within a pqao.
     """
-    service = "qaCollocatedAssessments"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_flowrateverification(
     parameter: str,
@@ -484,27 +373,6 @@ def qa_flowrateverification(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors within a pqao.
     """
-    service = "qaFlowRateVerifications"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_annualperformanceeval(
     parameter: str,
@@ -569,27 +437,6 @@ def qa_annualperformanceeval(
     performance evaluation data. for single monitoring site for the
     pqao_code requested for the time frame between bdate and edate.
     """
-    service = "qaAnnualPerformanceEvaluations"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_annualperformanceevaltransaction(
     parameter: str,
@@ -656,23 +503,3 @@ def qa_annualperformanceevaltransaction(
     sitenum, countycode and stateFIPS requested for the time frame
     between bdate and edate
     """
-    service = "transactionsQaAnnualPerformanceEvaluations"
-    fun = "_aqs_services_by_pqao"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        pqao_code=pqao_code,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)

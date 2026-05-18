@@ -1,11 +1,11 @@
-from os import environ, getcwd
+from os import environ
 from os.path import abspath, exists
 from sys import path
 
 import pytest
 from pandas import DataFrame
 from pyaqsapi.helperfunctions import aqs_credentials
-from pyaqsapi import listfunctions
+from pyaqsapi import metadatafunctions
 
 
 @pytest.fixture
@@ -33,5 +33,5 @@ def setuppyaqsapi(autouse=True):
 # none of the other test functions use aqsremove_header, so we create a unit
 # test to make sure that
 def test_aqs_removeheader(setuppyaqsapi):
-    returnvalue = listfunctions.aqs_knownissues(return_header=False)
+    returnvalue = metadatafunctions.aqs_knownissues(return_header=False)
     assert isinstance(returnvalue, DataFrame)

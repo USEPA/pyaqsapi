@@ -18,7 +18,7 @@ from requests.exceptions import (
     Timeout,
 )  # noqa # pylint: disable=wrong-spelling-in-comment
 
-#from typing_extensions import Self
+# from typing_extensions import Self
 
 AQS_user: str | None = None
 AQS_key: str | None = None
@@ -65,6 +65,7 @@ class AQSAPI_V2:
 
     def __init__(self) -> None:
         """Initiate the AQSAPI_V2 instance."""
+
         self._header: DataFrame = DataFrame()
         self._data: DataFrame = DataFrame()
         self._request_time: str | None = None
@@ -320,9 +321,7 @@ class AQSAPI_V2:
         header = {"User-Agent": user_agent, "From": AQS_user}
         newline = "\n"
         try:
-            query = get(
-                url=url, params=variables, headers=header, verify=where(), timeout=30
-            )
+            query = get(url=url, params=variables, headers=header, verify=where(), timeout=30)
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
             self._url = query.url
@@ -343,8 +342,10 @@ class AQSAPI_V2:
                  {newline} {timeouterror}",
             )
         except HTTPError as httperror:
-            _warn(f"pyaqsapi experienced a HTTP Error: \
-                 {newline} {httperror}")
+            _warn(
+                f"pyaqsapi experienced a HTTP Error: \
+                 {newline} {httperror}"
+            )
         except Exception as exception:  # pylint: disable=broad-exception-caught
             if query.status_code == 400:
                 if "error" in query.json()["Header"][0].keys():
@@ -365,8 +366,7 @@ class AQSAPI_V2:
                 else:
                     _warn(
                         category=UserWarning,
-                        message="pyaqsapi experienced an error:"
-                        + f"{newline} {exception}",
+                        message="pyaqsapi experienced an error:" + f"{newline} {exception}",
                     )
         # finally:
         # self.__aqs_ratelimit() # use ratelimit package instead
@@ -451,8 +451,7 @@ class AQSAPI_V2:
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
 
         """
-        # global AQS_user
-        # global AQS_key
+
         user = AQS_user
         key = AQS_key
         aqsfilter = "bySite"
@@ -554,8 +553,6 @@ class AQSAPI_V2:
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
 
         """
-        # global AQS_user
-        # global AQS_key
         aqsfilter = "byCounty"
         user = AQS_user
         key = AQS_key
@@ -650,8 +647,6 @@ class AQSAPI_V2:
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
 
         """
-        # global AQS_user
-        # global AQS_key
         aqsfilter = "byState"
         user = AQS_user
         key = AQS_key
@@ -762,8 +757,6 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        # global AQS_user
-        # global AQS_key
         aqsfilter = "byBox"
         user = AQS_user
         key = AQS_key
@@ -858,8 +851,6 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        # global AQS_user
-        # global AQS_key
         aqsfilter = "byCBSA"
         user = AQS_user
         key = AQS_key
@@ -949,8 +940,6 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        # global AQS_user
-        # global AQS_key
         aqsfilter = "byPQAO"
         user = AQS_user
         key = AQS_key
@@ -1029,8 +1018,7 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        # global AQS_user
-        # global AQS_key
+
         aqsfilter = "byMA"
         user = AQS_user
         key = AQS_key
@@ -1110,8 +1098,6 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        # global AQS_user
-        # global AQS_key
         user = AQS_user
         key = AQS_key
         service = "list"
@@ -1136,9 +1122,7 @@ class AQSAPI_V2:
             ),
         )
 
-    def _aqs_metadata_services(
-        self, aqsfilter: str | None = None, service: str | None = None
-    ) -> DataFrame | None:
+    def _aqs_metadata_services(self, aqsfilter: str | None = None, service: str | None = None) -> DataFrame | None:
         """A helper function and should not be called by the end user.
 
         This function is used by list functions to call the AQSAPI_V2._aqs()
@@ -1160,8 +1144,6 @@ class AQSAPI_V2:
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
         """
-        # global AQS_user
-        # global AQS_key
         user = AQS_user
         key = AQS_key
         variables = {"email": user, "key": key, "service": service}
@@ -1200,9 +1182,7 @@ class AQSAPI_V2:
         to name1 and name2 respectively.
 
         """
-        return self._data.rename(
-            columns={self._data.columns[0]: name1, self._data.columns[1]: name2}
-        )
+        return self._data.rename(columns={self._data.columns[0]: name1, self._data.columns[1]: name2})
 
 
 def aqs_credentials(username: str | None = None, key: str | None = None) -> None:
@@ -1226,6 +1206,7 @@ def aqs_credentials(username: str | None = None, key: str | None = None) -> None
     None
 
     """
+
     if not (username is None or key is None):
         global AQS_user
         global AQS_key
@@ -1257,6 +1238,7 @@ def aqs_removeheader(
     object.
 
     """
+
     aqsresult = DataFrame()
     for index, value in enumerate(aqsobject):  # type: ignore # pylint: disable=W0612
         aqsresult = concat([aqsresult, value.get_data()], axis=0)  # type: ignore
@@ -1264,7 +1246,7 @@ def aqs_removeheader(
     return aqsresult
 
 
-def _aqsmultiyearcall(
+def _aqsmultiyearcall(  # pylint: disable=R0911
     fun: str,
     parameter: str,
     bdate: date,
@@ -1370,13 +1352,9 @@ def _aqsmultiyearcall(
         # likewise, the list of end dates should be December 31 for each year
         # until end date (including the year of bdate and not the year of
         # edate) with edate appended to the end.
-        bdatelist = [
-            date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)
-        ]
+        bdatelist = [date(year=x, month=1, day=1) for x in range(bdate.year + 1, edate.year + 1)]
         bdatelist.insert(0, bdate)
-        edatelist = [
-            date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)
-        ]
+        edatelist = [date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)]
         edatelist.append(edate)
 
     params = DataFrame(
@@ -1391,29 +1369,30 @@ def _aqsmultiyearcall(
     for k, v in kwargs.items():
         params.insert(0, k, v)
 
-    params = cast(DataFrame,
-                  params.reindex(
-                    columns=[
-                      "parameter",
-                      "bdate",
-                      "edate",
-                      "stateFIPS",
-                      "countycode",
-                      "sitenum",
-                      "MA_code",
-                      "pqao_code",
-                      "cbsa_code",
-                      "minlat",
-                      "maxlat",
-                      "minlon",
-                      "maxlon",
-                      "service",
-                      "duration",
-                      "cbdate",
-                      "cedate",
-                      ]
-                    )
-                  )
+    params = cast(
+        DataFrame,
+        params.reindex(
+            columns=[
+                "parameter",
+                "bdate",
+                "edate",
+                "stateFIPS",
+                "countycode",
+                "sitenum",
+                "MA_code",
+                "pqao_code",
+                "cbsa_code",
+                "minlat",
+                "maxlat",
+                "minlon",
+                "maxlon",
+                "service",
+                "duration",
+                "cbdate",
+                "cedate",
+            ]
+        ),
+    )
     # Drop columns that are entirely NaN (never provided by caller).
     # Keep columns that have at least one non-NaN value across all rows.
     params = params.dropna(axis="columns", how="all")
@@ -1424,7 +1403,7 @@ def _aqsmultiyearcall(
         case "_aqs_services_by_county":
             return list(starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params)))  # type: ignore
         case "_aqs_services_by_state":
-            return list(starmap(aqsresult._aqs_services_by_state,cast(Iterable[Any], params)))  # type: ignore
+            return list(starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params)))  # type: ignore
         case "_aqs_services_by_MA":
             return list(starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params)))  # type: ignore
         case "_aqs_services_by_pqao":

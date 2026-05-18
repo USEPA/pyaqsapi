@@ -1,0 +1,5 @@
+*.py     text diff=python text eol=lf
+*.toml   text diff text eol=lf
+*.rst    text diff text eol=lf
+*.pyc    binary export-ignore
+*.sh     text diff eol=lf

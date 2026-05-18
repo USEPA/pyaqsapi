@@ -69,16 +69,15 @@ def monitors(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.monitors(parameter="42401",
-                              bdate=date(year=2015,
-                                         month=5,
-                                         day=1),
-                              edate=date(year=2015,
-                                         month=5,
-                                         day=2),
-                              stateFIPS="15",
-                              countycode="001")
+        aqs.bycounty.monitors(
+            parameter="42401",
+            bdate=date(year=2015, month=5, day=1),
+            edate=date(year=2015, month=5, day=2),
+            stateFIPS="15",
+            countycode="001",
+        )
 
     Returns
     -------
@@ -174,16 +173,15 @@ def qa_flowrateaudit(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.qa_flowrateaudit(parameter="88101",
-                                      bdate=date(year=2018,
-                                                 month=1,
-                                                 day=1),
-                                      edate=date(year=2018,
-                                                 month=1,
-                                                 day=31),
-                                      stateFIPS="01",
-                                      countycode="033")
+        aqs.bycounty.qa_flowrateaudit(
+            parameter="88101",
+            bdate=date(year=2018, month=1, day=1),
+            edate=date(year=2018, month=1, day=31),
+            stateFIPS="01",
+            countycode="033",
+        )
 
     Returns
     -------
@@ -272,16 +270,15 @@ def qa_one_point_qc(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.qa_flowrateaudit(parameter="88101",
-                                      bdate=date(year=2018,
-                                                 month=1,
-                                                 day=1),
-                                      edate=date(year=2018,
-                                                 month=1,
-                                                 day=31),
-                                      stateFIPS="01",
-                                      countycode="033")
+        aqs.bycounty.qa_flowrateaudit(
+            parameter="88101",
+            bdate=date(year=2018, month=1, day=1),
+            edate=date(year=2018, month=1, day=31),
+            stateFIPS="01",
+            countycode="033",
+        )
 
     Returns
     -------
@@ -385,16 +382,15 @@ def qa_pep_audit(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.qa_pep_audit(parameter="88101",
-                                  bdate=date(year=2017,
-                                             month=1,
-                                             day=1),
-                                  edate=date(year=2017,
-                                             month=12,
-                                             day=31),
-                                  stateFIPS="01",
-                                  countycode="089")
+        aqs.bycounty.qa_pep_audit(
+            parameter="88101",
+            bdate=date(year=2017, month=1, day=1),
+            edate=date(year=2017, month=12, day=31),
+            stateFIPS="01",
+            countycode="089",
+        )
 
     Returns
     -------
@@ -494,12 +490,15 @@ def sampledata(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.sampledata(parameter="88101",
-                                bdate=date(year=2015, month=1, day=1),
-                                edate=date(year=2016, month=2, day=28),
-                                stateFIPS="37",
-                                countycode="183")
+        aqs.bycounty.sampledata(
+            parameter="88101",
+            bdate=date(year=2015, month=1, day=1),
+            edate=date(year=2016, month=2, day=28),
+            stateFIPS="37",
+            countycode="183",
+        )
 
     Returns
     -------
@@ -593,17 +592,16 @@ def annualsummary(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.annualsummary(parameter="88101",
-                                   bdate=date(year=2016,
-                                              month=1,
-                                              day=1),
-                                   edate=date(year=2016,
-                                              month=2,
-                                              day=28),
-                                   stateFIPS="37",
-                                   countycode="183",
-                                   return_header=True)
+        aqs.bycounty.annualsummary(
+            parameter="88101",
+            bdate=date(year=2016, month=1, day=1),
+            edate=date(year=2016, month=2, day=28),
+            stateFIPS="37",
+            countycode="183",
+            return_header=True,
+        )
 
     Returns
     -------
@@ -695,16 +693,15 @@ def qa_blanks(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.qa_blanks(parameter="88101",
-                               bdate=date(year=2018,
-                                          month=1,
-                                          day=1),
-                               edate=date(year=2018,
-                                          month=1,
-                                          day=31),
-                               stateFIPS="01",
-                               countycode="033")
+        aqs.bycounty.qa_blanks(
+            parameter="88101",
+            bdate=date(year=2018, month=1, day=1),
+            edate=date(year=2018, month=1, day=31),
+            stateFIPS="01",
+            countycode="033",
+        )
 
     Returns
     -------
@@ -796,16 +793,15 @@ def dailysummary(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.dailysummary(parameter="88101",
-                                  bdate=date(year=2016,
-                                             month=1,
-                                             day=1),
-                                  edate=date(year=2016,
-                                             month=2,
-                                             day=28),
-                                  stateFIPS="37",
-                                  countycode="183")
+        aqs.bycounty.dailysummary(
+            parameter="88101",
+            bdate=date(year=2016, month=1, day=1),
+            edate=date(year=2016, month=2, day=28),
+            stateFIPS="37",
+            countycode="183",
+        )
 
     Returns
     -------
@@ -895,16 +891,15 @@ def qa_collocated_assessments(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.qa_collocated_assessments(parameter="88101",
-                                               bdate=date(year=2013,
-                                                          month=1,
-                                                          day=1),
-                                               edate=date(year=2013,
-                                                          month=1,
-                                                          day=31),
-                                               stateFIPS="01",
-                                               countycode="089")
+        aqs.bycounty.qa_collocated_assessments(
+            parameter="88101",
+            bdate=date(year=2013, month=1, day=1),
+            edate=date(year=2013, month=1, day=31),
+            stateFIPS="01",
+            countycode="089",
+        )
 
     Returns
     -------
@@ -994,16 +989,15 @@ def qa_flowrateverification(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.qa_flowrateverification(parameter="88101",
-                                             bdate=date(year=2018,
-                                                        month=1,
-                                                        day=1),
-                                             edate=date(year=2018,
-                                                        month=1,
-                                                        day=31),
-                                             stateFIPS="01",
-                                             countycode="033")
+        aqs.bycounty.qa_flowrateverification(
+            parameter="88101",
+            bdate=date(year=2018, month=1, day=1),
+            edate=date(year=2018, month=1, day=31),
+            stateFIPS="01",
+            countycode="033",
+        )
 
     Returns
     -------
@@ -1095,16 +1089,15 @@ def transactionsample(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.transactionsample(parameter="88101",
-                                       bdate=date(year=2016,
-                                                  month=2,
-                                                  day=28),
-                                       edate=date(year=2016,
-                                                  month=2,
-                                                  day=28),
-                                       stateFIPS="37",
-                                       countycode="183")
+        aqs.bycounty.transactionsample(
+            parameter="88101",
+            bdate=date(year=2016, month=2, day=28),
+            edate=date(year=2016, month=2, day=28),
+            stateFIPS="37",
+            countycode="183",
+        )
 
     Returns
     -------
@@ -1195,16 +1188,15 @@ def qa_annualperformanceeval(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.annualperformanceeval(parameter="44201",
-                                           bdate=date(year=2017,
-                                                      month=1,
-                                                      day=1),
-                                           edate=date(year=2017,
-                                                      month=12,
-                                                      day=31),
-                                           stateFIPS="01",
-                                           countycode="003")
+        aqs.bycounty.annualperformanceeval(
+            parameter="44201",
+            bdate=date(year=2017, month=1, day=1),
+            edate=date(year=2017, month=12, day=31),
+            stateFIPS="01",
+            countycode="003",
+        )
 
     Returns
     -------
@@ -1298,16 +1290,15 @@ def qa_annualperformanceevaltransaction(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.qa_annualperformanceevaltransaction(parameter="44201",
-                                                         bdate=date(year=2017,
-                                                                    month=1,
-                                                                    day=1),
-                                                         edate=date(year=2017,
-                                                                    month=12,
-                                                                    day=31),
-                                                         stateFIPS="01",
-                                                         countycode="003")
+        aqs.bycounty.qa_annualperformanceevaltransaction(
+            parameter="44201",
+            bdate=date(year=2017, month=1, day=1),
+            edate=date(year=2017, month=12, day=31),
+            stateFIPS="01",
+            countycode="003",
+        )
 
     Returns
     -------
@@ -1418,16 +1409,15 @@ def quarterlysummary(
 
         import pyaqsapi as aqs
         from datetime import date
+
         ...
-        aqs.bycounty.quarterlysummary(parameter="88101",
-                                      bdate=date(year=2016,
-                                                 month=1,
-                                                 day=1),
-                                      edate=date(year=2017,
-                                                 month=2,
-                                                 day=28),
-                                      stateFIPS="37",
-                                      countycode="183")
+        aqs.bycounty.quarterlysummary(
+            parameter="88101",
+            bdate=date(year=2016, month=1, day=1),
+            edate=date(year=2017, month=2, day=28),
+            stateFIPS="37",
+            countycode="183",
+        )
 
     Returns
     -------

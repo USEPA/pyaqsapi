@@ -1,12 +1,8 @@
-"""Functions that aggregate data by latitude/longitude bounding box."""
-
 from datetime import date
 
 from pandas import DataFrame
 
-import pyaqsapi.helperfunctions as helperfunctions
-from pyaqsapi.helperfunctions import AQSAPI_V2
-
+from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
 def monitors(
     parameter: str,
@@ -95,31 +91,6 @@ def monitors(
     box (_by_box).
 
     """
-
-    service = "monitors"
-    fun = "_aqs_services_by_box"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        minlat=minlat,
-        maxlat=maxlat,
-        minlon=minlon,
-        maxlon=maxlon,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-        singlecall=True,
-    )
-
-    if return_header:
-        return aqsresultlist
-    return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def sampledata(
     parameter: str,
@@ -219,31 +190,6 @@ def sampledata(
     within the input latitude/longitude bounding box for a single parameter.
     """
 
-    service = "sampleData"
-    fun = "_aqs_services_by_box"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        minlat=minlat,
-        maxlat=maxlat,
-        minlon=minlon,
-        maxlon=maxlon,
-        duration=duration,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    return helperfunctions.aqs_removeheader(aqsresultlist)
-
-
 def annualsummary(
     parameter: str,
     bdate: date,
@@ -331,29 +277,6 @@ def annualsummary(
     (pandas DataFrame or an AQSAPI_V2 object) sample data for all monitors
     within the input latitude/longitude bounding box for a single parameter.
     """
-    service = "annualData"
-    fun = "_aqs_services_by_box"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        minlat=minlat,
-        maxlat=maxlat,
-        minlon=minlon,
-        maxlon=maxlon,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def dailysummary(
     parameter: str,
@@ -444,29 +367,6 @@ def dailysummary(
     monitors within the input latitude/longitude bounding box for a single
     parameter.
     """
-    service = "dailyData"
-    fun = "_aqs_services_by_box"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        minlat=minlat,
-        maxlat=maxlat,
-        minlon=minlon,
-        maxlon=maxlon,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def quarterlysummary(
     parameter: str,
@@ -587,26 +487,3 @@ def quarterlysummary(
     monitors within the input latitude/longitude bounding box for a single
     parameter.
     """
-    service = "quarterlyData"
-    fun = "_aqs_services_by_box"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        name1=None,
-        name2=None,
-        duration=duration,
-        minlat=minlat,
-        maxlat=maxlat,
-        minlon=minlon,
-        maxlon=maxlon,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    return helperfunctions.aqs_removeheader(aqsresultlist)

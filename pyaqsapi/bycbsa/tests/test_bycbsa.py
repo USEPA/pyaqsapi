@@ -1,4 +1,4 @@
-"""pyaqsapi tests for functions imported from the bycbsa submodule"""
+"""pyaqsapi tests for functions imported from the bycbsa submodule."""
 
 from datetime import date
 from importlib import import_module
@@ -12,9 +12,7 @@ import pytest
 # import pyaqsapi.bycbsa as bycbsa
 bycbsa = import_module(name="..bycbsa", package="pyaqsapi.bycbsa")
 # from pyaqsapi.helperfunctions import aqs_credentials
-helperfunctions = import_module(
-    name="..helperfunctions", package="pyaqsapi.helperfunctions"
-)
+helperfunctions = import_module(name="..helperfunctions", package="pyaqsapi.helperfunctions")
 
 
 @pytest.fixture

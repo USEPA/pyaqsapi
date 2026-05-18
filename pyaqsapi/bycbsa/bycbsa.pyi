@@ -1,14 +1,8 @@
-"""Functions that aggregate data by cbsa
-(by Core Based Statistic Area, as defined by the Census Bureau).
-"""
-
 from datetime import date
 
 from pandas import DataFrame
 
-import pyaqsapi.helperfunctions as helperfunctions
-from pyaqsapi.helperfunctions import AQSAPI_V2
-
+from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
 def monitors(
     parameter: str,
@@ -80,33 +74,6 @@ def monitors(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors at a site.
     """
-
-    # The monitors service is able to pull multiple years of data
-    # without making repeated calls to the API but is done this way to
-    # maintain consistency. For the aqs_monitors* function using a single API
-    # call will allow the function to finish faster for multiyear calls.
-    service = "monitors"
-    fun = "_aqs_services_by_cbsa"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        cbsa_code=cbsa_code,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-        singlecall=True,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def sampledata(
     parameter: str,
@@ -185,28 +152,6 @@ def sampledata(
     (pandas DataFrame or an AQSAPI_V2 object): sample data for all monitors
     matching cbsa_code for the given parameter.
     """
-    service = "sampleData"
-    fun = "_aqs_services_by_cbsa"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        cbsa_code=cbsa_code,
-        duration=duration,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def annualsummary(
     parameter: str,
@@ -280,27 +225,6 @@ def annualsummary(
     AQS_Data Mart_APIv2 object that containing annual summary data for the
     cbsa_code requested.
     """
-    service = "annualData"
-    fun = "_aqs_services_by_cbsa"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        cbsa_code=cbsa_code,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def dailysummary(
     parameter: str,
@@ -374,27 +298,6 @@ def dailysummary(
     AQS_Data Mart_APIv2 object that containing daily summary data for
     the cbsa_code requested.
     """
-    service = "dailyData"
-    fun = "_aqs_services_by_cbsa"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        cbsa_code=cbsa_code,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def quarterlysummary(
     parameter: str,
@@ -481,23 +384,3 @@ def quarterlysummary(
     the given parameter for a all monitors with matching parameter and
     cbsa_code combination within the bdate - edate timeframe.
     """
-    service = "quarterlyData"
-    fun = "_aqs_services_by_cbsa"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        cbsa_code=cbsa_code,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)

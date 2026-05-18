@@ -1,12 +1,8 @@
-"""Functions that aggregated data by state."""
-
 from datetime import date
 
 from pandas import DataFrame
 
-import pyaqsapi.helperfunctions as helperfunctions
-from pyaqsapi.helperfunctions import AQSAPI_V2
-
+from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
 def monitors(
     parameter: str,
@@ -74,28 +70,6 @@ def monitors(
     (pandas DataFrame or an AQSAPI_V2 object): monitors from the
             selected state.
     """
-    service = "monitors"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-        singlecall=True,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_flowrateaudit(
     parameter: str,
@@ -163,27 +137,6 @@ def qa_flowrateaudit(
     (pandas DataFrame or an AQSAPI_V2 object): monitors from the
             selected state.
     """
-    service = "qaOnePointQcRawData"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_one_point_qc(
     parameter: str,
@@ -250,27 +203,6 @@ def qa_one_point_qc(
     (pandas DataFrame or an AQSAPI_V2 object): one point qc data within the
     input stateFIPS for bdate - edate time frame..
     """
-    service = "qaOnePointQcRawData"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_pep_audit(
     parameter: str,
@@ -336,27 +268,6 @@ def qa_pep_audit(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance PEP audit data
     within a state.
     """
-    service = "qaPepAudits"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def sampledata(
     parameter: str,
@@ -432,28 +343,6 @@ def sampledata(
     (pandas DataFrame or an AQSAPI_V2 object): containing sample data
     for all monitors matching stateFIPS for the given parameter.
     """
-    service = "sampleData"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-        duration=duration,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def annualsummary(
     parameter: str,
@@ -522,27 +411,6 @@ def annualsummary(
     (pandas DataFrame or an AQSAPI_V2 object): annual summary data for the
     stateFIPS requested.
     """
-    service = "annualData"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_blanks(
     parameter: str,
@@ -611,27 +479,6 @@ def qa_blanks(
     data for all monitors within the input stateFIPS.
 
     """
-    service = "qaBlanks"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def dailysummary(
     parameter: str,
@@ -700,27 +547,6 @@ def dailysummary(
     (pandas DataFrame or an AQSAPI_V2 object): daily summary statistics for the
     given parameter for a single stateFIPS.
     """
-    service = "dailyData"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_collocated_assessments(
     parameter: str,
@@ -786,27 +612,6 @@ def qa_collocated_assessments(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance collocated
     assessment data for monitors within a state.
     """
-    service = "qaCollocatedAssessments"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_flowrateverification(
     parameter: str,
@@ -873,27 +678,6 @@ def qa_flowrateverification(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors within a state.
     """
-    service = "qaFlowRateVerifications"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def transactionsample(
     parameter: str,
@@ -962,27 +746,6 @@ def transactionsample(
     in the AQS submission transaction format (RD) corresponding to the inputs
     provided.
     """
-    service = "transactionsSample"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_annualperformanceeval(
     parameter: str,
@@ -1051,27 +814,6 @@ def qa_annualperformanceeval(
     matching parameter and stateFIPS requested for the time frame
     between bdate and edate.
     """
-    service = "qaAnnualPerformanceEvaluations"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def qa_annualperformanceevaltransaction(
     parameter: str,
@@ -1142,27 +884,6 @@ def qa_annualperformanceevaltransaction(
     parameter and stateFIPS requested for the time frame
     between bdate and edate.
     """
-    service = "transactionsQaAnnualPerformanceEvaluations"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)
-
 
 def quarterlysummary(
     parameter: str,
@@ -1249,23 +970,3 @@ def quarterlysummary(
     the given parameter for a all monitors with matching parameter and
     stateFIPS combination within the bdate - edate timeframe.
     """
-    service = "quarterlyData"
-    fun = "_aqs_services_by_state"
-
-    aqsresultlist = helperfunctions._aqsmultiyearcall(
-        fun=fun,
-        parameter=parameter,
-        bdate=bdate,
-        edate=edate,
-        stateFIPS=stateFIPS,
-        name1=None,
-        name2=None,
-        service=service,
-        cbdate=cbdate,
-        cedate=cedate,
-    )
-
-    if return_header:
-        return aqsresultlist
-    if not return_header:
-        return helperfunctions.aqs_removeheader(aqsresultlist)

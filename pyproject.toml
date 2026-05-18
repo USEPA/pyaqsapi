@@ -2,6 +2,7 @@
 name = "pyaqsapi"
 requires-python = ">=3.10"
 version = "1.0.2"
+keywords = ["environmental monitoring", "Air Quality System datamart", "air monitoring", "Clean Air Act", "ambient air quality", "air quality data", "AQS", "EPA"]
 # dynamic = ["version"]
 description = "United States Environmental Protection Agency (US EPA) Air Quality System (AQS) Data Mart API v2 interface."
 authors = [
@@ -11,10 +12,16 @@ maintainers = [
   {name = "Clinton Mccrowey", email = "mccrowey.clinton@epa.gov"}
 ]
 readme = "README.rst"
+license = "MIT"
 license-files = ["LICENSE.rst"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Operating System :: OS Independent"
 ]
 dependencies = [
@@ -66,14 +73,49 @@ dev = [
   requires = ["setuptools >= 77.0.3", "build"]
   build-backend = "setuptools.build_meta"
 
-[tool.setuptools.package-data]
-pyaqsapi = ["py.typed"]
+[tool.bandit]
+exclude_dirs = [".tox",
+                "dev",
+                "tests",
+                "pycache",
+                "pyaqsapi/bysite/tests",
+                "pyaqsapi/bycounty/tests",
+                "pyaqsapi/bystate/tests",
+                "pyaqsapi/byMA/tests",
+                "pyaqsapi/bypqao/tests",
+                "pyaqsapi/bybox/tests",
+                "pyaqsapi/bycbsa/tests"]
+
+[tool.black]
+line-length = 125
+target-version = ['py310', 'py311', 'py312', 'py313']
+exclude = '''
+/(
+    \.git
+  | _build
+  | build
+  | dist
+  | .tox
+)/
+'''
 
 [tool.ruff]
-lint.select = [
-  "I001",
-  "I002",
-  "E101",
+respect-gitignore = true
+show-fixes = true
+line-length = 125
+extend-exclude = [
+    ".spyproject",
+    ".github",
+    ".vscode",
+    "*tests/*",
+    "dev/*"
+]
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+ignore = ["D404", "C901"]
+select = [
+  "C901",
   "D100",
   "D402",
   "D403",
@@ -84,26 +126,25 @@ lint.select = [
   "D414",
   "D415",
   "D417",
-  "D419"]
-lint.extend-select = ["UP"]
-lint.ignore = ["D404"]
-line-length = 125
-exclude = [
-    "__init__.py",
-    ".git",
-    ".tox",
-    "ruff_cache",
-    ".spyproject",
-    ".github",
-    ".vscode",
-    "conf.py",
-    "*tests/*",
-    "dev/*"
-]
+  "D419",
+  "E101",
+  "I001",
+  "I002"]
+extend-select = ["UP", "I", "E", "W"]
+unfixable = []
+
+
+[tool.ruff.analyze]
+direction = "dependencies"
 
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+line-ending = "lf"
+nested-string-quote-style= "alternating"
+skip-magic-trailing-comma = false
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
@@ -118,27 +159,52 @@ packages = ["pyaqsapi",
             "pyaqsapi.byma",
             "pyaqsapi.bybox"]
 
-# [tool.black]
-# line-length = 125
-# target-version = ['py310', 'py311', 'py312', 'py313']
-# exclude = '''
-# /(
-#     \.git
-#   | _build
-#   | build
-#   | dist
-# )/
-# '''
+[tool.setuptools.package-data]
+pyaqsapi = ["py.typed", "*.pyi"]
 
-[tool.bandit]
-exclude_dirs = ["tests",
-               "pyaqsapi/bysite/tests",
-               "pyaqsapi/bycounty/tests",
-               "pyaqsapi/bystate/tests",
-               "pyaqsapi/byMA/tests",
-               "pyaqsapi/bypqao/tests",
-               "pyaqsapi/bybox/tests",
-               "pyaqsapi/bycbsa/tests"]
+[tool.mypy]
+follow_imports = "skip"
+ignore_missing_imports = true
+disable_error_code = ['import-untyped']
+exclude_gitignore = true
+namespace_packages = true
+color_output = true
+explicit_package_bases = true
+exclude = [
+  '(^|[\\/])tests([\\/]|$)',
+  '(^|[\\/])dev([\\/]|$)',
+  '(^|[\\/])test_.*\\.py$'
+]
+
+[tool.prospector]
+max-line-length = 125
+run = [
+    "ruff",
+    "pyflakes",
+    "mypy",
+    "pyroma",
+    "vulture",
+    "bandit",
+]
+ignore-patterns = [
+    "build/",
+    "docs/",
+    ".devcontainer",
+    ".git",
+    ".github",
+    ".ruff_cache",
+    ".spyproject",
+    ".tox",
+    ".vscode",
+    "codeql-custom-queries-python",
+    "dev",
+    "dist",
+    "docs/_build",
+    "pyaqsapi.egg-info"
+]
 
 [tool.sphinx-linter]
+#requires python tomllib which is only available in python 3.11 and above,
+#so this tool is not listed in dev dependencies
+ignore = [".tox", "build", "dist", "dev"]
 max-line-length = 125
