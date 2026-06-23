@@ -1,6 +1,4 @@
-"""Functions that aggregate data by pqao
-(By Primary Quality Assurance Organization).
-"""
+"""Functions that aggregate data by pqao (By Primary Quality Assurance Organization)."""
 
 from datetime import date
 
@@ -21,9 +19,9 @@ def qa_flowrateaudit(
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """Return Quality assurance flowrate audit data.
 
-    Return quality assurance flow rate audit data aggregated by parameter code
-    and Primary Quality Assurance Organization (PQAO) code for bdate - edate
-    time frame.
+       Return quality assurance flow rate audit data aggregated by parameter code
+       and Primary Quality Assurance Organization (PQAO) code for bdate - edate
+       time frame.
 
     Parameters
     ----------
@@ -72,6 +70,7 @@ def qa_flowrateaudit(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested pqao_code.
+
     """
     service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_pqao"
@@ -104,8 +103,9 @@ def qa_one_point_qc(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return Quality assurance data - collocated assessment raw data aggregated
-    by Primary Quality Assurance Organization (PQAO) code.
+    """Return Quality assurance data - collocated assessment raw data.
+
+       Returned data is aggregated by Primary Quality Assurance Organization (PQAO) code.
 
     Parameters
     ----------
@@ -152,6 +152,7 @@ def qa_one_point_qc(
     Returns
     -------
     (pandas DataFrame or an AQSAPI_V2 object): one point qc data within a pqao
+
     """
     service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_pqao"
@@ -184,9 +185,10 @@ def qa_pep_audit(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of Performance Evaluation Program (PEP) audit data
-    aggregated by Primary Quality Assurance Organization (PQAO) code for the
-    time frame between bdate and edate.
+    """Return a table of Performance Evaluation Program (PEP) audit data.
+
+       Returned data is aggregated by Primary Quality Assurance Organization (PQAO) code for the
+       time frame between bdate and edate.
 
     Parameters
     ----------
@@ -234,6 +236,7 @@ def qa_pep_audit(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance PEP audit data
     for a Primary Quality Assurance Organization.
+
     """
     service = "qaPepAudits"
     fun = "_aqs_services_by_pqao"
@@ -266,11 +269,11 @@ def qa_blanks(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of blank quality assurance data. Blanks are unexposed
-    sample collection devices (e.g., filters) that are transported with the
-    exposed sample devices to assess if contamination is occurring during the
-    transport or handling of the samples. Data is aggregated by Primary Quality
-    Assurance Organization (PQAO).
+    """Return a table of blank quality assurance data.
+
+    Blanks are unexposed sample collection devices (e.g., filters) that are transported with the
+    exposed sample devices to assess if contamination is occurring during the transport or handling of the samples.
+    Data is aggregated by Primary Quality Assurance Organization (PQAO).
 
     Parameters
     ----------
@@ -318,6 +321,7 @@ def qa_blanks(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance blank data
     for monitors within a pqao.
+
     """
     service = "qaBlanks"
     fun = "_aqs_services_by_pqao"
@@ -350,11 +354,10 @@ def qa_collocated_assessments(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of blank quality assurance data. Blanks are unexposed
-    sample collection devices (e.g., filters) that are transported with the
-    exposed sample devices to assess if contamination is occurring during the
-    transport or handling of the samples. Data is aggregated by Primary Quality
-    Assurance Organization (PQAO).
+    """Return a table of collocated assessment data.
+
+      Returned data is aggregated by matching input parameter, and Primary Quality Assurance
+      Organisation (PQAO) code provided for bdate - edate time frame.
 
     Parameters
     ----------
@@ -400,6 +403,7 @@ def qa_collocated_assessments(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance blank data
     for monitors within a pqao.
+
     """
     service = "qaCollocatedAssessments"
     fun = "_aqs_services_by_pqao"
@@ -432,9 +436,10 @@ def qa_flowrateverification(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table containing flow rate Verification data for a parameter code
-    aggregated by matching input parameter, and Primary Quality Assurance
-    Organization (PQAO) code provided for bdate - edate time.
+    """Return a table containing flow rate Verification data.
+
+      Returned data for a parametercode aggregated by matching input parameter, and Primary Quality Assurance
+      Organization (PQAO) code provided for bdate - edate time.
 
     Parameters
     ----------
@@ -483,6 +488,7 @@ def qa_flowrateverification(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors within a pqao.
+
     """
     service = "qaFlowRateVerifications"
     fun = "_aqs_services_by_pqao"
@@ -515,10 +521,10 @@ def qa_annualperformanceeval(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return quality assurance performance evaluation data - aggregated by
-    Primary Quality Assurance Organization (PQAO) for a parameter
-    code aggregated by matching input parameter and pqao_code for the
-    time frame between bdate and edate.
+    """Return quality assurance performance evaluation data.
+
+      Returned data is aggregated by Primary Quality Assurance Organization (PQAO) for a parameter
+      code aggregated by matching input parameter and pqao_code for the time frame between bdate and edate.
 
     Parameters
     ----------
@@ -568,6 +574,7 @@ def qa_annualperformanceeval(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance
     performance evaluation data. for single monitoring site for the
     pqao_code requested for the time frame between bdate and edate.
+
     """
     service = "qaAnnualPerformanceEvaluations"
     fun = "_aqs_services_by_pqao"
@@ -600,11 +607,10 @@ def qa_annualperformanceevaltransaction(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return AQS submissions transaction format (RD) of the annual
-    performance evaluation data (raw). Includes data pairs for
-    QA - aggregated by Primary Quality Assurance Organization (PQAO)
-    for a parameter code aggregated by matching input parameter and
-    pqao_code provided for bdate - edate time frame.
+    """Return AQS submissions transaction format (RD) of annual performance evaluation data (raw).
+
+       Returned data includes data pairs for QA - aggregated by Primary Quality Assurance Organization (PQAO)
+       for a parameter code aggregated by matching input parameter and pqao_code provided for bdate - edate time frame.
 
     Parameters
     ----------
@@ -655,6 +661,7 @@ def qa_annualperformanceevaltransaction(
     performance evaluation data. for single monitoring site for the
     sitenum, countycode and stateFIPS requested for the time frame
     between bdate and edate
+
     """
     service = "transactionsQaAnnualPerformanceEvaluations"
     fun = "_aqs_services_by_pqao"

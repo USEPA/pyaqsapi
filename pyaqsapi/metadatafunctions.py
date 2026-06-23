@@ -18,6 +18,7 @@ def aqs_is_available(return_header: bool | None = False) -> AQSAPI_V2 | DataFram
     -------
     (pandas DataFrame or an AQSAPI_V2 object): Details the status of the
     AQS API (The status information is located in the header).
+
     """
     service = "metaData"
     aqsfilter = "isAvailable"
@@ -33,6 +34,7 @@ def aqs_is_available(return_header: bool | None = False) -> AQSAPI_V2 | DataFram
 
 def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return a table of any known issues with system functionality or the data.
+
     These are usually issues that have been identified internally and will
     require some time to correct in Data Mart or the API. This function
     implements a direct API call to Data Mart and returns data directly from
@@ -48,6 +50,7 @@ def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame
     -------
     (pandas DataFrame or an AQSAPI_V2 object): Information involving known
     issues with the Data Mart API.
+
     """
     aqsfilter = "issues"
     aqsresult = helperfunctions.AQSAPI_V2()
@@ -61,6 +64,8 @@ def aqs_knownissues(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame
 def aqs_revisionhistory(return_header: bool | None = False) -> AQSAPI_V2 | DataFrame:
     """Return the change history to the AQS Data Mart API.
 
+    This data does not include changes to pyaqsapi, just changes to the API.
+
     Parameters
     ----------
     return_header : If False (default) only returns data requested. If True
@@ -70,6 +75,7 @@ def aqs_revisionhistory(return_header: bool | None = False) -> AQSAPI_V2 | DataF
     -------
     (pandas DataFrame or an AQSAPI_V2 object): Information on the revision
     history to the AQS Datamart API.
+
     """
     aqsfilter = "revisionHistory"
     aqsresult = helperfunctions.AQSAPI_V2()

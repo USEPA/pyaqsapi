@@ -1,3 +1,5 @@
+"""pyaqsapi tests for functions imported from the bysite submodule."""
+
 from datetime import date
 from os import environ
 from os.path import abspath, exists

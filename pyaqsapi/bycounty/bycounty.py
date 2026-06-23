@@ -20,8 +20,8 @@ def monitors(
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """Return a table of monitors.
 
-    Return a table of monitors and related metadata at sites with the provided
-    parameter, stateFIPS and county_code for bdate - edate time frame.
+       Return a table of monitors and related metadata at sites with the provided
+       parameter, stateFIPS and county_code for bdate - edate time frame.
 
     Parameters
     ----------
@@ -83,6 +83,7 @@ def monitors(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): monitors from
     the selected stateFIPS and county combination.
+
     """
     # The monitors service is able to pull multiple years of data
     # without making repeated calls to the API but is done this way to
@@ -124,8 +125,8 @@ def qa_flowrateaudit(
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """Return Quality assurance flowrate audit data.
 
-    Return a table containing flow rate audit data aggregated by parameter
-    code, stateFIPS and countycode for bdate - edate time frame.
+       Return a table containing flow rate audit data aggregated by parameter
+       code, stateFIPS and countycode for bdate - edate time frame.
 
     Parameters
     ----------
@@ -187,6 +188,7 @@ def qa_flowrateaudit(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested stateFIPS and county combination.
+
     """
     service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_county"
@@ -221,8 +223,7 @@ def qa_one_point_qc(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table containing flow rate audit data aggregated by parameter
-    code, stateFIPS and countycode for bdate - edate time frame.
+    """Return a table containing flow rate audit data aggregated by parameter code, stateFIPS and countycode.
 
     Parameters
     ----------
@@ -284,6 +285,8 @@ def qa_one_point_qc(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested stateFIPS and county combination.
+
+
     """
     service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_county"
@@ -318,9 +321,7 @@ def qa_pep_audit(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table containing quality assurance Performance Evaluation Program
-    (PEP) audit data aggregated by parameter code, stateFIPS and countycode for
-    bdate - edate time frame.
+    """Return a table containing quality assurance Performance Evaluation Program (PEP) audit data.
 
     Notes
     -----
@@ -397,6 +398,7 @@ def qa_pep_audit(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance Performance
     Evaluation Program (PEP) audit data for the requested stateFIPS and county
     combination.
+
     """
     service = "qaPepAudits"
     fun = "_aqs_services_by_county"
@@ -505,6 +507,7 @@ def sampledata(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance Performance
     Evaluation Program (PEP) audit data for the requested stateFIPS and county
     combination.
+
     """
     service = "sampleData"
     fun = "_aqs_services_by_county"
@@ -607,6 +610,7 @@ def annualsummary(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): annual summary data for the
     requested stateFIPS and county combination.
+
     """
     service = "annualData"
     fun = "_aqs_services_by_county"
@@ -642,6 +646,7 @@ def qa_blanks(
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """Return a table of blank quality assurance data.
+
     Blanks are unexposed sample collection devices (e.g.,
     filters) that are transported with the exposed sample devices
     to assess if contamination is occurring during the transport
@@ -707,6 +712,7 @@ def qa_blanks(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): blank quality assurance data for
     the requested stateFIPS and county combination.
+
     """
     service = "qaBlanks"
     fun = "_aqs_services_by_county"
@@ -807,6 +813,7 @@ def dailysummary(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): blank quality assurance data for
     the requested stateFIPS and county combination.
+
     """
     service = "dailyData"
     fun = "_aqs_services_by_county"
@@ -841,9 +848,7 @@ def qa_collocated_assessments(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of collocated assessment data aggregated by matching input
-    parameter, stateFIPS and county_code provided for bdate - edate time
-    frame.
+    """Return a table of collocated assessment data aggregated by matching input parameter, stateFIPS and county_code.
 
     Parameters
     ----------
@@ -905,6 +910,7 @@ def qa_collocated_assessments(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance
     collocated assessment data for monitors within a county.
+
     """
     service = "qaCollocatedAssessments"
     fun = "_aqs_services_by_county"
@@ -939,9 +945,7 @@ def qa_flowrateverification(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table containing flow rate Verification data for a parameter code
-    aggregated matching input parameter, stateFIPS, and county_code, provided
-    for bdate - edate time frame.
+    """Return a table containing flow rate Verification data for a parameter for a given stateFIPS and countycode.
 
     Parameters
     ----------
@@ -1003,6 +1007,7 @@ def qa_flowrateverification(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors within a county.
+
     """
     service = "qaFlowRateVerifications"
     fun = "_aqs_services_by_county"
@@ -1037,7 +1042,8 @@ def transactionsample(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return transactionsample data - aggregated by county in the AQS Submission
+    """Return transactionsample data - aggregated by county in the AQS Submission.
+
     Transaction Format (RD) sample (raw) data for a parameter code aggregated
     by matching input parameter, stateFIPS and countycode provided for
     bdate - edate time frame. Includes data both in submitted and
@@ -1104,6 +1110,7 @@ def transactionsample(
     (pandas DataFrame or an AQSAPI_V2 object): transaction sample (raw) data
     in the AQS submission transaction format (RD) corresponding to the inputs
     provided.
+
     """
     service = "transactionsSample"
     fun = "_aqs_services_by_county"
@@ -1138,9 +1145,7 @@ def qa_annualperformanceeval(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return quality assurance performance evaluation data - aggregated by
-    site for a parameter code aggregated by matching input
-    parameter, stateFIPS and countycode provided for bdate - edate time frame.
+    """Return quality assurance performance evaluation data by parameter for a given site and countycode.
 
     Parameters
     ----------
@@ -1204,6 +1209,7 @@ def qa_annualperformanceeval(
     performance evaluation data for all monitoring sites for the
     matching countycode and stateFIPS requested for the time frame
     between bdate and edate.
+
     """
     service = "qaAnnualPerformanceEvaluations"
     fun = "_aqs_services_by_county"
@@ -1238,11 +1244,10 @@ def qa_annualperformanceevaltransaction(
     cedate: date | None = None,
     return_header: bool | None = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return AQS submissions transaction format (RD) of the annual
-    performance evaluation data (raw). Includes data pairs for
-    QA - aggregated by county for a parameter code aggregated by matching
-    input parameter, countycode and stateFIPS provided for
-    bdate - edate time frame.
+    """Return AQS submissions transaction format (RD) of the annual performance evaluation data (raw).
+
+    Includes data pairs for QA - aggregated by county for a parameter code aggregated by matching
+    input parameter, countycode and stateFIPS provided for bdate - edate time frame.
 
     Parameters
     ----------
@@ -1306,6 +1311,7 @@ def qa_annualperformanceevaltransaction(
     performance evaluation data. for all monitoring sites with matching
     countycode and stateFIPS requested for the time frame
     between bdate and edate.
+
     """
     service = "transactionsQaAnnualPerformanceEvaluations"
     fun = "_aqs_services_by_county"
@@ -1423,6 +1429,7 @@ def quarterlysummary(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quarterly summary statistics for
     the given parameter for a single countycode and stateFIPS combination.
+
     """
     service = "quarterlyData"
     fun = "_aqs_services_by_county"

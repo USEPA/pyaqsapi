@@ -72,6 +72,7 @@ def qa_flowrateaudit(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested MA_code.
+
     """
     service = "qaOnePointQcRawData"
     fun = "_aqs_services_by_MA"
@@ -104,8 +105,7 @@ def qa_one_point_qc(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table one point QC check data aggregated by monitoring agency
-    code (_by_MA).
+    """Return a table one point QC check data aggregated by monitoring agency code (_by_MA).
 
     Parameters
     ----------
@@ -157,6 +157,7 @@ def qa_one_point_qc(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested MA_code.
+
     """
     service = "qaFlowRateAudits"
     fun = "_aqs_services_by_MA"
@@ -189,9 +190,7 @@ def qa_pep_audit(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of Performance Evaluation Program (PEP) audit data
-    aggregated by monitoring agency code (_by_MA) for the time frame between
-    bdate and edate.
+    """Return a table of Performance Evaluation Program (PEP) audit data aggregated by monitoring agency code (_by_MA).
 
     Parameters
     ----------
@@ -243,6 +242,7 @@ def qa_pep_audit(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance PEP audit data
     for a monitoring agency.
+
     """
     service = "qaPepAudits"
     fun = "_aqs_services_by_MA"
@@ -275,11 +275,11 @@ def qa_blanks(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of blank quality assurance data. Blanks are unexposed
-    sample collection devices (e.g., filters) that are transported with the
-    exposed sample devices to assess if contamination is occurring during the
-    transport or handling of the samples. Data is aggregated by monitoring
-    agency code (MA_code).
+    """Return a table of blank quality assurance data.
+
+    Blanks are unexposed sample collection devices (e.g., filters) that are transported with the exposed sample devices
+    to assess if contamination is occurring during the transport or handling of the samples. Data is aggregated by
+    monitoring agency code (MA_code).
 
     Parameters
     ----------
@@ -331,6 +331,7 @@ def qa_blanks(
     -------
     (pandas DataFrame or an AQSAPI_V2 object):  quality assurance blank sample
     data for all monitors within the input MA_code.
+
     """
     service = "qaBlanks"
     fun = "_aqs_services_by_MA"
@@ -363,9 +364,7 @@ def qa_collocated_assessments(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of collocated assessment data aggregated by matching input
-    parameter, and monitoring agency (MA) code provided for bdate - edate
-    time frame.
+    """Return a table of collocated assessment data aggregated by matching input parameter, and monitoring agency (MA) code.
 
     Parameters
     ----------
@@ -417,6 +416,7 @@ def qa_collocated_assessments(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance collocated
     assessment data for monitors within a monitoring agency.
+
     """
     service = "qaCollocatedAssessments"
     fun = "_aqs_services_by_MA"
@@ -449,9 +449,7 @@ def qa_flowrateverification(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table containing flow rate Verification data for a parameter code
-    aggregated by matching input parameter, and monitoring agency (MA) code
-    provided for bdate - edate time frame.
+    """Return a table containing flow rate Verification data for a parameter code and monitoring agency (MA) code.
 
     Parameters
     ----------
@@ -503,6 +501,7 @@ def qa_flowrateverification(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): flow rate audit data for the
     requested MA_code.
+
     """
     service = "qaFlowRateVerifications"
     fun = "_aqs_services_by_MA"
@@ -535,8 +534,9 @@ def transactionsample(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return transactionsample data - aggregated by Monitoring agency (MA) in
-    the AQS Submission Transaction Format (RD) sample (raw) data for a
+    """Return transactionsample data - aggregated by Monitoring agency (MA).
+
+    Data is returned in the AQS Submission Transaction Format (RD) sample (raw) data for a
     parameter code aggregated by matching input parameter, and monitoring
     agency (MA) code provided for bdate - edate time frame. Includes data both
     in submitted and standard units.
@@ -592,6 +592,7 @@ def transactionsample(
     (pandas DataFrame or an AQSAPI_V2 object): transaction sample (raw) data in
     the AQS submission transaction format (RD) corresponding to the inputs
     provided.
+
     """
     service = "transactionsSample"
     fun = "_aqs_services_by_MA"
@@ -624,9 +625,7 @@ def qa_annualpeferomanceeval(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return quality assurance performance evaluation data - aggregated by
-    by Monitoring agency (MA) for a parameter code aggregated by matching input
-    parameter and MA_code for the time frame between bdate and edate.
+    """Return quality assurance performance evaluation data - aggregated by Monitoring agency (MA) for a parameter code.
 
     Parameters
     ----------
@@ -679,6 +678,7 @@ def qa_annualpeferomanceeval(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance performance
     evaluation data. for all monitoring sites for with the MA_code requested
     for the time frame between bdate and edate.
+
     """
     service = "qaAnnualPerformanceEvaluations"
     fun = "_aqs_services_by_MA"
@@ -711,10 +711,9 @@ def qa_annualperformanceevaltransaction(
     cedate: date | None = None,
     return_header: bool = False,
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return AQS submissions transaction format (RD) of the annual performance
-    evaluation data (raw). Includes data pairs for QA - aggregated by
-    Monitoring agency (MA) for a parameter code aggregated by matching input
-    parameter and MA_code provided for bdate - edate time frame.
+    """Return AQS submissions transaction format (RD) of the annual performance evaluation data (raw).
+
+    Returned data includes data pairs for QA - aggregated by matching input parameter and MA_code provided.
 
     Parameters
     ----------
@@ -767,6 +766,7 @@ def qa_annualperformanceevaltransaction(
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance performance
     evaluation data in the AQS submissions transaction format (RD)for all sites
     matching the MA_code requested for the time frame between bdate and edate.
+
     """
     service = "transactionsQaAnnualPerformanceEvaluations"
     fun = "_aqs_services_by_MA"

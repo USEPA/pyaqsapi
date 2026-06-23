@@ -25,28 +25,24 @@ AQS_key: str | None = None
 ONE_MINUTE = 60  # set 60 second period for ratelimit package decorator
 
 
-class AQSAPI_V2:
-    """AQSAPI_V2 class used to store and retrieve data from the EPA AQS
-     Datamart API.
+class AQSAPI_V2:  # noqa: N801
+    """AQSAPI_V2 class used to store and retrieve data from the EPA AQS Datamart API.
 
-      # for some reason Sphinx does not like this Attributes section so it is
-      # commented out, for now.
-
-      # Attributes
-      # ----------
-      # _header (pandas DataFrame): header information returned from the
-      #     AQS Datamart API.
-      # _request_time (str): the time stamp that the call to the AQS Datamart
-      #     API was received.
-      # _status (str): the status (associated with the _status_code) returned
-      #     from a call to the AQS Datamart API.
-      # _status_code (str): the numeric status_code (represented as a string)
-      #     that is returned from a call to the AQS Datamart API.
-      # _rows (str): the number of rows contained in the _data.
-      # _url (str): a string representing the URL used to make the AQS Datamart
-      #     API call.
-      # _data (pandas DataFrame): the data returned from a call to the
-      #     AQS Datamart API.
+    Attributes
+    ----------
+    _header (pandas DataFrame): header information returned from the
+        AQS Datamart API.
+    _request_time (str): the time stamp that the call to the AQS Datamart
+        API was received.
+    _status (str): the status (associated with the _status_code) returned
+        from a call to the AQS Datamart API.
+    _status_code (str): the numeric status_code (represented as a string)
+        that is returned from a call to the AQS Datamart API.
+    _rows (str): the number of rows contained in the _data.
+    _url (str): a string representing the URL used to make the AQS Datamart
+        API call.
+    _data (pandas DataFrame): the data returned from a call to the
+        AQS Datamart API.
 
     Methods
     -------
@@ -65,7 +61,6 @@ class AQSAPI_V2:
 
     def __init__(self) -> None:
         """Initiate the AQSAPI_V2 instance."""
-
         self._header: DataFrame = DataFrame()
         self._data: DataFrame = DataFrame()
         self._request_time: str | None = None
@@ -76,8 +71,7 @@ class AQSAPI_V2:
         self._numberofrows: int | None = None
 
     def set_header(self, Header: DataFrame) -> None:
-        """Set the header of a single AQSAPI_V2 object. Header must be a
-        pandas DataFrame.
+        """Set the header of a single AQSAPI_V2 object. Header must be a pandas DataFrame.
 
         Warns
         -----
@@ -111,8 +105,9 @@ class AQSAPI_V2:
         return str(self._request_time)
 
     def get_numberofrows(self) -> int:
-        """Retrieve the number of rows of data returned from the API call. This information can be used to track the amount
-        of data requested.
+        """Retrieve the number of rows of data returned from the API call.
+
+        This information can be used to track the amount of data requested.
 
         Returns
         -------
@@ -194,50 +189,50 @@ class AQSAPI_V2:
         """
         return str(self._status)
 
-    # def _set_status(self, status: str) -> None:
-    #     """
-    #     Set the status message of the AQS DataMart API call.
+    def _set_status(self, status: str) -> None:
+        """Set the status message of the AQS DataMart API call.
 
-    #     Parameters
-    #     ----------
-    #     status_code : A string representing the status code
+        Parameters
+        ----------
+        status : str
+                 A string representing the API call's status message.
 
-    #     Returns
-    #     -------
-    #     None
+        Returns
+        -------
+        None
 
-    #     """
-    #     self._status = status
+        """
+        self._status = status
 
-    # def _set_numberofrows(self, numberofrows: int) -> None:
-    #     """
-    #     Set the number of rows of data returned from the API call.
+    def _set_numberofrows(self, numberofrows: int) -> None:
+        """Set the number of rows of data returned from the API call.
 
-    #     Parameters
-    #     ----------
-    #     numberofrows : A integer representing the number of rows of data returned.
+        Parameters
+        ----------
+        numberofrows : int
+                       A integer representing the number of rows of data returned.
 
-    #     Returns
-    #     -------
-    #     None
+        Returns
+        -------
+        None
 
-    #     """
-    #     self._numberofrows = numberofrows
+        """
+        self._numberofrows = numberofrows
 
-    # def _set_status_code(self, status_code: str) -> None:
-    #     """
-    #     Set the status code of the AQS DataMart API call.
+    def _set_status_code(self, status_code: str) -> None:
+        """Set the status code of the AQS DataMart API call.
 
-    #     Parameters
-    #     ----------
-    #     status_code : A string representing the status code
+        Parameters
+        ----------
+        status_code : str
+                      A string representing the status code
 
-    #     Returns
-    #     -------
-    #     None
+        Returns
+        -------
+        None
 
-    #     """
-    #     self._status_code = status_code
+        """
+        self._status_code = status_code
 
     @no_type_check
     @sleep_and_retry
@@ -253,9 +248,8 @@ class AQSAPI_V2:
     ) -> DataFrame | None:
         """Send AQS request to the AQS API and returns the result.
 
-        This helper function is used to abstract the call to AQS API away from
-        functions that need it's result. This helper function is not
-        meant to be called directly from external functions.
+        This helper method is used to abstract the call to AQS API away from functions that need it's result.
+        This helper method is not meant to be called directly from external functions.
 
         Parameters
         ----------
@@ -385,10 +379,10 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the bysite service.
 
-        A helper function used by bysite functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. A helper method used by bysite functions
+        to call the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -451,7 +445,6 @@ class AQSAPI_V2:
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
 
         """
-
         user = AQS_user
         key = AQS_key
         aqsfilter = "bySite"
@@ -491,10 +484,10 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the bycounty service.
 
-        This function is used by bycounty functions to call the
-        AQSAPI_V2._aqs() function.
+        This is a helper method and should not be called by the end user. This method is used by bycounty functions
+        to call the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -590,10 +583,10 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the bystate service.
 
-        This function is used by bystate functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. This method is used by bystate functions to
+        call the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -686,10 +679,10 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the bybox service.
 
-        This function is used by bybox functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. This method is used by bybox functions to call
+        the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -756,6 +749,7 @@ class AQSAPI_V2:
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
+
         """
         aqsfilter = "byBox"
         user = AQS_user
@@ -796,10 +790,10 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the bycbsa service.
 
-        This function is used by bycbsa functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. This method is used by bycbsa functions to
+        call the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -886,10 +880,10 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the bypqao service.
 
-        This function is used by bypqao functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. This method is used by bypqao functions to call
+        the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -939,6 +933,7 @@ class AQSAPI_V2:
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
+
         """
         aqsfilter = "byPQAO"
         user = AQS_user
@@ -964,7 +959,7 @@ class AQSAPI_V2:
             ),
         )
 
-    def _aqs_services_by_MA(
+    def _aqs_services_by_MA(  # noqa: N802
         self,
         parameter: str,
         bdate: date,
@@ -974,10 +969,10 @@ class AQSAPI_V2:
         cbdate: date | None = None,
         cedate: date | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the byMonitoring Agency (MA) service.
 
-        This function is used by byma functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. This method is used by byma functions to call
+        the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -1017,8 +1012,8 @@ class AQSAPI_V2:
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
-        """
 
+        """
         aqsfilter = "byMA"
         user = AQS_user
         key = AQS_key
@@ -1053,10 +1048,10 @@ class AQSAPI_V2:
         pqao_code: str | None = None,
         parameterclass: str | None = None,
     ) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the list service.
 
-        This function is used by list functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. This method is used by list functions to call
+        the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -1097,6 +1092,7 @@ class AQSAPI_V2:
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
+
         """
         user = AQS_user
         key = AQS_key
@@ -1123,10 +1119,10 @@ class AQSAPI_V2:
         )
 
     def _aqs_metadata_services(self, aqsfilter: str | None = None, service: str | None = None) -> DataFrame | None:
-        """A helper function and should not be called by the end user.
+        """Call _aqs for functions using the metadata service.
 
-        This function is used by list functions to call the AQSAPI_V2._aqs()
-        function.
+        This is a helper method and should not be called by the end user. This method is used by list functions to call
+        the AQSAPI_V2._aqs() method.
 
         Parameters
         ----------
@@ -1143,6 +1139,7 @@ class AQSAPI_V2:
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
+
         """
         user = AQS_user
         key = AQS_key
@@ -1159,11 +1156,11 @@ class AQSAPI_V2:
         )
 
     def _renameaqsvariables(self, name1: str, name2: str) -> DataFrame:
-        """Rename the two columns returned in the Data
-        portion of a AQSAPI_v2 object from "value" and
-        "value_represented" to name1 and name2 respectively.
+        """Rename Data columns in the data portion of a AQSAPI_v2 object.
 
-        This is a helper function, not intended to be called directly
+        The data columns are renamed from "value" and "value_represented" to name1 and name2 respectively.
+
+        This is a helper method, not intended to be called directly
         by the end user.
 
         Parameters
@@ -1186,8 +1183,9 @@ class AQSAPI_V2:
 
 
 def aqs_credentials(username: str | None = None, key: str | None = None) -> None:
-    """Set the user credentials for the AQS API. This function
-    needs to be called once and only once every time this library
+    """Set the user credentials for the AQS API.
+
+    This function needs to be called once and only once every time this library
     is re-loaded. Users must have a valid username and key which
     can be obtained through the use of the aqs_sign_up function,
     use pyaqsapi.aqs_sign_up() to sign up for AQS data mart credentials.
@@ -1206,7 +1204,6 @@ def aqs_credentials(username: str | None = None, key: str | None = None) -> None
     None
 
     """
-
     if not (username is None or key is None):
         global AQS_user
         global AQS_key
@@ -1219,13 +1216,12 @@ def aqs_credentials(username: str | None = None, key: str | None = None) -> None
 def aqs_removeheader(
     aqsobject: None | DataFrame | AQSAPI_V2 | list[DataFrame] | list[AQSAPI_V2],
 ) -> DataFrame | AQSAPI_V2:
-    """Coerces a single AQS_Data_Mart_APIv2 instance or a list of
-    AQS_Data_Mart_APIv2 instance into a single DataFrame object.
+    """Coerces a single AQS_Data_Mart_APIv2 instance or a list of AQS_Data_Mart_APIv2 instance into a single DataFrame.
+
     This function decouples the Data from the AQSAPI_v2 object and returns
     only the Data portion as a DataFrame. If the input is a list of AQSAPI_v2
-    objects combines the Data portion of each AQS_Data_Mart_APIv2 object
-    into a DataFrame with Header information discarded,
-    else returns the input with no changes.
+    objects this function combines the Data portion of each AQS_Data_Mart_APIv2 object
+    into a DataFrame with Header information discarded, else returns the input with no changes.
 
     Parameters
     ----------
@@ -1238,9 +1234,8 @@ def aqs_removeheader(
     object.
 
     """
-
     aqsresult = DataFrame()
-    for index, value in enumerate(aqsobject):  # type: ignore # pylint: disable=W0612
+    for _index, value in enumerate(aqsobject):  # type: ignore # pylint: disable=W0612 #
         aqsresult = concat([aqsresult, value.get_data()], axis=0)  # type: ignore
 
     return aqsresult
@@ -1252,27 +1247,21 @@ def _aqsmultiyearcall(  # pylint: disable=R0911
     bdate: date,
     edate: date,
     service: str,
-    # name1: None | str,
-    # name2: None | str,
     singlecall: bool | None = False,
     **kwargs: Any,
 ) -> list[DataFrame] | None:
-    """A helper function not to be used by end users. Used to perform multiple
-        calls to the API on API calls which only allow a single year of data to
-        be returned, simplifying multi-year calls for the end user.
+    """Make multiple calls to _aqs.
 
-        This function is used to make multiple calls to the Datamart API for
-        request for data that exceed the request limit set by AQS Datamart.
-        This is done by making multiple API request to the API and combining the
-        results from all requests into a single manageable object that is
-        returned to the calling function for further processing. The first seven
-        parameters (fun, parameter, bdate, edate, service, name1 and name2) are
-        all required parameters that must be including in the function call
-        (Name1 and Name2 can be set to None). Other parameters are captured by
-        **kwargs to be sent to the API. These optional parameters include
-        sitenum, countycode, stateFIPS, cbsa_code, ma_code, minlat, maxlat,
-        minlon, pqao_code, duration, cbdate and cedate for API calls that
-        require those parameters.
+       This is a helper function, not to be used by end users. Used to perform multiple calls to the API on API calls which
+       only allow a single year of data to be returned, simplifying multi-year calls for the end user.
+
+       This function is used to make multiple calls to the Datamart API for request for data that exceed the request limit
+       set by AQS Datamart. This is done by making multiple API request to the API and combining the results from all
+       requests into a single manageable object that is returned to the calling function for further processing. The first
+       seven parameters (fun, parameter, bdate, edate, service, name1 and name2) are all required parameters that must be
+       including in the function call (Name1 and Name2 can be set to None). Other parameters are captured by **kwargs to
+       be sent to the API. These optional parameters include sitenum, countycode, stateFIPS, cbsa_code, ma_code, minlat,
+       maxlat, minlon, pqao_code, duration, cbdate and cedate for API calls that require those parameters.
 
 
     Creates a DataFrame
@@ -1280,57 +1269,50 @@ def _aqsmultiyearcall(  # pylint: disable=R0911
         column representing a singe parameter and each row a single call
         to the API.
 
-        Parameters
-        ----------
-        fun : str
-              The name of the pyaqsapi.services_by_* helperfunction to be called
-              represented as a string.
-        parameter : str or list[str]
-                    a character list or a single character string
-                    which represents the parameter code of the air
-                    pollutant related to the data being requested.
-        bdate : datetime.date
-                a python date object which represents that begin date of the
-                data selection. Only data on or after this date will be
-                returned.
-        edate : datetime.date
-                a python date object which represents that end date of the data
-                selection. Only data on or before this date will be returned.
-        service : str
-                  the service requested by the AQS API encoded as a string;
-                  For a list of available services see
-                  https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-        name1 : str
-                a character string representing the new name of the first
-                column of the Data portion of the AQSAPI_V2 object.
-                (can be set to None)
-        name2 : str
-                a character string representing the new name of the second
-                column of the Data portion of the AQSAPI_V2 object.
-                (can be set to None)
-        singlecall: bool, optional, default=False
-                   A boolean value, when set to True will send multiple years of data as a single API call. Currently only
-                   the monitors service supports this functionality.
-        **kwargs : optional
-                   additional parameters to be set to the API as needed for each
-                   API service requested. These optional parameters include
-                   sitenum, countycode, stateFIPS, cbsa_code, ma_code, minlat,
-                   maxlat, minlon, pqao_code, duration, cbdate and cedate.
-                   Refer to the the _services_by_ functions documentation for
-                   details on those additional parameters.
+    Parameters
+    ----------
+    fun : str
+        The name of the pyaqsapi.services_by_* helperfunction to be called
+        represented as a string.
+    parameter : str or list[str]
+        a character list or a single character string
+        which represents the parameter code of the air
+        pollutant related to the data being requested.
+    bdate : datetime.date
+        a python date object which represents that begin date of the
+        data selection. Only data on or after this date will be
+        returned.
+    edate : datetime.date
+        a python date object which represents that end date of the data
+        selection. Only data on or before this date will be returned.
+    service : str
+        the service requested by the AQS API encoded as a string;
+        For a list of available services see
+        https://aqs.epa.gov/aqsweb/documents/data_api.html#services
+    singlecall : bool, optional
+        Default: False. A boolean value, when set to True will send multiple
+        years of data as a single API call. Currently only the monitors
+        service supports this functionality.
+    **kwargs : optional
+        additional parameters to be set to the API as needed for each
+        API service requested. These optional parameters include
+        sitenum, countycode, stateFIPS, cbsa_code, ma_code, minlat,
+        maxlat, minlon, pqao_code, duration, cbdate and cedate.
+        Refer to the the _services_by_ functions documentation for
+        details on those additional parameters.
 
-        Warns
-        -----
-        UserWarning
-            A UserWarning is thrown if bdate > edate, a  NameError is thrown if fun is not one of the available
-            AQSAPI_V2 service helper functions.
+    Warns
+    -----
+    UserWarning
+    A UserWarning is thrown if bdate > edate, a  NameError is thrown if fun is not one of the available
+    AQSAPI_V2 service helper functions.
 
-        Returns
-        -------
-        (list of itertools starmap objects): A list of itertools.starmap objects
-        that contain AQSAPI_V2 objects where each item in the list represents a
-        single call to the AQS Datamart API. The aqs_removeheader function can
-        be used to simplify the returned list into a single DataFrame.
+    Returns
+    -------
+    (list of itertools starmap objects): A list of itertools.starmap objects
+    that contain AQSAPI_V2 objects where each item in the list represents a
+    single call to the AQS Datamart API. The aqs_removeheader function can
+    be used to simplify the returned list into a single DataFrame.
 
     """
     aqsresult = AQSAPI_V2()  # ignore the variable not used warning.

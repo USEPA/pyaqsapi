@@ -1,0 +1,99 @@
+doc-warnings: true
+autodetect: false
+max-line-length: 125
+test-warnings: false
+
+ignore-paths:
+  - docs
+  - tests
+  - .tox
+  - dev
+  - devcontainer
+  - .github
+  - .git
+  - vscode
+  - build
+  - .spyproject
+  - recipe
+  - codeql-custom-queries-python
+  - dist
+  - htmlcov
+  - pyaqsapi.egg-info
+
+ignore-patterns:
+  - ".*\\.pyi$"
+  - "*\\.pyc$"
+  - ".*/tests/.*\\.py$"
+  - ".*[\\\\/]tests[\\\\/].*"
+  - ".*/test_.*\\.py$"
+  - "whitelist.py"
+
+pyroma:
+  run: true
+
+pylint:
+  options:
+    load-plugins: pylint_pytest
+  run: true
+  pylint_config_file: .pylintrc
+
+pydocstyle:
+  disable:
+     - D213
+  run: true
+  convention: numpy
+
+ruff:
+  run: true
+  show-fixes: true
+
+pyflakes:
+  run: false #ruff implements all pyflake checks
+
+flake8:
+  run: false 
+  options: #ruff implements all flake8 checks
+    per-file-ignores = **/__init__.py:F401
+
+mypy:
+  run: true
+
+bandit:
+  run: true
+  config: pyproject.toml
+  ignore:
+    - B101 #assert detected
+
+pycodestyle:
+  disable:
+    - N803
+  run: true
+
+dodgy:
+  run: false
+
+vulture:
+  run: true
+  options:
+    ignore-names:
+      - pytest.fixture
+    ignore-decorators:
+      - pytest.fixture
+    ignore-namees:
+      - setuppyaqsapi
+      - "autouse"
+      - test_
+      - _test
+      - setuppyaqsapi_bybox
+      - setuppyaqsapi_bycbsa
+      - setuppyaqsapi_bypqao
+      - setuppyaqsapi_byma
+      - setuppyaqsapi_bystate
+      - setuppyaqsapi_bysite
+      - setuppyaqsapi_bycounty
+
+bandit:
+  run: true
+  config: pyproject.toml
+  ignore:
+    - B101  #assert used

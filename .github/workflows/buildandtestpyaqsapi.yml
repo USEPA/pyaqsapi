@@ -41,12 +41,11 @@ jobs:
         uses: actions/checkout@v6
 
       - name: setup environment
-        uses: mamba-org/setup-micromamba@v2
+        uses: mamba-org/setup-micromamba@v3
         with:
           environment-file: environment.yml
           create-args: --retry-clean-cache -v
-          init-shell: >-
-            bash
+          init-shell: bash
           cache-environment: true
           environment-name: pyaqsapi
           post-cleanup: 'all'
@@ -55,7 +54,7 @@ jobs:
         run: |
           # prepare the shell for conda activation
           eval "$(micromamba shell hook --shell=bash)"
-          conda activate pyaqsapi
+          #conda activate pyaqsapi
           python -c "import platform; print(platform.uname())"
           sphinx-build --version
         shell: bash -el {0}
@@ -70,7 +69,7 @@ jobs:
         run: |
           # ensure environment is active for docs
           eval "$(micromamba shell hook --shell=bash)"
-          conda activate pyaqsapi
+          #conda activate pyaqsapi
           tox -e docs
         shell: bash -el {0}
 

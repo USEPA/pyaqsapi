@@ -52,22 +52,12 @@ ignore=CVS
 # ignore-list. The regex matches against paths and can be in Posix or Windows
 # format. Because '\\' represents the directory delimiter on Windows systems,
 # it can't be used as an escape character.
-ignore-paths=^tests/*,
-             ^.tox/.*$,
-             ^dev/.*$,
-             ^docs/conf.py$,
-             ^pyaqsapi/bysite/tests/*,
-             ^pyaqsapi/bycounty/tests/*,
-             ^pyaqsapi/bystate/tests/*,
-             ^pyaqsapi/bypqao/tests/*,
-             ^pyaqsapi/byma/tests/*,
-             ^pyaqsapi/bybox/tests/*,
-             ^pyaqsapi/bycbsa/tests/*
+ignore-paths=^.tox/|^build([\\/].*)?$|^dev/.*$|.*\.pyi$|^tests([\\/].*)?$|^pyaqsapi[\\/]bysite[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bycounty[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bystate[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bypqao[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]byma[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bybox[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bycbsa[\\/]tests([\\/].*)?$|^docs[\\/]conf.py$
 
 # Files or directories matching the regular expression patterns are skipped.
 # The regex matches against base names, not paths. The default value ignores
 # Emacs file locks
-#ignore-patterns=
+ignore-patterns=.*\.pyi$, whitelist.py
 
 # List of module names for which member attributes should not be checked and
 # will not be imported (useful for modules/projects where namespaces are
@@ -344,7 +334,7 @@ expected-line-ending-format=
 ignore-long-lines=^\s*(# )?<?https?://\S+>?$
 
 # Number of spaces of indent required inside a hanging or continued line.
-indent-after-paren=2
+indent-after-paren=4
 
 # String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
 # tab).
@@ -563,7 +553,7 @@ max-spelling-suggestions=10000
 
 # Spelling dictionary name. No available dictionaries : You need to install
 # both the python package and the system dependency for enchant to work.
-spelling-dict=en_US
+#spelling-dict=en_US
 
 # List of comma separated words that should be considered directives if they
 # appear at the beginning of a comment and should not be checked.

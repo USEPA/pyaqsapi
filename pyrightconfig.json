@@ -6,6 +6,10 @@
   "ignore": [
     "dev/**",
     "*tests/**",
-    "**/test_*.py"
+    "**/test_*.py",
+    ".tox/*",
+    "whitelist.py",
+    "build",
+    "dist",
   ]
 }

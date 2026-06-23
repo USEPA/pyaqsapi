@@ -46,16 +46,17 @@ test = [
   "pytest-cov",
   "pytest-rerunfailures",
   "pytest-ruff",
-  "pytest-sugar"
+  "pytest-sugar",
+  "pytest-pylint",
 ]
 
 dev = [
     "bandit",
-    "conda-build",
     "mypy",
     "pylint",
+    "pytest-pylint",
     "ruff",
-    "tox"
+    "tox",
     ]
 
 [project.urls]
@@ -72,8 +73,12 @@ dev = [
 [build-system]
   requires = ["setuptools >= 77.0.3", "build"]
   build-backend = "setuptools.build_meta"
+  
+[tool.flake8]
+ignore = ["N803"]
 
 [tool.bandit]
+skips = ["B101"]
 exclude_dirs = [".tox",
                 "dev",
                 "tests",
@@ -85,6 +90,11 @@ exclude_dirs = [".tox",
                 "pyaqsapi/bypqao/tests",
                 "pyaqsapi/bybox/tests",
                 "pyaqsapi/bycbsa/tests"]
+
+[tool.pydocstyle]
+# negative look ahead Regex to match directories that should _NOT_ be included.
+match_dir = "^(?!(tests|env|venv|.tox|build|.devcontainer|dev|dist|.git|.spyproject|.vscode|codeql-custom-queries-python|doc)).*"
+
 
 [tool.black]
 line-length = 125
@@ -103,6 +113,8 @@ exclude = '''
 respect-gitignore = true
 show-fixes = true
 line-length = 125
+indent-width = 4
+exclude = ["*.pyi"]
 extend-exclude = [
     ".spyproject",
     ".github",
@@ -117,6 +129,11 @@ ignore = ["D404", "C901"]
 select = [
   "C901",
   "D100",
+  "D202",
+  "D205",
+  "D400",
+  "D103",
+  "D104",
   "D402",
   "D403",
   "D406",
@@ -133,6 +150,8 @@ select = [
 extend-select = ["UP", "I", "E", "W"]
 unfixable = []
 
+[tool.ruff.lint.per-file-ignores]
+"*.pyi" = ["I"]
 
 [tool.ruff.analyze]
 direction = "dependencies"
@@ -150,17 +169,27 @@ skip-magic-trailing-comma = false
 convention = "numpy"
 
 [tool.setuptools]
-packages = ["pyaqsapi",
-            "pyaqsapi.bysite",
-            "pyaqsapi.bycounty",
-            "pyaqsapi.bystate",
-            "pyaqsapi.bycbsa",
-            "pyaqsapi.bypqao",
-            "pyaqsapi.byma",
-            "pyaqsapi.bybox"]
+
+[tool.setuptools.packages.find]
+where = [
+  "pyaqsapi",
+  "pyaqsapi.bysite",
+  "pyaqsapi.bycounty",
+  "pyaqsapi.bystate",
+  "pyaqsapi.bycbsa",
+  "pyaqsapi.bypqao",
+  "pyaqsapi.byma",
+  "pyaqsapi.bybox",
+]
+exclude = [
+  ".tox*",
+  "tests*",
+  "docs*",
+]
+namespaces = true
 
 [tool.setuptools.package-data]
-pyaqsapi = ["py.typed", "*.pyi"]
+pyaqsapi = ["py.typed", "*.pyi", "*test*/"]
 
 [tool.mypy]
 follow_imports = "skip"
@@ -173,11 +202,13 @@ explicit_package_bases = true
 exclude = [
   '(^|[\\/])tests([\\/]|$)',
   '(^|[\\/])dev([\\/]|$)',
-  '(^|[\\/])test_.*\\.py$'
+  '(^|[\\/])test_.*\\.py$',
+  'whitelist.py'
 ]
 
 [tool.prospector]
 max-line-length = 125
+pylint.config_file = ".pylintrc"
 run = [
     "ruff",
     "pyflakes",
@@ -186,25 +217,39 @@ run = [
     "vulture",
     "bandit",
 ]
-ignore-patterns = [
-    "build/",
-    "docs/",
+ignore_paths = [
     ".devcontainer",
     ".git",
-    ".github",
+    ".mypy_cache",
     ".ruff_cache",
     ".spyproject",
     ".tox",
     ".vscode",
     "codeql-custom-queries-python",
+    "build",
     "dev",
     "dist",
-    "docs/_build",
-    "pyaqsapi.egg-info"
+    "docs",
+    "htmlcov",
+    "pyaqsapi.egg-info",
+    "tests",
+    "pyaqsapi\bysite\tests",
+    "pyaqsapi\bycounty\tests",
+    "pyaqsapi\bystate\tests",
+    "pyaqsapi\bybma\tests",
+    "pyaqsapi\bypqao\tests",
+    "pyaqsapi\bycbsa\tests",
+    "pyaqsapi\bybox\tests"
+]
+ignore_patterns = [
+    "(^|[\\/])tests([\\/]|$)",
+    "(^|[\\/])test_.*\\.py$",
+    "(^|[\\/]).*_test\\.py$",
 ]
 
-[tool.sphinx-linter]
-#requires python tomllib which is only available in python 3.11 and above,
-#so this tool is not listed in dev dependencies
-ignore = [".tox", "build", "dist", "dev"]
-max-line-length = 125
+[tool.vulture]
+paths=["whitelist.py"]
+ignore_decorators = ["@pytest.fixture"]
+ignore_names = ["setuppyaqsapi*", "autouse", "_*", "test_*", "*_test"]
+exclude = [".tox/", "build/", "dev/", "*tests*", "docs/conf.py", "whitelist.py"]
+make_whitelist = true

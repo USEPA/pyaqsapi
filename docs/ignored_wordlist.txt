@@ -1,4 +1,3 @@
-./dev/local.py
 API
 AQSDatamartAPI
 AQSkey
@@ -71,6 +70,7 @@ pqaos
 pragma
 pyaqsapi
 pyaqsapiFunctions
+pyi
 qa
 qc
 quarterly
@@ -87,6 +87,7 @@ setupfunctions
 sitenum
 starmap
 stateFIPS
+stubgen
 submodule
 submodules
 th

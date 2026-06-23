@@ -1,43 +1,59 @@
+# Include package source, configuration files, metadata and documentation for source distributions.
+graft pyaqsapi
+graft docs
+graft recipe
 include README.rst
-include *.pyi
-include *py.typed
+include LICENSE.rst
+include pyproject.toml
+include MANIFEST.in
+include CITATION.cff
+include changelog.rst
+include codeinventory.json
+include codemeta.json
+include conda-forge.yaml
+include environment.yml
+include Pipfile
+include pytest.ini
+include pyrightconfig.json
+include tox.ini
+include bld.bat
+include build.sh
+include .coveragerc
+include .pylintrc
+include .gitignore
+include .gitattributes
+include dontlintpyifiles.py
+include py.typed #include the py.typed file at package root
+recursive-include pyaqsapi *.typed #include all other .typed files under the pyaqsapi directory
+graft tests
 
-#exclude config files
-exclude environment.yml
-exclude conda-forge.yaml
-exclude mypy.ini
-exclude tox.ini
-exclude pytest.ini
-exclude pyrightconfig.json
-exclude codeinventory.json
-exclude codemeta.json
-exclude .coveragerc
-exclude pylint_import-dependency-graph.png
+# Exclude unwanted user specific files, build artificats, development and build cache files from the source distribution.
 exclude .actrc
-exclude .bandit
-exclude .coverage
-exclude .coveragerc
 exclude .dockerignore
 exclude .gitattributes
-exclude .gitignore
+exclude .github/*
+exclude pylint_import-dependency-graph.png
+exclude whitelist.py
 
-# Exclude common development, build and editor artifacts
 global-exclude __pycache__
 global-exclude *.py[cod]
+global-exclude *.pyd
 global-exclude *.so
-exclude pylint_import-dependency-graph.png
+global-exclude *.egg-info
 
-# Prune top-level development, CI, and editor folders
-prune .devcontainer/
-prune .github/
-prune .vscode/
-prune .spyproject/
-prune .git/
-prune .tox/
-prune dist/
-prune dev/
-prune codeql-custom-queries-python/
-prune htmlcov/
-exclude pyaqsapi.code-workspace
-exclude .ruff_cache/
-exclude .pytest_cache/
+prune .git
+prune .github
+prune .vscode
+prune .tox
+prune dev
+prune build
+prune dist
+prune htmlcov
+prune .pytest_cache
+prune .ruff_cache
+prune .spyproject
+prune .devcontainer
+prune docs/_build
+prune docs/_static
+prune docs/_templates
+prune codeql-custom-queries-python

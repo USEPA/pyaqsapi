@@ -1,24 +1,13 @@
+# pylint: skip-file 
+
 from datetime import date
-
-from pandas import DataFrame
-
+from pandas import DataFrame as DataFrame
 from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
-def monitors(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    minlat: str,
-    maxlat: str,
-    minlon: str,
-    maxlon: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of monitors.
+def monitors(parameter: str, bdate: date, edate: date, minlat: str, maxlat: str, minlon: str, maxlon: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of monitor metadata aggregated by latitude/longitude bounding box (_by_box).
 
-    Return a table of monitors and related metadata sites with the provided
+    Return a table of monitors and related metadata for sites with the provided
     parameter, aggregated by latitude/longitude bounding box (_by_box) for
     bdate - edate time frame.
 
@@ -56,7 +45,7 @@ def monitors(
              cbdate is used to filter data based on the change date.
              Only data that changed on or after this date will be
              returned. This is an optional variable which defaults to
-                 None.
+                   None.
     cedate : datetime.date, optional
              a python date object which represents an "end date of last
              change" that indicates when the data was last updated.
@@ -90,23 +79,9 @@ def monitors(
     Returns a table of monitors from a latitude/longitude bounding
     box (_by_box).
 
-    """
-
-def sampledata(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    minlat: str,
-    maxlat: str,
-    minlon: str,
-    maxlon: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    duration: str | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return sample data where the data is aggregated by latitude/longitude
-    bounding box (_by_box).
+    '''
+def sampledata(parameter: str, bdate: date, edate: date, minlat: str, maxlat: str, minlon: str, maxlon: str, cbdate: date | None = None, cedate: date | None = None, duration: str | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of sample data aggregated by latitude/longitude bounding box (_by_box).
 
     If return_header is False (default) this function
     returns a single DataFrame with the requested data. If return_header is
@@ -188,22 +163,10 @@ def sampledata(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): sample data for all monitors
     within the input latitude/longitude bounding box for a single parameter.
-    """
 
-def annualsummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    minlat: str,
-    maxlat: str,
-    minlon: str,
-    maxlon: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of annual data aggregated by latitude/longitude
-    bounding box (_by_box).
+    '''
+def annualsummary(parameter: str, bdate: date, edate: date, minlat: str, maxlat: str, minlon: str, maxlon: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of annual data aggregated by latitude/longitude bounding box (_by_box).
 
     Annual summary contains a DataFrame matching the input parameter for the
     rectangular area area bounded by minlat, maxlat, minlon, maxlon provided
@@ -276,22 +239,10 @@ def annualsummary(
     -------
     (pandas DataFrame or an AQSAPI_V2 object) sample data for all monitors
     within the input latitude/longitude bounding box for a single parameter.
-    """
 
-def dailysummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    minlat: str,
-    maxlat: str,
-    minlon: str,
-    maxlon: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of daily summary data aggregated by latitude/longitude
-    bounding box (_by_box).
+    '''
+def dailysummary(parameter: str, bdate: date, edate: date, minlat: str, maxlat: str, minlon: str, maxlon: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of daily summary data aggregated by latitude/longitude bounding box (_by_box).
 
     Daily summary contains a DataFrame matching the input parameter and
     stateFIPS provided for bdate - edate time frame. Variables
@@ -366,23 +317,10 @@ def dailysummary(
     (pandas DataFrame or an AQSAPI_V2 object): daily summary data for all
     monitors within the input latitude/longitude bounding box for a single
     parameter.
-    """
 
-def quarterlysummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    minlat: str,
-    maxlat: str,
-    minlon: str,
-    maxlon: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    duration: str | None = None,
-    return_header: bool = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of quarterly data aggregate by latitude/longitude
-    bounding box (_by_box).
+    '''
+def quarterlysummary(parameter: str, bdate: date, edate: date, minlat: str, maxlat: str, minlon: str, maxlon: str, cbdate: date | None = None, cedate: date | None = None, duration: str | None = None, return_header: bool = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of quarterly data aggregate by latitude/longitude bounding box (_by_box).
 
     Quarterly summary contains a DataFrame matching the input parameter,
     stateFIPS and county_code provided for bdate - edate time frame.
@@ -486,4 +424,5 @@ def quarterlysummary(
     (pandas DataFrame or an AQSAPI_V2 object): daily summary data for all
     monitors within the input latitude/longitude bounding box for a single
     parameter.
-    """
+
+    '''

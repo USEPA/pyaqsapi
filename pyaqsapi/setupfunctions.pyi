@@ -1,5 +1,9 @@
+# pylint: skip-file 
+
 def aqs_sign_up(email: str) -> None:
-    """Use this service to register as a new user or to reset an existing user's
+    """Sign up to use AQS DataMart.
+
+    Use this service to register as a new user or to reset an existing user's
     key. A verification email will be sent to the email account specified. To
     reset a password: If the request is made with an email that is already
     registered, a new key will be issued for that account and emailed to the
@@ -20,4 +24,5 @@ def aqs_sign_up(email: str) -> None:
     Returns
     -------
     None.
+
     """

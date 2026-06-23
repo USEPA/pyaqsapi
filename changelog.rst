@@ -18,3 +18,4 @@ many other improvements to the documentation.
 pyaqsapi is now available via conda-forge!
 new method get_numberofrows() to AQSAPI_V2 object, useful for tracking amount of data downloaded.
 A lot of code cleanup.
+Pyaqsapi is now includes type hints with embedded stub files

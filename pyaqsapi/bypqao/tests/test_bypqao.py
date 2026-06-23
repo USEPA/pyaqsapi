@@ -1,3 +1,5 @@
+"""Functions that aggregate data by pqao (By Primary Quality Assurance Organization)."""
+
 from datetime import date
 from os import environ
 from os.path import abspath, exists

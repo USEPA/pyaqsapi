@@ -1,6 +1,5 @@
-"""retrieve ambient air monitoring data from the United States
-Environmental Protection Agency’s (US EPA)
-Air Quality System (AQS) Data Mart API v2 interface."""
+"""Retrieve ambient air monitoring data from the United States Environmental Protection Agency’s \
+(US EPA) Air Quality System (AQS) DataMart API v2 interface."""  # noqa: D200, D205, D400, D212, D415,
 
 from pyaqsapi import bybox as bybox
 from pyaqsapi import bycbsa as bycbsa
@@ -14,8 +13,8 @@ from pyaqsapi import listfunctions as listfunctions
 from pyaqsapi import metadatafunctions as metadatafunctions
 from pyaqsapi import setupfunctions as setupfunctions
 
-from .helperfunctions import AQSAPI_V2, AQS_key, AQS_user, _aqsmultiyearcall, aqs_credentials, aqs_removeheader
-from .listfunctions import (
+from .helperfunctions import AQSAPI_V2, AQS_key, AQS_user, _aqsmultiyearcall, aqs_credentials, aqs_removeheader  # noqa: F401
+from .listfunctions import (  # noqa: F401
     aqs_cbsas,
     aqs_classes,
     aqs_counties_by_state,
@@ -27,12 +26,12 @@ from .listfunctions import (
     aqs_sites_by_county,
     aqs_states,
 )
-from .metadatafunctions import (  # type: ignore[assignment]
+from .metadatafunctions import (  # type: ignore[assignment]  # noqa: F401
     aqs_is_available,
     aqs_knownissues,
     aqs_revisionhistory,
 )
-from .setupfunctions import aqs_sign_up
+from .setupfunctions import aqs_sign_up  # noqa: F401
 
 __all__ = [
     "helperfunctions",

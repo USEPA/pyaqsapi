@@ -1,19 +1,11 @@
+# pylint: skip-file 
+
 from datetime import date
-
-from pandas import DataFrame
-
+from pandas import DataFrame as DataFrame
 from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
-def monitors(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    cbsa_code: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of monitors.
+def monitors(parameter: str, bdate: date, edate: date, cbsa_code: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a table of monitors.
 
     Return a table of monitors at all sites with the provided parameter,
     aggregated by Core Based Statistical Area (CBSA) for bdate - edate
@@ -73,20 +65,10 @@ def monitors(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors at a site.
-    """
 
-def sampledata(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    cbsa_code: str,
-    duration: str | None = None,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return sample data where the data is aggregated at the Core Based
-    Statistical Area (cbsa) level.
+    '''
+def sampledata(parameter: str, bdate: date, edate: date, cbsa_code: str, duration: str | None = None, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return sample data where the data is aggregated at the Core Based Statistical Area (cbsa) level.
 
     Parameters
     ----------
@@ -149,21 +131,11 @@ def sampledata(
 
     Returns
     -------
-    (pandas DataFrame or an AQSAPI_V2 object): sample data for all monitors
-    matching cbsa_code for the given parameter.
-    """
+    (pandas DataFrame or an AQSAPI_V2 object): sample data for all monitors matching cbsa_code for the given parameter.
 
-def annualsummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    cbsa_code: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of annual data aggregated at the Core Based
-    Statistical Area (cbsa) level.
+    '''
+def annualsummary(parameter: str, bdate: date, edate: date, cbsa_code: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of annual data aggregated at the Core Based Statistical Area (cbsa) level.
 
     Annual summary contains a DataFrame matching the input parameter and
     cbsa_code provided for bdate - edate time frame. Variables returned include
@@ -224,19 +196,10 @@ def annualsummary(
     (pandas DataFrame or an AQSAPI_V2 object): a DataFrame or an
     AQS_Data Mart_APIv2 object that containing annual summary data for the
     cbsa_code requested.
-    """
 
-def dailysummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    cbsa_code: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of data aggregated by Core Based Statistical Area
-    (cbsa).
+    '''
+def dailysummary(parameter: str, bdate: date, edate: date, cbsa_code: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of data aggregated by Core Based Statistical Area (cbsa).
 
     Daily summary contains a DataFrame matching the input parameter and
     cbsa_code provided for bdate - edate time frame. Variables
@@ -297,19 +260,10 @@ def dailysummary(
     (pandas DataFrame or an AQSAPI_V2 object): a DataFrame or an
     AQS_Data Mart_APIv2 object that containing daily summary data for
     the cbsa_code requested.
-    """
 
-def quarterlysummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    cbsa_code: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return quarterly summary data aggregated by Core Based Statistical Area
-    (cbsa_code).
+    '''
+def quarterlysummary(parameter: str, bdate: date, edate: date, cbsa_code: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return quarterly summary data aggregated by Core Based Statistical Area (cbsa_code).
 
     Notes
     -----
@@ -383,4 +337,5 @@ def quarterlysummary(
     (pandas DataFrame or an AQSAPI_V2 object): quarterly summary statistics for
     the given parameter for a all monitors with matching parameter and
     cbsa_code combination within the bdate - edate timeframe.
-    """
+
+    '''

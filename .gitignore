@@ -20,3 +20,4 @@ etc/
 pylint_import-dependency-graph.png
 codeql-custom-queries-python/
 htmlcov/
+pyaqsapi.code-workspace

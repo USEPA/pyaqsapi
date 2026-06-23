@@ -1,4 +1,4 @@
-"""pyaqsapi tests for functions imported from the bystate submodule"""
+"""pyaqsapi tests for functions imported from the bystate submodule."""
 
 from datetime import date
 from os import environ

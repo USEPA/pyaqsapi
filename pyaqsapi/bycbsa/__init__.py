@@ -1,6 +1,4 @@
-"""Functions that aggregate data by cbsa
-(by Core Based Statistic Area, as defined by the Census Bureau).
-"""
+"""Functions that aggregate data by cbsa (by Core Based Statistic Area, as defined by the Census Bureau)."""
 
 from .bycbsa import (
     annualsummary,

@@ -40,12 +40,12 @@ jobs:
         run: |
           apt update
           apt install -y nodejs npm
-      
+
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: setup environment to rebuild documentation
-        uses: mamba-org/setup-micromamba@v2
+        uses: mamba-org/setup-micromamba@v3
         with:
           environment-file: environment.yml
           create-args: --retry-clean-cache -v
@@ -64,7 +64,7 @@ jobs:
           conda init
           conda activate pyaqsapi
           tox -e docs
-        
+
 
       - name: Setup Pages
         uses: actions/configure-pages@v2

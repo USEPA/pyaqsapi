@@ -1,19 +1,11 @@
+# pylint: skip-file 
+
 from datetime import date
-
-from pandas import DataFrame
-
+from pandas import DataFrame as DataFrame
 from pyaqsapi.helperfunctions import AQSAPI_V2 as AQSAPI_V2
 
-def monitors(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> list[DataFrame] | DataFrame | AQSAPI_V2 | None:
-    """Return a table of monitors.
+def monitors(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> list[DataFrame] | DataFrame | AQSAPI_V2 | None:
+    '''Return a table of monitors.
 
     Return a table of monitors and related metadata at all sites
     with the provided parameter and stateFIPS for bdate - edate time frame.
@@ -69,18 +61,10 @@ def monitors(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): monitors from the
             selected state.
-    """
 
-def qa_flowrateaudit(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return Quality assurance flowrate audit data.
+    '''
+def qa_flowrateaudit(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return Quality assurance flowrate audit data.
 
     Return a table of monitors and related metadata at all sites
     with the provided parameter and stateFIPS for bdate - edate time frame.
@@ -136,20 +120,12 @@ def qa_flowrateaudit(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): monitors from the
             selected state.
-    """
 
-def qa_one_point_qc(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame or an AQS_Data Mart_APIv2 S3 object containing Quality
-    assurance data - flow rate audit raw data aggregated by state FIPS for
-    bdate - edate time frame.
+    '''
+def qa_one_point_qc(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame or an AQS_Data Mart_APIv2 S3 object containing Quality assurance data - flow rate audit raw data.
+
+    Returned data is aggregated by state FIPS for bdate - edate time frame.
 
     Parameters
     ----------
@@ -201,21 +177,13 @@ def qa_one_point_qc(
     Returns
     -------
     (pandas DataFrame or an AQSAPI_V2 object): one point qc data within the
-    input stateFIPS for bdate - edate time frame..
-    """
+    input stateFIPS for bdate - edate time frame.
 
-def qa_pep_audit(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of Performance Evaluation Program (PEP) audit data
-    aggregated by parameter code, and stateFIPS for the time frame between
-    bdate and edate.
+    '''
+def qa_pep_audit(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a table of Performance Evaluation Program (PEP) audit data.
+
+    Returned data is aggregated by parameter code, and stateFIPS for the time frame between bdate and edate.
 
     Parameters
     ----------
@@ -267,19 +235,10 @@ def qa_pep_audit(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance PEP audit data
     within a state.
-    """
 
-def sampledata(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    duration: str | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return sample data where the data is aggregated at the state level.
+    '''
+def sampledata(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, duration: str | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return sample data where the data is aggregated at the state level.
 
     Parameters
     ----------
@@ -342,18 +301,10 @@ def sampledata(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): containing sample data
     for all monitors matching stateFIPS for the given parameter.
-    """
 
-def annualsummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of annual data aggregated at the state level.
+    '''
+def annualsummary(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of annual data aggregated at the state level.
 
     Annual summary contains a DataFrame matching the input parameter and
     stateFIPS provided for bdate - edate time frame. Variables returned include
@@ -410,22 +361,14 @@ def annualsummary(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): annual summary data for the
     stateFIPS requested.
-    """
 
-def qa_blanks(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of blank quality assurance data. Blanks are unexposed
-    sample collection devices (e.g., filters) that are transported with the
-    exposed sample devices to assess if contamination is occurring during
-    the transport or handling of the samples. Data is aggregated at the state
-    level.
+    '''
+def qa_blanks(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a table of blank quality assurance data.
+
+    Blanks are unexposed sample collection devices (e.g., filters) that are transported with the
+    exposed sample devices to assess if contamination is occurring during the transport or handling of the samples.
+    Data is aggregated at the state level.
 
     Parameters
     ----------
@@ -478,18 +421,9 @@ def qa_blanks(
     (pandas DataFrame or an AQSAPI_V2 object):  quality assurance blank sample
     data for all monitors within the input stateFIPS.
 
-    """
-
-def dailysummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of data aggregated at the state level.
+    '''
+def dailysummary(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of data aggregated at the state level.
 
     Daily summary contains a DataFrame matching the input parameter and
     stateFIPS provided for bdate - edate time frame. Variables
@@ -546,19 +480,12 @@ def dailysummary(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): daily summary statistics for the
     given parameter for a single stateFIPS.
-    """
 
-def qa_collocated_assessments(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table of collocated assessment data aggregated by matching input
-    parameter and stateFIPS provided for bdate - edate time frame.
+    '''
+def qa_collocated_assessments(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a table of collocated assessment data.
+
+    Returned data is aggregated by matching input parameter and stateFIPS provided for bdate - edate time frame.
 
     Parameters
     ----------
@@ -611,20 +538,13 @@ def qa_collocated_assessments(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance collocated
     assessment data for monitors within a state.
-    """
 
-def qa_flowrateverification(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a table containing flow rate Verification data for a parameter code
-    aggregated matching input parameter, and stateFIPS, provided for
-    bdate - edate time frame.
+    '''
+def qa_flowrateverification(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a table containing flow rate Verification data.
+
+    Returned data is aggregated by statecode for matching input parameter, and stateFIPS,
+    provided for bdate - edate time frame.
 
     Parameters
     ----------
@@ -677,20 +597,12 @@ def qa_flowrateverification(
     -------
     (pandas DataFrame or an AQSAPI_V2 object): quality assurance flow rate
     verification data for monitors within a state.
-    """
 
-def transactionsample(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return transactionsample data - aggregated by state in the AQS Submission
-    Transaction Format (RD) sample (raw) data for a parameter code aggregated
-    by matching input parameter, and stateFIPS provided for bdate - edate time
+    '''
+def transactionsample(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return transactionsample data in the AQS Submission Transaction Format (RD) sample (raw).
+
+    Returned data is aggregated by statecode for a matching input parameter, and stateFIPS provided for bdate - edate time
     frame. Includes data both in submitted and standard units.
 
     Parameters
@@ -745,19 +657,12 @@ def transactionsample(
     (pandas DataFrame or an AQSAPI_V2 object): transaction sample (raw) data
     in the AQS submission transaction format (RD) corresponding to the inputs
     provided.
-    """
 
-def qa_annualperformanceeval(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return quality assurance performance evaluation data - aggregated by
-    site for a parameter code aggregated by matching input
+    '''
+def qa_annualperformanceeval(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return quality assurance performance evaluation data.
+
+    Returned data is  aggregated by site for a parameter code aggregated by matching input
     parameter, and stateFIPS provided for bdate - edate time frame.
 
     Parameters
@@ -813,22 +718,13 @@ def qa_annualperformanceeval(
     performance evaluation data for all monitoring sites for the
     matching parameter and stateFIPS requested for the time frame
     between bdate and edate.
-    """
 
-def qa_annualperformanceevaltransaction(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return AQS submissions transaction format (RD) of the annual
-    performance evaluation data (raw). Includes data pairs for
-    QA - aggregated by county for a parameter code aggregated by matching
-    input parameter and stateFIPS provided for
-    bdate - edate time frame.
+    '''
+def qa_annualperformanceevaltransaction(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return AQS submissions transaction format (RD) of the annual performance evaluation data (raw).
+
+    Returned data includes data pairs for QA - aggregated by county for a parameter code aggregated by matching
+    input parameter and stateFIPS provided for bdate - edate time frame.
 
     Parameters
     ----------
@@ -883,20 +779,12 @@ def qa_annualperformanceevaltransaction(
     performance evaluation data. for all monitoring sites with matching
     parameter and stateFIPS requested for the time frame
     between bdate and edate.
-    """
 
-def quarterlysummary(
-    parameter: str,
-    bdate: date,
-    edate: date,
-    stateFIPS: str,
-    cbdate: date | None = None,
-    cedate: date | None = None,
-    return_header: bool | None = False,
-) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
-    """Return a DataFrame of quarterly data aggregated at the state level.
+    '''
+def quarterlysummary(parameter: str, bdate: date, edate: date, stateFIPS: str, cbdate: date | None = None, cedate: date | None = None, return_header: bool | None = False) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
+    '''Return a DataFrame of quarterly data aggregated at the state level.
 
-    Quarterly summary contains a DataFrame matching the input parameter,
+    Quarterly summary contains a dataFrame matching the input parameter,
     stateFIPS a provided for bdate - edate time frame. Variables returned
     include mean value, maxima, percentiles, and etc.
 
@@ -969,4 +857,5 @@ def quarterlysummary(
     (pandas DataFrame or an AQSAPI_V2 object): quarterly summary statistics for
     the given parameter for a all monitors with matching parameter and
     stateFIPS combination within the bdate - edate timeframe.
-    """
+
+    '''

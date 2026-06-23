@@ -1,6 +1,4 @@
-"""Functions that aggregate data by pqao
-(By Primary Quality Assurance Organization).
-"""
+"""Functions that aggregate data by pqao (By Primary Quality Assurance Organization)."""
 
 from .bypqao import (  # pylint: disable=R0402
     qa_annualperformanceeval,
