@@ -1,5 +1,4 @@
 name: new_build_and_test_pyaqsapi
-run-name: A push event from ${{ github.actor }} caused a rebuilding and retesting of the pyaqsapi package via GitHub actions
 
 on:
   push:
@@ -11,71 +10,8 @@ on:
       - main
       - github_workflow
 
-defaults:
-  run:
-    shell: bash -el {0}
-
 jobs:
-  setup_environment:
-    permissions:
-      contents: write
-      checks: write
-    runs-on: ubuntu-latest
-    env:
-      TZ: UTC
-      DEBIAN_FRONTEND: noninteractive
-      AQSkey: ${{ secrets.AQSKEY }}
-      AQSuser: ${{ secrets.AQSUSER }}
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
-
-    steps:
-      - name: install node
-        uses: actions/setup-node@v6
-        with:
-          node-version: "latest"
-
-      - name: checkout
-        uses: actions/checkout@v6
-
-      - name: setup environment
-        uses: mamba-org/setup-micromamba@v3
-        with:
-          environment-file: environment.yml
-          create-args: --retry-clean-cache -v
-          init-shell: bash
-          cache-environment: true
-          environment-name: pyaqsapi
-          post-cleanup: 'all'
-
-      - name: Display Python and sphinx version and system info
-        run: |
-          # prepare the shell for conda activation
-          eval "$(micromamba shell hook --shell=bash)"
-          #conda activate pyaqsapi
-          python -c "import platform; print(platform.uname())"
-          sphinx-build --version
-        shell: bash -el {0}
-
-      - name: build and install pyaqsapi in a test environment using python-build and pip
-        run: |
-          python -m build .
-          pip install .
-        shell: bash -el {0}
-
-      - name: build apidocs
-        run: |
-          # ensure environment is active for docs
-          eval "$(micromamba shell hook --shell=bash)"
-          #conda activate pyaqsapi
-          tox -e docs
-        shell: bash -el {0}
-
-      - name: test_package
-        env:
-          AQSkey: ${{ secrets.AQSKEY }}
-          AQSuser: ${{ secrets.AQSUSER }}
-        run: pytest
-        shell: bash -el {0}
+  call-reusable-build:
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      python-versions: '["3.10","3.11","3.12","3.13"]'

@@ -1,0 +1,19 @@
+name: python-setup
+
+description: "Common Python setup for GitHub Actions workflows: checkout and setup-python."
+
+inputs:
+  python-version:
+    description: 'Python version to install.'
+    default: '3.13'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v6
+
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: ${{ inputs.python-version }}

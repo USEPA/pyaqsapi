@@ -1339,14 +1339,12 @@ def _aqsmultiyearcall(  # pylint: disable=R0911
         edatelist = [date(year=y, month=12, day=31) for y in range(bdate.year, edate.year)]
         edatelist.append(edate)
 
-    params = DataFrame(
-        {
-            "parameter": parameter,
-            "bdate": bdatelist,
-            "edate": edatelist,
-            "service": service,
-        }
-    )
+    params = DataFrame({
+        "parameter": parameter,
+        "bdate": bdatelist,
+        "edate": edatelist,
+        "service": service,
+    })
 
     for k, v in kwargs.items():
         params.insert(0, k, v)

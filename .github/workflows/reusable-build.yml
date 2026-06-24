@@ -1,0 +1,55 @@
+name: Reusable Build and Test
+
+on:
+  workflow_call:
+    inputs:
+      python-versions:
+        required: false
+        default: '["3.10","3.11","3.12","3.13"]'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ${{ fromJson(inputs.python-versions) }}
+    env:
+      TZ: UTC
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v3
+        with:
+          environment-file: environment.yml
+          create-args: --retry-clean-cache -v
+          init-shell: bash
+          cache-environment: true
+          environment-name: pyaqsapi
+          post-cleanup: 'all'
+          generate-run-shell: true
+
+      # - name: Build & install package
+      #   shell: micromamba-shell {0}
+      #   run: |
+      #     python -m build .
+      #     pip install .
+
+      # - name: Build docs
+      #   shell: micromamba-shell {0}
+      #   run: |
+      #     tox -e docs
+
+      - name: rebuild the package and run tests using tox
+        shell: micromamba-shell {0}
+        env:
+          AQSkey: ${{ secrets.AQSKEY }}
+          AQSuser: ${{ secrets.AQSUSER }}
+        run: tox -r #pytest .

@@ -157,6 +157,7 @@ unfixable = []
 direction = "dependencies"
 
 [tool.ruff.format]
+preview = true
 quote-style = "double"
 indent-style = "space"
 docstring-code-format = true

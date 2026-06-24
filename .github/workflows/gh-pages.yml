@@ -23,56 +23,48 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  docs:
     runs-on: ubuntu-latest
     env:
       TZ: UTC
       DEBIAN_FRONTEND: noninteractive
     steps:
-      - name: Setup Node.js (Local Only)
-       # installs Node only if running locally via act,
-       # otherwise skip to save time and resources on Github Actions runners
-        if: false  # disabled for local testing to avoid outdated apt repos
-        run: |
-          apt update
-          apt install -y nodejs npm
-
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: setup environment to rebuild documentation
+      - name: Setup Micromamba
         uses: mamba-org/setup-micromamba@v3
         with:
           environment-file: environment.yml
           create-args: --retry-clean-cache -v
-          init-shell: >-
-            bash
+          init-shell: bash
           cache-environment: true
           environment-name: pyaqsapi
           post-cleanup: 'all'
+          generate-run-shell: true
 
       - name: build apidocs
-        shell: bash -el {0}
+        shell: micromamba-shell {0}
         run: |
-          # initialise conda/micromamba in this shell via the generic hook
-          eval "$(micromamba shell hook --shell=bash)"
-          micromamba activate pyaqsapi
-          conda init
-          conda activate pyaqsapi
           tox -e docs
 
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
       - name: Upload artifact
+        if: ${{ env.ACT != 'true' }}
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: './docs/_build/html'
+
+  deploy:
+    needs: docs
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Pages
+        if: ${{ env.ACT != 'true' }}
+        uses: actions/configure-pages@v5
       - name: Deploy to GitHub Pages
+        if: ${{ env.ACT != 'true' }}
         id: deployment
         uses: actions/deploy-pages@v4

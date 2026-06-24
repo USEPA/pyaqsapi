@@ -1,0 +1,40 @@
+name: micromamba-setup
+
+description: "Set up a Micromamba environment for the repository and expose a reusable shell wrapper."
+
+inputs:
+  environment-file:
+    description: 'Path to the environment.yml file.'
+    default: 'environment.yml'
+  environment-name:
+    description: 'Micromamba environment name.'
+    default: 'pyaqsapi'
+  create-args:
+    description: 'Extra arguments for Micromamba create.'
+    default: '--retry-clean-cache -v'
+  init-shell:
+    description: 'Shells to initialize for micromamba.'
+    default: 'bash'
+  post-cleanup:
+    description: 'Cleanup behavior after the job.'
+    default: 'all'
+  cache-environment:
+    description: 'Whether to cache the environment.'
+    default: 'true'
+  generate-run-shell:
+    description: 'Generate a micromamba shell wrapper for later steps.'
+    default: 'true'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup environment to rebuild documentation
+      uses: mamba-org/setup-micromamba@v3
+      with:
+        environment-file: ${{ inputs.environment-file }}
+        create-args: ${{ inputs.create-args }}
+        init-shell: ${{ inputs.init-shell }}
+        cache-environment: ${{ inputs.cache-environment }}
+        environment-name: ${{ inputs.environment-name }}
+        post-cleanup: ${{ inputs.post-cleanup }}
+        generate-run-shell: ${{ inputs.generate-run-shell }}
