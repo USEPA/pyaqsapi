@@ -6,7 +6,7 @@
 #
 backports-tarfile==1.2.0
     # via jaraco-context
-certifi==2026.5.20
+certifi==2026.6.17
     # via
     #   pyaqsapi (pyproject.toml)
     #   requests
