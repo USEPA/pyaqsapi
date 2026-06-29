@@ -16,7 +16,7 @@ charset-normalizer==3.4.7
     # via requests
 cryptography==48.0.0
     # via pyaqsapi (pyproject.toml)
-idna==3.17
+idna==3.18
     # via requests
 importlib-metadata==9.0.0
     # via keyring
