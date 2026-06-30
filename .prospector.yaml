@@ -75,6 +75,8 @@ dodgy:
 vulture:
   run: true
   options:
+    custom-args:
+      - "vulture_paths=whitelist.py"
     ignore-names:
       - pytest.fixture
     ignore-decorators:

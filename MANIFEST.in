@@ -34,6 +34,7 @@ exclude .gitattributes
 exclude .github/*
 exclude pylint_import-dependency-graph.png
 exclude whitelist.py
+exclude .secrets
 
 global-exclude __pycache__
 global-exclude *.py[cod]

@@ -4,7 +4,7 @@
   "image": "mambaorg/micromamba:latest",
 
   // Copy the environment file into the container and create the environment
-  "postCreateCommand": "micromamba env create -f environment.yml",
+  "postCreateCommand": "micromamba env create -f environment.yml -y",
 
   // Set the environment variable so the container uses the newly created environment
   "containerEnv": {

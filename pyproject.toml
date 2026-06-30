@@ -120,12 +120,13 @@ extend-exclude = [
     ".github",
     ".vscode",
     "*tests/*",
-    "dev/*"
+    "dev/*",
+    ".tox/*"
 ]
 
 [tool.ruff.lint]
 fixable = ["ALL"]
-ignore = ["D404", "C901"]
+ignore = ["D404", "C901", "N803"]
 select = [
   "C901",
   "D100",
