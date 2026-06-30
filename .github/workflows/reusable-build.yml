@@ -1,10 +1,19 @@
 name: Reusable Build and Test
+permissions:
+  contents: write
+  pull-requests: write
 
 on:
   workflow_call:
+    secrets:
+      AQSKEY:
+        required: true
+      AQSUSER:
+        required: true
     inputs:
       python-versions:
         required: false
+        type: string
         default: '["3.10","3.11","3.12","3.13"]'
 
 jobs:
@@ -36,20 +45,9 @@ jobs:
           post-cleanup: 'all'
           generate-run-shell: true
 
-      # - name: Build & install package
-      #   shell: micromamba-shell {0}
-      #   run: |
-      #     python -m build .
-      #     pip install .
-
-      # - name: Build docs
-      #   shell: micromamba-shell {0}
-      #   run: |
-      #     tox -e docs
-
       - name: rebuild the package and run tests using tox
         shell: micromamba-shell {0}
         env:
           AQSkey: ${{ secrets.AQSKEY }}
           AQSuser: ${{ secrets.AQSUSER }}
-        run: tox -r #pytest .
+        run: tox -r
