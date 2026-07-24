@@ -1,9 +1,11 @@
+from datetime import date
 from os import environ
 from os.path import abspath, exists
 from sys import path
 
 import pytest
 from pandas import DataFrame
+from pyaqsapi import helperfunctions
 from pyaqsapi.helperfunctions import aqs_credentials
 from pyaqsapi import metadatafunctions
 
@@ -35,3 +37,30 @@ def setuppyaqsapi(autouse=True):
 def test_aqs_removeheader(setuppyaqsapi):
     returnvalue = metadatafunctions.aqs_knownissues(return_header=False)
     assert isinstance(returnvalue, DataFrame)
+
+
+# _aqsmultiyearcall used to unpack each call row positionally, so when a caller
+# passed cbdate/cedate but not duration the values slid into the wrong
+# parameters. This runs offline (no credentials): the service helper is
+# monkeypatched, so the request never reaches the network.
+def test_multiyearcall_keeps_cbdate_cedate_aligned(monkeypatch):
+    captured = {}
+
+    def rec(self, parameter=None, bdate=None, edate=None, stateFIPS=None,
+            service=None, duration=None, cbdate=None, cedate=None):
+        captured.update(duration=duration, cbdate=cbdate, cedate=cedate)
+        return None
+
+    monkeypatch.setattr(helperfunctions.AQSAPI_V2, "_aqs_services_by_state", rec)
+    cb, ce = date(2018, 3, 1), date(2018, 4, 1)
+    helperfunctions._aqsmultiyearcall(
+        fun="_aqs_services_by_state",
+        parameter="88101",
+        bdate=date(2018, 1, 1),
+        edate=date(2018, 12, 31),
+        stateFIPS="01",
+        service="dailyData",
+        cbdate=cb,
+        cedate=ce,
+    )
+    assert captured == {"duration": None, "cbdate": cb, "cedate": ce}

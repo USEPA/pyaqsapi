@@ -1,8 +1,6 @@
 """pyaqsapi core functions."""
 
-from collections.abc import Iterable
 from datetime import date
-from itertools import starmap
 
 # from time import sleep __aqs_ratelimit() is deprecated, use ratelimit package instead
 from typing import Any, cast, no_type_check
@@ -1309,10 +1307,10 @@ def _aqsmultiyearcall(  # pylint: disable=R0911
 
     Returns
     -------
-    (list of itertools starmap objects): A list of itertools.starmap objects
-    that contain AQSAPI_V2 objects where each item in the list represents a
-    single call to the AQS Datamart API. The aqs_removeheader function can
-    be used to simplify the returned list into a single DataFrame.
+    (list of AQSAPI_V2 objects): A list of AQSAPI_V2 objects where each item
+    in the list represents a single call to the AQS Datamart API. The
+    aqs_removeheader function can be used to simplify the returned list into a
+    single DataFrame.
 
     """
     aqsresult = AQSAPI_V2()  # ignore the variable not used warning.
@@ -1376,53 +1374,25 @@ def _aqsmultiyearcall(  # pylint: disable=R0911
     # Drop columns that are entirely NaN (never provided by caller).
     # Keep columns that have at least one non-NaN value across all rows.
     params = params.dropna(axis="columns", how="all")
-    params = [tuple(x) for x in params.values]  # type: ignore
-    match fun:  # requires Python>=3.10, use if statements instead
-        case "_aqs_services_by_site":
-            return list(starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)))  # type: ignore
-        case "_aqs_services_by_county":
-            return list(starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params)))  # type: ignore
-        case "_aqs_services_by_state":
-            return list(starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params)))  # type: ignore
-        case "_aqs_services_by_MA":
-            return list(starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params)))  # type: ignore
-        case "_aqs_services_by_pqao":
-            return list(starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params)))  # type: ignore
-        case "_aqs_services_by_cbsa":
-            return list(starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params)))  # type: ignore
-        case "_aqs_services_by_box":
-            return list(starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params)))  # type: ignore
-        case _:
-            raise NameError("invalid function sent to _aqsmultiyearcall")  # type: ignore
-    # if fun == "_aqs_services_by_site":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_county":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_state":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_MA":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_pqao":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_cbsa":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_box":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params))
-    #     )
-    # else:  # pylint disable=R1705
-    #     returnvalue = None
 
-    # return cast(list[DataFrame] | None, returnvalue)
+    # Bind each row to the service helper by keyword rather than by position.
+    # dropna() above removes whichever columns the caller did not supply, and
+    # which columns those are varies from call to call (for example a request
+    # that sets cbdate/cedate but not duration). Unpacking the surviving values
+    # positionally then slides them into the wrong parameters, so a lone cbdate
+    # would arrive as duration. The reindexed column names already match the
+    # _aqs_services_by_* parameter names, so passing them as keyword arguments
+    # keeps every value paired with its intended parameter.
+    services = {
+        "_aqs_services_by_site": aqsresult._aqs_services_by_site,
+        "_aqs_services_by_county": aqsresult._aqs_services_by_county,
+        "_aqs_services_by_state": aqsresult._aqs_services_by_state,
+        "_aqs_services_by_MA": aqsresult._aqs_services_by_MA,
+        "_aqs_services_by_pqao": aqsresult._aqs_services_by_pqao,
+        "_aqs_services_by_cbsa": aqsresult._aqs_services_by_cbsa,
+        "_aqs_services_by_box": aqsresult._aqs_services_by_box,
+    }
+    if fun not in services:
+        raise NameError("invalid function sent to _aqsmultiyearcall")
+    service_call = services[fun]
+    return [service_call(**row) for row in params.to_dict(orient="records")]  # type: ignore
