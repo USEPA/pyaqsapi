@@ -39,6 +39,8 @@ pylint:
 
 pydocstyle:
   disable:
+     - D203
+     - D211
      - D213
   run: true
   convention: numpy
@@ -73,26 +75,7 @@ dodgy:
   run: false
 
 vulture:
-  run: true
-  options:
-    custom-args:
-      - "vulture_paths=whitelist.py"
-    ignore-names:
-      - pytest.fixture
-    ignore-decorators:
-      - pytest.fixture
-    ignore-namees:
-      - setuppyaqsapi
-      - "autouse"
-      - test_
-      - _test
-      - setuppyaqsapi_bybox
-      - setuppyaqsapi_bycbsa
-      - setuppyaqsapi_bypqao
-      - setuppyaqsapi_byma
-      - setuppyaqsapi_bystate
-      - setuppyaqsapi_bysite
-      - setuppyaqsapi_bycounty
+  run: false
 
 bandit:
   run: true

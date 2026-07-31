@@ -38,7 +38,7 @@ class AQSAPI_V2:  # noqa: N801
         from a call to the AQS Datamart API.
     _status_code (str): the numeric status_code (represented as a string)
         that is returned from a call to the AQS Datamart API.
-    _rows (str): the number of rows contained in the _data.
+    _numberofrows (str): the number of rows contained in the _data.
     _url (str): a string representing the URL used to make the AQS Datamart
         API call.
     _data (pandas DataFrame): the data returned from a call to the
@@ -57,6 +57,7 @@ class AQSAPI_V2:  # noqa: N801
     get_request_time():
     get_status()
     get_numberofrows()
+
     """
 
     def __init__(self) -> None:
@@ -64,7 +65,6 @@ class AQSAPI_V2:  # noqa: N801
         self._header: DataFrame = DataFrame()
         self._data: DataFrame = DataFrame()
         self._request_time: str | None = None
-        self._rows: int | None = None
         self._url: str | None = None
         self._status_code: str | None = None
         self._status: str | None = None
@@ -346,16 +346,18 @@ class AQSAPI_V2:  # noqa: N801
                     # newline = '\n'
                     _warn(
                         category=UserWarning,
-                        message="AQSDataMArt returned the following "
-                        + f"message: {newline}"
-                        + f"{query.json()['Header'][0]['error']}{newline}"
-                        + "Perhaps you've entered an incorrect username and/or"
-                        + f" key to the aqs_credentials function?{newline}"
-                        + f"Here is the {newline}"
-                        + f"username: {variables['email']}"
-                        + f"{newline}and{newline}"
-                        + f"key: {variables['key']} {newline}"
-                        + "that was provided",
+                        message=(
+                            "AQSDataMArt returned the following "
+                            f"message: {newline}"
+                            f"{query.json()['Header'][0]['error']}{newline}"
+                            "Perhaps you've entered an incorrect username and/or"
+                            f" key to the aqs_credentials function?{newline}"
+                            f"Here is the {newline}"
+                            f"username: {variables['email']}"
+                            f"{newline}and{newline}"
+                            f"key: {variables['key']} {newline}"
+                            "that was provided"
+                        ),
                     )
                 else:
                     _warn(
@@ -844,6 +846,7 @@ class AQSAPI_V2:  # noqa: N801
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
+
         """
         aqsfilter = "byCBSA"
         user = AQS_user
@@ -930,6 +933,7 @@ class AQSAPI_V2:  # noqa: N801
                  Only data that changed on or before this date will be
                  returned. This is an optional variable which defaults
                  to None.
+
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.

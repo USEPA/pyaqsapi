@@ -46,13 +46,13 @@ fail-under=10
 #from-stdin=
 
 # Files or directories to be skipped. They should be base names, not paths.
-ignore=CVS
+ignore=CVS,.tox,.venv,build,dev,dist,tests,docs,.git,.spyproject,.vscode,pyaqsapi.egg-info,codeql-custom-queries-python
 
 # Add files or directories matching the regular expressions patterns to the
 # ignore-list. The regex matches against paths and can be in Posix or Windows
 # format. Because '\\' represents the directory delimiter on Windows systems,
 # it can't be used as an escape character.
-ignore-paths=^.tox/|^build([\\/].*)?$|^dev/.*$|.*\.pyi$|^tests([\\/].*)?$|^pyaqsapi[\\/]bysite[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bycounty[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bystate[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bypqao[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]byma[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bybox[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bycbsa[\\/]tests([\\/].*)?$|^docs[\\/]conf.py$
+ignore-paths=^tests([\\/].*)?$|.*\.pyi$|^pyaqsapi[\\/]bysite[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bycounty[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bystate[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bypqao[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]byma[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bybox[\\/]tests([\\/].*)?$|^pyaqsapi[\\/]bycbsa[\\/]tests([\\/].*)?$|^docs[\\/]conf.py$
 
 # Files or directories matching the regular expression patterns are skipped.
 # The regex matches against base names, not paths. The default value ignores

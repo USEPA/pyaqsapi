@@ -155,7 +155,7 @@ unfixable = []
 "*.pyi" = ["I"]
 
 [tool.ruff.analyze]
-direction = "dependencies"
+direction = "Dependencies"
 
 [tool.ruff.format]
 preview = true
@@ -164,7 +164,6 @@ indent-style = "space"
 docstring-code-format = true
 docstring-code-line-length = "dynamic"
 line-ending = "lf"
-nested-string-quote-style= "alternating"
 skip-magic-trailing-comma = false
 
 [tool.ruff.lint.pydocstyle]
@@ -250,8 +249,23 @@ ignore_patterns = [
 ]
 
 [tool.vulture]
-paths=["whitelist.py"]
+paths = ["pyaqsapi"]
 ignore_decorators = ["@pytest.fixture"]
-ignore_names = ["setuppyaqsapi*", "autouse", "_*", "test_*", "*_test"]
+ignore_names = [
+    "setuppyaqsapi*",
+    "autouse",
+    "_*",
+    "test_*",
+    "*_test",
+    "aqs_*",
+    "get_*",
+]
 exclude = [".tox/", "build/", "dev/", "*tests*", "docs/conf.py", "whitelist.py"]
-make_whitelist = true
+make_whitelist = false
+
+[dependency-groups]
+dev = [
+    "debugpy>=1.8.21",
+    "pip-audit>=2.10.1",
+    "pylint-pytest>=1.1.7",
+]

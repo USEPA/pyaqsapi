@@ -22,7 +22,7 @@ class AQSAPI_V2:
         from a call to the AQS Datamart API.
     _status_code (str): the numeric status_code (represented as a string)
         that is returned from a call to the AQS Datamart API.
-    _rows (str): the number of rows contained in the _data.
+    _numberofrows (str): the number of rows contained in the _data.
     _url (str): a string representing the URL used to make the AQS Datamart
         API call.
     _data (pandas DataFrame): the data returned from a call to the
@@ -41,11 +41,11 @@ class AQSAPI_V2:
     get_request_time():
     get_status()
     get_numberofrows()
+
     """
     _header: DataFrame
     _data: DataFrame
     _request_time: str | None
-    _rows: int | None
     _url: str | None
     _status_code: str | None
     _status: str | None
@@ -540,6 +540,7 @@ class AQSAPI_V2:
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
+
         '''
     def _aqs_services_by_pqao(self, parameter: str, bdate: date, edate: date, pqao_code: str, service: str, cbdate: date | None = None, cedate: date | None = None) -> DataFrame | None:
         '''Call _aqs for functions using the bypqao service.
@@ -592,6 +593,7 @@ class AQSAPI_V2:
                  Only data that changed on or before this date will be
                  returned. This is an optional variable which defaults
                  to None.
+
         Returns
         -------
         (pandas DataFrame or an AQSAPI_V2 object): The information requested.
