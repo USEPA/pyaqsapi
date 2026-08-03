@@ -4,7 +4,7 @@
 #
 #    pip-compile pyproject.toml
 #
-certifi==2026.6.17
+certifi==2026.7.22
     # via
     #   pyaqsapi (pyproject.toml)
     #   requests
