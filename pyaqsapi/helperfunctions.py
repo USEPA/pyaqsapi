@@ -313,13 +313,18 @@ class AQSAPI_V2:  # noqa: N801
         header = {"User-Agent": user_agent, "From": AQS_user}
         newline = "\n"
         try:
-            query = get(url=url, params=variables, headers=header, verify=where(), timeout=30)
+            query = get(url=url,
+                        params=variables,
+                        headers=header,
+                        verify=where(),
+                        timeout=30)
             self.set_header(DataFrame(query.headers))
             self.set_data(DataFrame.from_dict(query.json()["Data"]))
             self._url = query.url
             self._status_code = query.status_code
             self._status = query.status
             self._numberofrows = int(query.rows)
+            print(query.url)
             query.raise_for_status()
         except ConnectionError as connectionerror:
             _warn(
@@ -353,15 +358,15 @@ class AQSAPI_V2:  # noqa: N801
                         + f"username: {variables['email']}"
                         + f"{newline}and{newline}"
                         + f"key: {variables['key']} {newline}"
-                        + "that was provided",
+                        + "that was provided {newline}"
+                        + f"url: {query.url}",
                     )
                 else:
                     _warn(
                         category=UserWarning,
-                        message="pyaqsapi experienced an error:" + f"{newline} {exception}",
+                        message="pyaqsapi experienced an error:" + f"{newline}\
+                        {exception}",
                     )
-        # finally:
-        # self.__aqs_ratelimit() # use ratelimit package instead
         return self
 
     def _aqs_services_by_site(
