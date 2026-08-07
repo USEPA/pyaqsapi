@@ -40,7 +40,7 @@
    :alt: Conda-forge - version
    :align: center
    :target: https://github.com/conda-forge/pyaqsapi-feedstock/
-.. image:: https://img.shields.io/badge/security-bandit-yellow.svg
+.. image:: https://img.shields.io/badge/security-bandit-yellow.svg?style=plastic
    :alt: Security Status
    :align: center
    :target: https://github.com/PyCQA/bandit
