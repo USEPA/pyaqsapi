@@ -8,7 +8,7 @@ certifi==2026.7.22
     # via
     #   pyaqsapi (pyproject.toml)
     #   requests
-cffi==2.1.0
+cffi==2.1.1
     # via cryptography
 charset-normalizer==3.4.9
     # via requests
