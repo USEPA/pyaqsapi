@@ -20,7 +20,7 @@ jobs:
           python-version: '3.13'
       - name: Perform Bandit Analysis
         uses: PyCQA/bandit-action@v1
-        continue-on-error: true
+        continue-on-error: false
         with:
           configfile: pyproject.toml
           targets: '.'

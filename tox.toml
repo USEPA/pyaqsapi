@@ -1,0 +1,14 @@
+requires = [ "tox>=4.27"]
+env_list = [
+"3.10",
+"3.11",
+"3.12",
+"3.13",
+"3.14",
+"pyclean"
+]
+skip_missing_interpreters = true
+
+[env_build_pypi]
+description = build the pyaqsapi package
+package = editable
