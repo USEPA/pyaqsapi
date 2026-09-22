@@ -80,6 +80,7 @@ ignore = ["N803"]
 [tool.bandit]
 skips = ["B101"]
 exclude_dirs = [".tox",
+                ".venv",
                 "dev",
                 "tests",
                 "pycache",
