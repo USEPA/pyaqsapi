@@ -3,6 +3,10 @@ autodetect: false
 max-line-length: 125
 test-warnings: false
 
+inherits:
+    - project_config?
+    - local_config?
+
 ignore-paths:
   - docs
   - tests
@@ -46,6 +50,7 @@ pydocstyle:
   convention: numpy
 
 ruff:
+  use-local-config: true
   run: true
   show-fixes: true
 

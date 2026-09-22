@@ -1,6 +1,7 @@
 name: Bandit
 
 on: [push, pull_request, workflow_dispatch]
+
 jobs:
   analyze:
     runs-on: ubuntu-latest
@@ -8,6 +9,7 @@ jobs:
       security-events: write
       actions: read
       contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -15,14 +17,27 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
-          
+          python-version: "3.13"
+
       - name: Install Bandit with TOML support
-        run: pip install "bandit[toml]"
-        
-      - name: Perform Bandit Analysis
-        uses: PyCQA/bandit-action@v1
-        continue-on-error: false
+        run: python -m pip install --upgrade "bandit[toml]"
+
+      - name: Perform Bandit analysis
+        id: bandit
+        continue-on-error: true
+        run: |
+          bandit
+            --recursive .
+            --configfile pyproject.toml
+            --format sarif
+            --output results.sarif
+
+      - name: Upload Bandit results
+        if: always()
+        uses: github/codeql-action/upload-sarif@v4
         with:
-          configfile: pyproject.toml
-          targets: '.'
+          sarif_file: results.sarif
+
+      - name: Fail if Bandit found issues
+        if: steps.bandit.outcome == 'failure'
+        run: exit 1

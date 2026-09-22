@@ -193,6 +193,7 @@ namespaces = true
 pyaqsapi = ["py.typed", "*.pyi", "*test*/"]
 
 [tool.mypy]
+warn_unused_configs = true
 follow_imports = "skip"
 ignore_missing_imports = true
 disable_error_code = ['import-untyped']
