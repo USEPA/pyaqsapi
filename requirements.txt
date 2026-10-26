@@ -34,7 +34,7 @@ pandas==3.0.3
     # via pyaqsapi (pyproject.toml)
 pycparser==3.11
     # via cffi
-python-dateutil==2.9.0.post0
+python-dateutil==3.0.0
     # via pandas
 pywin32-ctypes==0.2.3
     # via keyring
