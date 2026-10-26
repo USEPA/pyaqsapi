@@ -16,4 +16,4 @@ jobs:
     uses: ./.github/workflows/reusable-build.yml
     secrets: inherit
     with:
-      python-versions: '["3.10","3.11","3.12","3.13"]'
+      python-versions: '["3.11","3.12","3.13", "3.14", "3.15"]'

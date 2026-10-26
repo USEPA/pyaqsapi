@@ -1381,7 +1381,7 @@ def _aqsmultiyearcall(  # pylint: disable=R0911
     # Keep columns that have at least one non-NaN value across all rows.
     params = params.dropna(axis="columns", how="all")
     params = [tuple(x) for x in params.values]  # type: ignore
-    match fun:  # requires Python>=3.10, use if statements instead
+    match fun:
         case "_aqs_services_by_site":
             return list(starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params)))  # type: ignore
         case "_aqs_services_by_county":

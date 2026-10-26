@@ -18,7 +18,7 @@ dependencies:
   - pytest-rerunfailures
   - pytest_ruff
   - pytest-sugar
-  - python>=3.10
+  - python>=3.11
   - python-build
   - ratelimit
   - requests
