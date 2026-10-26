@@ -1,7 +1,7 @@
 name: Reusable Build and Test
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: none
 
 on:
   workflow_call:
