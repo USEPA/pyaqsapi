@@ -4,7 +4,7 @@
 #
 #    pip-compile pyproject.toml
 #
-certifi==2026.10.19
+certifi==2026.10.23
     # via
     #   pyaqsapi (pyproject.toml)
     #   requests
