@@ -32,7 +32,7 @@ numpy==2.5.0
     # via pandas
 pandas==3.0.3
     # via pyaqsapi (pyproject.toml)
-pycparser==3.0
+pycparser==3.11
     # via cffi
 python-dateutil==2.9.0.post0
     # via pandas
