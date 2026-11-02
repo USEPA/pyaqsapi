@@ -24,7 +24,7 @@ jaraco-functools==4.6.0
     # via keyring
 keyring==25.7.0
     # via pyaqsapi (pyproject.toml)
-more-itertools==11.1.0
+more-itertools==11.2.1
     # via
     #   jaraco-classes
     #   jaraco-functools
