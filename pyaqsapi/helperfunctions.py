@@ -317,7 +317,7 @@ class AQSAPI_V2:  # noqa: N801
         try:
             query = get(url=url, params=variables, headers=header, verify=where(), timeout=30)
             self.set_header(DataFrame(query.headers))
-            self.set_data(DataFrame.from_dict(query.json()["Data"]))
+            self.set_data(DataFrame(query.json()["Data"]))
             self._url = query.url
             self._status_code = query.status_code
             self._status = query.status

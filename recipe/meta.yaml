@@ -7,8 +7,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyaqsapi-{{ version }}.tar.gz
-  sha256: 9d3ae6cadf8332b0dee6314c0c52fb86d64dcb300300c439d4bebb0566a39344
+  - path: .
+  
+  - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyaqsapi-{{ version }}.tar.gz
+    sha256: 9d3ae6cadf8332b0dee6314c0c52fb86d64dcb300300c439d4bebb0566a39344
+
+  
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -38,6 +42,9 @@ test:
   requires:
     - python {{ python_min }}
     - pip
+  channels:
+    - conda-forge
+    - conda-pip
 
 about:
   home: https://github.com/USEPA/pyaqsapi

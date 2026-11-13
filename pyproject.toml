@@ -267,7 +267,6 @@ make_whitelist = false
 
 [dependency-groups]
 dev = [
-    "debugpy>=1.8.21",
     "pip-audit>=2.10.1",
     "pylint-pytest>=1.1.7",
 ]
