@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-
+set SPHINXOPTS=-jobs auto --color --keep-going --show-traceback
 if "%1" == "" goto help
 
 %SPHINXBUILD% >NUL 2>NUL

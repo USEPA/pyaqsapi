@@ -99,7 +99,7 @@ match_dir = "^(?!(tests|env|venv|.tox|build|.devcontainer|dev|dist|.git|.spyproj
 
 [tool.black]
 line-length = 125
-target-version = ['py310', 'py311', 'py312', 'py313']
+target-version = ['py311', 'py312', 'py313', 'py314', 'py315']
 exclude = '''
 /(
     \.git
@@ -202,6 +202,7 @@ exclude_gitignore = true
 namespace_packages = true
 color_output = true
 explicit_package_bases = true
+files = ["pyaqsapi"]
 exclude = [
   '(^|[\\/])tests([\\/]|$)',
   '(^|[\\/])dev([\\/]|$)',

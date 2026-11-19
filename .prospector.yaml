@@ -58,12 +58,13 @@ pyflakes:
   run: false #ruff implements all pyflake checks
 
 flake8:
-  run: false 
+  run: false
   options: #ruff implements all flake8 checks
     per-file-ignores = **/__init__.py:F401
 
 mypy:
   run: true
+  local_config: true
 
 bandit:
   run: true
@@ -87,3 +88,6 @@ bandit:
   config: pyproject.toml
   ignore:
     - B101  #assert used
+
+mcabbe:
+    run: true

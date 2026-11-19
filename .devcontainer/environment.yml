@@ -5,7 +5,6 @@ channels:
 environment:
   - setuppyaqsapi
 dependencies:
-  - black
   - certifi
   - conda-build
   - cryptography
@@ -16,7 +15,6 @@ dependencies:
   - pip
   - pylint
   - pytest
-  - pytest-black
   - pytest-cov
   - pytest-rerunfailures
   - pytest-sugar

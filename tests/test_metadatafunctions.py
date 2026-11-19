@@ -1,3 +1,9 @@
+# pylint: disable=C0114
+# pylint: disable=C0115
+# pylint: disable=C0116
+# pylint: disable=E0401
+
+
 from os import environ
 from os.path import abspath, exists
 from sys import path

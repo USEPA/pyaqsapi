@@ -11,14 +11,12 @@ from warnings import warn as _warn
 from certifi import where
 from pandas import DataFrame, concat
 from ratelimit import limits, sleep_and_retry
-from requests import get
+from requests import Response, get
 from requests.exceptions import (
     ConnectionError,
     HTTPError,
     Timeout,
 )  # noqa # pylint: disable=wrong-spelling-in-comment
-
-# from typing_extensions import Self
 
 AQS_user: str | None = None
 AQS_key: str | None = None
@@ -189,6 +187,44 @@ class AQSAPI_V2:  # noqa: N801
         """
         return str(self._status)
 
+    def _setall(self, AQSresult: Response) -> None:
+        """Set all instance variables with a single method method call.
+
+        Parameters
+        ----------
+        AQSresult : request.Response
+                The API response object
+
+        Returns
+        -------
+        None
+
+        """
+        AQSresult_json = AQSresult.json()  # noqa: N806
+        self.set_header(DataFrame(AQSresult_json["Header"]))
+        self.set_data(DataFrame(AQSresult_json["Data"]))
+        self._url = AQSresult_json["Header"][0]["url"]
+        self._set_status_code(str(AQSresult.status_code))
+        self._set_status(AQSresult_json["Header"][0]["status"])
+        self._set_numberofrows(AQSresult_json["Header"][0]["rows"])
+        self._set_request_time(AQSresult_json["Header"][0]["request_time"])
+        return
+
+    def _set_request_time(self, request_time: str) -> None:
+        """Set the request time of the AQS DataMart API call.
+
+        Parameters
+        ----------
+        request_time : str
+                 A string representing the API call's request time.
+
+        Returns
+        -------
+        None
+
+        """
+        self._request_time = request_time
+
     def _set_status(self, status: str) -> None:
         """Set the status message of the AQS DataMart API call.
 
@@ -233,6 +269,85 @@ class AQSAPI_V2:  # noqa: N801
 
         """
         self._status_code = status_code
+
+    def __handle_aqs_error(self, AQSresult: Response, variables: dict) -> Response:
+        """Handle errors returned from the AQS API call.
+
+        Parameters
+        ----------
+        AQSresult : request.Response
+                The API response object.
+        variables : dict
+                            A python dictionary of containing key-value pairs of
+                            variables to be sent to the AQS DataMart API.
+
+        Returns
+        -------
+        Any
+             The API response object.
+
+        Excptions
+        ---------
+        ConnectionError
+            Raiased when a connection error orrurs during the API call.
+        Timeout
+            Raised when a timeout error occurs during the API call.
+        HttpError
+            Raised when a HTTP error occurs during the API call.
+        Excption
+            Raised when an unexpected error occurs during the API call. A warning is
+            issued with the error message from the API response object.
+
+        Returns
+        -------
+        AQSresult : Any
+                The API response object. If an error occurs the Response might not contain valid data.
+
+        """
+        newline = "\n"
+        try:
+            AQSresult.raise_for_status()
+        except ConnectionError as connectionerror:
+            _warn(
+                category=ResourceWarning,
+                message=f"pyaqsapi experienced a connection error: \
+                            {newline} {connectionerror}",
+            )
+        except Timeout as timeouterror:
+            _warn(
+                category=ResourceWarning,
+                message=f"pyaqsapi experienced a timeout error: \
+                            {newline} {timeouterror}",
+            )
+        except HTTPError as httperror:
+            _warn(
+                f"pyaqsapi experienced a HTTP Error: \
+                    {newline} {httperror}"
+            )
+        except Exception as exception:  # pylint: disable=broad-exception-caught
+            if AQSresult.status_code == 400:
+                if "error" in AQSresult.json()["Header"][0].keys():
+                    _warn(
+                        category=UserWarning,
+                        message=(
+                            "AQSDataMArt returned the following "
+                            f"message: {newline}"
+                            f"{AQSresult.json()['Header'][0]['error']}{newline}"
+                            "Perhaps you've entered an incorrect username and/or"
+                            f" key to the aqs_credentials function?{newline}"
+                            f"Here is the {newline}"
+                            f"username: {variables['email']}"
+                            f"{newline}and{newline}"
+                            f"key: {variables['key']} {newline}"
+                            "that was provided"
+                        ),
+                    )
+                else:
+                    _warn(
+                        category=UserWarning,
+                        message="pyaqsapi experienced an error:" + f"{newline} {exception}",
+                    )
+        return AQSresult
 
     @no_type_check
     @sleep_and_retry
@@ -313,59 +428,10 @@ class AQSAPI_V2:  # noqa: N801
         url = "".join(filter(None, [AQS_domain, "/", service, "/", aqsfilter]))
         url = url.replace("///", "/")
         header = {"User-Agent": user_agent, "From": AQS_user}
-        newline = "\n"
-        try:
-            query = get(url=url, params=variables, headers=header, verify=where(), timeout=30)
-            self.set_header(DataFrame(query.headers))
-            self.set_data(DataFrame(query.json()["Data"]))
-            self._url = query.url
-            self._status_code = query.status_code
-            self._status = query.status
-            self._numberofrows = int(query.rows)
-            query.raise_for_status()
-        except ConnectionError as connectionerror:
-            _warn(
-                category=ResourceWarning,
-                message=f"pyaqsapi experienced a connection error: \
-                 {newline} {connectionerror}",
-            )
-        except Timeout as timeouterror:
-            _warn(
-                category=ResourceWarning,
-                message=f"pyaqsapi experienced a timeout error: \
-                 {newline} {timeouterror}",
-            )
-        except HTTPError as httperror:
-            _warn(
-                f"pyaqsapi experienced a HTTP Error: \
-                 {newline} {httperror}"
-            )
-        except Exception as exception:  # pylint: disable=broad-exception-caught
-            if query.status_code == 400:
-                if "error" in query.json()["Header"][0].keys():
-                    # newline = '\n'
-                    _warn(
-                        category=UserWarning,
-                        message=(
-                            "AQSDataMArt returned the following "
-                            f"message: {newline}"
-                            f"{query.json()['Header'][0]['error']}{newline}"
-                            "Perhaps you've entered an incorrect username and/or"
-                            f" key to the aqs_credentials function?{newline}"
-                            f"Here is the {newline}"
-                            f"username: {variables['email']}"
-                            f"{newline}and{newline}"
-                            f"key: {variables['key']} {newline}"
-                            "that was provided"
-                        ),
-                    )
-                else:
-                    _warn(
-                        category=UserWarning,
-                        message="pyaqsapi experienced an error:" + f"{newline} {exception}",
-                    )
-        # finally:
-        # self.__aqs_ratelimit() # use ratelimit package instead
+        AQSresult = get(url=url, params=variables, headers=header, verify=where(), timeout=30)  # noqa: N806
+        AQSresult = self.__handle_aqs_error(AQSresult, variables=variables)  # noqa: N806
+        self._setall(AQSresult)
+
         return self
 
     def _aqs_services_by_site(
@@ -1398,35 +1464,3 @@ def _aqsmultiyearcall(  # pylint: disable=R0911
             return list(starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params)))  # type: ignore
         case _:
             raise NameError("invalid function sent to _aqsmultiyearcall")  # type: ignore
-    # if fun == "_aqs_services_by_site":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_site, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_county":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_county, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_state":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_state, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_MA":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_MA, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_pqao":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_pqao, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_cbsa":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_cbsa, cast(Iterable[Any], params))
-    #     )
-    # elif fun == "_aqs_services_by_box":
-    #     returnvalue = list(
-    #         starmap(aqsresult._aqs_services_by_box, cast(Iterable[Any], params))
-    #     )
-    # else:  # pylint disable=R1705
-    #     returnvalue = None
-
-    # return cast(list[DataFrame] | None, returnvalue)

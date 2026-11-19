@@ -3,6 +3,7 @@
 from datetime import date
 from pandas import DataFrame
 from ratelimit import sleep_and_retry
+from requests import Response as Response
 from typing import Any, no_type_check
 
 AQS_user: str | None
@@ -147,6 +148,31 @@ class AQSAPI_V2:
         DataMart API.
 
         """
+    def _setall(self, AQSresult: Response) -> None:
+        """Set all instance variables with a single method method call.
+
+        Parameters
+        ----------
+        AQSresult : request.Response
+                The API response object
+
+        Returns
+        -------
+        None
+        """
+    def _set_request_time(self, request_time: str) -> None:
+        """Set the request time of the AQS DataMart API call.
+
+        Parameters
+        ----------
+        request_time : str
+                 A string representing the API call's request time.
+
+        Returns
+        -------
+        None
+
+        """
     def _set_status(self, status: str) -> None:
         """Set the status message of the AQS DataMart API call.
 
@@ -185,6 +211,38 @@ class AQSAPI_V2:
         -------
         None
 
+        """
+    def __handle_aqs_error(self, AQSresult: Response, variables: dict) -> Response:
+        """Handle errors returned from the AQS API call.
+
+        Parameters
+        ----------
+        AQSresult : request.Response
+                The API response object.
+        variables : dict
+                            A python dictionary of containing key-value pairs of
+                            variables to be sent to the AQS DataMart API.
+        Returns
+        -------
+        Any
+             The API response object.
+
+        Excptions
+        ---------
+        ConnectionError
+            Raiased when a connection error orrurs during the API call.
+        Timeout
+            Raised when a timeout error occurs during the API call.
+        HttpError
+            Raised when a HTTP error occurs during the API call.
+        Excption
+            Raised when an unexpected error occurs during the API call. A warning is
+            issued with the error message from the API response object.
+
+        Returns
+        -------
+        AQSresult : Any
+                The API response object. If an error occurs the Response might not contain valid data.
         """
     @no_type_check
     @sleep_and_retry

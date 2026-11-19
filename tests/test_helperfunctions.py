@@ -1,3 +1,8 @@
+# pylint: disable=C0114
+# pylint: disable=C0115
+# pylint: disable=C0116
+# pylint: disable=E0401
+
 from os import environ
 from os.path import abspath, exists
 from sys import path
@@ -9,14 +14,14 @@ from pyaqsapi import metadatafunctions
 
 
 @pytest.fixture
-def setuppyaqsapi(autouse=True):
+def setuppyaqsapi(autouse=True):  # pylint: disable=W0613
     if exists("./dev/local.py"):
         # the following should only execute if the file ./dev/local.py exists
         # under the project root folder. This file should not exist on the git
         # repository or in the final package. local loads the AQS user
         # credentials for testing
         path.append(abspath("./dev"))
-        import local  # type: ignore[import-not-found]
+        import local  # type: ignore[import-not-found]  # pylint: disable=C0415
 
         AQSuser, AQSkey = local.setuppyaqsapitest()
         aqs_credentials(username=AQSuser, key=AQSkey)
@@ -32,6 +37,6 @@ def setuppyaqsapi(autouse=True):
 
 # none of the other test functions use aqsremove_header, so we create a unit
 # test to make sure that
-def test_aqs_removeheader(setuppyaqsapi):
+def test_aqs_removeheader(setuppyaqsapi):  # pylint: disable=W0613
     returnvalue = metadatafunctions.aqs_knownissues(return_header=False)
     assert isinstance(returnvalue, DataFrame)

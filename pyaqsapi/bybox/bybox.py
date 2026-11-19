@@ -18,7 +18,7 @@ def monitors(
     maxlon: str,
     cbdate: date | None = None,
     cedate: date | None = None,
-    return_header: bool | None = False,
+    return_header: bool | None = False
 ) -> DataFrame | AQSAPI_V2 | list[DataFrame] | None | list[AQSAPI_V2]:
     """Return a DataFrame of monitor metadata aggregated by latitude/longitude bounding box (_by_box).
 
@@ -117,6 +117,7 @@ def monitors(
 
     if return_header:
         return aqsresultlist
+
     return helperfunctions.aqs_removeheader(aqsresultlist)
 
 
